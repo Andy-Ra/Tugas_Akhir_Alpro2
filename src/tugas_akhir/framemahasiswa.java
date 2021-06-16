@@ -5,6 +5,8 @@
  */
 package tugas_akhir;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author ACER
@@ -26,198 +28,641 @@ public class framemahasiswa extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         ls_jk = new javax.swing.ButtonGroup();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        panelinduk = new javax.swing.JPanel();
+        panel_mhs = new javax.swing.JPanel();
+        scrollpane1 = new javax.swing.JScrollPane();
+        input_mhs = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtNRP = new javax.swing.JTextField();
+        txt_NRP = new javax.swing.JTextField();
+        nt_nrp_mhs = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txt_Email_mhs = new javax.swing.JTextField();
+        nt_email_mhs = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtNama = new javax.swing.JTextField();
+        txt_Nama_mhs = new javax.swing.JTextField();
+        nt_nama_mhs = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbxProdi = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        cbStatus = new javax.swing.JCheckBox();
+        cbx_Prodi = new javax.swing.JComboBox<>();
+        ntn_prodi_mhs = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        rd_laki = new javax.swing.JRadioButton();
-        rd_perempuan = new javax.swing.JRadioButton();
+        rd_laki_mhs = new javax.swing.JRadioButton();
+        rd_perempuan_mhs = new javax.swing.JRadioButton();
+        nt_jk_mhs = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        cbxAgama = new javax.swing.JComboBox<>();
+        cbx_Agama_mhs = new javax.swing.JComboBox<>();
+        nt_agama_mhs = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtAlamat = new javax.swing.JTextField();
+        txt_Alamat_mhs = new javax.swing.JTextField();
+        nt_alamat_mhs = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        cbx_kota_mhs = new javax.swing.JComboBox<>();
+        nt_kota_mhs = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txt_nohp_mhs = new javax.swing.JTextField();
+        nt_nohp_mhs = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        cb_Status_mhs = new javax.swing.JCheckBox();
+        panel_ortu = new javax.swing.JPanel();
+        scrollpane2 = new javax.swing.JScrollPane();
+        input_ortu = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        txtnm_ayah = new javax.swing.JTextField();
+        ntnm_ayah = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtktp_ayah = new javax.swing.JTextField();
+        ntktp_ayah = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtnm_ibu = new javax.swing.JTextField();
+        ntnm_ibu = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtktp_ibu = new javax.swing.JTextField();
+        ntktp_ibu = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        nt_alamatortu = new javax.swing.JLabel();
+        txt_alamatortu = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        cb_kota_ortu = new javax.swing.JComboBox<>();
+        nt_kota_ortu = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txt_telp_ortu = new javax.swing.JTextField();
+        nt_telp_ortu = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_mhs = new javax.swing.JMenu();
+        sm_pribadi = new javax.swing.JMenuItem();
+        sm_ortu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel4.setText("PANEL MAHASISWA");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 235, 25, 235);
-        jPanel1.add(jLabel4, gridBagConstraints);
+        jLabel4.setText("PROFILE MAHASISWA");
+        jPanel1.add(jLabel4, new java.awt.GridBagConstraints());
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Mahasiswa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        panelinduk.setLayout(new java.awt.CardLayout());
+
+        panel_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Mahasiswa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 11))); // NOI18N
 
         jLabel5.setText("NRP");
 
-        jLabel6.setText("Nama");
-
-        txtNama.setText("jTextField2");
-        txtNama.addActionListener(new java.awt.event.ActionListener() {
+        txt_NRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaActionPerformed(evt);
+                txt_NRPActionPerformed(evt);
             }
         });
+
+        nt_nrp_mhs.setText("jLabel1");
+
+        jLabel12.setText("Email");
+
+        txt_Email_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Email_mhsActionPerformed(evt);
+            }
+        });
+
+        nt_email_mhs.setText("jLabel1");
+
+        jLabel6.setText("Nama");
+
+        txt_Nama_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Nama_mhsActionPerformed(evt);
+            }
+        });
+
+        nt_nama_mhs.setText("jLabel1");
 
         jLabel7.setText("Prodi");
 
-        cbxProdi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika", "DKV" }));
+        cbx_Prodi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika", "DKV" }));
 
-        jLabel8.setText("Status Masuk");
-
-        cbStatus.setText("Aktif");
+        ntn_prodi_mhs.setText("jLabel1");
 
         jLabel9.setText("Jenis Kelamin");
 
-        ls_jk.add(rd_laki);
-        rd_laki.setText("Laki-laki");
+        ls_jk.add(rd_laki_mhs);
+        rd_laki_mhs.setText("Laki-laki");
 
-        ls_jk.add(rd_perempuan);
-        rd_perempuan.setText("Perempuan");
+        ls_jk.add(rd_perempuan_mhs);
+        rd_perempuan_mhs.setText("Perempuan");
+
+        nt_jk_mhs.setText("jLabel1");
 
         jLabel10.setText("Agama");
 
-        cbxAgama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
+        cbx_Agama_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
+
+        nt_agama_mhs.setText("jLabel1");
 
         jLabel11.setText("Alamat");
 
-        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
+        txt_Alamat_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlamatActionPerformed(evt);
+                txt_Alamat_mhsActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addGap(85, 85, 85)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(rd_laki)
-                        .addGap(26, 26, 26)
-                        .addComponent(rd_perempuan))
-                    .addComponent(cbStatus)
-                    .addComponent(txtAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(cbxProdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNama)
-                    .addComponent(txtNRP)
-                    .addComponent(cbxAgama, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtNRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cbxProdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cbStatus))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(rd_laki)
-                    .addComponent(rd_perempuan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cbxAgama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
+        nt_alamat_mhs.setText("jLabel1");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jLabel15.setText("Kota");
+
+        cbx_kota_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
+
+        nt_kota_mhs.setText("jLabel1");
+
+        jLabel21.setText("No Hp");
+
+        txt_nohp_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nohp_mhsActionPerformed(evt);
+            }
+        });
+
+        nt_nohp_mhs.setText("jLabel1");
+
+        jLabel8.setText("Status Masuk");
+
+        cb_Status_mhs.setText("Aktif");
+
+        javax.swing.GroupLayout input_mhsLayout = new javax.swing.GroupLayout(input_mhs);
+        input_mhs.setLayout(input_mhsLayout);
+        input_mhsLayout.setHorizontalGroup(
+            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(nt_email_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(txt_Email_mhs))))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(nt_jk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(nt_agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 59, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, input_mhsLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(cbx_Agama_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rd_laki_mhs)
+                                .addGap(53, 53, 53)
+                                .addComponent(rd_perempuan_mhs)
+                                .addGap(41, 41, 41))))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel7))
+                        .addGap(82, 82, 82)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ntn_prodi_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nt_nama_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nt_alamat_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cbx_Prodi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_Nama_mhs)
+                            .addComponent(txt_Alamat_mhs)))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(93, 93, 93)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(nt_kota_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cbx_kota_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(86, 86, 86)
+                        .addComponent(txt_nohp_mhs))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(58, 58, 58)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(cb_Status_mhs)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(nt_nohp_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(95, 95, 95)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(nt_nrp_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txt_NRP))))
+                .addContainerGap())
+        );
+        input_mhsLayout.setVerticalGroup(
+            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_NRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_nrp_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txt_Email_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_email_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_Nama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_nama_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(cbx_Prodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntn_prodi_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(rd_laki_mhs)
+                    .addComponent(rd_perempuan_mhs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_jk_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbx_Agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_agama_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_Alamat_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_alamat_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbx_kota_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_kota_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txt_nohp_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_nohp_mhs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_Status_mhs)
+                    .addComponent(jLabel8))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 118, Short.MAX_VALUE))
+
+        scrollpane1.setViewportView(input_mhs);
+
+        javax.swing.GroupLayout panel_mhsLayout = new javax.swing.GroupLayout(panel_mhs);
+        panel_mhs.setLayout(panel_mhsLayout);
+        panel_mhsLayout.setHorizontalGroup(
+            panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_mhsLayout.createSequentialGroup()
+                    .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
+        panel_mhsLayout.setVerticalGroup(
+            panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 473, Short.MAX_VALUE)
+            .addGroup(panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_mhsLayout.createSequentialGroup()
+                    .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        panelinduk.add(panel_mhs, "cv_pribadi");
+
+        panel_ortu.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Orang Tua Mahasiswa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 11))); // NOI18N
+
+        jLabel13.setText("Nama Ayah");
+
+        txtnm_ayah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnm_ayahActionPerformed(evt);
+            }
+        });
+
+        ntnm_ayah.setText("jLabel1");
+
+        jLabel14.setText("No KTP Ayah");
+
+        txtktp_ayah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtktp_ayahActionPerformed(evt);
+            }
+        });
+
+        ntktp_ayah.setText("jLabel1");
+
+        jLabel16.setText("Nama Ibu");
+
+        txtnm_ibu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnm_ibuActionPerformed(evt);
+            }
+        });
+
+        ntnm_ibu.setText("jLabel1");
+
+        jLabel17.setText("No KTP Ibu");
+
+        txtktp_ibu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtktp_ibuActionPerformed(evt);
+            }
+        });
+
+        ntktp_ibu.setText("jLabel1");
+
+        jLabel18.setText("Alamat Orang Tua");
+
+        nt_alamatortu.setText("jLabel1");
+
+        txt_alamatortu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_alamatortuActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Kota Orang Tua");
+
+        cb_kota_ortu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== KOTA ===" }));
+
+        nt_kota_ortu.setText("jLabel1");
+
+        jLabel19.setText("Telp Orang Tua");
+
+        txt_telp_ortu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_telp_ortuActionPerformed(evt);
+            }
+        });
+
+        nt_telp_ortu.setText("jLabel1");
+
+        javax.swing.GroupLayout input_ortuLayout = new javax.swing.GroupLayout(input_ortu);
+        input_ortu.setLayout(input_ortuLayout);
+        input_ortuLayout.setHorizontalGroup(
+            input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_ortuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(55, 55, 55)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(ntnm_ayah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtnm_ayah)))
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(51, 51, 51)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(ntktp_ayah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtktp_ayah)))
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(71, 71, 71)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(ntnm_ibu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtnm_ibu)))
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(63, 63, 63)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(ntktp_ibu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtktp_ibu)))
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(28, 28, 28)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(nt_alamatortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txt_alamatortu)))
+                    .addGroup(input_ortuLayout.createSequentialGroup()
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addGap(40, 40, 40)
+                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_kota_ortu, javax.swing.GroupLayout.Alignment.TRAILING, 0, 259, Short.MAX_VALUE)
+                            .addComponent(txt_telp_ortu)
+                            .addGroup(input_ortuLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nt_kota_ortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nt_telp_ortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap())
+        );
+        input_ortuLayout.setVerticalGroup(
+            input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_ortuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtnm_ayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntnm_ayah)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtktp_ayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntktp_ayah)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtnm_ibu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntnm_ibu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtktp_ibu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntktp_ibu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(txt_alamatortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_alamatortu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(cb_kota_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_kota_ortu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txt_telp_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nt_telp_ortu)
+                .addGap(41, 41, 41))
+        );
+
+        scrollpane2.setViewportView(input_ortu);
+
+        javax.swing.GroupLayout panel_ortuLayout = new javax.swing.GroupLayout(panel_ortu);
+        panel_ortu.setLayout(panel_ortuLayout);
+        panel_ortuLayout.setHorizontalGroup(
+            panel_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ortuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel_ortuLayout.setVerticalGroup(
+            panel_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ortuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelinduk.add(panel_ortu, "cv_ortu");
+
+        menu_mhs.setText("Mahasiswa");
+
+        sm_pribadi.setText("Data Pribadi");
+        sm_pribadi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sm_pribadiActionPerformed(evt);
+            }
+        });
+        menu_mhs.add(sm_pribadi);
+
+        sm_ortu.setText("Orang Tua");
+        sm_ortu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sm_ortuActionPerformed(evt);
+            }
+        });
+        menu_mhs.add(sm_ortu);
+
+        jMenuBar1.add(menu_mhs);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 646, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelinduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelinduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
+    private void txt_Alamat_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_mhsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlamatActionPerformed
+    }//GEN-LAST:event_txt_Alamat_mhsActionPerformed
 
-    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+    private void txt_Nama_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaActionPerformed
+    }//GEN-LAST:event_txt_Nama_mhsActionPerformed
 
+    private void txt_NRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NRPActionPerformed
+
+    private void txt_Email_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Email_mhsActionPerformed
+
+    private void txtnm_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnm_ayahActionPerformed
+
+    private void txtktp_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ayahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtktp_ayahActionPerformed
+
+    private void txtnm_ibuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ibuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnm_ibuActionPerformed
+
+    private void txtktp_ibuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ibuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtktp_ibuActionPerformed
+
+    private void txt_alamatortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_alamatortuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_alamatortuActionPerformed
+
+    private void txt_telp_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telp_ortuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_telp_ortuActionPerformed
+
+    private void txt_nohp_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nohp_mhsActionPerformed
+
+    private void sm_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ortuActionPerformed
+        CardLayout cview = (CardLayout) panelinduk.getLayout();
+        cview.show(panelinduk, "cv_ortu");
+    }//GEN-LAST:event_sm_ortuActionPerformed
+
+    private void sm_pribadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_pribadiActionPerformed
+        CardLayout cview = (CardLayout) panelinduk.getLayout();
+        cview.show(panelinduk, "cv_pribadi");
+    }//GEN-LAST:event_sm_pribadiActionPerformed
+
+        
     /**
      * @param args the command line arguments
      */
@@ -254,25 +699,70 @@ public class framemahasiswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox cbStatus;
-    private javax.swing.JComboBox<String> cbxAgama;
-    private javax.swing.JComboBox<String> cbxProdi;
+    private javax.swing.JCheckBox cb_Status_mhs;
+    private javax.swing.JComboBox<String> cb_kota_ortu;
+    private javax.swing.JComboBox<String> cbx_Agama_mhs;
+    private javax.swing.JComboBox<String> cbx_Prodi;
+    private javax.swing.JComboBox<String> cbx_kota_mhs;
+    private javax.swing.JPanel input_mhs;
+    private javax.swing.JPanel input_ortu;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.ButtonGroup ls_jk;
-    private javax.swing.JRadioButton rd_laki;
-    private javax.swing.JRadioButton rd_perempuan;
-    private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtNRP;
-    private javax.swing.JTextField txtNama;
+    private javax.swing.JMenu menu_mhs;
+    private javax.swing.JLabel nt_agama_mhs;
+    private javax.swing.JLabel nt_alamat_mhs;
+    private javax.swing.JLabel nt_alamatortu;
+    private javax.swing.JLabel nt_email_mhs;
+    private javax.swing.JLabel nt_jk_mhs;
+    private javax.swing.JLabel nt_kota_mhs;
+    private javax.swing.JLabel nt_kota_ortu;
+    private javax.swing.JLabel nt_nama_mhs;
+    private javax.swing.JLabel nt_nohp_mhs;
+    private javax.swing.JLabel nt_nrp_mhs;
+    private javax.swing.JLabel nt_telp_ortu;
+    private javax.swing.JLabel ntktp_ayah;
+    private javax.swing.JLabel ntktp_ibu;
+    private javax.swing.JLabel ntn_prodi_mhs;
+    private javax.swing.JLabel ntnm_ayah;
+    private javax.swing.JLabel ntnm_ibu;
+    private javax.swing.JPanel panel_mhs;
+    private javax.swing.JPanel panel_ortu;
+    private javax.swing.JPanel panelinduk;
+    private javax.swing.JRadioButton rd_laki_mhs;
+    private javax.swing.JRadioButton rd_perempuan_mhs;
+    private javax.swing.JScrollPane scrollpane1;
+    private javax.swing.JScrollPane scrollpane2;
+    private javax.swing.JMenuItem sm_ortu;
+    private javax.swing.JMenuItem sm_pribadi;
+    private javax.swing.JTextField txt_Alamat_mhs;
+    private javax.swing.JTextField txt_Email_mhs;
+    private javax.swing.JTextField txt_NRP;
+    private javax.swing.JTextField txt_Nama_mhs;
+    private javax.swing.JTextField txt_alamatortu;
+    private javax.swing.JTextField txt_nohp_mhs;
+    private javax.swing.JTextField txt_telp_ortu;
+    private javax.swing.JTextField txtktp_ayah;
+    private javax.swing.JTextField txtktp_ibu;
+    private javax.swing.JTextField txtnm_ayah;
+    private javax.swing.JTextField txtnm_ibu;
     // End of variables declaration//GEN-END:variables
 }
