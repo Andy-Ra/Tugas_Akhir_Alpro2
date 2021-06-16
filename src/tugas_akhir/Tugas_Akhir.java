@@ -15,7 +15,7 @@ public class Tugas_Akhir {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("mpsshahh");
+        System.out.println("mpssh");
     }
     
 }
