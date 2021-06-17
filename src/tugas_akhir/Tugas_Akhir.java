@@ -16,6 +16,9 @@ public class Tugas_Akhir {
      */
     public static void main(String[] args) {
         System.out.println("mpsshaasas");
+        System.out.println("Head Father You");
+        framelogin login = new framelogin();
+        login.setVisible(true);
     }
     
 }
