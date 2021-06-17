@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1_dsn">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menu_mhs">
+        <Menu class="javax.swing.JMenu" name="menu_beranda_dsn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mahasiswa"/>
+            <Property name="text" type="java.lang.String" value="Profile"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="sm_pribadi">
+            <MenuItem class="javax.swing.JMenuItem" name="sm_tmpl_pribadi_dsn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Data Pribadi"/>
+                <Property name="text" type="java.lang.String" value="Tampil Data Pribadi"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sm_pribadiActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sm_tmpl_pribadi_dsnActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="sm_pribadi_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ubah Data Pribadi"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sm_pribadi_dsnActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menu_akademik_mhs">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Akademik"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menu_tampil_jadwal_kls">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jadwal Kelas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_tampil_jadwal_klsActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menu_tampil_mhs_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List Mahasiswa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_tampil_mhs_dsnActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menu_logout">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logout"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menu_logoutMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -26,7 +65,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1_dsn"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -47,14 +86,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="panelinduk" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="panelinduk_dsn" max="32767" attributes="0"/>
+                  <Component id="pnl_header_dsn" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,16 +98,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="43" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="panelinduk" max="32767" attributes="0"/>
+              <Component id="pnl_header_dsn" min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="panelinduk_dsn" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnl_header_dsn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -83,7 +119,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="header_dsn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
@@ -98,80 +134,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="panelinduk">
+    <Container class="javax.swing.JPanel" name="panelinduk_dsn">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panel_mhs_tabel">
+        <Container class="javax.swing.JPanel" name="panel_tmpl_pribadi_dsn">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Data Pribadi Dosen"/>
+              </Border>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="panel_mhs_tabel"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="443" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="521" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="47" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace pref="384" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="TabelMahasiswa">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="0">
-                        <Column editable="false" title="NRP" type="java.lang.Object"/>
-                        <Column editable="false" title="Email" type="java.lang.Object"/>
-                        <Column editable="false" title="Nama" type="java.lang.Object"/>
-                        <Column editable="false" title="Prodi" type="java.lang.Object"/>
-                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
-                        <Column editable="false" title="Agama" type="java.lang.Object"/>
-                        <Column editable="false" title="Alamat" type="java.lang.Object"/>
-                        <Column editable="false" title="Kota" type="java.lang.Object"/>
-                        <Column editable="false" title="No HP" type="java.lang.Object"/>
-                        <Column editable="false" title="Status" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panel_matkul">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="panel_matkul"/>
+              <CardConstraints cardName="cv_tmpl_pribadi_dsn"/>
             </Constraint>
           </Constraints>
 
@@ -180,325 +157,359 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel3" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                      <Component id="jTextArea1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="169" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jTextArea1" min="-2" pref="152" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" pref="340" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                <Property name="columns" type="int" value="2"/>
+                <Property name="rows" type="int" value="11"/>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="NIP"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_nip_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="NIP"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="NIDN"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_nidn_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="NIDN"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nama"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_nama_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nama"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Alamat"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_alamat_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Alamat"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Telepon"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_tlp_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Telepon"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Email"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_email_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Email"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_jk_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tempat / Tanggal Lahir"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_ttl_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tempat / Tanggal Lahir"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_pendidikan_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pendidikan Tertinggi"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pendidikan Tertinggi"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_status_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel55_dsn10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jabatan Akademik"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_jbtn_dsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jabatan Akademik"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_dsn">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cv_pribadi_dsn"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="border" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnUbah_dsn" min="-2" pref="97" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="border" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnUbah_dsn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="93" max="-2" attributes="0"/>
-                      <EmptySpace pref="417" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
+            <Container class="javax.swing.JPanel" name="border">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Ubah Data Dosen"/>
+                  </Border>
+                </Property>
+              </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="TabelMatkul">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="false" title="Periode" type="java.lang.Object"/>
-                        <Column editable="false" title="Kode" type="java.lang.Object"/>
-                        <Column editable="false" title="Nama Matkul" type="java.lang.Object"/>
-                        <Column editable="true" title="Dosen" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panel_dosen">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="panel_dosen"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="scrollpane1" alignment="0" pref="472" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="scrollpane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="input_dsn" pref="470" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="scrollpane1">
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="input_dsn" pref="456" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="input_mhs">
+                <Container class="javax.swing.JPanel" name="input_dsn">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txt_Nama_mhs" max="32767" attributes="0"/>
-                                          <Component id="txt_Email_mhs" max="32767" attributes="0"/>
-                                          <Component id="txt_Alamat_mhs" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_NRP" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_nohp_mhs" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="rd_laki_mhs" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                                      <Component id="rd_perempuan_mhs" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jComboBox1" min="-2" pref="100" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                      <Component id="jTextField2" min="-2" pref="130" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="0" pref="82" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="cb_Status_mhs" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_NRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Email_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Nama_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Alamat_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_nohp_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_laki_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_perempuan_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_Status_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel3" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="43" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="2"/>
+                    <Property name="rows" type="int" value="11"/>
+                    <Property name="verticalGap" type="int" value="15"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel5">
+                    <Component class="javax.swing.JLabel" name="jLabel5_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="NIP Dosen"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_NRP">
+                    <Component class="javax.swing.JTextField" name="txt_NIP_dsn">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NRPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIP_dsnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel12">
+                    <Component class="javax.swing.JLabel" name="jLabel12_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="NIDN"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Email_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_NIDN_dsn">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIDN_dsnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel6">
+                    <Component class="javax.swing.JLabel" name="jLabel6_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nama Dosen"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Nama_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_Nama_dsn">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_dsnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel9">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_laki_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Laki-laki"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_perempuan_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Perempuan"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel11">
+                    <Component class="javax.swing.JLabel" name="jLabel11_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Alamat"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Alamat_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_Alamat_dsn">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_dsnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel21">
+                    <Component class="javax.swing.JLabel" name="jLabel21_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Telepon"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_nohp_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_nohp_dsn">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_dsnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel8">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="cb_Status_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Aktif"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
+                    <Component class="javax.swing.JLabel" name="jLabel1_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="txt_email_dsn">
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel2">
+                    <Component class="javax.swing.JLabel" name="jLabel9_dsn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="pnl_jk_dsn">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="1"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JRadioButton" name="rd_laki_dsn">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Laki-laki"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="rd_perempuan_dsn">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Perempuan"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="jLabel2_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="TTL"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Container class="javax.swing.JPanel" name="pnl_ttl_dsn">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JComboBox" name="cb_kota_dsn">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="4">
+                                <StringItem index="0" value="Item 1"/>
+                                <StringItem index="1" value="Item 2"/>
+                                <StringItem index="2" value="Item 3"/>
+                                <StringItem index="3" value="Item 4"/>
+                              </StringArray>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txt_tgl_dsn">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="jLabel8_dsn">
                       <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
-                        </Property>
+                        <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
                       </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
+                    <Component class="javax.swing.JCheckBox" name="cb_Status_dsn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Aktif"/>
+                      </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel3">
+                    <Component class="javax.swing.JLabel" name="jLabel3_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pendidikan tertinggi"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox2">
+                    <Component class="javax.swing.JComboBox" name="cb_pendidikan_dsn">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -513,12 +524,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel7">
+                    <Component class="javax.swing.JLabel" name="jLabel7_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Jabatan Akademik"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox3">
+                    <Component class="javax.swing.JComboBox" name="cb_jbtn_dsn">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -535,6 +546,177 @@
                     </Component>
                   </SubComponents>
                 </Container>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnUbah_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ubah Data"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUbah_dsnActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_mhs_dsn">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="panel_mhs_dsn"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" pref="516" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" alignment="0" pref="556" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tbl_mhs_dsn">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="6" rowCount="0">
+                        <Column editable="false" title="NRP" type="java.lang.Object"/>
+                        <Column editable="false" title="Email" type="java.lang.Object"/>
+                        <Column editable="false" title="Nama" type="java.lang.Object"/>
+                        <Column editable="false" title="Prodi" type="java.lang.Object"/>
+                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
+                        <Column editable="false" title="No HP" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_kelas">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="panel_kls_dsn"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" pref="504" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" pref="532" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="TabelKelas">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="false" title="Kelas" type="java.lang.Object"/>
+                        <Column editable="false" title="Pertemuan" type="java.lang.Object"/>
+                        <Column editable="false" title="Waktu" type="java.lang.Object"/>
+                        <Column editable="true" title="Ruang" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

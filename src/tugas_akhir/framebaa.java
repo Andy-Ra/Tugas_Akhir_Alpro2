@@ -5,6 +5,8 @@
  */
 package tugas_akhir;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author ACER
@@ -28,105 +30,102 @@ public class framebaa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        panelinduk = new javax.swing.JPanel();
-        panel_mhs = new javax.swing.JPanel();
-        scrollpane1 = new javax.swing.JScrollPane();
+        title_baa = new javax.swing.JLabel();
+        panelinduk_baa = new javax.swing.JPanel();
+        panel_add_mhs = new javax.swing.JPanel();
+        border2 = new javax.swing.JPanel();
         input_mhs = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txt_NRP = new javax.swing.JTextField();
-        nt_nrp_mhs = new javax.swing.JLabel();
+        txt_NRP_baa = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txt_Email_mhs = new javax.swing.JTextField();
-        nt_email_mhs = new javax.swing.JLabel();
+        txt_Email_mhs_baa = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txt_Nama_mhs = new javax.swing.JTextField();
-        nt_nama_mhs = new javax.swing.JLabel();
+        txt_Nama_mhs_baa = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cbx_Prodi = new javax.swing.JComboBox<>();
-        ntn_prodi_mhs = new javax.swing.JLabel();
+        cbx_Prodi_baa = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        pnl_jk_mhs_baa = new javax.swing.JPanel();
         rd_laki_mhs = new javax.swing.JRadioButton();
         rd_perempuan_mhs = new javax.swing.JRadioButton();
-        nt_jk_mhs = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        cbx_Agama_mhs = new javax.swing.JComboBox<>();
-        nt_agama_mhs = new javax.swing.JLabel();
+        cbx_Agama_mhs_baa = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        txt_Alamat_mhs = new javax.swing.JTextField();
-        nt_alamat_mhs = new javax.swing.JLabel();
+        txt_Alamat_mhs_baa = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        cbx_kota_mhs = new javax.swing.JComboBox<>();
-        nt_kota_mhs = new javax.swing.JLabel();
+        cbx_kota_mhs_baa = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        txt_nohp_mhs = new javax.swing.JTextField();
-        nt_nohp_mhs = new javax.swing.JLabel();
+        txt_nohp_mhs_baa = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cb_Status_mhs = new javax.swing.JCheckBox();
-        btnTambah = new javax.swing.JButton();
-        btnUbah = new javax.swing.JButton();
-        panel_ortu = new javax.swing.JPanel();
-        scrollpane2 = new javax.swing.JScrollPane();
+        cb_Status_mhs_baa = new javax.swing.JCheckBox();
+        btnadd_mhs_baa = new javax.swing.JButton();
+        panel_add_ortu = new javax.swing.JPanel();
+        border1 = new javax.swing.JPanel();
         input_ortu = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        txtnm_ayah = new javax.swing.JTextField();
-        ntnm_ayah = new javax.swing.JLabel();
+        txtnm_ayah_baa = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txtktp_ayah = new javax.swing.JTextField();
-        ntktp_ayah = new javax.swing.JLabel();
+        txtktp_ayah_baa = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtnm_ibu = new javax.swing.JTextField();
-        ntnm_ibu = new javax.swing.JLabel();
+        txtnm_ibu_baa = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        txtktp_ibu = new javax.swing.JTextField();
-        ntktp_ibu = new javax.swing.JLabel();
+        txtktp_ibu_baa = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        nt_alamatortu = new javax.swing.JLabel();
-        txt_alamatortu = new javax.swing.JTextField();
+        txt_alamatortu_baa = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        cb_kota_ortu = new javax.swing.JComboBox<>();
-        nt_kota_ortu = new javax.swing.JLabel();
+        cb_kota_ortu_baa = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        txt_telp_ortu = new javax.swing.JTextField();
-        nt_telp_ortu = new javax.swing.JLabel();
-        panel_mhs_tabel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TabelMahasiswa = new javax.swing.JTable();
+        txt_telp_ortu_baa = new javax.swing.JTextField();
+        btnadd_ortu_baa = new javax.swing.JButton();
         panel_matkul = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelMatkul = new javax.swing.JTable();
-        panel_dosen = new javax.swing.JPanel();
-        scrollpane3 = new javax.swing.JScrollPane();
-        input_mhs1 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        txt_NRP1 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        txt_Email_mhs1 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        txt_Nama_mhs1 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        rd_laki_mhs1 = new javax.swing.JRadioButton();
-        rd_perempuan_mhs1 = new javax.swing.JRadioButton();
-        jLabel26 = new javax.swing.JLabel();
-        txt_Alamat_mhs1 = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        txt_nohp_mhs1 = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        cb_Status_mhs1 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel29 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
+        panel_dsn = new javax.swing.JPanel();
+        border = new javax.swing.JPanel();
+        input_dsn = new javax.swing.JPanel();
+        jLabel5_dsn = new javax.swing.JLabel();
+        txt_NIP_dsn_baa = new javax.swing.JTextField();
+        jLabel12_dsn = new javax.swing.JLabel();
+        txt_NIDN_dsn_baa = new javax.swing.JTextField();
+        jLabel6_dsn = new javax.swing.JLabel();
+        txt_Nama_dsn_baa = new javax.swing.JTextField();
+        jLabel11_dsn = new javax.swing.JLabel();
+        txt_Alamat_dsn_baa = new javax.swing.JTextField();
+        jLabel21_dsn = new javax.swing.JLabel();
+        txt_nohp_dsn_baa = new javax.swing.JTextField();
+        jLabel1_dsn = new javax.swing.JLabel();
+        txt_email_dsn_baa = new javax.swing.JTextField();
+        jLabel9_dsn = new javax.swing.JLabel();
+        pnl_jk_dsn = new javax.swing.JPanel();
+        rd_laki_dsn_baa = new javax.swing.JRadioButton();
+        rd_perempuan_dsn_baa = new javax.swing.JRadioButton();
+        jLabel2_dsn = new javax.swing.JLabel();
+        pnl_ttl_dsn = new javax.swing.JPanel();
+        cb_kota_dsn_baa = new javax.swing.JComboBox<>();
+        txt_tgl_dsn_baa = new javax.swing.JTextField();
+        jLabel8_dsn = new javax.swing.JLabel();
+        cb_Status_dsn_baa = new javax.swing.JCheckBox();
+        jLabel3_dsn = new javax.swing.JLabel();
+        cb_pendidikan_dsn_baa = new javax.swing.JComboBox<>();
+        jLabel7_dsn = new javax.swing.JLabel();
+        cb_jbtn_dsn_baa = new javax.swing.JComboBox<>();
+        btnUbah_dsn = new javax.swing.JButton();
+        panel_mhs_tabel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list_all_mahasiswa = new javax.swing.JTable();
+        panel_dsn_tabel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        list_all_dsn = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
-        sm_pribadi = new javax.swing.JMenuItem();
-        sm_ortu = new javax.swing.JMenuItem();
+        add_data_mhs = new javax.swing.JMenuItem();
+        updte_data_mhs = new javax.swing.JMenu();
+        update_data_mhs = new javax.swing.JMenuItem();
+        list_data_mhs = new javax.swing.JMenuItem();
+        menu_dosen = new javax.swing.JMenu();
+        add_data_dsn = new javax.swing.JMenuItem();
+        update_data_dsn = new javax.swing.JMenuItem();
+        list_data_dsn = new javax.swing.JMenuItem();
+        menu_logout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,525 +133,282 @@ public class framebaa extends javax.swing.JFrame {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel4.setText("PROFILE MAHASISWA");
-        jPanel1.add(jLabel4, new java.awt.GridBagConstraints());
+        title_baa.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        title_baa.setText("BAA");
+        jPanel1.add(title_baa, new java.awt.GridBagConstraints());
 
-        panelinduk.setLayout(new java.awt.CardLayout());
+        panelinduk_baa.setLayout(new java.awt.CardLayout());
 
-        panel_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Mahasiswa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 11))); // NOI18N
+        border2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tambah Data Mahasiswa"));
+
+        input_mhs.setLayout(new java.awt.GridLayout(10, 2, 0, 15));
 
         jLabel5.setText("NRP");
+        input_mhs.add(jLabel5);
 
-        txt_NRP.addActionListener(new java.awt.event.ActionListener() {
+        txt_NRP_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NRPActionPerformed(evt);
+                txt_NRP_baaActionPerformed(evt);
             }
         });
-
-        nt_nrp_mhs.setText("jLabel1");
+        input_mhs.add(txt_NRP_baa);
 
         jLabel12.setText("Email");
+        input_mhs.add(jLabel12);
 
-        txt_Email_mhs.addActionListener(new java.awt.event.ActionListener() {
+        txt_Email_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Email_mhsActionPerformed(evt);
+                txt_Email_mhs_baaActionPerformed(evt);
             }
         });
-
-        nt_email_mhs.setText("jLabel1");
+        input_mhs.add(txt_Email_mhs_baa);
 
         jLabel6.setText("Nama");
+        input_mhs.add(jLabel6);
 
-        txt_Nama_mhs.addActionListener(new java.awt.event.ActionListener() {
+        txt_Nama_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_mhsActionPerformed(evt);
+                txt_Nama_mhs_baaActionPerformed(evt);
             }
         });
-
-        nt_nama_mhs.setText("jLabel1");
+        input_mhs.add(txt_Nama_mhs_baa);
 
         jLabel7.setText("Prodi");
+        input_mhs.add(jLabel7);
 
-        cbx_Prodi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika", "DKV" }));
-
-        ntn_prodi_mhs.setText("jLabel1");
+        cbx_Prodi_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika", "DKV" }));
+        input_mhs.add(cbx_Prodi_baa);
 
         jLabel9.setText("Jenis Kelamin");
+        input_mhs.add(jLabel9);
+
+        pnl_jk_mhs_baa.setLayout(new java.awt.GridLayout());
 
         rd_laki_mhs.setText("Laki-laki");
+        pnl_jk_mhs_baa.add(rd_laki_mhs);
 
         rd_perempuan_mhs.setText("Perempuan");
+        pnl_jk_mhs_baa.add(rd_perempuan_mhs);
 
-        nt_jk_mhs.setText("jLabel1");
+        input_mhs.add(pnl_jk_mhs_baa);
 
         jLabel10.setText("Agama");
+        input_mhs.add(jLabel10);
 
-        cbx_Agama_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
-
-        nt_agama_mhs.setText("jLabel1");
+        cbx_Agama_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
+        input_mhs.add(cbx_Agama_mhs_baa);
 
         jLabel11.setText("Alamat");
+        input_mhs.add(jLabel11);
 
-        txt_Alamat_mhs.addActionListener(new java.awt.event.ActionListener() {
+        txt_Alamat_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Alamat_mhsActionPerformed(evt);
+                txt_Alamat_mhs_baaActionPerformed(evt);
             }
         });
-
-        nt_alamat_mhs.setText("jLabel1");
+        input_mhs.add(txt_Alamat_mhs_baa);
 
         jLabel15.setText("Kota");
+        input_mhs.add(jLabel15);
 
-        cbx_kota_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Malang", "Surabaya", "Blitar", "Kediri", "Probolinggo", "Lamongan", "Lumajang" }));
-
-        nt_kota_mhs.setText("jLabel1");
+        cbx_kota_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Malang", "Surabaya", "Blitar", "Kediri", "Probolinggo", "Lamongan", "Lumajang" }));
+        cbx_kota_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_kota_mhs_baaActionPerformed(evt);
+            }
+        });
+        input_mhs.add(cbx_kota_mhs_baa);
 
         jLabel21.setText("No Hp");
+        input_mhs.add(jLabel21);
 
-        txt_nohp_mhs.addActionListener(new java.awt.event.ActionListener() {
+        txt_nohp_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nohp_mhsActionPerformed(evt);
+                txt_nohp_mhs_baaActionPerformed(evt);
             }
         });
-
-        nt_nohp_mhs.setText("jLabel1");
+        input_mhs.add(txt_nohp_mhs_baa);
 
         jLabel8.setText("Status Masuk");
+        input_mhs.add(jLabel8);
 
-        cb_Status_mhs.setText("Aktif");
+        cb_Status_mhs_baa.setText("Aktif");
+        input_mhs.add(cb_Status_mhs_baa);
 
-        javax.swing.GroupLayout input_mhsLayout = new javax.swing.GroupLayout(input_mhs);
-        input_mhs.setLayout(input_mhsLayout);
-        input_mhsLayout.setHorizontalGroup(
-            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_mhsLayout.createSequentialGroup()
+        javax.swing.GroupLayout border2Layout = new javax.swing.GroupLayout(border2);
+        border2.setLayout(border2Layout);
+        border2Layout.setHorizontalGroup(
+            border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(border2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        border2Layout.setVerticalGroup(
+            border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 411, Short.MAX_VALUE)
+            .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(border2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        btnadd_mhs_baa.setText("NEXT");
+        btnadd_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadd_mhs_baaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_add_mhsLayout = new javax.swing.GroupLayout(panel_add_mhs);
+        panel_add_mhs.setLayout(panel_add_mhsLayout);
+        panel_add_mhsLayout.setHorizontalGroup(
+            panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_mhsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(nt_email_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addComponent(txt_Email_mhs))))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(nt_jk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(nt_agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 76, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, input_mhsLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(cbx_Agama_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(93, 93, 93)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(nt_kota_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(cbx_kota_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addGap(86, 86, 86)
-                        .addComponent(txt_nohp_mhs))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(nt_nohp_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(cb_Status_mhs)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(95, 95, 95)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(nt_nrp_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txt_NRP)))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel7))
-                        .addGap(82, 82, 82)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addComponent(rd_laki_mhs)
-                                .addGap(48, 48, 48)
-                                .addComponent(rd_perempuan_mhs)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ntn_prodi_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nt_nama_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nt_alamat_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(cbx_Prodi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_Nama_mhs)
-                            .addComponent(txt_Alamat_mhs))))
+                .addComponent(border2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_mhsLayout.createSequentialGroup()
+                .addContainerGap(350, Short.MAX_VALUE)
+                .addComponent(btnadd_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
-        input_mhsLayout.setVerticalGroup(
-            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txt_NRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_nrp_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txt_Email_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_email_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_Nama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_nama_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cbx_Prodi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ntn_prodi_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(rd_laki_mhs)
-                    .addComponent(rd_perempuan_mhs))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_jk_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbx_Agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_agama_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txt_Alamat_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_alamat_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbx_kota_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_kota_mhs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(txt_nohp_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_nohp_mhs)
+        panel_add_mhsLayout.setVerticalGroup(
+            panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_add_mhsLayout.createSequentialGroup()
+                .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_Status_mhs)
-                    .addComponent(jLabel8))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-
-        scrollpane1.setViewportView(input_mhs);
-
-        btnTambah.setText("Tambah Data");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
-
-        btnUbah.setText("Ubah");
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel_mhsLayout = new javax.swing.GroupLayout(panel_mhs);
-        panel_mhs.setLayout(panel_mhsLayout);
-        panel_mhsLayout.setHorizontalGroup(
-            panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mhsLayout.createSequentialGroup()
-                .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTambah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        panel_mhsLayout.setVerticalGroup(
-            panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mhsLayout.createSequentialGroup()
-                .addComponent(scrollpane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
-                    .addComponent(btnUbah))
+                .addComponent(btnadd_mhs_baa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelinduk.add(panel_mhs, "cv_pribadi");
+        panelinduk_baa.add(panel_add_mhs, "cv_add_mhs");
 
-        panel_ortu.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Orang Tua Mahasiswa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 11))); // NOI18N
+        border1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tambah Data Orang Tua Mahasiswa"));
+
+        input_ortu.setLayout(new java.awt.GridLayout(7, 2, 0, 15));
 
         jLabel13.setText("Nama Ayah");
+        input_ortu.add(jLabel13);
 
-        txtnm_ayah.addActionListener(new java.awt.event.ActionListener() {
+        txtnm_ayah_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnm_ayahActionPerformed(evt);
+                txtnm_ayah_baaActionPerformed(evt);
             }
         });
-
-        ntnm_ayah.setText("jLabel1");
+        input_ortu.add(txtnm_ayah_baa);
 
         jLabel14.setText("No KTP Ayah");
+        input_ortu.add(jLabel14);
 
-        txtktp_ayah.addActionListener(new java.awt.event.ActionListener() {
+        txtktp_ayah_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtktp_ayahActionPerformed(evt);
+                txtktp_ayah_baaActionPerformed(evt);
             }
         });
-
-        ntktp_ayah.setText("jLabel1");
+        input_ortu.add(txtktp_ayah_baa);
 
         jLabel16.setText("Nama Ibu");
+        input_ortu.add(jLabel16);
 
-        txtnm_ibu.addActionListener(new java.awt.event.ActionListener() {
+        txtnm_ibu_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnm_ibuActionPerformed(evt);
+                txtnm_ibu_baaActionPerformed(evt);
             }
         });
-
-        ntnm_ibu.setText("jLabel1");
+        input_ortu.add(txtnm_ibu_baa);
 
         jLabel17.setText("No KTP Ibu");
+        input_ortu.add(jLabel17);
 
-        txtktp_ibu.addActionListener(new java.awt.event.ActionListener() {
+        txtktp_ibu_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtktp_ibuActionPerformed(evt);
+                txtktp_ibu_baaActionPerformed(evt);
             }
         });
-
-        ntktp_ibu.setText("jLabel1");
+        input_ortu.add(txtktp_ibu_baa);
 
         jLabel18.setText("Alamat Orang Tua");
+        input_ortu.add(jLabel18);
 
-        nt_alamatortu.setText("jLabel1");
-
-        txt_alamatortu.addActionListener(new java.awt.event.ActionListener() {
+        txt_alamatortu_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_alamatortuActionPerformed(evt);
+                txt_alamatortu_baaActionPerformed(evt);
             }
         });
+        input_ortu.add(txt_alamatortu_baa);
 
         jLabel20.setText("Kota Orang Tua");
+        input_ortu.add(jLabel20);
 
-        cb_kota_ortu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== KOTA ===" }));
-
-        nt_kota_ortu.setText("jLabel1");
+        cb_kota_ortu_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== KOTA ===" }));
+        input_ortu.add(cb_kota_ortu_baa);
 
         jLabel19.setText("Telp Orang Tua");
+        input_ortu.add(jLabel19);
 
-        txt_telp_ortu.addActionListener(new java.awt.event.ActionListener() {
+        txt_telp_ortu_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_telp_ortuActionPerformed(evt);
+                txt_telp_ortu_baaActionPerformed(evt);
+            }
+        });
+        input_ortu.add(txt_telp_ortu_baa);
+
+        javax.swing.GroupLayout border1Layout = new javax.swing.GroupLayout(border1);
+        border1.setLayout(border1Layout);
+        border1Layout.setHorizontalGroup(
+            border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 443, Short.MAX_VALUE)
+            .addGroup(border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(border1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(input_ortu, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        border1Layout.setVerticalGroup(
+            border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 282, Short.MAX_VALUE)
+            .addGroup(border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(border1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(input_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        btnadd_ortu_baa.setText("Simpan Data");
+        btnadd_ortu_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadd_ortu_baaActionPerformed(evt);
             }
         });
 
-        nt_telp_ortu.setText("jLabel1");
-
-        javax.swing.GroupLayout input_ortuLayout = new javax.swing.GroupLayout(input_ortu);
-        input_ortu.setLayout(input_ortuLayout);
-        input_ortuLayout.setHorizontalGroup(
-            input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_ortuLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_add_ortuLayout = new javax.swing.GroupLayout(panel_add_ortu);
+        panel_add_ortu.setLayout(panel_add_ortuLayout);
+        panel_add_ortuLayout.setHorizontalGroup(
+            panel_add_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_add_ortuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(55, 55, 55)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(ntnm_ayah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtnm_ayah)))
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(51, 51, 51)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(ntktp_ayah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtktp_ayah)))
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(71, 71, 71)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(ntnm_ibu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtnm_ibu)))
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(63, 63, 63)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(ntktp_ibu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtktp_ibu)))
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addGap(28, 28, 28)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(nt_alamatortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txt_alamatortu)))
-                    .addGroup(input_ortuLayout.createSequentialGroup()
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20))
-                        .addGap(40, 40, 40)
-                        .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_kota_ortu, javax.swing.GroupLayout.Alignment.TRAILING, 0, 259, Short.MAX_VALUE)
-                            .addComponent(txt_telp_ortu)
-                            .addGroup(input_ortuLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nt_kota_ortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nt_telp_ortu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addComponent(border1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_ortuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnadd_ortu_baa)
+                .addGap(32, 32, 32))
         );
-        input_ortuLayout.setVerticalGroup(
-            input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_ortuLayout.createSequentialGroup()
+        panel_add_ortuLayout.setVerticalGroup(
+            panel_add_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_add_ortuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtnm_ayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ntnm_ayah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txtktp_ayah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ntktp_ayah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(txtnm_ibu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ntnm_ibu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtktp_ibu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ntktp_ibu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(txt_alamatortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_alamatortu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(cb_kota_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_kota_ortu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(input_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(txt_telp_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nt_telp_ortu)
-                .addGap(41, 41, 41))
+                .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnadd_ortu_baa)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
-        scrollpane2.setViewportView(input_ortu);
-
-        javax.swing.GroupLayout panel_ortuLayout = new javax.swing.GroupLayout(panel_ortu);
-        panel_ortu.setLayout(panel_ortuLayout);
-        panel_ortuLayout.setHorizontalGroup(
-            panel_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_ortuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel_ortuLayout.setVerticalGroup(
-            panel_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_ortuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelinduk.add(panel_ortu, "cv_ortu");
-
-        TabelMahasiswa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "NRP", "Email", "Nama", "Prodi", "Jenis Kelamin", "Agama", "Alamat", "Kota", "No HP", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(TabelMahasiswa);
-
-        javax.swing.GroupLayout panel_mhs_tabelLayout = new javax.swing.GroupLayout(panel_mhs_tabel);
-        panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
-        panel_mhs_tabelLayout.setHorizontalGroup(
-            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
-            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhs_tabelLayout.createSequentialGroup()
-                    .addContainerGap(14, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(15, Short.MAX_VALUE)))
-        );
-        panel_mhs_tabelLayout.setVerticalGroup(
-            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
-            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhs_tabelLayout.createSequentialGroup()
-                    .addContainerGap(47, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(312, Short.MAX_VALUE)))
-        );
-
-        panelinduk.add(panel_mhs_tabel, "card4");
+        panelinduk_baa.add(panel_add_ortu, "cv_add_ortu_baa");
 
         TabelMatkul.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -688,233 +444,306 @@ public class framebaa extends javax.swing.JFrame {
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
-        );
-
-        panelinduk.add(panel_matkul, "card5");
-
-        jLabel22.setText("NIP Dosen");
-
-        txt_NRP1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NRP1ActionPerformed(evt);
-            }
-        });
-
-        jLabel23.setText("NIDN");
-
-        txt_Email_mhs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Email_mhs1ActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setText("Nama Dosen");
-
-        txt_Nama_mhs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_mhs1ActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("Jenis Kelamin");
-
-        rd_laki_mhs1.setText("Laki-laki");
-
-        rd_perempuan_mhs1.setText("Perempuan");
-
-        jLabel26.setText("Alamat");
-
-        txt_Alamat_mhs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Alamat_mhs1ActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setText("Telepon");
-
-        txt_nohp_mhs1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nohp_mhs1ActionPerformed(evt);
-            }
-        });
-
-        jLabel28.setText("Status Kepegawaian");
-
-        cb_Status_mhs1.setText("Aktif");
-
-        jLabel1.setText("Email");
-
-        jLabel2.setText("TTL");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel3.setText("Pendidikan tertinggi");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel29.setText("Jabatan Akademik");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout input_mhs1Layout = new javax.swing.GroupLayout(input_mhs1);
-        input_mhs1.setLayout(input_mhs1Layout);
-        input_mhs1Layout.setHorizontalGroup(
-            input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_mhs1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(input_mhs1Layout.createSequentialGroup()
-                        .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel2))
-                        .addGap(53, 53, 53)
-                        .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Nama_mhs1)
-                            .addComponent(txt_Email_mhs1)
-                            .addComponent(txt_Alamat_mhs1)
-                            .addComponent(txt_NRP1)
-                            .addComponent(txt_nohp_mhs1)
-                            .addComponent(jTextField1)
-                            .addGroup(input_mhs1Layout.createSequentialGroup()
-                                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(input_mhs1Layout.createSequentialGroup()
-                                        .addComponent(rd_laki_mhs1)
-                                        .addGap(79, 79, 79)
-                                        .addComponent(rd_perempuan_mhs1))
-                                    .addGroup(input_mhs1Layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 82, Short.MAX_VALUE))))
-                    .addGroup(input_mhs1Layout.createSequentialGroup()
-                        .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel26)
-                            .addGroup(input_mhs1Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(18, 18, 18)
-                                .addComponent(cb_Status_mhs1))
-                            .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, input_mhs1Layout.createSequentialGroup()
-                                    .addComponent(jLabel29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, input_mhs1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        input_mhs1Layout.setVerticalGroup(
-            input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(input_mhs1Layout.createSequentialGroup()
+
+        panelinduk_baa.add(panel_matkul, "card5");
+
+        border.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubah Data Dosen"));
+
+        input_dsn.setLayout(new java.awt.GridLayout(11, 2, 0, 15));
+
+        jLabel5_dsn.setText("NIP Dosen");
+        input_dsn.add(jLabel5_dsn);
+
+        txt_NIP_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NIP_dsn_baaActionPerformed(evt);
+            }
+        });
+        input_dsn.add(txt_NIP_dsn_baa);
+
+        jLabel12_dsn.setText("NIDN");
+        input_dsn.add(jLabel12_dsn);
+
+        txt_NIDN_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NIDN_dsn_baaActionPerformed(evt);
+            }
+        });
+        input_dsn.add(txt_NIDN_dsn_baa);
+
+        jLabel6_dsn.setText("Nama Dosen");
+        input_dsn.add(jLabel6_dsn);
+
+        txt_Nama_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Nama_dsn_baaActionPerformed(evt);
+            }
+        });
+        input_dsn.add(txt_Nama_dsn_baa);
+
+        jLabel11_dsn.setText("Alamat");
+        input_dsn.add(jLabel11_dsn);
+
+        txt_Alamat_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Alamat_dsn_baaActionPerformed(evt);
+            }
+        });
+        input_dsn.add(txt_Alamat_dsn_baa);
+
+        jLabel21_dsn.setText("Telepon");
+        input_dsn.add(jLabel21_dsn);
+
+        txt_nohp_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nohp_dsn_baaActionPerformed(evt);
+            }
+        });
+        input_dsn.add(txt_nohp_dsn_baa);
+
+        jLabel1_dsn.setText("Email");
+        input_dsn.add(jLabel1_dsn);
+        input_dsn.add(txt_email_dsn_baa);
+
+        jLabel9_dsn.setText("Jenis Kelamin");
+        input_dsn.add(jLabel9_dsn);
+
+        pnl_jk_dsn.setLayout(new java.awt.GridLayout());
+
+        rd_laki_dsn_baa.setText("Laki-laki");
+        pnl_jk_dsn.add(rd_laki_dsn_baa);
+
+        rd_perempuan_dsn_baa.setText("Perempuan");
+        pnl_jk_dsn.add(rd_perempuan_dsn_baa);
+
+        input_dsn.add(pnl_jk_dsn);
+
+        jLabel2_dsn.setText("TTL");
+        input_dsn.add(jLabel2_dsn);
+
+        pnl_ttl_dsn.setLayout(new javax.swing.BoxLayout(pnl_ttl_dsn, javax.swing.BoxLayout.LINE_AXIS));
+
+        cb_kota_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pnl_ttl_dsn.add(cb_kota_dsn_baa);
+        pnl_ttl_dsn.add(txt_tgl_dsn_baa);
+
+        input_dsn.add(pnl_ttl_dsn);
+
+        jLabel8_dsn.setText("Status Kepegawaian");
+        input_dsn.add(jLabel8_dsn);
+
+        cb_Status_dsn_baa.setText("Aktif");
+        input_dsn.add(cb_Status_dsn_baa);
+
+        jLabel3_dsn.setText("Pendidikan tertinggi");
+        input_dsn.add(jLabel3_dsn);
+
+        cb_pendidikan_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        input_dsn.add(cb_pendidikan_dsn_baa);
+
+        jLabel7_dsn.setText("Jabatan Akademik");
+        input_dsn.add(jLabel7_dsn);
+
+        cb_jbtn_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        input_dsn.add(cb_jbtn_dsn_baa);
+
+        javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
+        border.setLayout(borderLayout);
+        borderLayout.setHorizontalGroup(
+            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(borderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(txt_NRP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(txt_Email_mhs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(txt_Nama_mhs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(txt_Alamat_mhs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(txt_nohp_mhs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(rd_laki_mhs1)
-                    .addComponent(rd_perempuan_mhs1))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(cb_Status_mhs1))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(input_mhs1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
-                .addGap(18, 18, 18)
-                .addGroup(input_mhs1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        borderLayout.setVerticalGroup(
+            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        scrollpane3.setViewportView(input_mhs1);
+        btnUbah_dsn.setText("Tambah Data");
+        btnUbah_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbah_dsnActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout panel_dosenLayout = new javax.swing.GroupLayout(panel_dosen);
-        panel_dosen.setLayout(panel_dosenLayout);
-        panel_dosenLayout.setHorizontalGroup(
-            panel_dosenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollpane3, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+        javax.swing.GroupLayout panel_dsnLayout = new javax.swing.GroupLayout(panel_dsn);
+        panel_dsn.setLayout(panel_dsnLayout);
+        panel_dsnLayout.setHorizontalGroup(
+            panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_dsnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dsnLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUbah_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
-        panel_dosenLayout.setVerticalGroup(
-            panel_dosenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_dosenLayout.createSequentialGroup()
-                .addComponent(scrollpane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
-        );
-
-        panelinduk.add(panel_dosen, "panel_dosen");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
+        panel_dsnLayout.setVerticalGroup(
+            panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_dsnLayout.createSequentialGroup()
+                .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUbah_dsn)
+                .addContainerGap())
         );
 
-        panelinduk.add(jPanel2, "card6");
+        panelinduk_baa.add(panel_dsn, "cv_add_dsn_baa");
+
+        list_all_mahasiswa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NRP", "Email", "Nama", "Prodi", "Jenis Kelamin", "Agama", "Alamat", "Kota", "No HP", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(list_all_mahasiswa);
+
+        javax.swing.GroupLayout panel_mhs_tabelLayout = new javax.swing.GroupLayout(panel_mhs_tabel);
+        panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
+        panel_mhs_tabelLayout.setHorizontalGroup(
+            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 477, Short.MAX_VALUE)
+            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1)
+                    .addContainerGap()))
+        );
+        panel_mhs_tabelLayout.setVerticalGroup(
+            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panelinduk_baa.add(panel_mhs_tabel, "cv_list_mhs_baa");
+
+        panel_dsn_tabel.setBorder(javax.swing.BorderFactory.createTitledBorder("Daftar Dosen"));
+
+        list_all_dsn.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NRP", "Email", "Nama", "Prodi", "Jenis Kelamin", "Agama", "Alamat", "Kota", "No HP", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(list_all_dsn);
+
+        javax.swing.GroupLayout panel_dsn_tabelLayout = new javax.swing.GroupLayout(panel_dsn_tabel);
+        panel_dsn_tabel.setLayout(panel_dsn_tabelLayout);
+        panel_dsn_tabelLayout.setHorizontalGroup(
+            panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_dsn_tabelLayout.setVerticalGroup(
+            panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panelinduk_baa.add(panel_dsn_tabel, "cv_list_dsn_baa");
 
         menu_mhs.setText("Mahasiswa");
 
-        sm_pribadi.setText("Data Pribadi");
-        sm_pribadi.addActionListener(new java.awt.event.ActionListener() {
+        add_data_mhs.setText("Tambah Data Mahasiswa");
+        add_data_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sm_pribadiActionPerformed(evt);
+                add_data_mhsActionPerformed(evt);
             }
         });
-        menu_mhs.add(sm_pribadi);
+        menu_mhs.add(add_data_mhs);
 
-        sm_ortu.setText("Orang Tua");
-        sm_ortu.addActionListener(new java.awt.event.ActionListener() {
+        updte_data_mhs.setText("Update Data Mahasiswa");
+
+        update_data_mhs.setText("Mahasiswa");
+        updte_data_mhs.add(update_data_mhs);
+
+        menu_mhs.add(updte_data_mhs);
+
+        list_data_mhs.setText("List Data Mahasiswa");
+        list_data_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sm_ortuActionPerformed(evt);
+                list_data_mhsActionPerformed(evt);
             }
         });
-        menu_mhs.add(sm_ortu);
+        menu_mhs.add(list_data_mhs);
 
         jMenuBar1.add(menu_mhs);
+
+        menu_dosen.setText("Dosen");
+
+        add_data_dsn.setText("Tambah Data Dosen");
+        add_data_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_data_dsnActionPerformed(evt);
+            }
+        });
+        menu_dosen.add(add_data_dsn);
+
+        update_data_dsn.setText("Ubah Data Dosen");
+        update_data_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_data_dsnActionPerformed(evt);
+            }
+        });
+        menu_dosen.add(update_data_dsn);
+
+        list_data_dsn.setText("List Data Dosen");
+        list_data_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list_data_dsnActionPerformed(evt);
+            }
+        });
+        menu_dosen.add(list_data_dsn);
+
+        jMenuBar1.add(menu_dosen);
+
+        menu_logout.setText("Logout");
+        menu_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_logoutMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(menu_logout);
 
         setJMenuBar(jMenuBar1);
 
@@ -922,13 +751,11 @@ public class framebaa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelinduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(107, 107, 107))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelinduk_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -937,94 +764,130 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelinduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelinduk_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void sm_pribadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_pribadiActionPerformed
-        CardLayout cview = (CardLayout) panelinduk.getLayout();
-        cview.show(panelinduk, "cv_pribadi");
-    }//GEN-LAST:event_sm_pribadiActionPerformed
-
-    private void sm_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ortuActionPerformed
-        CardLayout cview = (CardLayout) panelinduk.getLayout();
-        cview.show(panelinduk, "cv_ortu");
-    }//GEN-LAST:event_sm_ortuActionPerformed
-
-    private void txt_NRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRPActionPerformed
+    private void txt_NIP_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIP_dsn_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NRPActionPerformed
+    }//GEN-LAST:event_txt_NIP_dsn_baaActionPerformed
 
-    private void txt_Email_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhsActionPerformed
+    private void txt_NIDN_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIDN_dsn_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Email_mhsActionPerformed
+    }//GEN-LAST:event_txt_NIDN_dsn_baaActionPerformed
 
-    private void txt_Nama_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhsActionPerformed
+    private void txt_Nama_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_dsn_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_mhsActionPerformed
+    }//GEN-LAST:event_txt_Nama_dsn_baaActionPerformed
 
-    private void txt_Alamat_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_mhsActionPerformed
+    private void txt_Alamat_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_dsn_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Alamat_mhsActionPerformed
+    }//GEN-LAST:event_txt_Alamat_dsn_baaActionPerformed
 
-    private void txt_nohp_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhsActionPerformed
+    private void txt_nohp_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_dsn_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nohp_mhsActionPerformed
+    }//GEN-LAST:event_txt_nohp_dsn_baaActionPerformed
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+    private void btnUbah_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_dsnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTambahActionPerformed
+    }//GEN-LAST:event_btnUbah_dsnActionPerformed
 
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+    private void txtnm_ayah_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayah_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUbahActionPerformed
+    }//GEN-LAST:event_txtnm_ayah_baaActionPerformed
 
-    private void txtnm_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayahActionPerformed
+    private void txtktp_ayah_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ayah_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnm_ayahActionPerformed
+    }//GEN-LAST:event_txtktp_ayah_baaActionPerformed
 
-    private void txtktp_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ayahActionPerformed
+    private void txtnm_ibu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ibu_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtktp_ayahActionPerformed
+    }//GEN-LAST:event_txtnm_ibu_baaActionPerformed
 
-    private void txtnm_ibuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ibuActionPerformed
+    private void txtktp_ibu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ibu_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnm_ibuActionPerformed
+    }//GEN-LAST:event_txtktp_ibu_baaActionPerformed
 
-    private void txtktp_ibuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ibuActionPerformed
+    private void txt_alamatortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_alamatortu_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtktp_ibuActionPerformed
+    }//GEN-LAST:event_txt_alamatortu_baaActionPerformed
 
-    private void txt_alamatortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_alamatortuActionPerformed
+    private void txt_telp_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telp_ortu_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_alamatortuActionPerformed
+    }//GEN-LAST:event_txt_telp_ortu_baaActionPerformed
 
-    private void txt_telp_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telp_ortuActionPerformed
+    private void btnadd_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_ortu_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telp_ortuActionPerformed
+    }//GEN-LAST:event_btnadd_ortu_baaActionPerformed
 
-    private void txt_NRP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRP1ActionPerformed
+    private void txt_NRP_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRP_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NRP1ActionPerformed
+    }//GEN-LAST:event_txt_NRP_baaActionPerformed
 
-    private void txt_Email_mhs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhs1ActionPerformed
+    private void txt_Email_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhs_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Email_mhs1ActionPerformed
+    }//GEN-LAST:event_txt_Email_mhs_baaActionPerformed
 
-    private void txt_Nama_mhs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhs1ActionPerformed
+    private void txt_Nama_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhs_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_mhs1ActionPerformed
+    }//GEN-LAST:event_txt_Nama_mhs_baaActionPerformed
 
-    private void txt_Alamat_mhs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_mhs1ActionPerformed
+    private void txt_Alamat_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_mhs_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Alamat_mhs1ActionPerformed
+    }//GEN-LAST:event_txt_Alamat_mhs_baaActionPerformed
 
-    private void txt_nohp_mhs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhs1ActionPerformed
+    private void txt_nohp_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhs_baaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nohp_mhs1ActionPerformed
+    }//GEN-LAST:event_txt_nohp_mhs_baaActionPerformed
+
+    private void btnadd_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_mhs_baaActionPerformed
+       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       cl_baa.show(panelinduk_baa, "cv_add_ortu_baa");
+       title_baa.setText("Tambah Mahasiswa");
+        
+    }//GEN-LAST:event_btnadd_mhs_baaActionPerformed
+
+    private void cbx_kota_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_kota_mhs_baaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbx_kota_mhs_baaActionPerformed
+
+    private void add_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_data_mhsActionPerformed
+       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       cl_baa.show(panelinduk_baa, "cv_add_mhs");
+       title_baa.setText("Tambah Mahasiswa");
+    }//GEN-LAST:event_add_data_mhsActionPerformed
+
+    private void list_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_mhsActionPerformed
+       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       cl_baa.show(panelinduk_baa, "cv_list_mhs_baa");
+       title_baa.setText("Daftar Mahasiswa");
+        
+    }//GEN-LAST:event_list_data_mhsActionPerformed
+
+    private void add_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_data_dsnActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_add_dsn_baa");
+        title_baa.setText("Tambah Dosen");
+    }//GEN-LAST:event_add_data_dsnActionPerformed
+
+    private void list_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_dsnActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       cl_baa.show(panelinduk_baa, "cv_list_dsn_baa");
+       title_baa.setText("Daftar Dosen");
+        
+    }//GEN-LAST:event_list_data_dsnActionPerformed
+
+    private void update_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_data_dsnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_update_data_dsnActionPerformed
+
+    private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
+        new framelogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menu_logoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1062,26 +925,32 @@ public class framebaa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelMahasiswa;
     private javax.swing.JTable TabelMatkul;
-    private javax.swing.JButton btnTambah;
-    private javax.swing.JButton btnUbah;
-    private javax.swing.JCheckBox cb_Status_mhs;
-    private javax.swing.JCheckBox cb_Status_mhs1;
-    private javax.swing.JComboBox<String> cb_kota_ortu;
-    private javax.swing.JComboBox<String> cbx_Agama_mhs;
-    private javax.swing.JComboBox<String> cbx_Prodi;
-    private javax.swing.JComboBox<String> cbx_kota_mhs;
+    private javax.swing.JMenuItem add_data_dsn;
+    private javax.swing.JMenuItem add_data_mhs;
+    private javax.swing.JPanel border;
+    private javax.swing.JPanel border1;
+    private javax.swing.JPanel border2;
+    private javax.swing.JButton btnUbah_dsn;
+    private javax.swing.JButton btnadd_mhs_baa;
+    private javax.swing.JButton btnadd_ortu_baa;
+    private javax.swing.JCheckBox cb_Status_dsn_baa;
+    private javax.swing.JCheckBox cb_Status_mhs_baa;
+    private javax.swing.JComboBox<String> cb_jbtn_dsn_baa;
+    private javax.swing.JComboBox<String> cb_kota_dsn_baa;
+    private javax.swing.JComboBox<String> cb_kota_ortu_baa;
+    private javax.swing.JComboBox<String> cb_pendidikan_dsn_baa;
+    private javax.swing.JComboBox<String> cbx_Agama_mhs_baa;
+    private javax.swing.JComboBox<String> cbx_Prodi_baa;
+    private javax.swing.JComboBox<String> cbx_kota_mhs_baa;
+    private javax.swing.JPanel input_dsn;
     private javax.swing.JPanel input_mhs;
-    private javax.swing.JPanel input_mhs1;
     private javax.swing.JPanel input_ortu;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel11_dsn;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel12_dsn;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1089,78 +958,69 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1_dsn;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel21_dsn;
+    private javax.swing.JLabel jLabel2_dsn;
+    private javax.swing.JLabel jLabel3_dsn;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel5_dsn;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel6_dsn;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel7_dsn;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel8_dsn;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel9_dsn;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable list_all_dsn;
+    private javax.swing.JTable list_all_mahasiswa;
+    private javax.swing.JMenuItem list_data_dsn;
+    private javax.swing.JMenuItem list_data_mhs;
+    private javax.swing.JMenu menu_dosen;
+    private javax.swing.JMenu menu_logout;
     private javax.swing.JMenu menu_mhs;
-    private javax.swing.JLabel nt_agama_mhs;
-    private javax.swing.JLabel nt_alamat_mhs;
-    private javax.swing.JLabel nt_alamatortu;
-    private javax.swing.JLabel nt_email_mhs;
-    private javax.swing.JLabel nt_jk_mhs;
-    private javax.swing.JLabel nt_kota_mhs;
-    private javax.swing.JLabel nt_kota_ortu;
-    private javax.swing.JLabel nt_nama_mhs;
-    private javax.swing.JLabel nt_nohp_mhs;
-    private javax.swing.JLabel nt_nrp_mhs;
-    private javax.swing.JLabel nt_telp_ortu;
-    private javax.swing.JLabel ntktp_ayah;
-    private javax.swing.JLabel ntktp_ibu;
-    private javax.swing.JLabel ntn_prodi_mhs;
-    private javax.swing.JLabel ntnm_ayah;
-    private javax.swing.JLabel ntnm_ibu;
-    private javax.swing.JPanel panel_dosen;
+    private javax.swing.JPanel panel_add_mhs;
+    private javax.swing.JPanel panel_add_ortu;
+    private javax.swing.JPanel panel_dsn;
+    private javax.swing.JPanel panel_dsn_tabel;
     private javax.swing.JPanel panel_matkul;
-    private javax.swing.JPanel panel_mhs;
     private javax.swing.JPanel panel_mhs_tabel;
-    private javax.swing.JPanel panel_ortu;
-    private javax.swing.JPanel panelinduk;
+    private javax.swing.JPanel panelinduk_baa;
+    private javax.swing.JPanel pnl_jk_dsn;
+    private javax.swing.JPanel pnl_jk_mhs_baa;
+    private javax.swing.JPanel pnl_ttl_dsn;
+    private javax.swing.JRadioButton rd_laki_dsn_baa;
     private javax.swing.JRadioButton rd_laki_mhs;
-    private javax.swing.JRadioButton rd_laki_mhs1;
+    private javax.swing.JRadioButton rd_perempuan_dsn_baa;
     private javax.swing.JRadioButton rd_perempuan_mhs;
-    private javax.swing.JRadioButton rd_perempuan_mhs1;
-    private javax.swing.JScrollPane scrollpane1;
-    private javax.swing.JScrollPane scrollpane2;
-    private javax.swing.JScrollPane scrollpane3;
-    private javax.swing.JMenuItem sm_ortu;
-    private javax.swing.JMenuItem sm_pribadi;
-    private javax.swing.JTextField txt_Alamat_mhs;
-    private javax.swing.JTextField txt_Alamat_mhs1;
-    private javax.swing.JTextField txt_Email_mhs;
-    private javax.swing.JTextField txt_Email_mhs1;
-    private javax.swing.JTextField txt_NRP;
-    private javax.swing.JTextField txt_NRP1;
-    private javax.swing.JTextField txt_Nama_mhs;
-    private javax.swing.JTextField txt_Nama_mhs1;
-    private javax.swing.JTextField txt_alamatortu;
-    private javax.swing.JTextField txt_nohp_mhs;
-    private javax.swing.JTextField txt_nohp_mhs1;
-    private javax.swing.JTextField txt_telp_ortu;
-    private javax.swing.JTextField txtktp_ayah;
-    private javax.swing.JTextField txtktp_ibu;
-    private javax.swing.JTextField txtnm_ayah;
-    private javax.swing.JTextField txtnm_ibu;
+    private javax.swing.JLabel title_baa;
+    private javax.swing.JTextField txt_Alamat_dsn_baa;
+    private javax.swing.JTextField txt_Alamat_mhs_baa;
+    private javax.swing.JTextField txt_Email_mhs_baa;
+    private javax.swing.JTextField txt_NIDN_dsn_baa;
+    private javax.swing.JTextField txt_NIP_dsn_baa;
+    private javax.swing.JTextField txt_NRP_baa;
+    private javax.swing.JTextField txt_Nama_dsn_baa;
+    private javax.swing.JTextField txt_Nama_mhs_baa;
+    private javax.swing.JTextField txt_alamatortu_baa;
+    private javax.swing.JTextField txt_email_dsn_baa;
+    private javax.swing.JTextField txt_nohp_dsn_baa;
+    private javax.swing.JTextField txt_nohp_mhs_baa;
+    private javax.swing.JTextField txt_telp_ortu_baa;
+    private javax.swing.JTextField txt_tgl_dsn_baa;
+    private javax.swing.JTextField txtktp_ayah_baa;
+    private javax.swing.JTextField txtktp_ibu_baa;
+    private javax.swing.JTextField txtnm_ayah_baa;
+    private javax.swing.JTextField txtnm_ibu_baa;
+    private javax.swing.JMenuItem update_data_dsn;
+    private javax.swing.JMenuItem update_data_mhs;
+    private javax.swing.JMenu updte_data_mhs;
     // End of variables declaration//GEN-END:variables
 }

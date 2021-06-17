@@ -6,13 +6,17 @@
 package tugas_akhir;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ACER
  */
 public class framelogin extends javax.swing.JFrame {
-    public String email, password;
+    public static Connection con = new koneksi().ambil_koneksi();
+    public static String email, password, tipe;
     /**
      * Creates new form framesakti
      */
@@ -106,7 +110,7 @@ public class framelogin extends javax.swing.JFrame {
                                 .addGap(69, 69, 69)
                                 .addComponent(ntemail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
+                                .addGap(57, 57, 57)
                                 .addComponent(txtUser))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -137,7 +141,7 @@ public class framelogin extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ntpass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cb_show))
         );
 
@@ -265,8 +269,52 @@ public class framelogin extends javax.swing.JFrame {
                 ntemail.setText("*Mohon masukkan Email");
             }
         }
+        else{
+            try{
+                //cek apakah email sudah terdaftar atau belum
+                String db_cek_email = "SELECT * FROM USER WHERE email='"+email+"'";
+                ResultSet res_cek_email = con.prepareStatement(db_cek_email).executeQuery();
+                
+                if(res_cek_email.next()){
+                    String db_cek_pass = "SELECT * FROM USER WHERE email='"+email+"' AND password='"+password+"'";
+                    ResultSet res_cek_pass = con.prepareStatement(db_cek_pass).executeQuery(); 
+                    
+                    //jika password benar
+                    if(res_cek_pass.next()){
+                        tipe = res_cek_pass.getString("Jenis_User");
+                        pindah();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Password Salah");
+                    }
+                    
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Email Belum Terdaftar");
+                }
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
         
         
+    }
+    
+    public void pindah(){
+        System.out.println(tipe);
+        if(tipe.equals("BAA")){
+            new framebaa().setVisible(true);
+            dispose();
+        }
+        else if(tipe.equals("Dosen")){
+            new framedosen().setVisible(true);
+            dispose();
+        }
+        else if(tipe.equals("Mahasiswa")){
+            new framemahasiswa().setVisible(true);
+            dispose();
+        }
     }
     /**
      * @param args the command line arguments

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -9,23 +9,74 @@
             <Property name="text" type="java.lang.String" value="Mahasiswa"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="sm_pribadi">
+            <MenuItem class="javax.swing.JMenuItem" name="add_data_mhs">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Data Pribadi"/>
+                <Property name="text" type="java.lang.String" value="Tambah Data Mahasiswa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sm_pribadiActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_data_mhsActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="sm_ortu">
+            <Menu class="javax.swing.JMenu" name="updte_data_mhs">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Orang Tua"/>
+                <Property name="text" type="java.lang.String" value="Update Data Mahasiswa"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="update_data_mhs">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Mahasiswa"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="list_data_mhs">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List Data Mahasiswa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sm_ortuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="list_data_mhsActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menu_dosen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dosen"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="add_data_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tambah Data Dosen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_data_dsnActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="update_data_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ubah Data Dosen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="update_data_dsnActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="list_data_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="List Data Dosen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="list_data_dsnActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menu_logout">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logout"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menu_logoutMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -53,16 +104,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="panelinduk" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="panelinduk_baa" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,7 +120,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="panelinduk" max="32767" attributes="0"/>
+              <Component id="panelinduk_baa" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -91,12 +139,12 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="title_baa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PROFILE MAHASISWA"/>
+            <Property name="text" type="java.lang.String" value="BAA"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -106,252 +154,86 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="panelinduk">
+    <Container class="javax.swing.JPanel" name="panelinduk_baa">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panel_mhs">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Data Mahasiswa">
-                  <Font PropertyName="font" name="Dialog" size="11" style="1"/>
-                </TitledBorder>
-              </Border>
-            </Property>
-          </Properties>
+        <Container class="javax.swing.JPanel" name="panel_add_mhs">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="cv_pribadi"/>
+              <CardConstraints cardName="cv_add_mhs"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="scrollpane1" min="-2" pref="436" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="border2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnTambah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnUbah" min="-2" pref="97" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace pref="350" max="32767" attributes="0"/>
+                      <Component id="btnadd_mhs_baa" min="-2" pref="97" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="scrollpane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnTambah" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUbah" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="border2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnadd_mhs_baa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="scrollpane1">
+            <Container class="javax.swing.JPanel" name="border2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Tambah Data Mahasiswa"/>
+                  </Border>
+                </Property>
+              </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="input_mhs" pref="410" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="411" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="input_mhs" pref="387" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="input_mhs">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                                              <Component id="nt_email_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                              <Component id="txt_Email_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="nt_jk_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                              <Component id="nt_agama_mhs" min="-2" pref="223" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                              <Component id="cbx_Agama_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="nt_kota_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="cbx_kota_mhs" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="txt_nohp_mhs" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                              <Component id="nt_nohp_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                              <Component id="cb_Status_mhs" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="nt_nrp_mhs" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txt_NRP" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="rd_laki_mhs" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                              <Component id="rd_perempuan_mhs" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ntn_prodi_mhs" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="nt_nama_mhs" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="nt_alamat_mhs" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="cbx_Prodi" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_Nama_mhs" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_Alamat_mhs" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_NRP" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_nrp_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Email_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_email_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Nama_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_nama_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbx_Prodi" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ntn_prodi_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_laki_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_perempuan_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_jk_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbx_Agama_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_agama_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Alamat_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_alamat_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbx_kota_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_kota_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_nohp_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_nohp_mhs" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cb_Status_mhs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="11" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="2"/>
+                    <Property name="rows" type="int" value="10"/>
+                    <Property name="verticalGap" type="int" value="15"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -359,52 +241,37 @@
                         <Property name="text" type="java.lang.String" value="NRP"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_NRP">
+                    <Component class="javax.swing.JTextField" name="txt_NRP_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NRPActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NRP_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_nrp_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Email_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_Email_mhs_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhs_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_email_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nama"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Nama_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_Nama_mhs_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_mhs_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_nama_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Prodi"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbx_Prodi">
+                    <Component class="javax.swing.JComboBox" name="cbx_Prodi_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
@@ -420,37 +287,36 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="ntn_prodi_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel9">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_laki_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Laki-laki"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_perempuan_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Perempuan"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_jk_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
-                    </Component>
+                    <Container class="javax.swing.JPanel" name="pnl_jk_mhs_baa">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="1"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JRadioButton" name="rd_laki_mhs">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Laki-laki"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="rd_perempuan_mhs">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Perempuan"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Agama"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbx_Agama_mhs">
+                    <Component class="javax.swing.JComboBox" name="cbx_Agama_mhs_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="7">
@@ -468,32 +334,22 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="nt_agama_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Alamat"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Alamat_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_Alamat_mhs_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_mhs_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_alamat_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Kota"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbx_kota_mhs">
+                    <Component class="javax.swing.JComboBox" name="cbx_kota_mhs_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="8">
@@ -508,36 +364,29 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbx_kota_mhs_baaActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_kota_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel21">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="No Hp"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_nohp_mhs">
+                    <Component class="javax.swing.JTextField" name="txt_nohp_mhs_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_mhsActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_mhs_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_nohp_mhs">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Status Masuk"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="cb_Status_mhs">
+                    <Component class="javax.swing.JCheckBox" name="cb_Status_mhs_baa">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Aktif"/>
                       </Properties>
@@ -546,37 +395,20 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnTambah">
+            <Component class="javax.swing.JButton" name="btnadd_mhs_baa">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                <Property name="text" type="java.lang.String" value="NEXT"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnUbah">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ubah"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUbahActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnadd_mhs_baaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="panel_ortu">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Data Orang Tua Mahasiswa">
-                  <Font PropertyName="font" name="Dialog" size="11" style="1"/>
-                </TitledBorder>
-              </Border>
-            </Property>
-          </Properties>
+        <Container class="javax.swing.JPanel" name="panel_add_ortu">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="cv_ortu"/>
+              <CardConstraints cardName="cv_add_ortu_baa"/>
             </Constraint>
           </Constraints>
 
@@ -585,8 +417,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollpane2" min="-2" max="-2" attributes="0"/>
+                      <Component id="border1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnadd_ortu_baa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -594,159 +431,57 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollpane2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="border1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnadd_ortu_baa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="181" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="scrollpane2">
+            <Container class="javax.swing.JPanel" name="border1">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Tambah Data Orang Tua Mahasiswa"/>
+                  </Border>
+                </Property>
+              </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="443" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="input_ortu" pref="374" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="282" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="input_ortu" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="input_ortu">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="ntnm_ayah" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtnm_ayah" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="ntktp_ayah" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtktp_ayah" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="ntnm_ibu" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtnm_ibu" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="ntktp_ibu" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtktp_ibu" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Component id="nt_alamatortu" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txt_alamatortu" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cb_kota_ortu" alignment="1" pref="259" max="32767" attributes="0"/>
-                                          <Component id="txt_telp_ortu" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="nt_kota_ortu" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="nt_telp_ortu" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtnm_ayah" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ntnm_ayah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtktp_ayah" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ntktp_ayah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtnm_ibu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ntnm_ibu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtktp_ibu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ntktp_ibu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_alamatortu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_alamatortu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_kota_ortu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_kota_ortu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_telp_ortu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nt_telp_ortu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="2"/>
+                    <Property name="rows" type="int" value="7"/>
+                    <Property name="verticalGap" type="int" value="15"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel13">
@@ -754,74 +489,49 @@
                         <Property name="text" type="java.lang.String" value="Nama Ayah"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtnm_ayah">
+                    <Component class="javax.swing.JTextField" name="txtnm_ayah_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ayahActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ayah_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="ntnm_ayah">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel14">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="No KTP Ayah"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtktp_ayah">
+                    <Component class="javax.swing.JTextField" name="txtktp_ayah_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ayahActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ayah_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="ntktp_ayah">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nama Ibu"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtnm_ibu">
+                    <Component class="javax.swing.JTextField" name="txtnm_ibu_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ibuActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ibu_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="ntnm_ibu">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="No KTP Ibu"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtktp_ibu">
+                    <Component class="javax.swing.JTextField" name="txtktp_ibu_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ibuActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ibu_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="ntktp_ibu">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Alamat Orang Tua"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="nt_alamatortu">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txt_alamatortu">
+                    <Component class="javax.swing.JTextField" name="txt_alamatortu_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_alamatortuActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_alamatortu_baaActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel20">
@@ -829,7 +539,7 @@
                         <Property name="text" type="java.lang.String" value="Kota Orang Tua"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cb_kota_ortu">
+                    <Component class="javax.swing.JComboBox" name="cb_kota_ortu_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
@@ -841,96 +551,28 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="nt_kota_ortu">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel19">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Telp Orang Tua"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_telp_ortu">
+                    <Component class="javax.swing.JTextField" name="txt_telp_ortu_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_telp_ortuActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_telp_ortu_baaActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="nt_telp_ortu">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel1"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panel_mhs_tabel">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card4"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="443" max="-2" attributes="0"/>
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="521" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="47" max="32767" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="162" max="-2" attributes="0"/>
-                          <EmptySpace pref="312" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="TabelMahasiswa">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="0">
-                        <Column editable="false" title="NRP" type="java.lang.Object"/>
-                        <Column editable="false" title="Email" type="java.lang.Object"/>
-                        <Column editable="false" title="Nama" type="java.lang.Object"/>
-                        <Column editable="false" title="Prodi" type="java.lang.Object"/>
-                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
-                        <Column editable="false" title="Agama" type="java.lang.Object"/>
-                        <Column editable="false" title="Alamat" type="java.lang.Object"/>
-                        <Column editable="false" title="Kota" type="java.lang.Object"/>
-                        <Column editable="false" title="No HP" type="java.lang.Object"/>
-                        <Column editable="false" title="Status" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
+            <Component class="javax.swing.JButton" name="btnadd_ortu_baa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Simpan Data"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnadd_ortu_baaActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_matkul">
@@ -954,8 +596,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="93" max="-2" attributes="0"/>
-                      <EmptySpace pref="417" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="516" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -987,283 +629,203 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="panel_dosen">
+        <Container class="javax.swing.JPanel" name="panel_dsn">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="panel_dosen"/>
+              <CardConstraints cardName="cv_add_dsn_baa"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="scrollpane3" alignment="0" pref="472" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="border" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnUbah_dsn" min="-2" pref="97" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="scrollpane3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                      <Component id="border" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnUbah_dsn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="scrollpane3">
+            <Container class="javax.swing.JPanel" name="border">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Ubah Data Dosen"/>
+                  </Border>
+                </Property>
+              </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="input_dsn" pref="419" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="input_dsn" pref="440" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="input_mhs1">
+                <Container class="javax.swing.JPanel" name="input_dsn">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txt_Nama_mhs1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_Email_mhs1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_Alamat_mhs1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_NRP1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_nohp_mhs1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="rd_laki_mhs1" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                                      <Component id="rd_perempuan_mhs1" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jComboBox1" min="-2" pref="100" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                      <Component id="jTextField2" min="-2" pref="130" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="0" pref="82" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="cb_Status_mhs1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_NRP1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Email_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Nama_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_Alamat_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_nohp_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_laki_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rd_perempuan_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_Status_mhs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jComboBox2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel3" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="43" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="2"/>
+                    <Property name="rows" type="int" value="11"/>
+                    <Property name="verticalGap" type="int" value="15"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel22">
+                    <Component class="javax.swing.JLabel" name="jLabel5_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="NIP Dosen"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_NRP1">
+                    <Component class="javax.swing.JTextField" name="txt_NIP_dsn_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NRP1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIP_dsn_baaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel23">
+                    <Component class="javax.swing.JLabel" name="jLabel12_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="NIDN"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Email_mhs1">
+                    <Component class="javax.swing.JTextField" name="txt_NIDN_dsn_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhs1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIDN_dsn_baaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel24">
+                    <Component class="javax.swing.JLabel" name="jLabel6_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Nama Dosen"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Nama_mhs1">
+                    <Component class="javax.swing.JTextField" name="txt_Nama_dsn_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_mhs1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_dsn_baaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel25">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_laki_mhs1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Laki-laki"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rd_perempuan_mhs1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Perempuan"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel26">
+                    <Component class="javax.swing.JLabel" name="jLabel11_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Alamat"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_Alamat_mhs1">
+                    <Component class="javax.swing.JTextField" name="txt_Alamat_dsn_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_mhs1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_dsn_baaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel27">
+                    <Component class="javax.swing.JLabel" name="jLabel21_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Telepon"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_nohp_mhs1">
+                    <Component class="javax.swing.JTextField" name="txt_nohp_dsn_baa">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_mhs1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_dsn_baaActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel28">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="cb_Status_mhs1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Aktif"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
+                    <Component class="javax.swing.JLabel" name="jLabel1_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="txt_email_dsn_baa">
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel2">
+                    <Component class="javax.swing.JLabel" name="jLabel9_dsn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Jenis Kelamin"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="pnl_jk_dsn">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="1"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JRadioButton" name="rd_laki_dsn_baa">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Laki-laki"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="rd_perempuan_dsn_baa">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Perempuan"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="jLabel2_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="TTL"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Container class="javax.swing.JPanel" name="pnl_ttl_dsn">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JComboBox" name="cb_kota_dsn_baa">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="4">
+                                <StringItem index="0" value="Item 1"/>
+                                <StringItem index="1" value="Item 2"/>
+                                <StringItem index="2" value="Item 3"/>
+                                <StringItem index="3" value="Item 4"/>
+                              </StringArray>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txt_tgl_dsn_baa">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="jLabel8_dsn">
                       <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
-                        </Property>
+                        <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
                       </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
+                    <Component class="javax.swing.JCheckBox" name="cb_Status_dsn_baa">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Aktif"/>
+                      </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel3">
+                    <Component class="javax.swing.JLabel" name="jLabel3_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pendidikan tertinggi"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox2">
+                    <Component class="javax.swing.JComboBox" name="cb_pendidikan_dsn_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1278,12 +840,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel29">
+                    <Component class="javax.swing.JLabel" name="jLabel7_dsn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Jabatan Akademik"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox3">
+                    <Component class="javax.swing.JComboBox" name="cb_jbtn_dsn_baa">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1302,27 +864,154 @@
                 </Container>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btnUbah_dsn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tambah Data"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUbah_dsnActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="panel_mhs_tabel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card6"/>
+              <CardConstraints cardName="cv_list_mhs_baa"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="472" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="477" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="521" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="540" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" pref="516" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="list_all_mahasiswa">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="10" rowCount="0">
+                        <Column editable="false" title="NRP" type="java.lang.Object"/>
+                        <Column editable="false" title="Email" type="java.lang.Object"/>
+                        <Column editable="false" title="Nama" type="java.lang.Object"/>
+                        <Column editable="false" title="Prodi" type="java.lang.Object"/>
+                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
+                        <Column editable="false" title="Agama" type="java.lang.Object"/>
+                        <Column editable="false" title="Alamat" type="java.lang.Object"/>
+                        <Column editable="false" title="Kota" type="java.lang.Object"/>
+                        <Column editable="false" title="No HP" type="java.lang.Object"/>
+                        <Column editable="false" title="Status" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_dsn_tabel">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Daftar Dosen"/>
+              </Border>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cv_list_dsn_baa"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="467" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" pref="443" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="518" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" pref="494" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="list_all_dsn">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="10" rowCount="0">
+                        <Column editable="false" title="NRP" type="java.lang.Object"/>
+                        <Column editable="false" title="Email" type="java.lang.Object"/>
+                        <Column editable="false" title="Nama" type="java.lang.Object"/>
+                        <Column editable="false" title="Prodi" type="java.lang.Object"/>
+                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
+                        <Column editable="false" title="Agama" type="java.lang.Object"/>
+                        <Column editable="false" title="Alamat" type="java.lang.Object"/>
+                        <Column editable="false" title="Kota" type="java.lang.Object"/>
+                        <Column editable="false" title="No HP" type="java.lang.Object"/>
+                        <Column editable="false" title="Status" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
