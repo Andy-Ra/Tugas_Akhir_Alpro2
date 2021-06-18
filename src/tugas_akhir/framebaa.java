@@ -6,18 +6,23 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
  * @author ACER
  */
 public class framebaa extends javax.swing.JFrame {
-
+    public static Connection con = new koneksi().ambil_koneksi();
+    private static String kota_mhs, kota_dsn;
     /**
      * Creates new form framebaa
      */
     public framebaa() {
         initComponents();
+        tampilkota();
     }
 
     /**
@@ -49,6 +54,8 @@ public class framebaa extends javax.swing.JFrame {
         rd_perempuan_mhs = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         cbx_Agama_mhs_baa = new javax.swing.JComboBox<>();
+        jLabel2_dsn1 = new javax.swing.JLabel();
+        txt_ttl_mhs_baa = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_Alamat_mhs_baa = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -100,8 +107,7 @@ public class framebaa extends javax.swing.JFrame {
         rd_perempuan_dsn_baa = new javax.swing.JRadioButton();
         jLabel2_dsn = new javax.swing.JLabel();
         pnl_ttl_dsn = new javax.swing.JPanel();
-        cb_kota_dsn_baa = new javax.swing.JComboBox<>();
-        txt_tgl_dsn_baa = new javax.swing.JTextField();
+        txt_ttl_dsn_baa = new javax.swing.JTextField();
         jLabel8_dsn = new javax.swing.JLabel();
         cb_Status_dsn_baa = new javax.swing.JCheckBox();
         jLabel3_dsn = new javax.swing.JLabel();
@@ -141,7 +147,7 @@ public class framebaa extends javax.swing.JFrame {
 
         border2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tambah Data Mahasiswa"));
 
-        input_mhs.setLayout(new java.awt.GridLayout(10, 2, 0, 15));
+        input_mhs.setLayout(new java.awt.GridLayout(11, 2, 0, 15));
 
         jLabel5.setText("NRP");
         input_mhs.add(jLabel5);
@@ -198,6 +204,10 @@ public class framebaa extends javax.swing.JFrame {
         cbx_Agama_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
         input_mhs.add(cbx_Agama_mhs_baa);
 
+        jLabel2_dsn1.setText("TTL");
+        input_mhs.add(jLabel2_dsn1);
+        input_mhs.add(txt_ttl_mhs_baa);
+
         jLabel11.setText("Alamat");
         input_mhs.add(jLabel11);
 
@@ -211,7 +221,7 @@ public class framebaa extends javax.swing.JFrame {
         jLabel15.setText("Kota");
         input_mhs.add(jLabel15);
 
-        cbx_kota_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Malang", "Surabaya", "Blitar", "Kediri", "Probolinggo", "Lamongan", "Lumajang" }));
+        cbx_kota_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== KOTA ===" }));
         cbx_kota_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_kota_mhs_baaActionPerformed(evt);
@@ -248,11 +258,11 @@ public class framebaa extends javax.swing.JFrame {
         );
         border2Layout.setVerticalGroup(
             border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 411, Short.MAX_VALUE)
+            .addGap(0, 438, Short.MAX_VALUE)
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 387, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -272,7 +282,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addComponent(border2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_mhsLayout.createSequentialGroup()
-                .addContainerGap(350, Short.MAX_VALUE)
+                .addContainerGap(405, Short.MAX_VALUE)
                 .addComponent(btnadd_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -361,7 +371,7 @@ public class framebaa extends javax.swing.JFrame {
         border1.setLayout(border1Layout);
         border1Layout.setHorizontalGroup(
             border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
             .addGroup(border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -525,10 +535,7 @@ public class framebaa extends javax.swing.JFrame {
         input_dsn.add(jLabel2_dsn);
 
         pnl_ttl_dsn.setLayout(new javax.swing.BoxLayout(pnl_ttl_dsn, javax.swing.BoxLayout.LINE_AXIS));
-
-        cb_kota_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_ttl_dsn.add(cb_kota_dsn_baa);
-        pnl_ttl_dsn.add(txt_tgl_dsn_baa);
+        pnl_ttl_dsn.add(txt_ttl_dsn_baa);
 
         input_dsn.add(pnl_ttl_dsn);
 
@@ -556,7 +563,7 @@ public class framebaa extends javax.swing.JFrame {
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(borderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                 .addContainerGap())
         );
         borderLayout.setVerticalGroup(
@@ -620,7 +627,7 @@ public class framebaa extends javax.swing.JFrame {
         panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
         panel_mhs_tabelLayout.setHorizontalGroup(
             panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGap(0, 532, Short.MAX_VALUE)
             .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -663,11 +670,11 @@ public class framebaa extends javax.swing.JFrame {
         panel_dsn_tabel.setLayout(panel_dsn_tabelLayout);
         panel_dsn_tabelLayout.setHorizontalGroup(
             panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 522, Short.MAX_VALUE)
             .addGroup(panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         panel_dsn_tabelLayout.setVerticalGroup(
@@ -874,7 +881,7 @@ public class framebaa extends javax.swing.JFrame {
     }//GEN-LAST:event_add_data_dsnActionPerformed
 
     private void list_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_dsnActionPerformed
-        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_list_dsn_baa");
        title_baa.setText("Daftar Dosen");
         
@@ -888,7 +895,36 @@ public class framebaa extends javax.swing.JFrame {
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
+    
+    //untuk menampilkan kota
+    private void tampilkota(){
+        cbx_kota_mhs_baa.removeAllItems();
+        cbx_kota_mhs_baa.addItem("=== KOTA ===");
+        
+        try{
+           String db_tmplkota = "SELECT * FROM kota";
+            PreparedStatement  ps_tmpl_kota = con.prepareStatement(db_tmplkota);
+            ResultSet rs_tmplkota = ps_tmpl_kota.executeQuery();
 
+            while(rs_tmplkota.next()){
+                cbx_kota_mhs_baa.addItem(">  "+rs_tmplkota.getString("Kota"));
+                cb_kota_ortu_baa.addItem(">  "+rs_tmplkota.getString("Kota"));
+                
+                kota_mhs = hapus_tanda(cbx_kota_mhs_baa.getSelectedItem().toString());
+                kota_dsn = hapus_tanda(cb_kota_ortu_baa.getSelectedItem().toString());
+            } 
+        }
+        catch(Exception e){
+            
+        }
+        
+    }
+    
+    //untuk menghapus tanda ">"
+    private String hapus_tanda(String str){
+        return str.substring(2);
+    }
+    //untuk menampilkan data kota
     /**
      * @param args the command line arguments
      */
@@ -937,7 +973,6 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_Status_dsn_baa;
     private javax.swing.JCheckBox cb_Status_mhs_baa;
     private javax.swing.JComboBox<String> cb_jbtn_dsn_baa;
-    private javax.swing.JComboBox<String> cb_kota_dsn_baa;
     private javax.swing.JComboBox<String> cb_kota_ortu_baa;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn_baa;
     private javax.swing.JComboBox<String> cbx_Agama_mhs_baa;
@@ -963,6 +998,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel21_dsn;
     private javax.swing.JLabel jLabel2_dsn;
+    private javax.swing.JLabel jLabel2_dsn1;
     private javax.swing.JLabel jLabel3_dsn;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5_dsn;
@@ -1014,7 +1050,8 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nohp_dsn_baa;
     private javax.swing.JTextField txt_nohp_mhs_baa;
     private javax.swing.JTextField txt_telp_ortu_baa;
-    private javax.swing.JTextField txt_tgl_dsn_baa;
+    private javax.swing.JTextField txt_ttl_dsn_baa;
+    private javax.swing.JTextField txt_ttl_mhs_baa;
     private javax.swing.JTextField txtktp_ayah_baa;
     private javax.swing.JTextField txtktp_ibu_baa;
     private javax.swing.JTextField txtnm_ayah_baa;

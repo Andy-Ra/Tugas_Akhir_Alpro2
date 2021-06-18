@@ -6,13 +6,17 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
  * @author ACER
  */
 public class framemahasiswa extends javax.swing.JFrame {
-
+    public static Connection con = new koneksi().ambil_koneksi();
+    private static String kota_ortu_mhs;
     /**
      * Creates new form framemahasiswa
      */
@@ -21,6 +25,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
         cview.show(panelinduk_mhs, "cv_tmpl_pribadi");
         header_mhs.setText("PROFILE MAHASISWA");
+        tampilkota();
     }
 
     /**
@@ -754,7 +759,33 @@ public class framemahasiswa extends javax.swing.JFrame {
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
+    
+    //untuk menampilkan kota
+    private void tampilkota(){
+        cb_kota_ortu.removeAllItems();
+        cb_kota_ortu.addItem("=== KOTA ===");
+        
+        try{
+            String db_tmplkota_ortu = "SELECT * FROM kota";
+            PreparedStatement  ps_tmpl_kota = con.prepareStatement(db_tmplkota_ortu);
+            ResultSet rs_tmplkota_ortu = ps_tmpl_kota.executeQuery();
 
+            while(rs_tmplkota_ortu.next()){
+                cb_kota_ortu.addItem(">  "+rs_tmplkota_ortu.getString("Kota"));
+                
+                kota_ortu_mhs = hapus_tanda(cb_kota_ortu.getSelectedItem().toString());
+            } 
+        }
+        catch(Exception e){
+            
+        }
+        
+    }
+    
+    //untuk menghapus tanda ">"
+    private String hapus_tanda(String str){
+        return str.substring(2);
+    }
         
     /**
      * @param args the command line arguments

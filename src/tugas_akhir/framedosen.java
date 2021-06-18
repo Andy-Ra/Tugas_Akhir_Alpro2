@@ -6,13 +6,14 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.sql.Connection;
 
 /**
  *
  * @author ACER
  */
 public class framedosen extends javax.swing.JFrame {
-
+    public static Connection con = new koneksi().ambil_koneksi();
     /**
      * Creates new form framedosen
      */
@@ -78,8 +79,7 @@ public class framedosen extends javax.swing.JFrame {
         rd_perempuan_dsn = new javax.swing.JRadioButton();
         jLabel2_dsn = new javax.swing.JLabel();
         pnl_ttl_dsn = new javax.swing.JPanel();
-        cb_kota_dsn = new javax.swing.JComboBox<>();
-        txt_tgl_dsn = new javax.swing.JTextField();
+        txt_ttl_dsn = new javax.swing.JTextField();
         jLabel8_dsn = new javax.swing.JLabel();
         cb_Status_dsn = new javax.swing.JCheckBox();
         jLabel3_dsn = new javax.swing.JLabel();
@@ -289,10 +289,7 @@ public class framedosen extends javax.swing.JFrame {
         input_dsn.add(jLabel2_dsn);
 
         pnl_ttl_dsn.setLayout(new javax.swing.BoxLayout(pnl_ttl_dsn, javax.swing.BoxLayout.LINE_AXIS));
-
-        cb_kota_dsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_ttl_dsn.add(cb_kota_dsn);
-        pnl_ttl_dsn.add(txt_tgl_dsn);
+        pnl_ttl_dsn.add(txt_ttl_dsn);
 
         input_dsn.add(pnl_ttl_dsn);
 
@@ -607,7 +604,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JButton btnUbah_dsn;
     private javax.swing.JCheckBox cb_Status_dsn;
     private javax.swing.JComboBox<String> cb_jbtn_dsn;
-    private javax.swing.JComboBox<String> cb_kota_dsn;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn;
     private javax.swing.JLabel header_dsn;
     private javax.swing.JPanel input_dsn;
@@ -673,6 +669,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Nama_dsn;
     private javax.swing.JTextField txt_email_dsn;
     private javax.swing.JTextField txt_nohp_dsn;
-    private javax.swing.JTextField txt_tgl_dsn;
+    private javax.swing.JTextField txt_ttl_dsn;
     // End of variables declaration//GEN-END:variables
 }
