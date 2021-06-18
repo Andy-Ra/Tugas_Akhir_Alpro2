@@ -1073,7 +1073,6 @@ public class framebaa extends javax.swing.JFrame {
         return str.substring(2);
     }
     
-    //untuk menampilkan data kota
     /**
      * @param args the command line arguments
      */
