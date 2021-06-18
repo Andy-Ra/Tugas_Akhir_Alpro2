@@ -479,30 +479,15 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JLabel" name="jLabel8_dsn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Status Kepegawaian"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JCheckBox" name="cb_Status_dsn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Aktif"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel3_dsn">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Pendidikan tertinggi"/>
+                        <Property name="text" type="java.lang.String" value="Pendidikan Tertinggi"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cb_pendidikan_dsn">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -517,12 +502,7 @@
                     <Component class="javax.swing.JComboBox" name="cb_jbtn_dsn">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>

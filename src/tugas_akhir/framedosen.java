@@ -7,6 +7,8 @@ package tugas_akhir;
 
 import java.awt.CardLayout;
 import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,9 +20,10 @@ public class framedosen extends javax.swing.JFrame {
      * Creates new form framedosen
      */
     public framedosen() {
-        initComponents();
+       initComponents();
+       tampil_data(); 
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,8 +83,6 @@ public class framedosen extends javax.swing.JFrame {
         jLabel2_dsn = new javax.swing.JLabel();
         pnl_ttl_dsn = new javax.swing.JPanel();
         txt_ttl_dsn = new javax.swing.JTextField();
-        jLabel8_dsn = new javax.swing.JLabel();
-        cb_Status_dsn = new javax.swing.JCheckBox();
         jLabel3_dsn = new javax.swing.JLabel();
         cb_pendidikan_dsn = new javax.swing.JComboBox<>();
         jLabel7_dsn = new javax.swing.JLabel();
@@ -275,7 +276,7 @@ public class framedosen extends javax.swing.JFrame {
         jLabel9_dsn.setText("Jenis Kelamin");
         input_dsn.add(jLabel9_dsn);
 
-        pnl_jk_dsn.setLayout(new java.awt.GridLayout());
+        pnl_jk_dsn.setLayout(new java.awt.GridLayout(1, 0));
 
         rd_laki_dsn.setText("Laki-laki");
         pnl_jk_dsn.add(rd_laki_dsn);
@@ -293,22 +294,14 @@ public class framedosen extends javax.swing.JFrame {
 
         input_dsn.add(pnl_ttl_dsn);
 
-        jLabel8_dsn.setText("Status Kepegawaian");
-        input_dsn.add(jLabel8_dsn);
-
-        cb_Status_dsn.setText("Aktif");
-        input_dsn.add(cb_Status_dsn);
-
-        jLabel3_dsn.setText("Pendidikan tertinggi");
+        jLabel3_dsn.setText("Pendidikan Tertinggi");
         input_dsn.add(jLabel3_dsn);
 
-        cb_pendidikan_dsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         input_dsn.add(cb_pendidikan_dsn);
 
         jLabel7_dsn.setText("Jabatan Akademik");
         input_dsn.add(jLabel7_dsn);
 
-        cb_jbtn_dsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         input_dsn.add(cb_jbtn_dsn);
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
@@ -324,7 +317,7 @@ public class framedosen extends javax.swing.JFrame {
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(input_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -505,7 +498,7 @@ public class framedosen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txt_NIP_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIP_dsnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_NIP_dsnActionPerformed
@@ -528,6 +521,24 @@ public class framedosen extends javax.swing.JFrame {
 
     private void btnUbah_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_dsnActionPerformed
         // TODO add your handling code here:
+        String NIP = txt_NIP_dsn.getText();
+        String NIDN = txt_NIDN_dsn.getText();
+        String Nama = txt_Nama_dsn.getText();
+        String Alamat = txt_Alamat_dsn.getText();
+        String Telepon = txt_nohp_dsn.getText();
+        String Email = txt_email_dsn.getText();
+        String Jenis_Kelamin = null;
+        if(rd_laki_dsn.isSelected()){
+            Jenis_Kelamin = "Laki-Laki";
+        }else if(rd_perempuan_dsn.isSelected()){
+            Jenis_Kelamin = "Perempuan";
+        }
+        String Tempat_Tanggal_Lahir = txt_ttl_dsn.getText();
+        String Pendidikan_tertinggi = cb_pendidikan_dsn.getSelectedItem().toString();
+        String Jabatan_Akademik = cb_jbtn_dsn.getSelectedItem().toString();
+                
+                
+        
     }//GEN-LAST:event_btnUbah_dsnActionPerformed
     
     //untuk menampulkan data probadi dosen
@@ -535,6 +546,7 @@ public class framedosen extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
         cview.show(panelinduk_dsn, "cv_tmpl_pribadi_dsn");
         header_dsn.setText("PROFILE DOSEN");
+         tampil_data();
     }//GEN-LAST:event_sm_tmpl_pribadi_dsnActionPerformed
     
     //untuk mengubah data probadi dosen
@@ -562,6 +574,23 @@ public class framedosen extends javax.swing.JFrame {
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
+    private void tampil_data(){
+        try {
+            String sql = "select * from dosen";
+            lbl_nip_dsn.setText("");
+            lbl_nidn_dsn.setText("");
+            lbl_nama_dsn.setText("");
+            lbl_alamat_dsn.setText("");
+            lbl_tlp_dsn.setText("");
+            lbl_email_dsn.setText("");
+            lbl_jk_dsn.setText("");
+            lbl_ttl_dsn.setText("");
+            lbl_pendidikan_dsn.setText("");
+            lbl_
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -602,7 +631,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JTable TabelKelas;
     private javax.swing.JPanel border;
     private javax.swing.JButton btnUbah_dsn;
-    private javax.swing.JCheckBox cb_Status_dsn;
     private javax.swing.JComboBox<String> cb_jbtn_dsn;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn;
     private javax.swing.JLabel header_dsn;
@@ -627,7 +655,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5_dsn;
     private javax.swing.JLabel jLabel6_dsn;
     private javax.swing.JLabel jLabel7_dsn;
-    private javax.swing.JLabel jLabel8_dsn;
     private javax.swing.JLabel jLabel9_dsn;
     private javax.swing.JMenuBar jMenuBar1_dsn;
     private javax.swing.JPanel jPanel3;
