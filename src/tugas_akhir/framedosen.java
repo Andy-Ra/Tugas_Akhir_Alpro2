@@ -7,6 +7,8 @@ package tugas_akhir;
 
 import java.awt.CardLayout;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -16,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class framedosen extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
+    private static framelogin lgn = new framelogin();
     /**
      * Creates new form framedosen
      */
@@ -56,9 +59,9 @@ public class framedosen extends javax.swing.JFrame {
         jLabel55_dsn7 = new javax.swing.JLabel();
         lbl_ttl_dsn = new javax.swing.JLabel();
         jLabel55_dsn8 = new javax.swing.JLabel();
-        lbl_pendidikan_dsn = new javax.swing.JLabel();
-        jLabel55_dsn9 = new javax.swing.JLabel();
         lbl_status_dsn = new javax.swing.JLabel();
+        jLabel55_dsn9 = new javax.swing.JLabel();
+        lbl_pendidikan_dsn = new javax.swing.JLabel();
         jLabel55_dsn10 = new javax.swing.JLabel();
         lbl_jbtn_dsn = new javax.swing.JLabel();
         panel_dsn = new javax.swing.JPanel();
@@ -125,67 +128,67 @@ public class framedosen extends javax.swing.JFrame {
         jLabel55_dsn.setText("NIP");
         jPanel3.add(jLabel55_dsn);
 
-        lbl_nip_dsn.setText("NIP");
+        lbl_nip_dsn.setText("Get NIP");
         jPanel3.add(lbl_nip_dsn);
 
         jLabel55_dsn1.setText("NIDN");
         jPanel3.add(jLabel55_dsn1);
 
-        lbl_nidn_dsn.setText("NIDN");
+        lbl_nidn_dsn.setText("Get NIDN");
         jPanel3.add(lbl_nidn_dsn);
 
         jLabel55_dsn2.setText("Nama");
         jPanel3.add(jLabel55_dsn2);
 
-        lbl_nama_dsn.setText("Nama");
+        lbl_nama_dsn.setText("Get Nama");
         jPanel3.add(lbl_nama_dsn);
 
         jLabel55_dsn3.setText("Alamat");
         jPanel3.add(jLabel55_dsn3);
 
-        lbl_alamat_dsn.setText("Alamat");
+        lbl_alamat_dsn.setText("Get Alamat");
         jPanel3.add(lbl_alamat_dsn);
 
         jLabel55_dsn4.setText("Telepon");
         jPanel3.add(jLabel55_dsn4);
 
-        lbl_tlp_dsn.setText("Telepon");
+        lbl_tlp_dsn.setText("Get Telepon");
         jPanel3.add(lbl_tlp_dsn);
 
         jLabel55_dsn5.setText("Email");
         jPanel3.add(jLabel55_dsn5);
 
-        lbl_email_dsn.setText("Email");
+        lbl_email_dsn.setText("Get Email");
         jPanel3.add(lbl_email_dsn);
 
         jLabel55_dsn6.setText("Jenis Kelamin");
         jPanel3.add(jLabel55_dsn6);
 
-        lbl_jk_dsn.setText("Jenis Kelamin");
+        lbl_jk_dsn.setText("Get Jenis Kelamin");
         jPanel3.add(lbl_jk_dsn);
 
         jLabel55_dsn7.setText("Tempat / Tanggal Lahir");
         jPanel3.add(jLabel55_dsn7);
 
-        lbl_ttl_dsn.setText("Tempat / Tanggal Lahir");
+        lbl_ttl_dsn.setText("Get Tempat / Tanggal Lahir");
         jPanel3.add(lbl_ttl_dsn);
 
         jLabel55_dsn8.setText("Status Kepegawaian");
         jPanel3.add(jLabel55_dsn8);
 
-        lbl_pendidikan_dsn.setText("Pendidikan Tertinggi");
-        jPanel3.add(lbl_pendidikan_dsn);
+        lbl_status_dsn.setText("Get Status Kepegawaian");
+        jPanel3.add(lbl_status_dsn);
 
         jLabel55_dsn9.setText("Pendidikan Tertinggi");
         jPanel3.add(jLabel55_dsn9);
 
-        lbl_status_dsn.setText("Status Kepegawaian");
-        jPanel3.add(lbl_status_dsn);
+        lbl_pendidikan_dsn.setText("Get Pendidikan Tertinggi");
+        jPanel3.add(lbl_pendidikan_dsn);
 
         jLabel55_dsn10.setText("Jabatan Akademik");
         jPanel3.add(jLabel55_dsn10);
 
-        lbl_jbtn_dsn.setText("Jabatan Akademik");
+        lbl_jbtn_dsn.setText("Get Jabatan Akademik");
         jPanel3.add(lbl_jbtn_dsn);
 
         javax.swing.GroupLayout panel_tmpl_pribadi_dsnLayout = new javax.swing.GroupLayout(panel_tmpl_pribadi_dsn);
@@ -271,6 +274,8 @@ public class framedosen extends javax.swing.JFrame {
 
         jLabel1_dsn.setText("Email");
         input_dsn.add(jLabel1_dsn);
+
+        txt_email_dsn.setEditable(false);
         input_dsn.add(txt_email_dsn);
 
         jLabel9_dsn.setText("Jenis Kelamin");
@@ -317,7 +322,7 @@ public class framedosen extends javax.swing.JFrame {
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -524,9 +529,9 @@ public class framedosen extends javax.swing.JFrame {
         String NIP = txt_NIP_dsn.getText();
         String NIDN = txt_NIDN_dsn.getText();
         String Nama = txt_Nama_dsn.getText();
+        String Email = txt_email_dsn.getText();
         String Alamat = txt_Alamat_dsn.getText();
         String Telepon = txt_nohp_dsn.getText();
-        String Email = txt_email_dsn.getText();
         String Jenis_Kelamin = null;
         if(rd_laki_dsn.isSelected()){
             Jenis_Kelamin = "Laki-Laki";
@@ -574,19 +579,27 @@ public class framedosen extends javax.swing.JFrame {
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
+    
     private void tampil_data(){
+        System.out.println(lgn.email);  
         try {
-            String sql = "select * from dosen";
-            lbl_nip_dsn.setText("");
-            lbl_nidn_dsn.setText("");
-            lbl_nama_dsn.setText("");
-            lbl_alamat_dsn.setText("");
-            lbl_tlp_dsn.setText("");
-            lbl_email_dsn.setText("");
-            lbl_jk_dsn.setText("");
-            lbl_ttl_dsn.setText("");
-            lbl_pendidikan_dsn.setText("");
-            lbl_
+            String sqltampil = "select * from dosen WHERE email='"+lgn.email+"'";
+            PreparedStatement ps_tampil = con.prepareStatement(sqltampil);
+            ResultSet res_tampil = ps_tampil.executeQuery();
+            
+            if(res_tampil.next()){
+                lbl_nip_dsn.setText(res_tampil.getString("nip_dosen"));
+                lbl_nidn_dsn.setText(res_tampil.getString("nidn_dosen"));
+                lbl_nama_dsn.setText(res_tampil.getString("nama_dosen"));
+                lbl_alamat_dsn.setText(res_tampil.getString("Alamat"));
+                lbl_tlp_dsn.setText(res_tampil.getString("Telepon"));
+                lbl_email_dsn.setText(res_tampil.getString("Email"));
+                lbl_jk_dsn.setText(res_tampil.getString("Jenis_Kelamin"));
+                lbl_ttl_dsn.setText(res_tampil.getString("Tempat_Tanggal_Lahir"));
+                lbl_status_dsn.setText(res_tampil.getString("Status_Kepegawaian"));
+                lbl_pendidikan_dsn.setText(res_tampil.getString("Pendidikan_Tertinggi"));
+                lbl_jbtn_dsn.setText(res_tampil.getString("Jabatan_Akademik"));
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }

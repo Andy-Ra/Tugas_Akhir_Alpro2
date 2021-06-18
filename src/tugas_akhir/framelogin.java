@@ -240,7 +240,7 @@ public class framelogin extends javax.swing.JFrame {
         cek();
     }//GEN-LAST:event_btnLoginActionPerformed
     
-    private void deklarasi(){
+    public void deklarasi(){
         email = txtUser.getText();
         password = txtPass.getText();
     }
