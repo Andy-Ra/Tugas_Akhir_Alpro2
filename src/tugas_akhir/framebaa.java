@@ -553,7 +553,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnUbah_dsn.setText("ADD");
+        btnUbah_dsn.setText("Tambah Data");
         btnUbah_dsn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbah_dsnActionPerformed(evt);
@@ -570,7 +570,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dsnLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUbah_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUbah_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         panel_dsnLayout.setVerticalGroup(
@@ -756,7 +756,7 @@ public class framebaa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // untuk
+
     private void btnUbah_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_dsnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUbah_dsnActionPerformed
