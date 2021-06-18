@@ -16,13 +16,24 @@ import java.sql.ResultSet;
  */
 public class framebaa extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
-    private static String kota_mhs, kota_dsn;
+    
+    private static String kota_dsn;
+    
+    //untuk mahasiswa
+    private static String nrp_mhs, email_mhs, nama_mhs, prodi_mhs, agama_mhs, jk_mhs, kota_mhs, ttl_mhs, 
+            almt_mhs, hp_mhs, stts_mhs;
+    private static int indx_kota_mhs;
+    
+    //untuk orang tua
+    private static String nama_ayah_mhs, ktp_ayah_mhs, nama_ibu_mhs, ktp_ibu_mhs, kota_ortu_mhs, hp_ortu_mhs;
+    private static int indx_kota_ortu_mhs;
     /**
      * Creates new form framebaa
      */
     public framebaa() {
         initComponents();
         tampilkota();
+        clear_all();
     }
 
     /**
@@ -34,6 +45,7 @@ public class framebaa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grp_jk_mhs_baa = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         title_baa = new javax.swing.JLabel();
         panelinduk_baa = new javax.swing.JPanel();
@@ -41,7 +53,9 @@ public class framebaa extends javax.swing.JFrame {
         border2 = new javax.swing.JPanel();
         input_mhs = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        panel_nrp = new javax.swing.JPanel();
         txt_NRP_baa = new javax.swing.JTextField();
+        cb_NRP_baa = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         txt_Email_mhs_baa = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -65,6 +79,7 @@ public class framebaa extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cb_Status_mhs_baa = new javax.swing.JCheckBox();
         btnadd_mhs_baa = new javax.swing.JButton();
+        btn_clear_mhs_baa = new javax.swing.JButton();
         panel_add_ortu = new javax.swing.JPanel();
         border1 = new javax.swing.JPanel();
         input_ortu = new javax.swing.JPanel();
@@ -83,6 +98,7 @@ public class framebaa extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txt_telp_ortu_baa = new javax.swing.JTextField();
         btnadd_ortu_baa = new javax.swing.JButton();
+        btn_clear_ortu_baa = new javax.swing.JButton();
         panel_matkul = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelMatkul = new javax.swing.JTable();
@@ -124,7 +140,6 @@ public class framebaa extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
         add_data_mhs = new javax.swing.JMenuItem();
-        updte_data_mhs = new javax.swing.JMenu();
         update_data_mhs = new javax.swing.JMenuItem();
         list_data_mhs = new javax.swing.JMenuItem();
         menu_dosen = new javax.swing.JMenu();
@@ -152,37 +167,38 @@ public class framebaa extends javax.swing.JFrame {
         jLabel5.setText("NRP");
         input_mhs.add(jLabel5);
 
-        txt_NRP_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NRP_baaActionPerformed(evt);
-            }
-        });
-        input_mhs.add(txt_NRP_baa);
+        cb_NRP_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panel_nrpLayout = new javax.swing.GroupLayout(panel_nrp);
+        panel_nrp.setLayout(panel_nrpLayout);
+        panel_nrpLayout.setHorizontalGroup(
+            panel_nrpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_NRP_baa)
+            .addComponent(cb_NRP_baa, 0, 237, Short.MAX_VALUE)
+        );
+        panel_nrpLayout.setVerticalGroup(
+            panel_nrpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_nrpLayout.createSequentialGroup()
+                .addComponent(txt_NRP_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_NRP_baa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        input_mhs.add(panel_nrp);
 
         jLabel12.setText("Email");
         input_mhs.add(jLabel12);
-
-        txt_Email_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Email_mhs_baaActionPerformed(evt);
-            }
-        });
         input_mhs.add(txt_Email_mhs_baa);
 
         jLabel6.setText("Nama");
         input_mhs.add(jLabel6);
-
-        txt_Nama_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_mhs_baaActionPerformed(evt);
-            }
-        });
         input_mhs.add(txt_Nama_mhs_baa);
 
         jLabel7.setText("Prodi");
         input_mhs.add(jLabel7);
 
-        cbx_Prodi_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika", "DKV" }));
+        cbx_Prodi_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "> Teknik Informatika", "> Sistem Informasi", "> Manajemen Informatika", "> DKV" }));
         input_mhs.add(cbx_Prodi_baa);
 
         jLabel9.setText("Jenis Kelamin");
@@ -190,9 +206,11 @@ public class framebaa extends javax.swing.JFrame {
 
         pnl_jk_mhs_baa.setLayout(new java.awt.GridLayout());
 
+        grp_jk_mhs_baa.add(rd_laki_mhs);
         rd_laki_mhs.setText("Laki-laki");
         pnl_jk_mhs_baa.add(rd_laki_mhs);
 
+        grp_jk_mhs_baa.add(rd_perempuan_mhs);
         rd_perempuan_mhs.setText("Perempuan");
         pnl_jk_mhs_baa.add(rd_perempuan_mhs);
 
@@ -201,42 +219,25 @@ public class framebaa extends javax.swing.JFrame {
         jLabel10.setText("Agama");
         input_mhs.add(jLabel10);
 
-        cbx_Agama_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
+        cbx_Agama_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "> Islam", "> Kristen", "> Katholik", "> Hindu", "> Budha", "> Konghucu" }));
         input_mhs.add(cbx_Agama_mhs_baa);
 
-        jLabel2_dsn1.setText("TTL");
+        jLabel2_dsn1.setText("Tempat Tanggal Lahir");
         input_mhs.add(jLabel2_dsn1);
         input_mhs.add(txt_ttl_mhs_baa);
 
         jLabel11.setText("Alamat");
         input_mhs.add(jLabel11);
-
-        txt_Alamat_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Alamat_mhs_baaActionPerformed(evt);
-            }
-        });
         input_mhs.add(txt_Alamat_mhs_baa);
 
         jLabel15.setText("Kota");
         input_mhs.add(jLabel15);
 
         cbx_kota_mhs_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== KOTA ===" }));
-        cbx_kota_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_kota_mhs_baaActionPerformed(evt);
-            }
-        });
         input_mhs.add(cbx_kota_mhs_baa);
 
         jLabel21.setText("No Hp");
         input_mhs.add(jLabel21);
-
-        txt_nohp_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nohp_mhs_baaActionPerformed(evt);
-            }
-        });
         input_mhs.add(txt_nohp_mhs_baa);
 
         jLabel8.setText("Status Masuk");
@@ -273,6 +274,13 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
+        btn_clear_mhs_baa.setText("CLEAR");
+        btn_clear_mhs_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clear_mhs_baaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_add_mhsLayout = new javax.swing.GroupLayout(panel_add_mhs);
         panel_add_mhs.setLayout(panel_add_mhsLayout);
         panel_add_mhsLayout.setHorizontalGroup(
@@ -282,7 +290,9 @@ public class framebaa extends javax.swing.JFrame {
                 .addComponent(border2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_mhsLayout.createSequentialGroup()
-                .addContainerGap(405, Short.MAX_VALUE)
+                .addContainerGap(303, Short.MAX_VALUE)
+                .addComponent(btn_clear_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnadd_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -291,7 +301,9 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(panel_add_mhsLayout.createSequentialGroup()
                 .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnadd_mhs_baa)
+                .addGroup(panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnadd_mhs_baa)
+                    .addComponent(btn_clear_mhs_baa))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -303,52 +315,22 @@ public class framebaa extends javax.swing.JFrame {
 
         jLabel13.setText("Nama Ayah");
         input_ortu.add(jLabel13);
-
-        txtnm_ayah_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnm_ayah_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txtnm_ayah_baa);
 
         jLabel14.setText("No KTP Ayah");
         input_ortu.add(jLabel14);
-
-        txtktp_ayah_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtktp_ayah_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txtktp_ayah_baa);
 
         jLabel16.setText("Nama Ibu");
         input_ortu.add(jLabel16);
-
-        txtnm_ibu_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnm_ibu_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txtnm_ibu_baa);
 
         jLabel17.setText("No KTP Ibu");
         input_ortu.add(jLabel17);
-
-        txtktp_ibu_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtktp_ibu_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txtktp_ibu_baa);
 
         jLabel18.setText("Alamat Orang Tua");
         input_ortu.add(jLabel18);
-
-        txt_alamatortu_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_alamatortu_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txt_alamatortu_baa);
 
         jLabel20.setText("Kota Orang Tua");
@@ -359,12 +341,6 @@ public class framebaa extends javax.swing.JFrame {
 
         jLabel19.setText("Telp Orang Tua");
         input_ortu.add(jLabel19);
-
-        txt_telp_ortu_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_telp_ortu_baaActionPerformed(evt);
-            }
-        });
         input_ortu.add(txt_telp_ortu_baa);
 
         javax.swing.GroupLayout border1Layout = new javax.swing.GroupLayout(border1);
@@ -388,10 +364,17 @@ public class framebaa extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        btnadd_ortu_baa.setText("Simpan Data");
+        btnadd_ortu_baa.setText("ADD");
         btnadd_ortu_baa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnadd_ortu_baaActionPerformed(evt);
+            }
+        });
+
+        btn_clear_ortu_baa.setText("CLEAR");
+        btn_clear_ortu_baa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clear_ortu_baaActionPerformed(evt);
             }
         });
 
@@ -405,8 +388,10 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_ortuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_clear_ortu_baa)
+                .addGap(18, 18, 18)
                 .addComponent(btnadd_ortu_baa)
-                .addGap(32, 32, 32))
+                .addGap(45, 45, 45))
         );
         panel_add_ortuLayout.setVerticalGroup(
             panel_add_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +399,9 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnadd_ortu_baa)
+                .addGroup(panel_add_ortuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnadd_ortu_baa)
+                    .addComponent(btn_clear_ortu_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
 
@@ -447,8 +434,8 @@ public class framebaa extends javax.swing.JFrame {
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panel_matkulLayout.setVerticalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,52 +453,22 @@ public class framebaa extends javax.swing.JFrame {
 
         jLabel5_dsn.setText("NIP Dosen");
         input_dsn.add(jLabel5_dsn);
-
-        txt_NIP_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NIP_dsn_baaActionPerformed(evt);
-            }
-        });
         input_dsn.add(txt_NIP_dsn_baa);
 
         jLabel12_dsn.setText("NIDN");
         input_dsn.add(jLabel12_dsn);
-
-        txt_NIDN_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NIDN_dsn_baaActionPerformed(evt);
-            }
-        });
         input_dsn.add(txt_NIDN_dsn_baa);
 
         jLabel6_dsn.setText("Nama Dosen");
         input_dsn.add(jLabel6_dsn);
-
-        txt_Nama_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_dsn_baaActionPerformed(evt);
-            }
-        });
         input_dsn.add(txt_Nama_dsn_baa);
 
         jLabel11_dsn.setText("Alamat");
         input_dsn.add(jLabel11_dsn);
-
-        txt_Alamat_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Alamat_dsn_baaActionPerformed(evt);
-            }
-        });
         input_dsn.add(txt_Alamat_dsn_baa);
 
         jLabel21_dsn.setText("Telepon");
         input_dsn.add(jLabel21_dsn);
-
-        txt_nohp_dsn_baa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nohp_dsn_baaActionPerformed(evt);
-            }
-        });
         input_dsn.add(txt_nohp_dsn_baa);
 
         jLabel1_dsn.setText("Email");
@@ -699,12 +656,13 @@ public class framebaa extends javax.swing.JFrame {
         });
         menu_mhs.add(add_data_mhs);
 
-        updte_data_mhs.setText("Update Data Mahasiswa");
-
-        update_data_mhs.setText("Mahasiswa");
-        updte_data_mhs.add(update_data_mhs);
-
-        menu_mhs.add(updte_data_mhs);
+        update_data_mhs.setText("Update Data Mahasiswa");
+        update_data_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_data_mhsActionPerformed(evt);
+            }
+        });
+        menu_mhs.add(update_data_mhs);
 
         list_data_mhs.setText("List Data Mahasiswa");
         list_data_mhs.addActionListener(new java.awt.event.ActionListener() {
@@ -778,108 +736,59 @@ public class framebaa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_NIP_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIP_dsn_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NIP_dsn_baaActionPerformed
-
-    private void txt_NIDN_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIDN_dsn_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NIDN_dsn_baaActionPerformed
-
-    private void txt_Nama_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_dsn_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_dsn_baaActionPerformed
-
-    private void txt_Alamat_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_dsn_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Alamat_dsn_baaActionPerformed
-
-    private void txt_nohp_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_dsn_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nohp_dsn_baaActionPerformed
-
     private void btnUbah_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_dsnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUbah_dsnActionPerformed
 
-    private void txtnm_ayah_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayah_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnm_ayah_baaActionPerformed
-
-    private void txtktp_ayah_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ayah_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtktp_ayah_baaActionPerformed
-
-    private void txtnm_ibu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ibu_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnm_ibu_baaActionPerformed
-
-    private void txtktp_ibu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtktp_ibu_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtktp_ibu_baaActionPerformed
-
-    private void txt_alamatortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_alamatortu_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_alamatortu_baaActionPerformed
-
-    private void txt_telp_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telp_ortu_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telp_ortu_baaActionPerformed
-
     private void btnadd_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_ortu_baaActionPerformed
-        // TODO add your handling code here:
+        cek_ortu();
+        add_mhs();
     }//GEN-LAST:event_btnadd_ortu_baaActionPerformed
-
-    private void txt_NRP_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRP_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NRP_baaActionPerformed
-
-    private void txt_Email_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhs_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Email_mhs_baaActionPerformed
-
-    private void txt_Nama_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhs_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_mhs_baaActionPerformed
-
-    private void txt_Alamat_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_mhs_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Alamat_mhs_baaActionPerformed
-
-    private void txt_nohp_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhs_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nohp_mhs_baaActionPerformed
-
+    
+    //untuk mengganti fungsi button add
     private void btnadd_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_mhs_baaActionPerformed
-       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
-       cl_baa.show(panelinduk_baa, "cv_add_ortu_baa");
-       title_baa.setText("Tambah Mahasiswa");
+        //fungsi untuk menambah data
+        if (btnadd_mhs_baa.getText().equals("NEXT")) {
+            cek_mhs();
+            CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+            cl_baa.show(panelinduk_baa, "cv_add_ortu_baa");
+            title_baa.setText("Tambah Mahasiswa");
+            
+        }
+        //fungsiuntuk mengubah data
+        else if (btnadd_mhs_baa.getText().equals("UBAH DATA")) {
+            update_mhs();
+        }
+        
         
     }//GEN-LAST:event_btnadd_mhs_baaActionPerformed
-
-    private void cbx_kota_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_kota_mhs_baaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbx_kota_mhs_baaActionPerformed
-
+    
+    //untuk menampilkan halaman tambah data mahasiswa
     private void add_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_data_mhsActionPerformed
        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_add_mhs");
        title_baa.setText("Tambah Mahasiswa");
+       txt_NRP_baa.setVisible(true);
+       cb_NRP_baa.setVisible(false);
+       btnadd_mhs_baa.setText("NEXT");
     }//GEN-LAST:event_add_data_mhsActionPerformed
 
+    //untuk menampilkan halaman list data mahasiswa
     private void list_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_mhsActionPerformed
        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_list_mhs_baa");
        title_baa.setText("Daftar Mahasiswa");
         
     }//GEN-LAST:event_list_data_mhsActionPerformed
-
+    
+    //untuk menampilkan halaman tambah data dosen
     private void add_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_data_dsnActionPerformed
         CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
         cl_baa.show(panelinduk_baa, "cv_add_dsn_baa");
         title_baa.setText("Tambah Dosen");
     }//GEN-LAST:event_add_data_dsnActionPerformed
 
+    //untuk menampilkan halaman list data dosen
     private void list_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_dsnActionPerformed
        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_list_dsn_baa");
@@ -887,17 +796,41 @@ public class framebaa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_list_data_dsnActionPerformed
 
+    //untuk menampilkan halaman update data dosen
     private void update_data_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_data_dsnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_update_data_dsnActionPerformed
-
+    
+    //untuk keluar ke halaman login
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
     
+    //untuk menampilkan halaman ubah data mahasiswa
+    private void update_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_data_mhsActionPerformed
+       CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+       cl_baa.show(panelinduk_baa, "cv_add_mhs");
+       cb_NRP_baa.setVisible(true);
+       txt_NRP_baa.setVisible(false);
+       title_baa.setText("Ubah Mahasiswa");
+       btnadd_mhs_baa.setText("UBAH DATA");
+    }//GEN-LAST:event_update_data_mhsActionPerformed
+
+    //untuk menghapus semua isi field mahasiswa
+    private void btn_clear_mhs_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clear_mhs_baaActionPerformed
+        clear_mhs();
+    }//GEN-LAST:event_btn_clear_mhs_baaActionPerformed
+    
+    //untuk menghapus semua isi field ortu
+    private void btn_clear_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clear_ortu_baaActionPerformed
+       clear_ortu();
+    }//GEN-LAST:event_btn_clear_ortu_baaActionPerformed
+    
     //untuk menampilkan kota
     private void tampilkota(){
+        indx_kota_mhs = cbx_kota_mhs_baa.getSelectedIndex();
+        indx_kota_ortu_mhs = cb_kota_ortu_baa.getSelectedIndex();
         cbx_kota_mhs_baa.removeAllItems();
         cbx_kota_mhs_baa.addItem("=== KOTA ===");
         
@@ -909,9 +842,6 @@ public class framebaa extends javax.swing.JFrame {
             while(rs_tmplkota.next()){
                 cbx_kota_mhs_baa.addItem(">  "+rs_tmplkota.getString("Kota"));
                 cb_kota_ortu_baa.addItem(">  "+rs_tmplkota.getString("Kota"));
-                
-                kota_mhs = hapus_tanda(cbx_kota_mhs_baa.getSelectedItem().toString());
-                kota_dsn = hapus_tanda(cb_kota_ortu_baa.getSelectedItem().toString());
             } 
         }
         catch(Exception e){
@@ -920,10 +850,116 @@ public class framebaa extends javax.swing.JFrame {
         
     }
     
+// MAHASISWA
+    
+    //menghapus semua field
+    private void clear_all(){
+        clear_mhs();
+        clear_ortu();
+    }
+    
+    //menghapus field mahasiswa
+    private void clear_mhs(){
+        txt_NRP_baa.setText("");
+        txt_Email_mhs_baa.setText("");
+        txt_Nama_mhs_baa.setText("");
+        cbx_Prodi_baa.setSelectedIndex(0);
+        grp_jk_mhs_baa.clearSelection();
+        cbx_Agama_mhs_baa.setSelectedIndex(0);
+        txt_ttl_mhs_baa.setText("");
+        txt_Alamat_mhs_baa.setText("");
+        cbx_kota_mhs_baa.setSelectedIndex(0);
+        txt_nohp_mhs_baa.setText("");
+    }
+    
+    //deklarasi mahasiswa
+    private void deklarasi_mhs(){
+        tampilkota();
+        
+        nrp_mhs = txt_NRP_baa.getText();
+        email_mhs = txt_Email_mhs_baa.getText();
+        nama_mhs = txt_Nama_mhs_baa.getText();
+        prodi_mhs = hapus_tanda(cbx_Prodi_baa.getSelectedItem().toString());
+        
+        //untuk mengambil jenis kelamin
+        if(rd_laki_mhs.isSelected()){
+            jk_mhs = "Laki - Laki";
+        }
+        else if(rd_perempuan_mhs.isSelected()){
+            jk_mhs = "Perempuan";
+        }
+        
+        agama_mhs = hapus_tanda(cbx_Agama_mhs_baa.toString());
+        ttl_mhs = txt_ttl_mhs_baa.getText();
+        almt_mhs = txt_Alamat_mhs_baa.getText();
+        kota_mhs = hapus_tanda(cbx_kota_mhs_baa.getItemAt(indx_kota_mhs));
+        hp_mhs = txt_nohp_mhs_baa.getText();
+                
+        //untuk mengambil data status mahasiswa
+        if(cb_Status_mhs_baa.isSelected()){
+            stts_mhs = "Aktif";
+        }
+        else if(cb_Status_mhs_baa.isSelected()){
+            stts_mhs = "Tidak Aktif";
+        }
+    }
+    
+    //untuk mengecek field mahasiswa, apakah ada field yang kosong
+    private void cek_mhs(){
+        deklarasi_mhs();
+    }
+    
+// ORANG TUA
+    
+    //menghapus field orang tua
+    private void clear_ortu(){
+        txtnm_ayah_baa.setText("");
+        txtktp_ayah_baa.setText("");
+        txtnm_ibu_baa.setText("");
+        txtktp_ibu_baa.setText("");
+        cb_kota_ortu_baa.setSelectedIndex(0);
+        txt_telp_ortu_baa.setText("");
+    }
+    
+    //deklarasi ortu
+    private void deklarasi_ortu(){
+        tampilkota();
+        nama_ayah_mhs = txtnm_ayah_baa.getText();
+        ktp_ayah_mhs = txtktp_ayah_baa.getText();
+        nama_ibu_mhs = txtnm_ibu_baa.getText();
+        ktp_ibu_mhs = txtktp_ibu_baa.getText();
+        kota_ortu_mhs = hapus_tanda(cb_kota_ortu_baa.getItemAt(indx_kota_ortu_mhs));
+        hp_ortu_mhs= txt_telp_ortu_baa.getText();
+    }
+    
+    //untuk mengecek field ortu, apakah ada field yang kosong
+    private void cek_ortu(){
+        deklarasi_ortu();
+    }
+    
+    //untuk menambahkan data mahasiswa
+    private void add_mhs(){
+        cek_ortu();
+        String add_mhs = "INSERT INTO mahasiswa(nrp, nama_mahasiswa, prodi, Status_Masuk, "
+                + "Jenis_Kelamin, Agama, alamat, Tempat_Tanggal_Lahir_Mahasiswa, Kota_Mahasiwa, "
+                + "email, no_hp, Nama_Ayah, Nomor_KTP_Ayah, Nama_Ibu, Nomor_KTP_Ibu, Telepon_Orang_Tua, "
+                + "Alamat_Orang_Tua, Kota_Orang_Tua) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        System.out.println(nrp_mhs+"\n"+email_mhs+"\n"+nama_mhs+"\n"+prodi_mhs+"\n"+agama_mhs+"\n"+ttl_mhs+"\n"
+                + ""+almt_mhs+"\n"+kota_mhs+"\n"+hp_mhs+"\n"+jk_mhs+"\n"+stts_mhs+"\n"
+                + ""+nama_ayah_mhs+"\n"+ktp_ayah_mhs+"\n"+nama_ibu_mhs+"\n"+ktp_ibu_mhs+"\n"
+                +kota_ortu_mhs+"\n"+hp_ortu_mhs+"\n");
+    }
+    
+    //untuk mengganti data mahasiswa
+    private void update_mhs(){
+        
+    }
+    
     //untuk menghapus tanda ">"
     private String hapus_tanda(String str){
         return str.substring(2);
     }
+    
     //untuk menampilkan data kota
     /**
      * @param args the command line arguments
@@ -968,8 +1004,11 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JPanel border1;
     private javax.swing.JPanel border2;
     private javax.swing.JButton btnUbah_dsn;
+    private javax.swing.JButton btn_clear_mhs_baa;
+    private javax.swing.JButton btn_clear_ortu_baa;
     private javax.swing.JButton btnadd_mhs_baa;
     private javax.swing.JButton btnadd_ortu_baa;
+    private javax.swing.JComboBox<String> cb_NRP_baa;
     private javax.swing.JCheckBox cb_Status_dsn_baa;
     private javax.swing.JCheckBox cb_Status_mhs_baa;
     private javax.swing.JComboBox<String> cb_jbtn_dsn_baa;
@@ -978,6 +1017,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbx_Agama_mhs_baa;
     private javax.swing.JComboBox<String> cbx_Prodi_baa;
     private javax.swing.JComboBox<String> cbx_kota_mhs_baa;
+    private javax.swing.ButtonGroup grp_jk_mhs_baa;
     private javax.swing.JPanel input_dsn;
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
@@ -1028,6 +1068,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JPanel panel_dsn_tabel;
     private javax.swing.JPanel panel_matkul;
     private javax.swing.JPanel panel_mhs_tabel;
+    private javax.swing.JPanel panel_nrp;
     private javax.swing.JPanel panelinduk_baa;
     private javax.swing.JPanel pnl_jk_dsn;
     private javax.swing.JPanel pnl_jk_mhs_baa;
@@ -1058,6 +1099,5 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JTextField txtnm_ibu_baa;
     private javax.swing.JMenuItem update_data_dsn;
     private javax.swing.JMenuItem update_data_mhs;
-    private javax.swing.JMenu updte_data_mhs;
     // End of variables declaration//GEN-END:variables
 }

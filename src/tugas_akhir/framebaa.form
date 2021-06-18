@@ -2,6 +2,8 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="grp_jk_mhs_baa">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menu_mhs">
@@ -17,18 +19,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_data_mhsActionPerformed"/>
               </Events>
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="updte_data_mhs">
+            <MenuItem class="javax.swing.JMenuItem" name="update_data_mhs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update Data Mahasiswa"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="update_data_mhs">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Mahasiswa"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="update_data_mhsActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="list_data_mhs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="List Data Mahasiswa"/>
@@ -174,7 +172,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="405" max="32767" attributes="0"/>
+                      <EmptySpace pref="303" max="32767" attributes="0"/>
+                      <Component id="btn_clear_mhs_baa" min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnadd_mhs_baa" min="-2" pref="97" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -185,7 +185,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="border2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnadd_mhs_baa" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnadd_mhs_baa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_clear_mhs_baa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -241,20 +244,52 @@
                         <Property name="text" type="java.lang.String" value="NRP"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txt_NRP_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NRP_baaActionPerformed"/>
-                      </Events>
-                    </Component>
+                    <Container class="javax.swing.JPanel" name="panel_nrp">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txt_NRP_baa" max="32767" attributes="0"/>
+                              <Component id="cb_NRP_baa" alignment="0" pref="237" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txt_NRP_baa" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cb_NRP_baa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextField" name="txt_NRP_baa">
+                        </Component>
+                        <Component class="javax.swing.JComboBox" name="cb_NRP_baa">
+                          <Properties>
+                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                              <StringArray count="4">
+                                <StringItem index="0" value="Item 1"/>
+                                <StringItem index="1" value="Item 2"/>
+                                <StringItem index="2" value="Item 3"/>
+                                <StringItem index="3" value="Item 4"/>
+                              </StringArray>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Email_mhs_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhs_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
@@ -262,9 +297,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Nama_mhs_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_mhs_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
@@ -276,10 +308,10 @@
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="5">
                             <StringItem index="0" value="===PILIH==="/>
-                            <StringItem index="1" value="Teknik Informatika"/>
-                            <StringItem index="2" value="Sistem Informasi"/>
-                            <StringItem index="3" value="Manajemen Informatika"/>
-                            <StringItem index="4" value="DKV"/>
+                            <StringItem index="1" value="&gt; Teknik Informatika"/>
+                            <StringItem index="2" value="&gt; Sistem Informasi"/>
+                            <StringItem index="3" value="&gt; Manajemen Informatika"/>
+                            <StringItem index="4" value="&gt; DKV"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -301,11 +333,17 @@
                       <SubComponents>
                         <Component class="javax.swing.JRadioButton" name="rd_laki_mhs">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="grp_jk_mhs_baa"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Laki-laki"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rd_perempuan_mhs">
                           <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="grp_jk_mhs_baa"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Perempuan"/>
                           </Properties>
                         </Component>
@@ -321,12 +359,12 @@
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="7">
                             <StringItem index="0" value="===PILIH==="/>
-                            <StringItem index="1" value="Islam"/>
-                            <StringItem index="2" value="Kristen"/>
-                            <StringItem index="3" value="Katholik"/>
-                            <StringItem index="4" value="Hindu"/>
-                            <StringItem index="5" value="Budha"/>
-                            <StringItem index="6" value="Konghucu"/>
+                            <StringItem index="1" value="&gt; Islam"/>
+                            <StringItem index="2" value="&gt; Kristen"/>
+                            <StringItem index="3" value="&gt; Katholik"/>
+                            <StringItem index="4" value="&gt; Hindu"/>
+                            <StringItem index="5" value="&gt; Budha"/>
+                            <StringItem index="6" value="&gt; Konghucu"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -336,7 +374,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel2_dsn1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="TTL"/>
+                        <Property name="text" type="java.lang.String" value="Tempat Tanggal Lahir"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_ttl_mhs_baa">
@@ -347,9 +385,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Alamat_mhs_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_mhs_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
                       <Properties>
@@ -364,9 +399,6 @@
                           </StringArray>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbx_kota_mhs_baaActionPerformed"/>
-                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -377,9 +409,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_nohp_mhs_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_mhs_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
@@ -403,6 +432,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnadd_mhs_baaActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="btn_clear_mhs_baa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CLEAR"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_clear_mhs_baaActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_add_ortu">
@@ -422,8 +459,10 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btn_clear_ortu_baa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnadd_ortu_baa" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -433,7 +472,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="border1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnadd_ortu_baa" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnadd_ortu_baa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_clear_ortu_baa" alignment="3" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="181" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -490,9 +532,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnm_ayah_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ayah_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel14">
                       <Properties>
@@ -500,9 +539,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtktp_ayah_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ayah_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
@@ -510,9 +546,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnm_ibu_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnm_ibu_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
@@ -520,9 +553,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtktp_ibu_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtktp_ibu_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
@@ -530,9 +560,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_alamatortu_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_alamatortu_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel20">
                       <Properties>
@@ -557,9 +584,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_telp_ortu_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_telp_ortu_baaActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -567,10 +591,18 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnadd_ortu_baa">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Simpan Data"/>
+                <Property name="text" type="java.lang.String" value="ADD"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnadd_ortu_baaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_clear_ortu_baa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CLEAR"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_clear_ortu_baaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -587,8 +619,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="508" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -707,9 +739,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_NIP_dsn_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIP_dsn_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12_dsn">
                       <Properties>
@@ -717,9 +746,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_NIDN_dsn_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_NIDN_dsn_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6_dsn">
                       <Properties>
@@ -727,9 +753,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Nama_dsn_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Nama_dsn_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11_dsn">
                       <Properties>
@@ -737,9 +760,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Alamat_dsn_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Alamat_dsn_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel21_dsn">
                       <Properties>
@@ -747,9 +767,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_nohp_dsn_baa">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nohp_dsn_baaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel1_dsn">
                       <Properties>
