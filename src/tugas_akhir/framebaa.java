@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -25,7 +26,8 @@ public class framebaa extends javax.swing.JFrame {
     private static int indx_kota_mhs;
     
     //untuk orang tua
-    private static String nama_ayah_mhs, ktp_ayah_mhs, nama_ibu_mhs, ktp_ibu_mhs, kota_ortu_mhs, hp_ortu_mhs;
+    private static String nama_ayah_mhs, ktp_ayah_mhs, nama_ibu_mhs, 
+            ktp_ibu_mhs, kota_ortu_mhs, hp_ortu_mhs, alamat_ortu_mhs;
     private static int indx_kota_ortu_mhs;
     /**
      * Creates new form framebaa
@@ -167,6 +169,12 @@ public class framebaa extends javax.swing.JFrame {
         jLabel5.setText("NRP");
         input_mhs.add(jLabel5);
 
+        txt_NRP_baa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_NRP_baaFocusLost(evt);
+            }
+        });
+
         cb_NRP_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panel_nrpLayout = new javax.swing.GroupLayout(panel_nrp);
@@ -263,7 +271,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 387, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 414, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -826,6 +834,11 @@ public class framebaa extends javax.swing.JFrame {
     private void btn_clear_ortu_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clear_ortu_baaActionPerformed
        clear_ortu();
     }//GEN-LAST:event_btn_clear_ortu_baaActionPerformed
+
+    private void txt_NRP_baaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NRP_baaFocusLost
+       deklarasi_mhs();
+       txt_Email_mhs_baa.setText(nrp_mhs+"@mhs.com");
+    }//GEN-LAST:event_txt_NRP_baaFocusLost
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -928,6 +941,7 @@ public class framebaa extends javax.swing.JFrame {
         ktp_ayah_mhs = txtktp_ayah_baa.getText();
         nama_ibu_mhs = txtnm_ibu_baa.getText();
         ktp_ibu_mhs = txtktp_ibu_baa.getText();
+        alamat_ortu_mhs = txt_alamatortu_baa.getText();
         kota_ortu_mhs = hapus_tanda(cb_kota_ortu_baa.getItemAt(indx_kota_ortu_mhs));
         hp_ortu_mhs= txt_telp_ortu_baa.getText();
     }
@@ -940,14 +954,45 @@ public class framebaa extends javax.swing.JFrame {
     //untuk menambahkan data mahasiswa
     private void add_mhs(){
         cek_ortu();
-        String add_mhs = "INSERT INTO mahasiswa(nrp, nama_mahasiswa, prodi, Status_Masuk, "
-                + "Jenis_Kelamin, Agama, alamat, Tempat_Tanggal_Lahir_Mahasiswa, Kota_Mahasiwa, "
-                + "email, no_hp, Nama_Ayah, Nomor_KTP_Ayah, Nama_Ibu, Nomor_KTP_Ibu, Telepon_Orang_Tua, "
-                + "Alamat_Orang_Tua, Kota_Orang_Tua) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        System.out.println(nrp_mhs+"\n"+email_mhs+"\n"+nama_mhs+"\n"+prodi_mhs+"\n"+agama_mhs+"\n"+ttl_mhs+"\n"
-                + ""+almt_mhs+"\n"+kota_mhs+"\n"+hp_mhs+"\n"+jk_mhs+"\n"+stts_mhs+"\n"
-                + ""+nama_ayah_mhs+"\n"+ktp_ayah_mhs+"\n"+nama_ibu_mhs+"\n"+ktp_ibu_mhs+"\n"
-                +kota_ortu_mhs+"\n"+hp_ortu_mhs+"\n");
+        try{
+            //untuk membuat user
+            String add_user_mhs = "INSERT INTO user(Email,Password, Jenis_User) VALUES (?,?,?)";
+            PreparedStatement ps_add_user_mhs = con.prepareStatement(add_user_mhs);
+            ps_add_user_mhs.setString(1, email_mhs);
+            ps_add_user_mhs.setString(2, "pass"+nrp_mhs);
+            ps_add_user_mhs.setString(3, "Mahasiswa");
+            ps_add_user_mhs.executeUpdate();
+            
+            //untuk menyimpan data mahasiswa
+            String add_mhs = "INSERT INTO mahasiswa(nrp, nama_mahasiswa, prodi, Status_Masuk, "
+            + "Jenis_Kelamin, Agama, alamat, Tempat_Tanggal_Lahir_Mahasiswa, Kota_Mahasiwa, "
+            + "email, no_hp, Nama_Ayah, Nomor_KTP_Ayah, Nama_Ibu, Nomor_KTP_Ibu, Telepon_Orang_Tua, "
+            + "Alamat_Orang_Tua, Kota_Orang_Tua) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+            PreparedStatement ps_add_mhs = con.prepareStatement(add_mhs);
+            ps_add_mhs.setString(1, nrp_mhs);
+            ps_add_mhs.setString(2, nama_mhs);
+            ps_add_mhs.setString(3, prodi_mhs);
+            ps_add_mhs.setString(4, stts_mhs);
+            ps_add_mhs.setString(5, jk_mhs);
+            ps_add_mhs.setString(6, agama_mhs);
+            ps_add_mhs.setString(7, almt_mhs);
+            ps_add_mhs.setString(8, ttl_mhs);
+            ps_add_mhs.setString(9, kota_mhs);
+            ps_add_mhs.setString(10, email_mhs);
+            ps_add_mhs.setString(11, hp_mhs);
+            ps_add_mhs.setString(12, nama_ayah_mhs);
+            ps_add_mhs.setString(13, ktp_ayah_mhs);
+            ps_add_mhs.setString(14, nama_ibu_mhs);
+            ps_add_mhs.setString(15, ktp_ibu_mhs);
+            ps_add_mhs.setString(16, hp_ortu_mhs);
+            ps_add_mhs.setString(17, alamat_ortu_mhs);
+            ps_add_mhs.setString(18, kota_ortu_mhs);
+            ps_add_mhs.executeUpdate();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
     
     //untuk mengganti data mahasiswa

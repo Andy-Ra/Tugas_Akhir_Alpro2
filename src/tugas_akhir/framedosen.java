@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 public class framedosen extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
     private static framelogin lgn = new framelogin();
+    private static String NIP, NIDN, Nama, Email, Alamat, Telepon, Jenis_Kelamin, 
+            Tempat_Tanggal_Lahir, Pendidikan_tertinggi,status,  Jabatan_Akademik;
     /**
      * Creates new form framedosen
      */
@@ -549,6 +551,8 @@ public class framedosen extends javax.swing.JFrame {
         txt_nohp_dsn.setText("");
         
         
+        
+        
         }
         String Tempat_Tanggal_Lahir = txt_ttl_dsn.getText();
         String Pendidikan_tertinggi = cb_pendidikan_dsn.getSelectedItem().toString();
@@ -582,6 +586,7 @@ public class framedosen extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
         cview.show(panelinduk_dsn, "cv_pribadi_dsn");
         header_dsn.setText("UBAH DATA PRIBADI");
+        setform();
     }//GEN-LAST:event_sm_pribadi_dsnActionPerformed
     
     //untuk menampilkan jadwal kelas dosen
@@ -603,28 +608,65 @@ public class framedosen extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
     
-    private void tampil_data(){
-        System.out.println(lgn.email);  
+    private void get_data(){
         try {
             String sqltampil = "select * from dosen WHERE email='"+lgn.email+"'";
             PreparedStatement ps_tampil = con.prepareStatement(sqltampil);
             ResultSet res_tampil = ps_tampil.executeQuery();
             
             if(res_tampil.next()){
-                lbl_nip_dsn.setText(res_tampil.getString("nip_dosen"));
-                lbl_nidn_dsn.setText(res_tampil.getString("nidn_dosen"));
-                lbl_nama_dsn.setText(res_tampil.getString("nama_dosen"));
-                lbl_alamat_dsn.setText(res_tampil.getString("Alamat"));
-                lbl_tlp_dsn.setText(res_tampil.getString("Telepon"));
-                lbl_email_dsn.setText(res_tampil.getString("Email"));
-                lbl_jk_dsn.setText(res_tampil.getString("Jenis_Kelamin"));
-                lbl_ttl_dsn.setText(res_tampil.getString("Tempat_Tanggal_Lahir"));
-                lbl_status_dsn.setText(res_tampil.getString("Status_Kepegawaian"));
-                lbl_pendidikan_dsn.setText(res_tampil.getString("Pendidikan_Tertinggi"));
-                lbl_jbtn_dsn.setText(res_tampil.getString("Jabatan_Akademik"));
+                NIP = res_tampil.getString("nip_dosen");
+                NIDN = res_tampil.getString("nidn_dosen");
+                Nama = res_tampil.getString("nama_dosen");
+                Alamat = res_tampil.getString("Alamat");
+                Telepon = res_tampil.getString("Telepon");
+                Email = res_tampil.getString("Email");
+                Jenis_Kelamin = res_tampil.getString("Jenis_Kelamin");
+                Tempat_Tanggal_Lahir = res_tampil.getString("Tempat_Tanggal_Lahir");
+                status = res_tampil.getString("Status_Kepegawaian");
+                Pendidikan_tertinggi = res_tampil.getString("Pendidikan_Tertinggi");
+                Jabatan_Akademik = res_tampil.getString("Jabatan_Akademik");
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    
+    private void tampil_data(){
+        get_data();
+        lbl_nip_dsn.setText(NIP);
+        lbl_nidn_dsn.setText(NIDN);
+        lbl_nama_dsn.setText(Nama);
+        lbl_alamat_dsn.setText(Alamat);
+        lbl_tlp_dsn.setText(Telepon);
+        lbl_email_dsn.setText(Email);
+        lbl_jk_dsn.setText(Jenis_Kelamin);
+        lbl_ttl_dsn.setText(Tempat_Tanggal_Lahir);
+        lbl_status_dsn.setText(status);
+        lbl_pendidikan_dsn.setText(Pendidikan_tertinggi);
+        lbl_jbtn_dsn.setText(Jabatan_Akademik);
+    }
+    
+    private void setform(){
+        get_data();
+        txt_NIP_dsn.setText(NIP);
+        txt_NIDN_dsn.setText(NIDN);
+        txt_Nama_dsn.setText(Nama);
+        txt_Alamat_dsn.setText(Alamat);
+        txt_email_dsn.setText(Email);
+        txt_nohp_dsn.setText(Telepon);
+        txt_ttl_dsn.setText(Tempat_Tanggal_Lahir);
+//        cb_pendidikan_dsn.setSelectedItem();
+//        cb_jbtn_dsn.getSelectedItem();
+
+            
+        if(Jenis_Kelamin.equals("Laki - Laki")){
+            rd_laki_dsn.setSelected(true);
+        }
+        
+        else if(Jenis_Kelamin.equals("Perempuan")){
+            rd_perempuan_dsn.setSelected(true);
         }
     }
 

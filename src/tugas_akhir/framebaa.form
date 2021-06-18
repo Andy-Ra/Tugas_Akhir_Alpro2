@@ -223,7 +223,7 @@
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="input_mhs" pref="387" max="32767" attributes="0"/>
+                              <Component id="input_mhs" pref="414" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -266,6 +266,9 @@
                       </Layout>
                       <SubComponents>
                         <Component class="javax.swing.JTextField" name="txt_NRP_baa">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_NRP_baaFocusLost"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cb_NRP_baa">
                           <Properties>
