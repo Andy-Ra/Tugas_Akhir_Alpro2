@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +26,8 @@ public class framedosen extends javax.swing.JFrame {
      */
     public framedosen() {
        initComponents();
+       buttonGroup1.add(rd_laki_dsn);
+       buttonGroup1.add(rd_perempuan_dsn);
        tampil_data(); 
     }
     
@@ -36,6 +40,7 @@ public class framedosen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         pnl_header_dsn = new javax.swing.JPanel();
         header_dsn = new javax.swing.JLabel();
         panelinduk_dsn = new javax.swing.JPanel();
@@ -245,6 +250,7 @@ public class framedosen extends javax.swing.JFrame {
         jLabel6_dsn.setText("Nama Dosen");
         input_dsn.add(jLabel6_dsn);
 
+        txt_Nama_dsn.setEditable(false);
         txt_Nama_dsn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Nama_dsnActionPerformed(evt);
@@ -295,6 +301,8 @@ public class framedosen extends javax.swing.JFrame {
         input_dsn.add(jLabel2_dsn);
 
         pnl_ttl_dsn.setLayout(new javax.swing.BoxLayout(pnl_ttl_dsn, javax.swing.BoxLayout.LINE_AXIS));
+
+        txt_ttl_dsn.setEditable(false);
         pnl_ttl_dsn.add(txt_ttl_dsn);
 
         input_dsn.add(pnl_ttl_dsn);
@@ -322,7 +330,7 @@ public class framedosen extends javax.swing.JFrame {
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(input_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 456, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -537,11 +545,26 @@ public class framedosen extends javax.swing.JFrame {
             Jenis_Kelamin = "Laki-Laki";
         }else if(rd_perempuan_dsn.isSelected()){
             Jenis_Kelamin = "Perempuan";
+        txt_Alamat_dsn.setText("");
+        txt_nohp_dsn.setText("");
+        
+        
         }
         String Tempat_Tanggal_Lahir = txt_ttl_dsn.getText();
         String Pendidikan_tertinggi = cb_pendidikan_dsn.getSelectedItem().toString();
         String Jabatan_Akademik = cb_jbtn_dsn.getSelectedItem().toString();
-                
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String sql ="UPDATE dosen SET Alamat = '"+txt_Alamat_dsn.getText()+"', Telepon = '"+txt_nohp_dsn.getText()+"'WHERE Email = '"+txt_email_dsn.getText()+"';";
+            java.sql.PreparedStatement pst=con.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "data berhasil di edit");
+        }catch(SQLException e){
+        java.util.logging.Logger.getLogger(framedosen.class
+                .getName()).log(java.util.logging.Level.SEVERE,null,e);
+        }catch(ClassNotFoundException ex) {
+        Logger.getLogger(framedosen.class.getName()).log(Level.SEVERE,null,ex);
+        }
                 
         
     }//GEN-LAST:event_btnUbah_dsnActionPerformed
@@ -644,6 +667,7 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JTable TabelKelas;
     private javax.swing.JPanel border;
     private javax.swing.JButton btnUbah_dsn;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb_jbtn_dsn;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn;
     private javax.swing.JLabel header_dsn;
