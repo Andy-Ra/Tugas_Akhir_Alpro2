@@ -28,8 +28,6 @@ public class framedosen extends javax.swing.JFrame {
      */
     public framedosen() {
        initComponents();
-       buttonGroup1.add(rd_laki_dsn);
-       buttonGroup1.add(rd_perempuan_dsn);
        tampil_data(); 
     }
     
@@ -71,33 +69,6 @@ public class framedosen extends javax.swing.JFrame {
         lbl_pendidikan_dsn = new javax.swing.JLabel();
         jLabel55_dsn10 = new javax.swing.JLabel();
         lbl_jbtn_dsn = new javax.swing.JLabel();
-        panel_dsn = new javax.swing.JPanel();
-        border = new javax.swing.JPanel();
-        input_dsn = new javax.swing.JPanel();
-        jLabel5_dsn = new javax.swing.JLabel();
-        txt_NIP_dsn = new javax.swing.JTextField();
-        jLabel12_dsn = new javax.swing.JLabel();
-        txt_NIDN_dsn = new javax.swing.JTextField();
-        jLabel6_dsn = new javax.swing.JLabel();
-        txt_Nama_dsn = new javax.swing.JTextField();
-        jLabel11_dsn = new javax.swing.JLabel();
-        txt_Alamat_dsn = new javax.swing.JTextField();
-        jLabel21_dsn = new javax.swing.JLabel();
-        txt_nohp_dsn = new javax.swing.JTextField();
-        jLabel1_dsn = new javax.swing.JLabel();
-        txt_email_dsn = new javax.swing.JTextField();
-        jLabel9_dsn = new javax.swing.JLabel();
-        pnl_jk_dsn = new javax.swing.JPanel();
-        rd_laki_dsn = new javax.swing.JRadioButton();
-        rd_perempuan_dsn = new javax.swing.JRadioButton();
-        jLabel2_dsn = new javax.swing.JLabel();
-        pnl_ttl_dsn = new javax.swing.JPanel();
-        txt_ttl_dsn = new javax.swing.JTextField();
-        jLabel3_dsn = new javax.swing.JLabel();
-        cb_pendidikan_dsn = new javax.swing.JComboBox<>();
-        jLabel7_dsn = new javax.swing.JLabel();
-        cb_jbtn_dsn = new javax.swing.JComboBox<>();
-        btnUbah_dsn = new javax.swing.JButton();
         panel_mhs_dsn = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_mhs_dsn = new javax.swing.JTable();
@@ -107,7 +78,6 @@ public class framedosen extends javax.swing.JFrame {
         jMenuBar1_dsn = new javax.swing.JMenuBar();
         menu_beranda_dsn = new javax.swing.JMenu();
         sm_tmpl_pribadi_dsn = new javax.swing.JMenuItem();
-        sm_pribadi_dsn = new javax.swing.JMenuItem();
         menu_akademik_mhs = new javax.swing.JMenu();
         menu_tampil_jadwal_kls = new javax.swing.JMenuItem();
         menu_tampil_mhs_dsn = new javax.swing.JMenuItem();
@@ -223,150 +193,6 @@ public class framedosen extends javax.swing.JFrame {
 
         panelinduk_dsn.add(panel_tmpl_pribadi_dsn, "cv_tmpl_pribadi_dsn");
 
-        border.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubah Data Dosen"));
-
-        input_dsn.setLayout(new java.awt.GridLayout(11, 2, 0, 15));
-
-        jLabel5_dsn.setText("NIP Dosen");
-        input_dsn.add(jLabel5_dsn);
-
-        txt_NIP_dsn.setEditable(false);
-        txt_NIP_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NIP_dsnActionPerformed(evt);
-            }
-        });
-        input_dsn.add(txt_NIP_dsn);
-
-        jLabel12_dsn.setText("NIDN");
-        input_dsn.add(jLabel12_dsn);
-
-        txt_NIDN_dsn.setEditable(false);
-        txt_NIDN_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NIDN_dsnActionPerformed(evt);
-            }
-        });
-        input_dsn.add(txt_NIDN_dsn);
-
-        jLabel6_dsn.setText("Nama Dosen");
-        input_dsn.add(jLabel6_dsn);
-
-        txt_Nama_dsn.setEditable(false);
-        txt_Nama_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_dsnActionPerformed(evt);
-            }
-        });
-        input_dsn.add(txt_Nama_dsn);
-
-        jLabel11_dsn.setText("Alamat");
-        input_dsn.add(jLabel11_dsn);
-
-        txt_Alamat_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Alamat_dsnActionPerformed(evt);
-            }
-        });
-        input_dsn.add(txt_Alamat_dsn);
-
-        jLabel21_dsn.setText("Telepon");
-        input_dsn.add(jLabel21_dsn);
-
-        txt_nohp_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nohp_dsnActionPerformed(evt);
-            }
-        });
-        input_dsn.add(txt_nohp_dsn);
-
-        jLabel1_dsn.setText("Email");
-        input_dsn.add(jLabel1_dsn);
-
-        txt_email_dsn.setEditable(false);
-        input_dsn.add(txt_email_dsn);
-
-        jLabel9_dsn.setText("Jenis Kelamin");
-        input_dsn.add(jLabel9_dsn);
-
-        pnl_jk_dsn.setLayout(new java.awt.GridLayout(1, 0));
-
-        rd_laki_dsn.setText("Laki-laki");
-        pnl_jk_dsn.add(rd_laki_dsn);
-
-        rd_perempuan_dsn.setText("Perempuan");
-        pnl_jk_dsn.add(rd_perempuan_dsn);
-
-        input_dsn.add(pnl_jk_dsn);
-
-        jLabel2_dsn.setText("TTL");
-        input_dsn.add(jLabel2_dsn);
-
-        pnl_ttl_dsn.setLayout(new javax.swing.BoxLayout(pnl_ttl_dsn, javax.swing.BoxLayout.LINE_AXIS));
-
-        txt_ttl_dsn.setEditable(false);
-        pnl_ttl_dsn.add(txt_ttl_dsn);
-
-        input_dsn.add(pnl_ttl_dsn);
-
-        jLabel3_dsn.setText("Pendidikan Tertinggi");
-        input_dsn.add(jLabel3_dsn);
-
-        input_dsn.add(cb_pendidikan_dsn);
-
-        jLabel7_dsn.setText("Jabatan Akademik");
-        input_dsn.add(jLabel7_dsn);
-
-        input_dsn.add(cb_jbtn_dsn);
-
-        javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
-        border.setLayout(borderLayout);
-        borderLayout.setHorizontalGroup(
-            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(borderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        borderLayout.setVerticalGroup(
-            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(input_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 456, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        btnUbah_dsn.setText("Ubah Data");
-        btnUbah_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbah_dsnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel_dsnLayout = new javax.swing.GroupLayout(panel_dsn);
-        panel_dsn.setLayout(panel_dsnLayout);
-        panel_dsnLayout.setHorizontalGroup(
-            panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_dsnLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dsnLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUbah_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
-        panel_dsnLayout.setVerticalGroup(
-            panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_dsnLayout.createSequentialGroup()
-                .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnUbah_dsn)
-                .addContainerGap())
-        );
-
-        panelinduk_dsn.add(panel_dsn, "cv_pribadi_dsn");
-
         tbl_mhs_dsn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -450,14 +276,6 @@ public class framedosen extends javax.swing.JFrame {
         });
         menu_beranda_dsn.add(sm_tmpl_pribadi_dsn);
 
-        sm_pribadi_dsn.setText("Ubah Data Pribadi");
-        sm_pribadi_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sm_pribadi_dsnActionPerformed(evt);
-            }
-        });
-        menu_beranda_dsn.add(sm_pribadi_dsn);
-
         jMenuBar1_dsn.add(menu_beranda_dsn);
 
         menu_akademik_mhs.setText("Akademik");
@@ -513,66 +331,7 @@ public class framedosen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void txt_NIP_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIP_dsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NIP_dsnActionPerformed
-
-    private void txt_NIDN_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NIDN_dsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NIDN_dsnActionPerformed
-
-    private void txt_Nama_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_dsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_dsnActionPerformed
-
-    private void txt_Alamat_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Alamat_dsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Alamat_dsnActionPerformed
-
-    private void txt_nohp_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_dsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nohp_dsnActionPerformed
-
-    private void btnUbah_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_dsnActionPerformed
-        // TODO add your handling code here:
-        String NIP = txt_NIP_dsn.getText();
-        String NIDN = txt_NIDN_dsn.getText();
-        String Nama = txt_Nama_dsn.getText();
-        String Email = txt_email_dsn.getText();
-        String Alamat = txt_Alamat_dsn.getText();
-        String Telepon = txt_nohp_dsn.getText();
-        String Jenis_Kelamin = null;
-        if(rd_laki_dsn.isSelected()){
-            Jenis_Kelamin = "Laki-Laki";
-        }else if(rd_perempuan_dsn.isSelected()){
-            Jenis_Kelamin = "Perempuan";
-        txt_Alamat_dsn.setText("");
-        txt_nohp_dsn.setText("");
         
-        
-        
-        
-        }
-        String Tempat_Tanggal_Lahir = txt_ttl_dsn.getText();
-        String Pendidikan_tertinggi = cb_pendidikan_dsn.getSelectedItem().toString();
-        String Jabatan_Akademik = cb_jbtn_dsn.getSelectedItem().toString();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String sql ="UPDATE dosen SET Alamat = '"+txt_Alamat_dsn.getText()+"', Telepon = '"+txt_nohp_dsn.getText()+"'WHERE Email = '"+txt_email_dsn.getText()+"';";
-            java.sql.PreparedStatement pst=con.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "data berhasil di edit");
-        }catch(SQLException e){
-        java.util.logging.Logger.getLogger(framedosen.class
-                .getName()).log(java.util.logging.Level.SEVERE,null,e);
-        }catch(ClassNotFoundException ex) {
-        Logger.getLogger(framedosen.class.getName()).log(Level.SEVERE,null,ex);
-        }
-                
-        
-    }//GEN-LAST:event_btnUbah_dsnActionPerformed
-    
     //untuk menampulkan data probadi dosen
     private void sm_tmpl_pribadi_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_tmpl_pribadi_dsnActionPerformed
         CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
@@ -581,14 +340,7 @@ public class framedosen extends javax.swing.JFrame {
          tampil_data();
     }//GEN-LAST:event_sm_tmpl_pribadi_dsnActionPerformed
     
-    //untuk mengubah data probadi dosen
-    private void sm_pribadi_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_pribadi_dsnActionPerformed
-        CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
-        cview.show(panelinduk_dsn, "cv_pribadi_dsn");
-        header_dsn.setText("UBAH DATA PRIBADI");
-        setform();
-    }//GEN-LAST:event_sm_pribadi_dsnActionPerformed
-    
+   
     //untuk menampilkan jadwal kelas dosen
     private void menu_tampil_jadwal_klsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_tampil_jadwal_klsActionPerformed
         CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
@@ -648,27 +400,6 @@ public class framedosen extends javax.swing.JFrame {
         lbl_jbtn_dsn.setText(Jabatan_Akademik);
     }
     
-    private void setform(){
-        get_data();
-        txt_NIP_dsn.setText(NIP);
-        txt_NIDN_dsn.setText(NIDN);
-        txt_Nama_dsn.setText(Nama);
-        txt_Alamat_dsn.setText(Alamat);
-        txt_email_dsn.setText(Email);
-        txt_nohp_dsn.setText(Telepon);
-        txt_ttl_dsn.setText(Tempat_Tanggal_Lahir);
-//        cb_pendidikan_dsn.setSelectedItem();
-//        cb_jbtn_dsn.getSelectedItem();
-
-            
-        if(Jenis_Kelamin.equals("Laki - Laki")){
-            rd_laki_dsn.setSelected(true);
-        }
-        
-        else if(Jenis_Kelamin.equals("Perempuan")){
-            rd_perempuan_dsn.setSelected(true);
-        }
-    }
 
     /**
      * @param args the command line arguments
@@ -707,19 +438,8 @@ public class framedosen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelKelas;
-    private javax.swing.JPanel border;
-    private javax.swing.JButton btnUbah_dsn;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cb_jbtn_dsn;
-    private javax.swing.JComboBox<String> cb_pendidikan_dsn;
     private javax.swing.JLabel header_dsn;
-    private javax.swing.JPanel input_dsn;
-    private javax.swing.JLabel jLabel11_dsn;
-    private javax.swing.JLabel jLabel12_dsn;
-    private javax.swing.JLabel jLabel1_dsn;
-    private javax.swing.JLabel jLabel21_dsn;
-    private javax.swing.JLabel jLabel2_dsn;
-    private javax.swing.JLabel jLabel3_dsn;
     private javax.swing.JLabel jLabel55_dsn;
     private javax.swing.JLabel jLabel55_dsn1;
     private javax.swing.JLabel jLabel55_dsn10;
@@ -731,10 +451,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55_dsn7;
     private javax.swing.JLabel jLabel55_dsn8;
     private javax.swing.JLabel jLabel55_dsn9;
-    private javax.swing.JLabel jLabel5_dsn;
-    private javax.swing.JLabel jLabel6_dsn;
-    private javax.swing.JLabel jLabel7_dsn;
-    private javax.swing.JLabel jLabel9_dsn;
     private javax.swing.JMenuBar jMenuBar1_dsn;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -756,25 +472,12 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JMenu menu_logout;
     private javax.swing.JMenuItem menu_tampil_jadwal_kls;
     private javax.swing.JMenuItem menu_tampil_mhs_dsn;
-    private javax.swing.JPanel panel_dsn;
     private javax.swing.JPanel panel_kelas;
     private javax.swing.JPanel panel_mhs_dsn;
     private javax.swing.JPanel panel_tmpl_pribadi_dsn;
     private javax.swing.JPanel panelinduk_dsn;
     private javax.swing.JPanel pnl_header_dsn;
-    private javax.swing.JPanel pnl_jk_dsn;
-    private javax.swing.JPanel pnl_ttl_dsn;
-    private javax.swing.JRadioButton rd_laki_dsn;
-    private javax.swing.JRadioButton rd_perempuan_dsn;
-    private javax.swing.JMenuItem sm_pribadi_dsn;
     private javax.swing.JMenuItem sm_tmpl_pribadi_dsn;
     private javax.swing.JTable tbl_mhs_dsn;
-    private javax.swing.JTextField txt_Alamat_dsn;
-    private javax.swing.JTextField txt_NIDN_dsn;
-    private javax.swing.JTextField txt_NIP_dsn;
-    private javax.swing.JTextField txt_Nama_dsn;
-    private javax.swing.JTextField txt_email_dsn;
-    private javax.swing.JTextField txt_nohp_dsn;
-    private javax.swing.JTextField txt_ttl_dsn;
     // End of variables declaration//GEN-END:variables
 }
