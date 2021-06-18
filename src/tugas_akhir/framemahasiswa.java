@@ -6,9 +6,16 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -17,6 +24,7 @@ import java.sql.ResultSet;
 public class framemahasiswa extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
     private static String kota_ortu_mhs;
+    String image_path = null;
     /**
      * Creates new form framemahasiswa
      */
@@ -62,6 +70,9 @@ public class framemahasiswa extends javax.swing.JFrame {
         cbx_kota_mhs = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         txt_nohp_mhs = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        btnFoto = new javax.swing.JButton();
+        labelfoto = new javax.swing.JLabel();
         btnUbah_mhs = new javax.swing.JButton();
         panel_ortu = new javax.swing.JPanel();
         border1 = new javax.swing.JPanel();
@@ -85,7 +96,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelMatkul_mhs = new javax.swing.JTable();
         panel_tmpl_pribadi = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbl_tmpl_nama_mhs = new javax.swing.JLabel();
@@ -103,6 +113,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_ttl_mhs = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbl_tmpl_no_mhs = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         panel_tmpl_ortu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -144,43 +155,34 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         border.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Mahasiswa"));
 
-        input_mhs.setLayout(new java.awt.GridLayout(8, 2, 0, 15));
-
         jLabel5.setText("NRP");
-        input_mhs.add(jLabel5);
 
         txt_NRP.setEditable(false);
-        txt_NRP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_NRPActionPerformed(evt);
+        txt_NRP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_NRPMouseClicked(evt);
             }
         });
-        input_mhs.add(txt_NRP);
 
         jLabel12.setText("Email");
-        input_mhs.add(jLabel12);
 
         txt_Email_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Email_mhsActionPerformed(evt);
             }
         });
-        input_mhs.add(txt_Email_mhs);
 
         jLabel6.setText("Nama");
-        input_mhs.add(jLabel6);
 
         txt_Nama_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Nama_mhsActionPerformed(evt);
             }
         });
-        input_mhs.add(txt_Nama_mhs);
 
         jLabel9.setText("Jenis Kelamin");
-        input_mhs.add(jLabel9);
 
-        pnl_jk_mhs.setLayout(new java.awt.GridLayout());
+        pnl_jk_mhs.setLayout(new java.awt.GridLayout(1, 0));
 
         ls_jk.add(rd_laki_mhs);
         rd_laki_mhs.setText("Laki-laki");
@@ -190,39 +192,133 @@ public class framemahasiswa extends javax.swing.JFrame {
         rd_perempuan_mhs.setText("Perempuan");
         pnl_jk_mhs.add(rd_perempuan_mhs);
 
-        input_mhs.add(pnl_jk_mhs);
-
         jLabel10.setText("Agama");
-        input_mhs.add(jLabel10);
 
         cbx_Agama_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Islam", "Kristen", "Katholik", "Hindu", "Budha", "Konghucu" }));
-        input_mhs.add(cbx_Agama_mhs);
 
         jLabel11.setText("Alamat");
-        input_mhs.add(jLabel11);
 
         txt_Alamat_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Alamat_mhsActionPerformed(evt);
             }
         });
-        input_mhs.add(txt_Alamat_mhs);
 
         jLabel15.setText("Kota");
-        input_mhs.add(jLabel15);
 
         cbx_kota_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Malang", "Surabaya", "Blitar", "Kediri", "Probolinggo", "Lamongan", "Lumajang" }));
-        input_mhs.add(cbx_kota_mhs);
 
         jLabel21.setText("No Hp");
-        input_mhs.add(jLabel21);
 
         txt_nohp_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nohp_mhsActionPerformed(evt);
             }
         });
-        input_mhs.add(txt_nohp_mhs);
+        txt_nohp_mhs.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nohp_mhsKeyTyped(evt);
+            }
+        });
+
+        jLabel7.setText("Upload Foto");
+
+        btnFoto.setText("Pilih Foto");
+        btnFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotoActionPerformed(evt);
+            }
+        });
+
+        labelfoto.setText("*sumber foto");
+
+        javax.swing.GroupLayout input_mhsLayout = new javax.swing.GroupLayout(input_mhs);
+        input_mhs.setLayout(input_mhsLayout);
+        input_mhsLayout.setHorizontalGroup(
+            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txt_NRP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txt_Email_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txt_Nama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(cbx_Agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txt_Alamat_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(cbx_kota_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txt_nohp_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(labelfoto))
+        );
+        input_mhsLayout.setVerticalGroup(
+            input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(input_mhsLayout.createSequentialGroup()
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_NRP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Email_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Nama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_Agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Alamat_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_kota_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nohp_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel7))
+                    .addComponent(btnFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelfoto, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
         border.setLayout(borderLayout);
@@ -232,16 +328,16 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         borderLayout.setVerticalGroup(
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addGap(0, 428, Short.MAX_VALUE)
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -269,9 +365,9 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_mhsLayout.createSequentialGroup()
                 .addComponent(border, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnUbah_mhs)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_mhs, "cv_pribadi");
@@ -394,7 +490,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUbah_ortu)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ortu, "cv_ortu");
@@ -424,22 +520,19 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_matkul.setLayout(panel_matkulLayout);
         panel_matkulLayout.setHorizontalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panel_matkulLayout.setVerticalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         panelinduk_mhs.add(panel_matkul, "cv_matkul");
 
         panel_tmpl_pribadi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Data Pribadi Mahasiswa")));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
 
         jPanel3.setLayout(new java.awt.GridLayout(8, 2, 0, 15));
 
@@ -491,31 +584,40 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_no_mhs.setText("No Hp");
         jPanel3.add(lbl_tmpl_no_mhs);
 
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 132, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 128, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panel_tmpl_pribadiLayout = new javax.swing.GroupLayout(panel_tmpl_pribadi);
         panel_tmpl_pribadi.setLayout(panel_tmpl_pribadiLayout);
         panel_tmpl_pribadiLayout.setHorizontalGroup(
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
-            .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
         );
         panel_tmpl_pribadiLayout.setVerticalGroup(
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
-            .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
-                    .addContainerGap(210, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_tmpl_pribadi, "cv_tmpl_pribadi");
@@ -654,7 +756,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -678,10 +780,6 @@ public class framemahasiswa extends javax.swing.JFrame {
     private void txt_Nama_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Nama_mhsActionPerformed
-
-    private void txt_NRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NRPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_NRPActionPerformed
 
     private void txt_Email_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhsActionPerformed
         // TODO add your handling code here:
@@ -731,6 +829,48 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnUbah_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_mhsActionPerformed
         // TODO add your handling code here:
+        String ls_nrp = txt_NRP.getText();
+        String ls_email = txt_Email_mhs.getText();
+        String ls_nama = txt_Nama_mhs.getText();
+        String ls_jk = "";
+        if(rd_laki_mhs.isSelected()){
+            ls_jk = rd_laki_mhs.getText();
+        } else if (rd_perempuan_mhs.isSelected()){
+            ls_jk = rd_perempuan_mhs.getText();
+        } else {
+            JOptionPane.showMessageDialog(this,"Jenis Kelamin belum dipilh");
+        }
+        String ls_agama = cbx_Agama_mhs.getSelectedItem().toString();
+        if(cbx_Agama_mhs.getSelectedItem().toString().equals("===PILIH===")){
+            JOptionPane.showMessageDialog(this, "Silahkan pilih Agama Mahasiswa!");
+        }
+        String ls_alamat = txt_Alamat_mhs.getText();
+        String ls_kota = cbx_kota_mhs.getSelectedItem().toString();
+        if ( cbx_kota_mhs.getSelectedItem().toString().equals("===PILIH===")){
+            JOptionPane.showMessageDialog(this, "Silahkan pilih kota asal mahasiswa!");
+        }
+        String ls_hp = txt_nohp_mhs.getText();
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement state = con.createStatement();
+            int result = state.executeUpdate("UPDATE mahasiswa SET email = '"+ls_email+"', nama_mahasiswa = '"+ls_nama+"', Jenis_Kelamin = '"+ls_jk+"', alamat = '"+ls_alamat+
+                    "', Kota_Mahasiswa = '"+ls_kota+"', no_hp = '"+ls_hp+"' where nrp = '"+ls_nrp+"'");
+            JOptionPane.showMessageDialog(this, "Data Berhasil Diubah!");
+            try {
+                InputStream image = new FileInputStream(new File(image_path));
+                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '"+ls_nrp+"'");
+                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
+        
     }//GEN-LAST:event_btnUbah_mhsActionPerformed
 
     private void btnUbah_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_ortuActionPerformed
@@ -759,6 +899,40 @@ public class framemahasiswa extends javax.swing.JFrame {
         new framelogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
+
+    private void txt_nohp_mhsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nohp_mhsKeyTyped
+        // TODO add your handling code here:
+        if (!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_nohp_mhsKeyTyped
+
+    private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
+        // TODO add your handling code here:
+        //pilih foto
+        String path = null;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        
+        //extensi file
+        
+        FileNameExtensionFilter extension = new  FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg");
+        chooser.addChoosableFileFilter(extension);
+        
+        int filestate = chooser.showSaveDialog(null);
+        
+        //mengecek yang diupload user
+        if(filestate == JFileChooser.APPROVE_OPTION){
+            File selectedImage = chooser.getSelectedFile();
+            path = selectedImage.getAbsolutePath();
+            labelfoto.setText(path);
+        }
+    }//GEN-LAST:event_btnFotoActionPerformed
+
+    private void txt_NRPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_NRPMouseClicked
+        // TODO add your handling code here:
+        txt_NRP.setEditable(false);
+    }//GEN-LAST:event_txt_NRPMouseClicked
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -826,6 +1000,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JTable TabelMatkul_mhs;
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
+    private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnUbah_mhs;
     private javax.swing.JButton btnUbah_ortu;
     private javax.swing.JComboBox<String> cb_kota_ortu;
@@ -863,13 +1038,15 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel labelfoto;
     private javax.swing.JLabel lbl_tmpl_agama_mhs;
     private javax.swing.JLabel lbl_tmpl_almt_ortu_mhs;
     private javax.swing.JLabel lbl_tmpl_jk_mhs;
