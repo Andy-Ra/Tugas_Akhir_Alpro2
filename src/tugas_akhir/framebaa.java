@@ -1065,6 +1065,7 @@ public class framebaa extends javax.swing.JFrame {
     //untuk mengganti data mahasiswa
     private void update_mhs(){
         deklarasi_mhs();
+        deklarasi_mhs();
     }
     
     //untuk menghapus tanda ">"
