@@ -775,7 +775,7 @@ public class framebaa extends javax.swing.JFrame {
         }
         //fungsiuntuk mengubah data
         else if (btnadd_mhs_baa.getText().equals("UBAH DATA")) {
-            update_mhs();
+//            update_mhs();
         }
         
         
@@ -1062,10 +1062,10 @@ public class framebaa extends javax.swing.JFrame {
         }
     }
     
-    //untuk mengganti data mahasiswa
-    private void update_mhs(){
-        deklarasi_mhs();
-    }
+//    //untuk mengganti data mahasiswa
+//    private void update_mhs(){
+//        deklarasi_mhs();
+//    }
     
     //untuk menghapus tanda ">"
     private String hapus_tanda(String str){
