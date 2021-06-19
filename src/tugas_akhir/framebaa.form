@@ -792,18 +792,21 @@
                       </Layout>
                       <SubComponents>
                         <Component class="javax.swing.JTextField" name="txt_NIP_dsn_baa">
+                          <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_NIP_dsn_baaFocusLost"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JComboBox" name="cbx_nip_dsn_baa">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
+                              <StringArray count="1">
+                                <StringItem index="0" value="=== PILIH NIP ==="/>
                               </StringArray>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbx_nip_dsn_baaItemStateChanged"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
@@ -917,20 +920,7 @@
                         <Property name="text" type="java.lang.String" value="Jabatan Akademik"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cb_jbtn_dsn_baa">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
+                    <Component class="javax.swing.JTextField" name="txt_jbtn_dsn_baa">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -946,8 +936,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_reset_dsn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
+                <Property name="text" type="java.lang.String" value="CLEAR"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_reset_dsnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 public class framebaa extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
     
-    private static String kota_dsn;
     
     //untuk mahasiswa
     private static String nrp_mhs, email_mhs, nama_mhs, prodi_mhs, agama_mhs, jk_mhs, kota_mhs, ttl_mhs, 
@@ -33,7 +32,7 @@ public class framebaa extends javax.swing.JFrame {
     
     //untuk dosen
     private static String NIP_dsn, NIDN_dsn, Nama_dsn, Email_dsn, Alamat_dsn, Telepon_dsn, 
-            Jenis_Kelamin_dsn, Tempat_Tanggal_Lahir_dsn, Pendidikan_tertinggi_dsn,status_dsn,  Jabatan_Akademik_dsn;
+            jk_dsn, ttldsn, ptn_dsn, stts_dsn, ja_dsn;
     /**
      * Creates new form framebaa
      */
@@ -139,7 +138,7 @@ public class framebaa extends javax.swing.JFrame {
         jLabel3_dsn = new javax.swing.JLabel();
         cb_pendidikan_dsn_baa = new javax.swing.JComboBox<>();
         jLabel7_dsn = new javax.swing.JLabel();
-        cb_jbtn_dsn_baa = new javax.swing.JComboBox<>();
+        txt_jbtn_dsn_baa = new javax.swing.JTextField();
         btn_Ubah_dsn_baa = new javax.swing.JButton();
         btn_reset_dsn = new javax.swing.JButton();
         panel_mhs_tabel = new javax.swing.JPanel();
@@ -490,7 +489,18 @@ public class framebaa extends javax.swing.JFrame {
         jLabel5_dsn.setText("NIP Dosen");
         input_dsn.add(jLabel5_dsn);
 
-        cbx_nip_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txt_NIP_dsn_baa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_NIP_dsn_baaFocusLost(evt);
+            }
+        });
+
+        cbx_nip_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH NIP ===" }));
+        cbx_nip_dsn_baa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbx_nip_dsn_baaItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelnipLayout = new javax.swing.GroupLayout(panelnip);
         panelnip.setLayout(panelnipLayout);
@@ -563,9 +573,7 @@ public class framebaa extends javax.swing.JFrame {
 
         jLabel7_dsn.setText("Jabatan Akademik");
         input_dsn.add(jLabel7_dsn);
-
-        cb_jbtn_dsn_baa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        input_dsn.add(cb_jbtn_dsn_baa);
+        input_dsn.add(txt_jbtn_dsn_baa);
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
         border.setLayout(borderLayout);
@@ -591,7 +599,12 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
-        btn_reset_dsn.setText("jButton1");
+        btn_reset_dsn.setText("CLEAR");
+        btn_reset_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reset_dsnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_dsnLayout = new javax.swing.GroupLayout(panel_dsn);
         panel_dsn.setLayout(panel_dsnLayout);
@@ -800,11 +813,13 @@ public class framebaa extends javax.swing.JFrame {
     private void btn_Ubah_dsn_baaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Ubah_dsn_baaActionPerformed
         //fungsi untuk menambah data
         if (btn_Ubah_dsn_baa.getText().equals("ADD")) {
-            
+            deklarasi_dsn();
+            cek_dsn();
         }
         //fungsiuntuk mengubah data
-        else if (btn_Ubah_dsn_baa.getText().equals("UPDATE")) {
-            cek_update_mhs();
+        else if (btn_Ubah_dsn_baa.getText().equals("UBAH DATA")) {
+            deklarasi_dsn();
+            cek_update_dsn();
         }
     }//GEN-LAST:event_btn_Ubah_dsn_baaActionPerformed
 
@@ -822,6 +837,7 @@ public class framebaa extends javax.swing.JFrame {
         }
         //fungsiuntuk mengubah data
         else if (btnadd_mhs_baa.getText().equals("UBAH DATA")) {
+            deklarasi_mhs();
             cek_update_mhs();
         }
         
@@ -874,7 +890,9 @@ public class framebaa extends javax.swing.JFrame {
         CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
         cl_baa.show(panelinduk_baa, "cv_add_dsn_baa");
         title_baa.setText("Ubah data Dosen");
-        btn_Ubah_dsn_baa.setText("UPDATE");
+        btn_Ubah_dsn_baa.setText("UBAH DATA");
+        txt_email_dsn_baa.setEditable(false);
+        tampil_nip();
     }//GEN-LAST:event_update_data_dsnActionPerformed
     
     //untuk keluar ke halaman login
@@ -933,13 +951,12 @@ public class framebaa extends javax.swing.JFrame {
                 String get_fromnrp = "SELECT * FROM mahasiswa WHERE nrp='"+cb_NRP_baa.getSelectedItem()+"'";
                 ResultSet res_fromnrp = con.prepareStatement(get_fromnrp).executeQuery();
                 if(res_fromnrp.next()){
-                    System.out.println(res_fromnrp.getString("Kota_Mahasiwa"));
                     txt_Nama_mhs_baa.setText(res_fromnrp.getString("nama_mahasiswa"));
                     txt_Email_mhs_baa.setText(res_fromnrp.getString("email"));
                     cbx_Prodi_baa.setSelectedItem("> "+res_fromnrp.getString("prodi"));
         
                     //untuk mengambil jenis kelamin
-                    if(res_fromnrp.getString("Jenis_Kelamin").equals("Laki - Laki")){
+                    if(res_fromnrp.getString("Jenis_Kelamin").equals("Laki-Laki")){
                         rd_laki_mhs.setSelected(true);
                     }
                     else if(res_fromnrp.getString("Jenis_Kelamin").equals("Perempuan")){
@@ -965,6 +982,62 @@ public class framebaa extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cb_NRP_baaItemStateChanged
+    
+    //untuk mengisi email dosen secara otomatis
+    private void txt_NIP_dsn_baaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NIP_dsn_baaFocusLost
+        deklarasi_dsn();
+        if(txt_NIP_dsn_baa.equals("")){
+            txt_email_dsn_baa.setText("");
+        }
+        else{
+           txt_email_dsn_baa.setText(NIP_dsn+"@dsn.com"); 
+        }
+        
+    }//GEN-LAST:event_txt_NIP_dsn_baaFocusLost
+
+    private void btn_reset_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reset_dsnActionPerformed
+        clear_dsn();
+    }//GEN-LAST:event_btn_reset_dsnActionPerformed
+    
+    //untuk mengisi form detail dosen secara otomatis
+    private void cbx_nip_dsn_baaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbx_nip_dsn_baaItemStateChanged
+        if (cbx_nip_dsn_baa.getSelectedIndex()>0) {
+            try{
+                String get_fromnip = "SELECT * FROM dosen WHERE nip_dosen='"+cbx_nip_dsn_baa.getSelectedItem()+"'";
+                ResultSet res_fromnip = con.prepareStatement(get_fromnip).executeQuery();
+                if(res_fromnip.next()){
+                    txt_NIDN_dsn_baa.setText(res_fromnip.getString("nidn_dosen"));
+                    txt_Nama_dsn_baa.setText(res_fromnip.getString("nama_dosen"));
+        
+                    //untuk mengambil jenis kelamin
+                    if(res_fromnip.getString("Jenis_Kelamin").equals("Laki-Laki")){
+                        rd_laki_dsn_baa.setSelected(true);
+                    }
+                    else if(res_fromnip.getString("Jenis_Kelamin").equals("Perempuan")){
+                        rd_perempuan_dsn_baa.setSelected(true);
+                    }
+                    
+                    txt_Alamat_dsn_baa.setText(res_fromnip.getString("Alamat"));
+                    txt_nohp_dsn_baa.setText(res_fromnip.getString("Telepon"));
+                    txt_email_dsn_baa.setText(res_fromnip.getString("Email"));
+                    txt_ttl_dsn_baa.setText(res_fromnip.getString("Tempat_Tanggal_Lahir"));
+                    cb_pendidikan_dsn_baa.setSelectedItem("> "+res_fromnip.getString("Pendidikan_Tertinggi"));
+                    txt_jbtn_dsn_baa.setText(res_fromnip.getString("Jabatan_Akademik"));
+                            
+        
+                    //untuk mengambil data status dosen
+                    if(res_fromnip.getString("Status_Kepegawaian").equals("Aktif")){
+                        cb_Status_dsn_baa.setSelected(true);
+                    }
+                    else if(res_fromnip.getString("Status_Kepegawaian").equals("Tidak Aktif")){
+                        cb_Status_dsn_baa.setSelected(false);
+                    } 
+                }  
+            }
+            catch(Exception e){
+            }
+        }
+    }//GEN-LAST:event_cbx_nip_dsn_baaItemStateChanged
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -1020,7 +1093,7 @@ public class framebaa extends javax.swing.JFrame {
         
         //untuk mengambil jenis kelamin
         if(rd_laki_mhs.isSelected()){
-            jk_mhs = "Laki - Laki";
+            jk_mhs = "Laki-Laki";
         }
         else if(rd_perempuan_mhs.isSelected()){
             jk_mhs = "Perempuan";
@@ -1057,7 +1130,7 @@ public class framebaa extends javax.swing.JFrame {
                 }
                 else{
                     //jika ada field yang kosong
-                    if(nrp_mhs.equals("") || email_mhs.equals("") || nama_mhs.equals("") || 
+                    if(nrp_mhs.equals("") || !nrp_mhs.matches("[0-9]*") ||email_mhs.equals("") || nama_mhs.equals("") || 
                         cbx_Prodi_baa.getSelectedIndex() == 0|| grp_jk_mhs_baa.getSelection() == null || 
                         cbx_Agama_mhs_baa.getSelectedIndex() == 0 || ttl_mhs.equals("") || almt_mhs.equals("") ||
                         cbx_kota_mhs_baa.getSelectedIndex() == 0  || hp_mhs.equals("") || !hp_mhs.matches("[0-9]*")){
@@ -1065,6 +1138,9 @@ public class framebaa extends javax.swing.JFrame {
                         if(nrp_mhs.equals("") || email_mhs.equals("") || nama_mhs.equals("") || 
                                 ttl_mhs.equals("") || almt_mhs.equals("") || hp_mhs.equals("")){
                                 JOptionPane.showMessageDialog(this, "Mohon isi semua Field");
+                        }
+                        else if(!nrp_mhs.matches("[0-9]*") ){
+                            JOptionPane.showMessageDialog(this, "Mohon isikan NRP dengan hanya menggunakan angka");  
                         }
                         else if(grp_jk_mhs_baa.getSelection() == null){
                              JOptionPane.showMessageDialog(this, "Mohon Pilih Jenis Kelamin Mahasiswa");       
@@ -1093,7 +1169,6 @@ public class framebaa extends javax.swing.JFrame {
             }
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
         }
         
             
@@ -1156,7 +1231,6 @@ public class framebaa extends javax.swing.JFrame {
     //untuk menambahkan data mahasiswa
     private void add_mhs(){
         try{
-            System.out.println(jk_mhs);
             //untuk membuat user
             String add_user_mhs = "INSERT INTO user(Email,Password, Jenis_User) VALUES (?,?,?)";
             PreparedStatement ps_add_user_mhs = con.prepareStatement(add_user_mhs);
@@ -1204,13 +1278,14 @@ public class framebaa extends javax.swing.JFrame {
         if(cb_NRP_baa.getSelectedIndex() == 0 ||nama_mhs.equals("") || grp_jk_mhs_baa.getSelection() == null || 
             cbx_Agama_mhs_baa.getSelectedIndex() == 0 || ttl_mhs.equals("") || almt_mhs.equals("") ||
             cbx_kota_mhs_baa.getSelectedIndex() == 0  || hp_mhs.equals("") || !hp_mhs.matches("[0-9]*")){
-                        
-            if(nama_mhs.equals("") || ttl_mhs.equals("") || almt_mhs.equals("") || hp_mhs.equals("")){
+            
+            if(cb_NRP_baa.getSelectedIndex() == 0){
+               JOptionPane.showMessageDialog(this, "Mohon Pilih Data Mahasiswa yang akan diubah");   
+            }           
+            else if(nama_mhs.equals("") || ttl_mhs.equals("") || almt_mhs.equals("") || hp_mhs.equals("")){
                 JOptionPane.showMessageDialog(this, "Mohon isi semua Field");
             }
-            else if(cb_NRP_baa.getSelectedIndex() == 0){
-               JOptionPane.showMessageDialog(this, "Mohon Pilih Data Mahasiswa yang akan diubah");   
-            }
+            
             else if(grp_jk_mhs_baa.getSelection() == null){
                 JOptionPane.showMessageDialog(this, "Mohon Pilih Jenis Kelamin Mahasiswa");       
             }
@@ -1267,9 +1342,215 @@ public class framebaa extends javax.swing.JFrame {
         txt_nohp_dsn_baa.setText("");
         txt_email_dsn_baa.setText("");
         txt_ttl_dsn_baa.setText("");
+        txt_jbtn_dsn_baa.setText("");
         cb_Status_dsn_baa.setSelected(false);
         cb_pendidikan_dsn_baa.setSelectedIndex(0);
-        cb_jbtn_dsn_baa.setSelectedIndex(0);
+        grp_jk_dsn_baa.clearSelection();
+    }
+    
+     //deklarasi dosen
+    private void deklarasi_dsn(){
+        NIP_dsn = txt_NIP_dsn_baa.getText();
+        NIDN_dsn = txt_NIDN_dsn_baa.getText();
+        Nama_dsn = txt_Nama_dsn_baa.getText();
+        Alamat_dsn = txt_Alamat_dsn_baa.getText(); 
+        Telepon_dsn = txt_nohp_dsn_baa.getText();
+        
+        //untuk mengambil jenis kelamin
+        if(rd_laki_dsn_baa.isSelected()){
+            jk_dsn = "Laki-Laki";
+        }
+        else if(rd_perempuan_dsn_baa.isSelected()){
+            jk_dsn = "Perempuan";
+        }
+        
+        Email_dsn = txt_email_dsn_baa.getText();
+        ttldsn = txt_ttl_dsn_baa.getText();
+        ptn_dsn = hapus_tanda(cb_pendidikan_dsn_baa.getSelectedItem().toString());
+        ja_dsn = txt_jbtn_dsn_baa.getText();
+        
+                
+        //untuk mengambil data status dosen
+        if(cb_Status_dsn_baa.isSelected() == true){
+            stts_dsn = "Aktif";
+        }
+        else if(cb_Status_dsn_baa.isSelected() == false){
+            stts_dsn = "Tidak Aktif";
+        }
+    }
+    
+    //untuk mengecek field dosen, 
+    private void cek_dsn(){
+        try{
+            String cek_nip = "SELECT * FROM dosen WHERE nip_dosen='"+NIP_dsn+"'";
+            ResultSet rs_cek_nip = con.prepareStatement(cek_nip).executeQuery();
+            if(rs_cek_nip.next()){
+                JOptionPane.showMessageDialog(this, "Data dengan NIP "+NIP_dsn+" sudah ada");
+            }
+            else{
+                String cek_email_dsn = "SELECT * FROM dosen WHERE Email='"+Email_dsn+"'";
+                ResultSet rs_cek_email_dsn = con.prepareStatement(cek_email_dsn).executeQuery();
+                if(rs_cek_email_dsn.next()){
+                     JOptionPane.showMessageDialog(this, "Data dengan Email "+Email_dsn+" sudah ada");
+                }
+                else{
+                    //jika ada field yang kosong
+                    if(NIP_dsn.equals("") || NIDN_dsn.equals("") || Nama_dsn.equals("") || 
+                        Alamat_dsn.equals("") || Telepon_dsn.equals("") || !Telepon_dsn.matches("[0-9]*") ||
+                        Email_dsn.equals("") ||ttldsn.equals("") || ja_dsn.equals("")||
+                        cb_pendidikan_dsn_baa.getSelectedIndex() == 0  || grp_jk_dsn_baa.getSelection() == null ||
+                        !NIP_dsn.matches("[0-9]*") || !NIDN_dsn.matches("[0-9]*") ){
+                        
+                        if(NIP_dsn.equals("") || NIDN_dsn.equals("") || Nama_dsn.equals("") || 
+                            Alamat_dsn.equals("") || Telepon_dsn.equals("") ||
+                            Email_dsn.equals("") ||ttldsn.equals("") || ja_dsn.equals("")){
+                                JOptionPane.showMessageDialog(this, "Mohon isi semua Field");
+                        }
+                        else if(!NIP_dsn.matches("[0-9]*")){
+                            JOptionPane.showMessageDialog(this, "Mohon isikan NIP hanya dengan menggunakan angka");
+                        }
+                        else if(!NIDN_dsn.matches("[0-9]*")){
+                            JOptionPane.showMessageDialog(this, "Mohon isikan NIDN hanya dengan menggunakan angka");
+                        }
+                        else if(!Telepon_dsn.matches("[0-9]*")){
+                             JOptionPane.showMessageDialog(this, "Mohon isikan No HP hanya dengan menggunakan angka");       
+                        }
+                        else if(cb_pendidikan_dsn_baa.getSelectedIndex() == 0){
+                             JOptionPane.showMessageDialog(this, "Mohon Pilih Pendidikan Tertinggi Dosen");       
+                        }
+                        else if(grp_jk_dsn_baa.getSelection() == null ){
+                             JOptionPane.showMessageDialog(this, "Mohon Pilih Jenis Kelamin");       
+                        }
+                        
+                    }
+                            
+                    //jika data belum terdaftar
+                    else{
+                        add_dsn();
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+            
+    }
+    
+    //untuk menambahkan data dosen
+    private void add_dsn(){
+        try{
+            //untuk membuat user
+            String add_user_dsn = "INSERT INTO user(Email,Password, Jenis_User) VALUES (?,?,?)";
+            PreparedStatement ps_add_user_dsn = con.prepareStatement(add_user_dsn);
+            ps_add_user_dsn.setString(1, Email_dsn);
+            ps_add_user_dsn.setString(2, "pass"+NIP_dsn);
+            ps_add_user_dsn.setString(3, "Dosen");
+            ps_add_user_dsn.executeUpdate();
+            
+            //untuk menyimpan data mahasiswa
+            String add_dsn = "INSERT INTO dosen(nip_dosen, nidn_dosen, nama_dosen, Alamat, "
+            + "Telepon, Email, Jenis_Kelamin, Tempat_Tanggal_Lahir, Status_Kepegawaian, "
+            + "Pendidikan_Tertinggi, Jabatan_Akademik) VALUES ( ?,?,?,?,?,?,?,?,?,?,?)";
+        
+            PreparedStatement ps_add_dsn = con.prepareStatement(add_dsn);
+            ps_add_dsn.setString(1, NIP_dsn);
+            ps_add_dsn.setString(2, NIDN_dsn);
+            ps_add_dsn.setString(3, Nama_dsn);
+            ps_add_dsn.setString(4, Alamat_dsn);
+            ps_add_dsn.setString(5, Telepon_dsn);
+            ps_add_dsn.setString(6, Email_dsn);
+            ps_add_dsn.setString(7, jk_dsn);
+            ps_add_dsn.setString(8, ttldsn);
+            ps_add_dsn.setString(9, stts_dsn);
+            ps_add_dsn.setString(10, ptn_dsn);
+            ps_add_dsn.setString(11, ja_dsn);
+            ps_add_dsn.executeUpdate();
+            
+           JOptionPane.showMessageDialog(this, "Selamat Data dengan NIP "+NIP_dsn+" berhasil ditambahkan");;
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    //untuk mendapatkan list nip
+    private void tampil_nip(){
+        try{
+            String con_get_nip = "SELECT * from dosen";
+            ResultSet res_get_nip = con.prepareStatement(con_get_nip).executeQuery();
+            while(res_get_nip.next()){
+                cbx_nip_dsn_baa.addItem(res_get_nip.getString("nip_dosen"));
+            }
+        }
+        catch(Exception e){
+            
+        }
+    }
+    
+    //cek field pada update dosen
+    private void cek_update_dsn(){
+        if(cbx_nip_dsn_baa.getSelectedIndex() == 0 ||NIDN_dsn.equals("") || Nama_dsn.equals("") || 
+            Alamat_dsn.equals("") || Telepon_dsn.equals("") || !Telepon_dsn.matches("[0-9]*") ||
+            Email_dsn.equals("") || ttldsn.equals("") || ja_dsn.equals("")||!NIDN_dsn.matches("[0-9]*")
+            || cb_pendidikan_dsn_baa.getSelectedIndex() == 0  || grp_jk_dsn_baa.getSelection() == null){
+         
+            if(cbx_nip_dsn_baa.getSelectedIndex() == 0){
+                JOptionPane.showMessageDialog(this, "Mohon pilih data dosen yang akan diubah");
+            }   
+            else if(NIDN_dsn.equals("") || Nama_dsn.equals("") || 
+                Alamat_dsn.equals("") || Telepon_dsn.equals("") ||
+                Email_dsn.equals("") ||ttldsn.equals("") || ja_dsn.equals("")){
+                JOptionPane.showMessageDialog(this, "Mohon isi semua Field");
+            }
+            else if(!NIDN_dsn.matches("[0-9]*")){
+                JOptionPane.showMessageDialog(this, "Mohon isikan NIDN hanya dengan menggunakan angka");
+            } 
+            else if(!Telepon_dsn.matches("[0-9]*")){
+                JOptionPane.showMessageDialog(this, "Mohon isikan No HP hanya dengan menggunakan angka");       
+            }
+           
+            else if(cb_pendidikan_dsn_baa.getSelectedIndex() == 0){
+                JOptionPane.showMessageDialog(this, "Mohon Pilih Pendidikan Tertinggi Dosen");       
+            }
+            else if(grp_jk_dsn_baa.getSelection() == null ){
+                JOptionPane.showMessageDialog(this, "Mohon Pilih Jenis Kelamin");       
+            }
+                 
+             
+        }
+        else{
+            update_dsn();
+        }
+    }
+    
+    //untuk mengganti data dosen
+    private void update_dsn(){
+        deklarasi_dsn();
+        try{
+            String db_update_dsn = "UPDATE dosen SET nama_dosen = ? ,"
+                    + "Alamat = ? ,Telepon = ? ,Email = ? ,Jenis_Kelamin = ? , "
+                    + "Tempat_Tanggal_Lahir = ? ,Status_Kepegawaian = ? ,Pendidikan_Tertinggi = ?, Jabatan_Akademik = ? "
+                    + "WHERE nip_dosen='"+cbx_nip_dsn_baa.getSelectedItem()+"'";
+            PreparedStatement ps_up_dsn = con.prepareStatement(db_update_dsn);
+            ps_up_dsn.setString(1, Nama_dsn);
+            ps_up_dsn.setString(2, Alamat_dsn);
+            ps_up_dsn.setString(3, Telepon_dsn);
+            ps_up_dsn.setString(4, Email_dsn);
+            ps_up_dsn.setString(5, jk_dsn);
+            ps_up_dsn.setString(6, ttldsn);
+            ps_up_dsn.setString(7, stts_dsn);
+            ps_up_dsn.setString(8, ptn_dsn);
+            ps_up_dsn.setString(9, ja_dsn);
+            ps_up_dsn.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Data pada NIP "+cbx_nip_dsn_baa.getSelectedItem()+ " telah berhasil diubah");
+            
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
     }
     
     //untuk menghapus tanda ">"
@@ -1329,7 +1610,6 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_NRP_baa;
     private javax.swing.JCheckBox cb_Status_dsn_baa;
     private javax.swing.JCheckBox cb_Status_mhs_baa;
-    private javax.swing.JComboBox<String> cb_jbtn_dsn_baa;
     private javax.swing.JComboBox<String> cb_kota_ortu_baa;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn_baa;
     private javax.swing.JComboBox<String> cbx_Agama_mhs_baa;
@@ -1408,6 +1688,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Nama_mhs_baa;
     private javax.swing.JTextField txt_alamatortu_baa;
     private javax.swing.JTextField txt_email_dsn_baa;
+    private javax.swing.JTextField txt_jbtn_dsn_baa;
     private javax.swing.JTextField txt_nohp_dsn_baa;
     private javax.swing.JTextField txt_nohp_mhs_baa;
     private javax.swing.JTextField txt_telp_ortu_baa;

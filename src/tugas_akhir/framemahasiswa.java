@@ -23,6 +23,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class framemahasiswa extends javax.swing.JFrame {
     public static Connection con = new koneksi().ambil_koneksi();
+    
+    private static String email_lgn = new framelogin().email;
     private static String kota_ortu_mhs;
     String image_path = null;
     /**
