@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,7 +23,7 @@ public class framebaa extends javax.swing.JFrame {
     
     //untuk mahasiswa
     private static String nrp_mhs, email_mhs, nama_mhs, prodi_mhs, agama_mhs, jk_mhs, kota_mhs, ttl_mhs, 
-            almt_mhs, hp_mhs, stts_mhs;
+            almt_mhs, hp_mhs, stts_mhs, get_email;
     private static int indx_kota_mhs;
     
     //untuk orang tua
@@ -142,11 +143,26 @@ public class framebaa extends javax.swing.JFrame {
         btn_Ubah_dsn_baa = new javax.swing.JButton();
         btn_reset_dsn = new javax.swing.JButton();
         panel_mhs_tabel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        panel_list_mhs = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
         list_all_mahasiswa = new javax.swing.JTable();
+        panel_detail_mhs = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lb_ldt_ayah = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lb_ldt_ibu = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        lb_telp_ortu = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        lb_almt_ortu = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lb_kota_ortu = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         panel_dsn_tabel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         list_all_dsn = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
         add_data_mhs = new javax.swing.JMenuItem();
@@ -327,7 +343,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd_mhs_baa)
                     .addComponent(btn_clear_mhs_baa))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_add_mhs, "cv_add_mhs");
@@ -476,7 +492,7 @@ public class framebaa extends javax.swing.JFrame {
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -631,48 +647,125 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_reset_dsn)
                     .addComponent(btn_Ubah_dsn_baa))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_dsn, "cv_add_dsn_baa");
+
+        panel_list_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("List Mahasiswa"));
 
         list_all_mahasiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "NRP", "Email", "Nama", "Prodi", "Jenis Kelamin", "Agama", "Alamat", "Kota", "No HP", "Status"
+                "NRP", "Nama", "Email", "Prodi", "Jenis Kelamin", "No Hp", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(list_all_mahasiswa);
+        list_all_mahasiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                list_all_mahasiswaMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(list_all_mahasiswa);
+
+        javax.swing.GroupLayout panel_list_mhsLayout = new javax.swing.GroupLayout(panel_list_mhs);
+        panel_list_mhs.setLayout(panel_list_mhsLayout);
+        panel_list_mhsLayout.setHorizontalGroup(
+            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_list_mhsLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_list_mhsLayout.setVerticalGroup(
+            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 307, Short.MAX_VALUE)
+            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_list_mhsLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panel_detail_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("Detail Orang Tua"));
+        panel_detail_mhs.setLayout(new java.awt.GridLayout(5, 2));
+
+        jLabel1.setText("Nama Ayah");
+        panel_detail_mhs.add(jLabel1);
+        panel_detail_mhs.add(lb_ldt_ayah);
+
+        jLabel3.setText("Nama_Ibu");
+        panel_detail_mhs.add(jLabel3);
+        panel_detail_mhs.add(lb_ldt_ibu);
+
+        jLabel22.setText("Telepon_Orang_Tua\t");
+        panel_detail_mhs.add(jLabel22);
+        panel_detail_mhs.add(lb_telp_ortu);
+
+        jLabel24.setText("Alamat_Orang_Tua");
+        panel_detail_mhs.add(jLabel24);
+        panel_detail_mhs.add(lb_almt_ortu);
+
+        jLabel26.setText("Kota Orang Tua");
+        panel_detail_mhs.add(jLabel26);
+        panel_detail_mhs.add(lb_kota_ortu);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_detail_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(panel_detail_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jButton2.setText("HAPUS DATA");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_mhs_tabelLayout = new javax.swing.GroupLayout(panel_mhs_tabel);
         panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
         panel_mhs_tabelLayout.setHorizontalGroup(
             panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 553, Short.MAX_VALUE)
-            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1)
-                    .addContainerGap()))
+            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhs_tabelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         panel_mhs_tabelLayout.setVerticalGroup(
             panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-            .addGroup(panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_mhs_tabel, "cv_list_mhs_baa");
@@ -697,11 +790,16 @@ public class framebaa extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(list_all_dsn);
 
+        jButton1.setText("HAPUS DOSEN");
+
         javax.swing.GroupLayout panel_dsn_tabelLayout = new javax.swing.GroupLayout(panel_dsn_tabel);
         panel_dsn_tabel.setLayout(panel_dsn_tabelLayout);
         panel_dsn_tabelLayout.setHorizontalGroup(
             panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dsn_tabelLayout.createSequentialGroup()
+                .addContainerGap(425, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
             .addGroup(panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -710,12 +808,15 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_dsn_tabelLayout.setVerticalGroup(
             panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dsn_tabelLayout.createSequentialGroup()
+                .addContainerGap(544, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
             .addGroup(panel_dsn_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(302, Short.MAX_VALUE)))
         );
 
         panelinduk_baa.add(panel_dsn_tabel, "cv_list_dsn_baa");
@@ -859,8 +960,9 @@ public class framebaa extends javax.swing.JFrame {
     private void list_data_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_mhsActionPerformed
        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_list_mhs_baa");
-       title_baa.setText("Daftar Mahasiswa");
-        
+       title_baa.setText("List Mahasiswa");
+       
+       list_mhs();
     }//GEN-LAST:event_list_data_mhsActionPerformed
     
     //untuk menampilkan halaman tambah data dosen
@@ -1039,6 +1141,34 @@ public class framebaa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbx_nip_dsn_baaItemStateChanged
     
+    //untuk menghapus data mahasiswa
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       ambil_ortu();
+        try{
+            System.out.println("delete"+get_email);
+            //untuk menghapus data pada mahasiswa
+            String sql_del_mhs = "DELETE FROM mahasiswa WHERE Email ='"+get_email+"'";
+            PreparedStatement ps_del_mhs = con.prepareStatement(sql_del_mhs);
+            ps_del_mhs.executeUpdate();
+            
+            //untuk menghapus data pada user
+            String sql_del_usr_mhs = "DELETE FROM user WHERE Email ='"+get_email+"'";
+            PreparedStatement ps_del_usr_mhs = con.prepareStatement(sql_del_usr_mhs);
+            ps_del_usr_mhs.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Data telah terhapus");
+            list_mhs();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    //untuk menampilkan detail ortu
+    private void list_all_mahasiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list_all_mahasiswaMouseClicked
+       ambil_ortu();
+    }//GEN-LAST:event_list_all_mahasiswaMouseClicked
+    
     //untuk menampilkan kota
     private void tampilkota(){
         try{
@@ -1188,6 +1318,61 @@ public class framebaa extends javax.swing.JFrame {
         }
     }
     
+    //untuk menampilkan data mahasiswa
+    private void list_mhs(){
+        //untuk menampilkan list mahasiswa
+       try{
+            String output = "SELECT * FROM mahasiswa";
+            PreparedStatement ps_mhs_list = con.prepareStatement(output);
+            ResultSet res_mhs_list= ps_mhs_list.executeQuery();
+            
+            DefaultTableModel tb_list_mhs = (DefaultTableModel) list_all_mahasiswa.getModel();
+            
+            tb_list_mhs.setRowCount(0);
+            
+            while(res_mhs_list.next()){
+                Object data[] = new Object[7];
+                data[0] = res_mhs_list.getString("nrp");
+                data[1] = res_mhs_list.getString("nama_mahasiswa");
+                data[2] = res_mhs_list.getString("email");
+                data[3] = res_mhs_list.getString("prodi");
+                data[4] = res_mhs_list.getString("Jenis_Kelamin");
+                data[5] = res_mhs_list.getString("no_hp");
+                data[6] = res_mhs_list.getString("Status_Masuk");
+                
+                tb_list_mhs.addRow(data);
+                
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    //untuk menampilkan data orang tua
+    private void ambil_ortu(){
+        try{
+            int ambil_row = list_all_mahasiswa.getSelectedRow();
+            DefaultTableModel tablemodel = (DefaultTableModel) list_all_mahasiswa.getModel();
+            get_email = tablemodel.getValueAt(ambil_row, 2).toString();
+
+            String ambil_data_mhs = "SELECT * FROM mahasiswa WHERE email='"+get_email+"'";
+            PreparedStatement ps_ambil_data_mhs = con.prepareStatement(ambil_data_mhs);
+            ResultSet res_ambil_data_mhs = ps_ambil_data_mhs.executeQuery();
+            
+            if(res_ambil_data_mhs.next()){
+                lb_ldt_ayah.setText(res_ambil_data_mhs.getString("Nama_Ayah"));
+                lb_ldt_ibu.setText(res_ambil_data_mhs.getString("Nama_Ibu"));
+                lb_telp_ortu.setText(res_ambil_data_mhs.getString("Telepon_Orang_Tua"));
+                lb_almt_ortu.setText(res_ambil_data_mhs.getString("Alamat_Orang_Tua"));
+                lb_kota_ortu.setText(res_ambil_data_mhs.getString("Kota_Orang_Tua"));
+            } 
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
 // ORANG TUA
     
     //menghapus field orang tua
@@ -1330,6 +1515,7 @@ public class framebaa extends javax.swing.JFrame {
         }
         
     }
+    
     
 //DOSEN
     //menghapus field dosen
@@ -1621,6 +1807,9 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JPanel input_dsn;
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel11_dsn;
@@ -1637,8 +1826,12 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel21_dsn;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel2_dsn;
     private javax.swing.JLabel jLabel2_dsn1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel3_dsn;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5_dsn;
@@ -1652,9 +1845,15 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9_dsn;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lb_almt_ortu;
+    private javax.swing.JLabel lb_kota_ortu;
+    private javax.swing.JLabel lb_ldt_ayah;
+    private javax.swing.JLabel lb_ldt_ibu;
+    private javax.swing.JLabel lb_telp_ortu;
     private javax.swing.JTable list_all_dsn;
     private javax.swing.JTable list_all_mahasiswa;
     private javax.swing.JMenuItem list_data_dsn;
@@ -1664,8 +1863,10 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JMenu menu_mhs;
     private javax.swing.JPanel panel_add_mhs;
     private javax.swing.JPanel panel_add_ortu;
+    private javax.swing.JPanel panel_detail_mhs;
     private javax.swing.JPanel panel_dsn;
     private javax.swing.JPanel panel_dsn_tabel;
+    private javax.swing.JPanel panel_list_mhs;
     private javax.swing.JPanel panel_matkul;
     private javax.swing.JPanel panel_mhs_tabel;
     private javax.swing.JPanel panel_nrp;
