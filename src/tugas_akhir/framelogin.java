@@ -302,16 +302,15 @@ public class framelogin extends javax.swing.JFrame {
     }
     
     public void pindah(){
-        System.out.println(tipe);
-        if(tipe.equals("BAA")){
+        if(tipe.equals("BAA") || tipe.equals("baa") ){
             new framebaa().setVisible(true);
             dispose();
         }
-        else if(tipe.equals("Dosen")){
+        else if(tipe.equals("Dosen") || tipe.equals("dosen")){
             new framedosen().setVisible(true);
             dispose();
         }
-        else if(tipe.equals("Mahasiswa")){
+        else if(tipe.equals("Mahasiswa") || tipe.equals("mahasiswa")){
             new framemahasiswa().setVisible(true);
             dispose();
         }

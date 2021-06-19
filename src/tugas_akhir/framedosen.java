@@ -75,9 +75,27 @@ public class framedosen extends javax.swing.JFrame {
         panel_kelas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelKelas = new javax.swing.JTable();
+        panel_ubh_pass_dsn = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        pnl_ubh_dsn = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        get_up_email_dsn = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        get_up_nip_dsn = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        get_up_nama_dsn = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txt_ubh_asli_dsn = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_ubh_pass_dsn = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        txt_ubh_repass_dsn = new javax.swing.JPasswordField();
+        cb_up_password = new javax.swing.JCheckBox();
+        btn_up_dosen = new javax.swing.JButton();
         jMenuBar1_dsn = new javax.swing.JMenuBar();
         menu_beranda_dsn = new javax.swing.JMenu();
         sm_tmpl_pribadi_dsn = new javax.swing.JMenuItem();
+        sm_ubh_pass_dsn = new javax.swing.JMenuItem();
         menu_akademik_mhs = new javax.swing.JMenu();
         menu_tampil_jadwal_kls = new javax.swing.JMenuItem();
         menu_tampil_mhs_dsn = new javax.swing.JMenuItem();
@@ -179,7 +197,7 @@ public class framedosen extends javax.swing.JFrame {
             .addGroup(panel_tmpl_pribadi_dsnLayout.createSequentialGroup()
                 .addGap(189, 189, 189)
                 .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         panel_tmpl_pribadi_dsnLayout.setVerticalGroup(
             panel_tmpl_pribadi_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,12 +234,12 @@ public class framedosen extends javax.swing.JFrame {
         panel_mhs_dsnLayout.setHorizontalGroup(
             panel_mhs_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_mhs_dsnLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel_mhs_dsnLayout.setVerticalGroup(
             panel_mhs_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
 
         panelinduk_dsn.add(panel_mhs_dsn, "panel_mhs_dsn");
@@ -253,18 +271,127 @@ public class framedosen extends javax.swing.JFrame {
             panel_kelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_kelasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel_kelasLayout.setVerticalGroup(
             panel_kelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_kelasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         panelinduk_dsn.add(panel_kelas, "panel_kls_dsn");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubah Password"));
+
+        pnl_ubh_dsn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pnl_ubh_dsn.setLayout(new java.awt.GridLayout(6, 2, 0, 15));
+
+        jLabel1.setText("Email");
+        pnl_ubh_dsn.add(jLabel1);
+
+        get_up_email_dsn.setText("get_up_email_dsn");
+        pnl_ubh_dsn.add(get_up_email_dsn);
+
+        jLabel2.setText("NIP");
+        pnl_ubh_dsn.add(jLabel2);
+
+        get_up_nip_dsn.setText("get_up_nip_dsn");
+        pnl_ubh_dsn.add(get_up_nip_dsn);
+
+        jLabel4.setText("Nama");
+        pnl_ubh_dsn.add(jLabel4);
+
+        get_up_nama_dsn.setText("get_up_nama_dsn");
+        pnl_ubh_dsn.add(get_up_nama_dsn);
+
+        jLabel8.setText("Password Sekarang");
+        pnl_ubh_dsn.add(jLabel8);
+        pnl_ubh_dsn.add(txt_ubh_asli_dsn);
+
+        jLabel9.setText("Password Baru");
+        pnl_ubh_dsn.add(jLabel9);
+
+        txt_ubh_pass_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ubh_pass_dsnActionPerformed(evt);
+            }
+        });
+        pnl_ubh_dsn.add(txt_ubh_pass_dsn);
+
+        jLabel7.setText("Ulangi password");
+        pnl_ubh_dsn.add(jLabel7);
+        pnl_ubh_dsn.add(txt_ubh_repass_dsn);
+
+        cb_up_password.setText("Tampil Password");
+        cb_up_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_up_passwordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(241, Short.MAX_VALUE)
+                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnl_ubh_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(220, Short.MAX_VALUE)
+                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnl_ubh_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(41, Short.MAX_VALUE)))
+        );
+
+        btn_up_dosen.setText("Ubah Password");
+        btn_up_dosen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_up_dosenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_ubh_pass_dsnLayout = new javax.swing.GroupLayout(panel_ubh_pass_dsn);
+        panel_ubh_pass_dsn.setLayout(panel_ubh_pass_dsnLayout);
+        panel_ubh_pass_dsnLayout.setHorizontalGroup(
+            panel_ubh_pass_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ubh_pass_dsnLayout.createSequentialGroup()
+                .addGroup(panel_ubh_pass_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_ubh_pass_dsnLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_ubh_pass_dsnLayout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(btn_up_dosen)))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        panel_ubh_pass_dsnLayout.setVerticalGroup(
+            panel_ubh_pass_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ubh_pass_dsnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_up_dosen)
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+
+        panelinduk_dsn.add(panel_ubh_pass_dsn, "cv_tmpl_ubh_pass_dsn");
+        panel_ubh_pass_dsn.getAccessibleContext().setAccessibleName("");
 
         menu_beranda_dsn.setText("Profile");
 
@@ -275,6 +402,14 @@ public class framedosen extends javax.swing.JFrame {
             }
         });
         menu_beranda_dsn.add(sm_tmpl_pribadi_dsn);
+
+        sm_ubh_pass_dsn.setText("Ubah Password");
+        sm_ubh_pass_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sm_ubh_pass_dsnActionPerformed(evt);
+            }
+        });
+        menu_beranda_dsn.add(sm_ubh_pass_dsn);
 
         jMenuBar1_dsn.add(menu_beranda_dsn);
 
@@ -360,6 +495,85 @@ public class framedosen extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menu_logoutMouseClicked
     
+    //menampilkan halaman ubah password
+    private void sm_ubh_pass_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ubh_pass_dsnActionPerformed
+        CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
+        cview.show(panelinduk_dsn, "cv_tmpl_ubh_pass_dsn");
+        
+        get_data();
+        header_dsn.setText("UBAH PASSWORD");
+        
+        get_up_email_dsn.setText(Email);
+        get_up_nip_dsn.setText(NIP);
+        get_up_nama_dsn.setText(Nama);
+    }//GEN-LAST:event_sm_ubh_pass_dsnActionPerformed
+    
+    
+    //untuk merubah password
+    private void btn_up_dosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_up_dosenActionPerformed
+        get_data();
+        String up_dsn_asli = txt_ubh_asli_dsn.getText();
+        String up_dsn_baru1 = txt_ubh_pass_dsn.getText();
+        String up_dsn_baru2 = txt_ubh_repass_dsn.getText();
+                
+        if(up_dsn_asli.equals("") || up_dsn_baru1.equals("") || up_dsn_baru2.equals("")){
+                JOptionPane.showMessageDialog(this, "Mohon isi Semua kolom");
+        }
+        
+        else  if(up_dsn_baru1.length() < 8 || up_dsn_baru2.length() < 8 ){
+            JOptionPane.showMessageDialog(this,"Password minimal 8 karakter");
+        }
+        
+        else if(!up_dsn_baru1.equals(up_dsn_baru2)){
+            JOptionPane.showMessageDialog(this, "Password tidak sama");
+        }
+           
+        else{
+            try{
+                String up_get_pass = "SELECT Password FROM user WHERE Email='"+Email+"'";
+                ResultSet res_get_pass = con.prepareStatement(up_get_pass).executeQuery();
+                if(res_get_pass.next()){
+                    String up_get_pass_asli = res_get_pass.getString("Password");
+                    if(up_dsn_asli.equals(up_get_pass_asli)){
+                        String update_up_pass = "UPDATE user SET Password = ? WHERE Email='"+Email+"'";
+                        PreparedStatement ps_up_pass = con.prepareStatement(update_up_pass);
+                        ps_up_pass.setString(1, up_dsn_baru1);
+                        ps_up_pass.executeUpdate();
+                        JOptionPane.showMessageDialog(this, "Password Sudah terubah silahkan login ulang");
+                        new framelogin().setVisible(true);
+                        dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Mohon Cek Kembali password anda");
+                    }
+                    
+                }
+                    
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage()); 
+            }  
+        }
+        
+    }//GEN-LAST:event_btn_up_dosenActionPerformed
+
+    private void txt_ubh_pass_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ubh_pass_dsnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ubh_pass_dsnActionPerformed
+
+    private void cb_up_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_up_passwordActionPerformed
+        if(cb_up_password.isSelected()){
+            txt_ubh_asli_dsn.setEchoChar((char)0);
+            txt_ubh_pass_dsn.setEchoChar((char)0);
+            txt_ubh_repass_dsn.setEchoChar((char)0);
+        }
+        else{
+            txt_ubh_asli_dsn.setEchoChar('*');
+            txt_ubh_pass_dsn.setEchoChar('*');
+            txt_ubh_repass_dsn.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cb_up_passwordActionPerformed
+    
     private void get_data(){
         try {
             String sqltampil = "select * from dosen WHERE email='"+lgn.email+"'";
@@ -438,8 +652,16 @@ public class framedosen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelKelas;
+    private javax.swing.JButton btn_up_dosen;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox cb_up_password;
+    private javax.swing.JLabel get_up_email_dsn;
+    private javax.swing.JLabel get_up_nama_dsn;
+    private javax.swing.JLabel get_up_nip_dsn;
     private javax.swing.JLabel header_dsn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel55_dsn;
     private javax.swing.JLabel jLabel55_dsn1;
     private javax.swing.JLabel jLabel55_dsn10;
@@ -451,7 +673,11 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55_dsn7;
     private javax.swing.JLabel jLabel55_dsn8;
     private javax.swing.JLabel jLabel55_dsn9;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1_dsn;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -475,9 +701,15 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JPanel panel_kelas;
     private javax.swing.JPanel panel_mhs_dsn;
     private javax.swing.JPanel panel_tmpl_pribadi_dsn;
+    private javax.swing.JPanel panel_ubh_pass_dsn;
     private javax.swing.JPanel panelinduk_dsn;
     private javax.swing.JPanel pnl_header_dsn;
+    private javax.swing.JPanel pnl_ubh_dsn;
     private javax.swing.JMenuItem sm_tmpl_pribadi_dsn;
+    private javax.swing.JMenuItem sm_ubh_pass_dsn;
     private javax.swing.JTable tbl_mhs_dsn;
+    private javax.swing.JPasswordField txt_ubh_asli_dsn;
+    private javax.swing.JPasswordField txt_ubh_pass_dsn;
+    private javax.swing.JPasswordField txt_ubh_repass_dsn;
     // End of variables declaration//GEN-END:variables
 }
