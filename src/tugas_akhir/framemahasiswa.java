@@ -16,17 +16,22 @@ import java.sql.Statement;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import static tugas_akhir.framedosen.con;
 
 /**
  *
  * @author ACER
  */
 public class framemahasiswa extends javax.swing.JFrame {
+
     public static Connection con = new koneksi().ambil_koneksi();
-    
+
     private static String email_lgn = new framelogin().email;
     private static String kota_ortu_mhs;
     String image_path = null;
+    private static String Nama_Lengkap, NRP, Program_Studi, Status_Masuk, Agama, Alamat,  Jenis_Kelamin, Kota, TTL, No_Hp,
+            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu;
+
     /**
      * Creates new form framemahasiswa
      */
@@ -36,6 +41,8 @@ public class framemahasiswa extends javax.swing.JFrame {
         cview.show(panelinduk_mhs, "cv_tmpl_pribadi");
         header_mhs.setText("PROFILE MAHASISWA");
         tampilkota();
+        tampil_data();
+        tampil_data_ortu();
     }
 
     /**
@@ -115,7 +122,8 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_ttl_mhs = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbl_tmpl_no_mhs = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel8 = new javax.swing.JLabel();
         panel_tmpl_ortu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -335,7 +343,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         );
         borderLayout.setVerticalGroup(
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 428, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
@@ -586,17 +594,23 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_no_mhs.setText("No Hp");
         jPanel3.add(lbl_tmpl_no_mhs);
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 132, Short.MAX_VALUE)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel_tmpl_pribadiLayout = new javax.swing.GroupLayout(panel_tmpl_pribadi);
@@ -607,17 +621,17 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
+            .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_tmpl_pribadiLayout.setVerticalGroup(
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(34, 34, 34)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -785,6 +799,7 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void txt_Email_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhsActionPerformed
         // TODO add your handling code here:
+        txt_Email_mhs.setEditable(false);
     }//GEN-LAST:event_txt_Email_mhsActionPerformed
 
     private void txtnm_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayahActionPerformed
@@ -814,7 +829,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private void txt_nohp_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nohp_mhsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nohp_mhsActionPerformed
-    
+
     //untuk pindah ke halaman ubah data ortu
     private void sm_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ortuActionPerformed
         CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
@@ -835,44 +850,44 @@ public class framemahasiswa extends javax.swing.JFrame {
         String ls_email = txt_Email_mhs.getText();
         String ls_nama = txt_Nama_mhs.getText();
         String ls_jk = "";
-        if(rd_laki_mhs.isSelected()){
+        if (rd_laki_mhs.isSelected()) {
             ls_jk = rd_laki_mhs.getText();
-        } else if (rd_perempuan_mhs.isSelected()){
+        } else if (rd_perempuan_mhs.isSelected()) {
             ls_jk = rd_perempuan_mhs.getText();
         } else {
-            JOptionPane.showMessageDialog(this,"Jenis Kelamin belum dipilh");
+            JOptionPane.showMessageDialog(this, "Jenis Kelamin belum dipilh");
         }
         String ls_agama = cbx_Agama_mhs.getSelectedItem().toString();
-        if(cbx_Agama_mhs.getSelectedItem().toString().equals("===PILIH===")){
+        if (cbx_Agama_mhs.getSelectedItem().toString().equals("===PILIH===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih Agama Mahasiswa!");
         }
         String ls_alamat = txt_Alamat_mhs.getText();
         String ls_kota = cbx_kota_mhs.getSelectedItem().toString();
-        if ( cbx_kota_mhs.getSelectedItem().toString().equals("===PILIH===")){
+        if (cbx_kota_mhs.getSelectedItem().toString().equals("===PILIH===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih kota asal mahasiswa!");
         }
         String ls_hp = txt_nohp_mhs.getText();
-        
-        try{
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement state = con.createStatement();
-            int result = state.executeUpdate("UPDATE mahasiswa SET email = '"+ls_email+"', nama_mahasiswa = '"+ls_nama+"', Jenis_Kelamin = '"+ls_jk+"', alamat = '"+ls_alamat+
-                    "', Kota_Mahasiswa = '"+ls_kota+"', no_hp = '"+ls_hp+"' where nrp = '"+ls_nrp+"'");
+            int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"alamat = '" + ls_alamat
+                    + "', Kota_Mahasiswa = '" + ls_kota + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
             JOptionPane.showMessageDialog(this, "Data Berhasil Diubah!");
             try {
                 InputStream image = new FileInputStream(new File(image_path));
-                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '"+ls_nrp+"'");
+                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
                 JOptionPane.showMessageDialog(this, "Foto telah terupdate");
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
-        
-        
+
+
     }//GEN-LAST:event_btnUbah_mhsActionPerformed
 
     private void btnUbah_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_ortuActionPerformed
@@ -886,7 +901,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_sm_tmpl_pribadiActionPerformed
 
     private void sm_tmpl_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_tmpl_ortuActionPerformed
-       CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+        CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
         cview.show(panelinduk_mhs, "cv_tmpl_ortu");
         header_mhs.setText("PROFILE ORANG TUA");
     }//GEN-LAST:event_sm_tmpl_ortuActionPerformed
@@ -900,11 +915,28 @@ public class framemahasiswa extends javax.swing.JFrame {
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
         new framelogin().setVisible(true);
         dispose();
+        lbl_tmpl_nama_mhs.setText("");
+        lbl_tmpl_nrp_mhs.setText("");
+        lbl_tmpl_prodi_mhs.setText("");
+        lbl_tmpl_stts_msuk_mhs.setText("");
+        lbl_tmpl_agama_mhs.setText("");
+        lbl_tmpl_jk_mhs.setText("");
+        lbl_tmpl_ttl_mhs.setText("");
+        lbl_tmpl_no_mhs.setText("");
+
+        txtnm_ayah.setText("");
+        txtktp_ayah.setText("");
+        txtnm_ibu.setText("");
+        txtktp_ibu.setText("");
+        txt_alamatortu.setText("");
+        cb_kota_ortu.setSelectedIndex(0);
+        txt_telp_ortu.setText("");
+
     }//GEN-LAST:event_menu_logoutMouseClicked
 
     private void txt_nohp_mhsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nohp_mhsKeyTyped
         // TODO add your handling code here:
-        if (!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_nohp_mhsKeyTyped
@@ -915,16 +947,15 @@ public class framemahasiswa extends javax.swing.JFrame {
         String path = null;
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        
+
         //extensi file
-        
-        FileNameExtensionFilter extension = new  FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg");
+        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg");
         chooser.addChoosableFileFilter(extension);
-        
+
         int filestate = chooser.showSaveDialog(null);
-        
+
         //mengecek yang diupload user
-        if(filestate == JFileChooser.APPROVE_OPTION){
+        if (filestate == JFileChooser.APPROVE_OPTION) {
             File selectedImage = chooser.getSelectedFile();
             path = selectedImage.getAbsolutePath();
             labelfoto.setText(path);
@@ -935,34 +966,128 @@ public class framemahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
         txt_NRP.setEditable(false);
     }//GEN-LAST:event_txt_NRPMouseClicked
-    
+
     //untuk menampilkan kota
-    private void tampilkota(){
+    private void tampilkota() {
         cb_kota_ortu.removeAllItems();
         cb_kota_ortu.addItem("=== KOTA ===");
-        
-        try{
+
+        try {
             String db_tmplkota_ortu = "SELECT * FROM kota";
-            PreparedStatement  ps_tmpl_kota = con.prepareStatement(db_tmplkota_ortu);
+            PreparedStatement ps_tmpl_kota = con.prepareStatement(db_tmplkota_ortu);
             ResultSet rs_tmplkota_ortu = ps_tmpl_kota.executeQuery();
 
-            while(rs_tmplkota_ortu.next()){
-                cb_kota_ortu.addItem(">  "+rs_tmplkota_ortu.getString("Kota"));
-                
+            while (rs_tmplkota_ortu.next()) {
+                cb_kota_ortu.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
+
                 kota_ortu_mhs = hapus_tanda(cb_kota_ortu.getSelectedItem().toString());
-            } 
+            }
+        } catch (Exception e) {
+
         }
-        catch(Exception e){
-            
+
+    }
+
+    private void get_data() {
+        try {
+            String sqltampil = "select * from mahasiswa WHERE email='" + email_lgn + "'";
+            PreparedStatement ps_tampil = con.prepareStatement(sqltampil);
+            ResultSet res_tampil = ps_tampil.executeQuery();
+
+            if (res_tampil.next()) {
+                Nama_Lengkap = res_tampil.getString("nama_mahasiswa");
+                NRP = res_tampil.getString("nrp");
+                Program_Studi = res_tampil.getString("prodi");
+                Status_Masuk = res_tampil.getString("Status_Masuk");
+                Agama = res_tampil.getString("Agama");
+                Alamat = res_tampil.getString("alamat");
+                Jenis_Kelamin = res_tampil.getString("Jenis_Kelamin");
+                TTL = res_tampil.getString("Tempat_Tanggal_Lahir_Mahasiswa");
+                Kota = res_tampil.getString("Kota_Mahasiswa");
+                No_Hp = res_tampil.getString("no_hp");
+                Nama_Ayah = res_tampil.getString("Nama_Ayah");
+                KTP_Ayah = res_tampil.getString("Nomor_KTP_Ayah");
+                Nama_Ibu = res_tampil.getString("Nama_Ibu");
+                KTP_Ibu = res_tampil.getString("Nomor_KTP_Ibu");
+                Telepon_Ortu = res_tampil.getString("Telepon_Orang_Tua");
+                Alamat_Ortu = res_tampil.getString("Alamat_Orang_Tua");
+                Kota_Ortu = res_tampil.getString("Kota_Orang_Tua");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void tampil_data() {
+        get_data();
+        lbl_tmpl_nama_mhs.setText(Nama_Lengkap);
+        txt_Nama_mhs.setText(Nama_Lengkap);
+        
+        
+        lbl_tmpl_nrp_mhs.setText(NRP);
+        txt_NRP.setText(NRP);
+        
+        txt_Email_mhs.setText(email_lgn);
+        
+        lbl_tmpl_prodi_mhs.setText(Program_Studi);
+        
+        
+        lbl_tmpl_stts_msuk_mhs.setText(Status_Masuk);
+        
+        
+        lbl_tmpl_agama_mhs.setText(Agama);
+        cbx_Agama_mhs.setSelectedItem(Agama);
+        
+        txt_Alamat_mhs.setText(Alamat);
+        
+        
+        lbl_tmpl_jk_mhs.setText(Jenis_Kelamin);
+        if (ls_jk.equals("Laki-laki")){
+            rd_laki_mhs.setSelected(true);
+        } else if (ls_jk.equals("Perempuan") ){
+            rd_perempuan_mhs.setSelected(true);
         }
         
+        
+        
+        lbl_tmpl_ttl_mhs.setText(TTL);
+        
+        
+        lbl_tmpl_no_mhs.setText(No_Hp);
+        txt_nohp_mhs.setText(No_Hp);
+        
+        
     }
-    
+
+    private void tampil_data_ortu() {
+        get_data();
+        txtnm_ayah.setText(Nama_Ayah);
+        lbl_tmpl_nm_ayah_mhs.setText(Nama_Ayah);
+        
+        txtktp_ayah.setText(KTP_Ayah);
+        lbl_tmpl_ktp_ayah_mhs.setText(KTP_Ayah);
+        
+        txtnm_ibu.setText(Nama_Ibu);
+        lbl_tmpl_nm_ibu_mhs.setText(Nama_Ibu);
+        
+        txtktp_ibu.setText(KTP_Ibu);
+        lbl_tmpl_ktp_ibu_mhs.setText(KTP_Ibu);
+        
+        txt_alamatortu.setText(Alamat_Ortu);
+        lbl_tmpl_almt_ortu_mhs.setText(Alamat_Ortu);
+        
+        cb_kota_ortu.setSelectedItem(hapus_tanda(Kota_Ortu));
+        lbl_tmpl_kota_ortu_mhs.setText(Kota_Ortu);
+        
+        txt_telp_ortu.setText(Telepon_Ortu);
+        lbl_tmpl_telp_ortu_mhs.setText(Telepon_Ortu);
+    }
+
     //untuk menghapus tanda ">"
-    private String hapus_tanda(String str){
+    private String hapus_tanda(String str) {
         return str.substring(2);
     }
-        
+
     /**
      * @param args the command line arguments
      */
@@ -1011,6 +1136,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel header_mhs;
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1041,12 +1167,12 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelfoto;
     private javax.swing.JLabel lbl_tmpl_agama_mhs;
