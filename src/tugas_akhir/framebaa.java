@@ -1063,7 +1063,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelinduk_baa.add(panel_jadwal, "card5");
+        panelinduk_baa.add(panel_jadwal, "cv_jdwl_baa");
 
         menu_mhs.setText("Mahasiswa");
 
@@ -1493,7 +1493,9 @@ public class framebaa extends javax.swing.JFrame {
     }//GEN-LAST:event_list_data_mkActionPerformed
 
     private void list_data_jadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_jadwalActionPerformed
-        // TODO add your handling code here:
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_jdwl_baa");
+        title_baa.setText("List Jadwal");
     }//GEN-LAST:event_list_data_jadwalActionPerformed
 
     private void btnadd_matkulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_matkulActionPerformed

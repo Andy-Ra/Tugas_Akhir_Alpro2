@@ -1654,7 +1654,7 @@
         <Container class="javax.swing.JPanel" name="panel_jadwal">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card5"/>
+              <CardConstraints cardName="cv_jdwl_baa"/>
             </Constraint>
           </Constraints>
 
