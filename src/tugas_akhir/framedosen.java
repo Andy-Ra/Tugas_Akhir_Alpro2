@@ -45,7 +45,6 @@ public class framedosen extends javax.swing.JFrame {
         header_dsn = new javax.swing.JLabel();
         panelinduk_dsn = new javax.swing.JPanel();
         panel_tmpl_pribadi_dsn = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel55_dsn = new javax.swing.JLabel();
         lbl_nip_dsn = new javax.swing.JLabel();
@@ -69,9 +68,6 @@ public class framedosen extends javax.swing.JFrame {
         lbl_pendidikan_dsn = new javax.swing.JLabel();
         jLabel55_dsn10 = new javax.swing.JLabel();
         lbl_jbtn_dsn = new javax.swing.JLabel();
-        panel_mhs_dsn = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_mhs_dsn = new javax.swing.JTable();
         panel_kelas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelKelas = new javax.swing.JTable();
@@ -98,7 +94,6 @@ public class framedosen extends javax.swing.JFrame {
         sm_ubh_pass_dsn = new javax.swing.JMenuItem();
         menu_akademik_mhs = new javax.swing.JMenu();
         menu_tampil_jadwal_kls = new javax.swing.JMenuItem();
-        menu_tampil_mhs_dsn = new javax.swing.JMenuItem();
         menu_logout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,9 +109,6 @@ public class framedosen extends javax.swing.JFrame {
         panelinduk_dsn.setLayout(new java.awt.CardLayout());
 
         panel_tmpl_pribadi_dsn.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Pribadi Dosen"));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
 
         jPanel3.setLayout(new java.awt.GridLayout(11, 2));
 
@@ -192,57 +184,18 @@ public class framedosen extends javax.swing.JFrame {
             panel_tmpl_pribadi_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_pribadi_dsnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(panel_tmpl_pribadi_dsnLayout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
         );
         panel_tmpl_pribadi_dsnLayout.setVerticalGroup(
             panel_tmpl_pribadi_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_pribadi_dsnLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         panelinduk_dsn.add(panel_tmpl_pribadi_dsn, "cv_tmpl_pribadi_dsn");
-
-        tbl_mhs_dsn.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "NRP", "Email", "Nama", "Prodi", "Jenis Kelamin", "No HP"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tbl_mhs_dsn);
-
-        javax.swing.GroupLayout panel_mhs_dsnLayout = new javax.swing.GroupLayout(panel_mhs_dsn);
-        panel_mhs_dsn.setLayout(panel_mhs_dsnLayout);
-        panel_mhs_dsnLayout.setHorizontalGroup(
-            panel_mhs_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mhs_dsnLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panel_mhs_dsnLayout.setVerticalGroup(
-            panel_mhs_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
-        );
-
-        panelinduk_dsn.add(panel_mhs_dsn, "panel_mhs_dsn");
 
         TabelKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,7 +231,7 @@ public class framedosen extends javax.swing.JFrame {
             panel_kelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_kelasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -387,7 +340,7 @@ public class framedosen extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_up_dosen)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         panelinduk_dsn.add(panel_ubh_pass_dsn, "cv_tmpl_ubh_pass_dsn");
@@ -423,14 +376,6 @@ public class framedosen extends javax.swing.JFrame {
         });
         menu_akademik_mhs.add(menu_tampil_jadwal_kls);
 
-        menu_tampil_mhs_dsn.setText("List Mahasiswa");
-        menu_tampil_mhs_dsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_tampil_mhs_dsnActionPerformed(evt);
-            }
-        });
-        menu_akademik_mhs.add(menu_tampil_mhs_dsn);
-
         jMenuBar1_dsn.add(menu_akademik_mhs);
 
         menu_logout.setText("Logout");
@@ -460,8 +405,8 @@ public class framedosen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnl_header_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelinduk_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelinduk_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -483,13 +428,6 @@ public class framedosen extends javax.swing.JFrame {
         header_dsn.setText("JADWAL KELAS");
     }//GEN-LAST:event_menu_tampil_jadwal_klsActionPerformed
     
-    //untuk menampilkan list mahasiswa
-    private void menu_tampil_mhs_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_tampil_mhs_dsnActionPerformed
-        CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
-        cview.show(panelinduk_dsn, "panel_mhs_dsn");
-        header_dsn.setText("LIST MAHASISWA");
-    }//GEN-LAST:event_menu_tampil_mhs_dsnActionPerformed
-
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
         new framelogin().setVisible(true);
         dispose();
@@ -679,9 +617,7 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1_dsn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_alamat_dsn;
     private javax.swing.JLabel lbl_email_dsn;
     private javax.swing.JLabel lbl_jbtn_dsn;
@@ -697,9 +633,7 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JMenu menu_beranda_dsn;
     private javax.swing.JMenu menu_logout;
     private javax.swing.JMenuItem menu_tampil_jadwal_kls;
-    private javax.swing.JMenuItem menu_tampil_mhs_dsn;
     private javax.swing.JPanel panel_kelas;
-    private javax.swing.JPanel panel_mhs_dsn;
     private javax.swing.JPanel panel_tmpl_pribadi_dsn;
     private javax.swing.JPanel panel_ubh_pass_dsn;
     private javax.swing.JPanel panelinduk_dsn;
@@ -707,7 +641,6 @@ public class framedosen extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_ubh_dsn;
     private javax.swing.JMenuItem sm_tmpl_pribadi_dsn;
     private javax.swing.JMenuItem sm_ubh_pass_dsn;
-    private javax.swing.JTable tbl_mhs_dsn;
     private javax.swing.JPasswordField txt_ubh_asli_dsn;
     private javax.swing.JPasswordField txt_ubh_pass_dsn;
     private javax.swing.JPasswordField txt_ubh_repass_dsn;
