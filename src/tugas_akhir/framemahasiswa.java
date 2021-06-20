@@ -876,7 +876,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"', alamat = '" + ls_alamat
                     + "', Kota_Mahasiswa = '" + ls_kota + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
             JOptionPane.showMessageDialog(this, "Data Mahasiswa Anda Berhasil Diubah!");
-            try {
+            try { //masih error
                 InputStream image = new FileInputStream(new File(image_path));
                 int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
                 System.out.println(ls_nrp);
