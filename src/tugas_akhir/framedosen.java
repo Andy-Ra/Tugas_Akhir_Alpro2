@@ -199,17 +199,17 @@ public class framedosen extends javax.swing.JFrame {
 
         TabelKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Kelas", "Pertemuan", "Waktu", "Ruang"
+                "Kelas", "Pertemuan", "Waktu", "Ruang", "Prodi", "Mata Kuliah"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
