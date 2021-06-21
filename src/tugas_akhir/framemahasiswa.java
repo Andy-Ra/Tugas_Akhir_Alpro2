@@ -153,13 +153,13 @@ public class framemahasiswa extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         get_up_nama_dsn = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        txt_ubh_asli_dsn = new javax.swing.JPasswordField();
+        txt_ubh_asli_mhs = new javax.swing.JPasswordField();
         jLabel37 = new javax.swing.JLabel();
-        txt_ubh_pass_dsn = new javax.swing.JPasswordField();
+        txt_ubh_pass_mhs = new javax.swing.JPasswordField();
         jLabel38 = new javax.swing.JLabel();
-        txt_ubh_repass_dsn = new javax.swing.JPasswordField();
-        cb_up_password = new javax.swing.JCheckBox();
-        btn_up_dosen = new javax.swing.JButton();
+        txt_ubh_repass_mhs = new javax.swing.JPasswordField();
+        cb_up_password_mhs = new javax.swing.JCheckBox();
+        btn_up_mhs = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_beranda_mhs = new javax.swing.JMenu();
         sm_tmpl_pribadi = new javax.swing.JMenuItem();
@@ -762,26 +762,26 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         jLabel36.setText("Password Sekarang");
         pnl_ubh_dsn.add(jLabel36);
-        pnl_ubh_dsn.add(txt_ubh_asli_dsn);
+        pnl_ubh_dsn.add(txt_ubh_asli_mhs);
 
         jLabel37.setText("Password Baru");
         pnl_ubh_dsn.add(jLabel37);
 
-        txt_ubh_pass_dsn.addActionListener(new java.awt.event.ActionListener() {
+        txt_ubh_pass_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ubh_pass_dsnActionPerformed(evt);
+                txt_ubh_pass_mhsActionPerformed(evt);
             }
         });
-        pnl_ubh_dsn.add(txt_ubh_pass_dsn);
+        pnl_ubh_dsn.add(txt_ubh_pass_mhs);
 
         jLabel38.setText("Ulangi password");
         pnl_ubh_dsn.add(jLabel38);
-        pnl_ubh_dsn.add(txt_ubh_repass_dsn);
+        pnl_ubh_dsn.add(txt_ubh_repass_mhs);
 
-        cb_up_password.setText("Tampil Password");
-        cb_up_password.addActionListener(new java.awt.event.ActionListener() {
+        cb_up_password_mhs.setText("Tampil Password");
+        cb_up_password_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_up_passwordActionPerformed(evt);
+                cb_up_password_mhsActionPerformed(evt);
             }
         });
 
@@ -791,7 +791,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_up_password_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -803,7 +803,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(220, Short.MAX_VALUE)
-                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_up_password_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -812,10 +812,10 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addContainerGap(41, Short.MAX_VALUE)))
         );
 
-        btn_up_dosen.setText("Ubah Password");
-        btn_up_dosen.addActionListener(new java.awt.event.ActionListener() {
+        btn_up_mhs.setText("Ubah Password");
+        btn_up_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_up_dosenActionPerformed(evt);
+                btn_up_mhsActionPerformed(evt);
             }
         });
 
@@ -825,7 +825,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_ubh_pass_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_ubh_pass_mhsLayout.createSequentialGroup()
                 .addGap(227, 227, 227)
-                .addComponent(btn_up_dosen)
+                .addComponent(btn_up_mhs)
                 .addContainerGap(180, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_ubh_pass_mhsLayout.createSequentialGroup()
                 .addContainerGap()
@@ -838,11 +838,11 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_up_dosen)
+                .addComponent(btn_up_mhs)
                 .addContainerGap(178, Short.MAX_VALUE))
         );
 
-        panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_dsn");
+        panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_mhs");
 
         menu_beranda_mhs.setText("Profile");
 
@@ -1163,39 +1163,39 @@ public class framemahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_Email_mhsMouseClicked
 
     private void sm_ubh_pass_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ubh_pass_mhsActionPerformed
-        CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
-        cview.show(panelinduk_dsn, "cv_tmpl_ubh_pass_dsn");
+        CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+        cview.show(panelinduk_mhs, "cv_tmpl_ubh_pass_mhs");
 
         get_data();
-        header_dsn.setText("UBAH PASSWORD");
+        header_mhs.setText("UBAH PASSWORD");
 
-        get_up_email_dsn.setText(Email);
-        get_up_nip_dsn.setText(NIP);
-        get_up_nama_dsn.setText(Nama);
+        get_up_email_dsn.setText(email_lgn.email);
+        get_up_nip_dsn.setText(NRP);
+        get_up_nama_dsn.setText(Nama_Lengkap);
     }//GEN-LAST:event_sm_ubh_pass_mhsActionPerformed
 
-    private void txt_ubh_pass_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ubh_pass_dsnActionPerformed
+    private void txt_ubh_pass_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ubh_pass_mhsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ubh_pass_dsnActionPerformed
+    }//GEN-LAST:event_txt_ubh_pass_mhsActionPerformed
 
-    private void cb_up_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_up_passwordActionPerformed
-        if(cb_up_password.isSelected()){
-            txt_ubh_asli_dsn.setEchoChar((char)0);
-            txt_ubh_pass_dsn.setEchoChar((char)0);
-            txt_ubh_repass_dsn.setEchoChar((char)0);
+    private void cb_up_password_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_up_password_mhsActionPerformed
+        if(cb_up_password_mhs.isSelected()){
+            txt_ubh_asli_mhs.setEchoChar((char)0);
+            txt_ubh_pass_mhs.setEchoChar((char)0);
+            txt_ubh_repass_mhs.setEchoChar((char)0);
         }
         else{
-            txt_ubh_asli_dsn.setEchoChar('*');
-            txt_ubh_pass_dsn.setEchoChar('*');
-            txt_ubh_repass_dsn.setEchoChar('*');
+            txt_ubh_asli_mhs.setEchoChar('*');
+            txt_ubh_pass_mhs.setEchoChar('*');
+            txt_ubh_repass_mhs.setEchoChar('*');
         }
-    }//GEN-LAST:event_cb_up_passwordActionPerformed
+    }//GEN-LAST:event_cb_up_password_mhsActionPerformed
 
-    private void btn_up_dosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_up_dosenActionPerformed
+    private void btn_up_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_up_mhsActionPerformed
         get_data();
-        String up_dsn_asli = txt_ubh_asli_dsn.getText();
-        String up_dsn_baru1 = txt_ubh_pass_dsn.getText();
-        String up_dsn_baru2 = txt_ubh_repass_dsn.getText();
+        String up_dsn_asli = txt_ubh_asli_mhs.getText();
+        String up_dsn_baru1 = txt_ubh_pass_mhs.getText();
+        String up_dsn_baru2 = txt_ubh_repass_mhs.getText();
 
         if(up_dsn_asli.equals("") || up_dsn_baru1.equals("") || up_dsn_baru2.equals("")){
             JOptionPane.showMessageDialog(this, "Mohon isi Semua kolom");
@@ -1211,12 +1211,12 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         else{
             try{
-                String up_get_pass = "SELECT Password FROM user WHERE Email='"+Email+"'";
+                String up_get_pass = "SELECT Password FROM user WHERE Email='"+email_lgn.email+"'";
                 ResultSet res_get_pass = con.prepareStatement(up_get_pass).executeQuery();
                 if(res_get_pass.next()){
                     String up_get_pass_asli = res_get_pass.getString("Password");
                     if(up_dsn_asli.equals(up_get_pass_asli)){
-                        String update_up_pass = "UPDATE user SET Password = ? WHERE Email='"+Email+"'";
+                        String update_up_pass = "UPDATE user SET Password = ? WHERE Email='"+email_lgn.email+"'";
                         PreparedStatement ps_up_pass = con.prepareStatement(update_up_pass);
                         ps_up_pass.setString(1, up_dsn_baru1);
                         ps_up_pass.executeUpdate();
@@ -1236,7 +1236,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             }
         }
 
-    }//GEN-LAST:event_btn_up_dosenActionPerformed
+    }//GEN-LAST:event_btn_up_mhsActionPerformed
 
     //untuk menampilkan kota
     private void tampilkota() {
@@ -1411,9 +1411,9 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnUbah_mhs;
     private javax.swing.JButton btnUbah_ortu;
-    private javax.swing.JButton btn_up_dosen;
+    private javax.swing.JButton btn_up_mhs;
     private javax.swing.JComboBox<String> cb_kota_ortu;
-    private javax.swing.JCheckBox cb_up_password;
+    private javax.swing.JCheckBox cb_up_password_mhs;
     private javax.swing.JComboBox<String> cbx_Agama_mhs;
     private javax.swing.JComboBox<String> cbx_kota_mhs;
     private javax.swing.JLabel get_up_email_dsn;
@@ -1513,9 +1513,9 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_alamatortu;
     private javax.swing.JTextField txt_nohp_mhs;
     private javax.swing.JTextField txt_telp_ortu;
-    private javax.swing.JPasswordField txt_ubh_asli_dsn;
-    private javax.swing.JPasswordField txt_ubh_pass_dsn;
-    private javax.swing.JPasswordField txt_ubh_repass_dsn;
+    private javax.swing.JPasswordField txt_ubh_asli_mhs;
+    private javax.swing.JPasswordField txt_ubh_pass_mhs;
+    private javax.swing.JPasswordField txt_ubh_repass_mhs;
     private javax.swing.JTextField txtktp_ayah;
     private javax.swing.JTextField txtktp_ibu;
     private javax.swing.JTextField txtnm_ayah;

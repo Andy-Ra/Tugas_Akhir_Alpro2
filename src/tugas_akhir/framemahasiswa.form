@@ -1067,7 +1067,7 @@
         <Container class="javax.swing.JPanel" name="panel_ubh_pass_mhs">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="cv_tmpl_ubh_pass_dsn"/>
+              <CardConstraints cardName="cv_tmpl_ubh_pass_mhs"/>
             </Constraint>
           </Constraints>
 
@@ -1076,7 +1076,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
-                      <Component id="btn_up_dosen" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_up_mhs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="180" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -1092,7 +1092,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_up_dosen" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_up_mhs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="178" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1113,7 +1113,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="cb_up_password" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="cb_up_password_mhs" min="-2" pref="175" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -1129,7 +1129,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="220" max="32767" attributes="0"/>
-                          <Component id="cb_up_password" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="cb_up_password_mhs" min="-2" pref="17" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -1193,16 +1193,16 @@
                         <Property name="text" type="java.lang.String" value="Password Sekarang"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txt_ubh_asli_dsn">
+                    <Component class="javax.swing.JPasswordField" name="txt_ubh_asli_mhs">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel37">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Password Baru"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txt_ubh_pass_dsn">
+                    <Component class="javax.swing.JPasswordField" name="txt_ubh_pass_mhs">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_ubh_pass_dsnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_ubh_pass_mhsActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel38">
@@ -1210,26 +1210,26 @@
                         <Property name="text" type="java.lang.String" value="Ulangi password"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="txt_ubh_repass_dsn">
+                    <Component class="javax.swing.JPasswordField" name="txt_ubh_repass_mhs">
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JCheckBox" name="cb_up_password">
+                <Component class="javax.swing.JCheckBox" name="cb_up_password_mhs">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tampil Password"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_up_passwordActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_up_password_mhsActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btn_up_dosen">
+            <Component class="javax.swing.JButton" name="btn_up_mhs">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ubah Password"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_up_dosenActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_up_mhsActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
