@@ -876,18 +876,15 @@ public class framemahasiswa extends javax.swing.JFrame {
             int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"', alamat = '" + ls_alamat
                     + "', Kota_Mahasiswa = '" + ls_kota + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
             JOptionPane.showMessageDialog(this, "Data Mahasiswa Anda Berhasil Diubah!");
-//            try {
-//                InputStream image = new FileInputStream(new File(image_path));
-//                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
-//                System.out.println(ls_nrp);
-//                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
-//
-//            } catch (Exception e) {
-//<<<<<<< Upstream, based on origin/master
-//                JOptionPane.showMessageDialog(this, "Foto gak kenek sek an!");
-//=======
-//>>>>>>> 53e9db0 tambah fitur jadwal
-//            }
+            try { //masih error
+                InputStream image = new FileInputStream(new File(image_path));
+                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
+                System.out.println(ls_nrp);
+                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Foto gak kenek sek an!");
+            }
 
         } catch (Exception e) {
                 System.out.println(e.getMessage());;
@@ -1081,15 +1078,22 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         
         lbl_tmpl_jk_mhs.setText(Jenis_Kelamin);
-        if (Jenis_Kelamin.equals("Laki-laki") || Jenis_Kelamin.equals("Laki-Laki") || Jenis_Kelamin.equals("laki-laki")){
+        if(Jenis_Kelamin != null){
+            if (Jenis_Kelamin.equals("Laki-laki") || Jenis_Kelamin.equals("Laki-Laki") || Jenis_Kelamin.equals("laki-laki")){
             rd_laki_mhs.setSelected(true);
-        } else if (Jenis_Kelamin.equals("Perempuan") || Jenis_Kelamin.equals("perempuan") ){
-            rd_perempuan_mhs.setSelected(true);
+            } else if (Jenis_Kelamin.equals("Perempuan") || Jenis_Kelamin.equals("perempuan") ){
+                rd_perempuan_mhs.setSelected(true);
+            }
         }
-        cbx_kota_mhs.setSelectedItem(hapus_tanda(Kota));
-        
         
         lbl_tmpl_ttl_mhs.setText(TTL);
+        if(Kota != null){
+          cbx_kota_mhs.setSelectedItem(hapus_tanda(Kota));  
+        }
+        
+        
+        
+        
         
         
         lbl_tmpl_no_mhs.setText(No_Hp);
