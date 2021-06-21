@@ -1319,7 +1319,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="12" max="32767" attributes="0"/>
                               <Component id="btn_clear_jadwal" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnadd_jadwal" min="-2" pref="71" max="-2" attributes="0"/>
@@ -1522,33 +1521,21 @@
                       <SubComponents>
                         <Component class="javax.swing.JCheckBox" name="ccb_ti">
                           <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="default"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="TI"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="ccb_dkv">
                           <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="default"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="DKV"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="ccb_mi">
                           <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="default"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="MI"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="ccb_si">
                           <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="default"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="SI"/>
                           </Properties>
                         </Component>

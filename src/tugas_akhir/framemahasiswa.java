@@ -28,11 +28,11 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     public static Connection con = new koneksi().ambil_koneksi();
 
-    private static String email_lgn = new framelogin().email;
+    private static framelogin email_lgn = new framelogin();
     private static String kota_ortu_mhs;
     String image_path = null;
     private static String Nama_Lengkap, NRP, Program_Studi, Status_Masuk, Agama, Alamat,  Jenis_Kelamin, Kota, TTL, No_Hp,
-            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu;
+            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi;
 
     /**
      * Creates new form framemahasiswa
@@ -124,6 +124,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_ttl_mhs = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbl_tmpl_no_mhs = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel8 = new javax.swing.JLabel();
         panel_tmpl_ortu = new javax.swing.JPanel();
@@ -142,10 +143,28 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_almt_ortu_mhs = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         lbl_tmpl_kota_ortu_mhs = new javax.swing.JLabel();
+        panel_ubh_pass_mhs = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        pnl_ubh_dsn = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        get_up_email_dsn = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        get_up_nip_dsn = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        get_up_nama_dsn = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        txt_ubh_asli_dsn = new javax.swing.JPasswordField();
+        jLabel37 = new javax.swing.JLabel();
+        txt_ubh_pass_dsn = new javax.swing.JPasswordField();
+        jLabel38 = new javax.swing.JLabel();
+        txt_ubh_repass_dsn = new javax.swing.JPasswordField();
+        cb_up_password = new javax.swing.JCheckBox();
+        btn_up_dosen = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_beranda_mhs = new javax.swing.JMenu();
         sm_tmpl_pribadi = new javax.swing.JMenuItem();
         sm_tmpl_ortu = new javax.swing.JMenuItem();
+        sm_ubh_pass_mhs = new javax.swing.JMenuItem();
         menu_ubah_mhs = new javax.swing.JMenu();
         sm_pribadi = new javax.swing.JMenuItem();
         sm_ortu = new javax.swing.JMenuItem();
@@ -249,44 +268,49 @@ public class framemahasiswa extends javax.swing.JFrame {
         input_mhsLayout.setHorizontalGroup(
             input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(txt_NRP, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(txt_Email_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(txt_Nama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(cbx_Agama_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(txt_Alamat_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(cbx_kota_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(txt_nohp_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(input_mhsLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(labelfoto))
+                .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_NRP))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Email_mhs))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Nama_mhs))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbx_Agama_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Alamat_mhs))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbx_kota_mhs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_nohp_mhs))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(labelfoto)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         input_mhsLayout.setVerticalGroup(
             input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,13 +389,13 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_mhsLayout.setHorizontalGroup(
             panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhsLayout.createSequentialGroup()
+                .addContainerGap(384, Short.MAX_VALUE)
+                .addComponent(btnUbah_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(panel_mhsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhsLayout.createSequentialGroup()
-                .addContainerGap(317, Short.MAX_VALUE)
-                .addComponent(btnUbah_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
         );
         panel_mhsLayout.setVerticalGroup(
             panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +515,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_ortuLayout.createSequentialGroup()
-                .addContainerGap(327, Short.MAX_VALUE)
+                .addContainerGap(394, Short.MAX_VALUE)
                 .addComponent(btnUbah_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -532,7 +556,9 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_matkul.setLayout(panel_matkulLayout);
         panel_matkulLayout.setHorizontalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(panel_matkulLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panel_matkulLayout.setVerticalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,16 +630,18 @@ public class framemahasiswa extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel5.add(jDesktopPane1);
 
         javax.swing.GroupLayout panel_tmpl_pribadiLayout = new javax.swing.GroupLayout(panel_tmpl_pribadi);
         panel_tmpl_pribadi.setLayout(panel_tmpl_pribadiLayout);
@@ -621,21 +649,25 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
+            .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         panel_tmpl_pribadiLayout.setVerticalGroup(
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(215, 215, 215)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(296, Short.MAX_VALUE)))
         );
 
         panelinduk_mhs.add(panel_tmpl_pribadi, "cv_tmpl_pribadi");
@@ -705,6 +737,113 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         panelinduk_mhs.add(panel_tmpl_ortu, "cv_tmpl_ortu");
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubah Password"));
+
+        pnl_ubh_dsn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pnl_ubh_dsn.setLayout(new java.awt.GridLayout(6, 2, 0, 15));
+
+        jLabel33.setText("Email");
+        pnl_ubh_dsn.add(jLabel33);
+
+        get_up_email_dsn.setText("email mahasiswa");
+        pnl_ubh_dsn.add(get_up_email_dsn);
+
+        jLabel34.setText("NRP");
+        pnl_ubh_dsn.add(jLabel34);
+
+        get_up_nip_dsn.setText("NRP mahasiswa");
+        pnl_ubh_dsn.add(get_up_nip_dsn);
+
+        jLabel35.setText("Nama");
+        pnl_ubh_dsn.add(jLabel35);
+
+        get_up_nama_dsn.setText("nama mahasiswa");
+        pnl_ubh_dsn.add(get_up_nama_dsn);
+
+        jLabel36.setText("Password Sekarang");
+        pnl_ubh_dsn.add(jLabel36);
+        pnl_ubh_dsn.add(txt_ubh_asli_dsn);
+
+        jLabel37.setText("Password Baru");
+        pnl_ubh_dsn.add(jLabel37);
+
+        txt_ubh_pass_dsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ubh_pass_dsnActionPerformed(evt);
+            }
+        });
+        pnl_ubh_dsn.add(txt_ubh_pass_dsn);
+
+        jLabel38.setText("Ulangi password");
+        pnl_ubh_dsn.add(jLabel38);
+        pnl_ubh_dsn.add(txt_ubh_repass_dsn);
+
+        cb_up_password.setText("Tampil Password");
+        cb_up_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_up_passwordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnl_ubh_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(220, Short.MAX_VALUE)
+                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnl_ubh_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(41, Short.MAX_VALUE)))
+        );
+
+        btn_up_dosen.setText("Ubah Password");
+        btn_up_dosen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_up_dosenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_ubh_pass_mhsLayout = new javax.swing.GroupLayout(panel_ubh_pass_mhs);
+        panel_ubh_pass_mhs.setLayout(panel_ubh_pass_mhsLayout);
+        panel_ubh_pass_mhsLayout.setHorizontalGroup(
+            panel_ubh_pass_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ubh_pass_mhsLayout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(btn_up_dosen)
+                .addContainerGap(180, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_ubh_pass_mhsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panel_ubh_pass_mhsLayout.setVerticalGroup(
+            panel_ubh_pass_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_ubh_pass_mhsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_up_dosen)
+                .addContainerGap(178, Short.MAX_VALUE))
+        );
+
+        panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_dsn");
+
         menu_beranda_mhs.setText("Profile");
 
         sm_tmpl_pribadi.setText("Tampil Data Pribadi");
@@ -722,6 +861,14 @@ public class framemahasiswa extends javax.swing.JFrame {
             }
         });
         menu_beranda_mhs.add(sm_tmpl_ortu);
+
+        sm_ubh_pass_mhs.setText("Ubah Password");
+        sm_ubh_pass_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sm_ubh_pass_mhsActionPerformed(evt);
+            }
+        });
+        menu_beranda_mhs.add(sm_ubh_pass_mhs);
 
         jMenuBar1.add(menu_beranda_mhs);
 
@@ -773,8 +920,8 @@ public class framemahasiswa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -874,7 +1021,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Statement state = con.createStatement();
             int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"', alamat = '" + ls_alamat
-                    + "', Kota_Mahasiswa = '" + ls_kota + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
+                    + "', Kota_Mahasiswa = '" + hapus_tanda(ls_kota) + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
             JOptionPane.showMessageDialog(this, "Data Mahasiswa Anda Berhasil Diubah!");
             try { //error
                 InputStream image = new FileInputStream(new File(image_path));
@@ -883,11 +1030,11 @@ public class framemahasiswa extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Foto telah terupdate");
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Foto gak kenek sek an!");
+                System.out.println("Foto gak kenek sek an!");
             }
 
         } catch (Exception e) {
-                System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
         }
 
 
@@ -912,10 +1059,10 @@ public class framemahasiswa extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Statement state = con.createStatement();
             int result = state.executeUpdate(" Update mahasiswa SET Nama_Ayah = '"+ls_1+"', Nomor_KTP_Ayah = '"+ls_2+"', Nama_Ibu = '"+ls_3+"', "
-                    + "Nomor_KTP_Ibu = '"+ls_4+"', Alamat_Orang_Tua = '"+ls_5+"', Kota_Orang_Tua = '"+ls_6+"', Telepon_Orang_Tua = '"+ls_7+"' "
+                    + "Nomor_KTP_Ibu = '"+ls_4+"', Alamat_Orang_Tua = '"+ls_5+"', Kota_Orang_Tua = '"+hapus_tanda(ls_6)+"', Telepon_Orang_Tua = '"+ls_7+"' "
                             + "where nrp = '"+NRP+"'");
         } catch (Exception e){
-            JOptionPane.showMessageDialog(this, e);
+            System.out.println(e.getMessage());
         }
         
     }//GEN-LAST:event_btnUbah_ortuActionPerformed
@@ -936,6 +1083,21 @@ public class framemahasiswa extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
         cview.show(panelinduk_mhs, "cv_matkul");
         header_mhs.setText("JADWAL");
+        prodi = "";
+        
+        
+        if(Program_Studi.equals("DKV")){
+            prodi = "DKV";
+        }
+        else if(Program_Studi.equals("Teknik Informatika")){
+            prodi = "TI";
+        }
+        else if(Program_Studi.equals("Sistem Informasi")){
+            prodi = "SI";
+        }
+        else if(Program_Studi.equals("Manajemen Informasi")){
+            prodi = "MI";
+        }
     }//GEN-LAST:event_menu_tampil_jadwalActionPerformed
 
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
@@ -1000,6 +1162,82 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_Email_mhs.setEditable(false);
     }//GEN-LAST:event_txt_Email_mhsMouseClicked
 
+    private void sm_ubh_pass_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_ubh_pass_mhsActionPerformed
+        CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
+        cview.show(panelinduk_dsn, "cv_tmpl_ubh_pass_dsn");
+
+        get_data();
+        header_dsn.setText("UBAH PASSWORD");
+
+        get_up_email_dsn.setText(Email);
+        get_up_nip_dsn.setText(NIP);
+        get_up_nama_dsn.setText(Nama);
+    }//GEN-LAST:event_sm_ubh_pass_mhsActionPerformed
+
+    private void txt_ubh_pass_dsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ubh_pass_dsnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ubh_pass_dsnActionPerformed
+
+    private void cb_up_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_up_passwordActionPerformed
+        if(cb_up_password.isSelected()){
+            txt_ubh_asli_dsn.setEchoChar((char)0);
+            txt_ubh_pass_dsn.setEchoChar((char)0);
+            txt_ubh_repass_dsn.setEchoChar((char)0);
+        }
+        else{
+            txt_ubh_asli_dsn.setEchoChar('*');
+            txt_ubh_pass_dsn.setEchoChar('*');
+            txt_ubh_repass_dsn.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cb_up_passwordActionPerformed
+
+    private void btn_up_dosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_up_dosenActionPerformed
+        get_data();
+        String up_dsn_asli = txt_ubh_asli_dsn.getText();
+        String up_dsn_baru1 = txt_ubh_pass_dsn.getText();
+        String up_dsn_baru2 = txt_ubh_repass_dsn.getText();
+
+        if(up_dsn_asli.equals("") || up_dsn_baru1.equals("") || up_dsn_baru2.equals("")){
+            JOptionPane.showMessageDialog(this, "Mohon isi Semua kolom");
+        }
+
+        else  if(up_dsn_baru1.length() < 8 || up_dsn_baru2.length() < 8 ){
+            JOptionPane.showMessageDialog(this,"Password minimal 8 karakter");
+        }
+
+        else if(!up_dsn_baru1.equals(up_dsn_baru2)){
+            JOptionPane.showMessageDialog(this, "Password tidak sama");
+        }
+
+        else{
+            try{
+                String up_get_pass = "SELECT Password FROM user WHERE Email='"+Email+"'";
+                ResultSet res_get_pass = con.prepareStatement(up_get_pass).executeQuery();
+                if(res_get_pass.next()){
+                    String up_get_pass_asli = res_get_pass.getString("Password");
+                    if(up_dsn_asli.equals(up_get_pass_asli)){
+                        String update_up_pass = "UPDATE user SET Password = ? WHERE Email='"+Email+"'";
+                        PreparedStatement ps_up_pass = con.prepareStatement(update_up_pass);
+                        ps_up_pass.setString(1, up_dsn_baru1);
+                        ps_up_pass.executeUpdate();
+                        JOptionPane.showMessageDialog(this, "Password Sudah terubah silahkan login ulang");
+                        new framelogin().setVisible(true);
+                        dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Mohon Cek Kembali password anda");
+                    }
+
+                }
+
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_btn_up_dosenActionPerformed
+
     //untuk menampilkan kota
     private void tampilkota() {
         cb_kota_ortu.removeAllItems();
@@ -1014,19 +1252,19 @@ public class framemahasiswa extends javax.swing.JFrame {
 
             while (rs_tmplkota_ortu.next()) {
                 cb_kota_ortu.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
-                cbx_kota_mhs.addItem(rs_tmplkota_ortu.getString("Kota"));
+                cbx_kota_mhs.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
 
                 kota_ortu_mhs = hapus_tanda(cb_kota_ortu.getSelectedItem().toString());
             }
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
 
     }
 
     private void get_data() {
         try {
-            String sqltampil = "select * from mahasiswa WHERE email='" + email_lgn + "'";
+            String sqltampil = "select * from mahasiswa WHERE email='" + email_lgn.email + "'";
             PreparedStatement ps_tampil = con.prepareStatement(sqltampil);
             ResultSet res_tampil = ps_tampil.executeQuery();
 
@@ -1050,7 +1288,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 Kota_Ortu = res_tampil.getString("Kota_Orang_Tua");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -1063,7 +1301,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_nrp_mhs.setText(NRP);
         txt_NRP.setText(NRP);
         
-        txt_Email_mhs.setText(email_lgn);
+        txt_Email_mhs.setText(email_lgn.email);
         
         lbl_tmpl_prodi_mhs.setText(Program_Studi);
         
@@ -1088,7 +1326,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         lbl_tmpl_ttl_mhs.setText(TTL);
         if(Kota != null){
-          cbx_kota_mhs.setSelectedItem(hapus_tanda(Kota));  
+          cbx_kota_mhs.setSelectedItem(">  " +Kota);  
         }
         
         
@@ -1119,7 +1357,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_alamatortu.setText(Alamat_Ortu);
         lbl_tmpl_almt_ortu_mhs.setText(Alamat_Ortu);
         
-        cb_kota_ortu.setSelectedItem(hapus_tanda(Kota_Ortu));
+        cb_kota_ortu.setSelectedItem(">  "+Kota_Ortu);
         lbl_tmpl_kota_ortu_mhs.setText(Kota_Ortu);
         
         txt_telp_ortu.setText(Telepon_Ortu);
@@ -1173,9 +1411,14 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnUbah_mhs;
     private javax.swing.JButton btnUbah_ortu;
+    private javax.swing.JButton btn_up_dosen;
     private javax.swing.JComboBox<String> cb_kota_ortu;
+    private javax.swing.JCheckBox cb_up_password;
     private javax.swing.JComboBox<String> cbx_Agama_mhs;
     private javax.swing.JComboBox<String> cbx_kota_mhs;
+    private javax.swing.JLabel get_up_email_dsn;
+    private javax.swing.JLabel get_up_nama_dsn;
+    private javax.swing.JLabel get_up_nip_dsn;
     private javax.swing.JLabel header_mhs;
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
@@ -1206,6 +1449,12 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1216,6 +1465,8 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelfoto;
     private javax.swing.JLabel lbl_tmpl_agama_mhs;
@@ -1244,14 +1495,17 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel panel_ortu;
     private javax.swing.JPanel panel_tmpl_ortu;
     private javax.swing.JPanel panel_tmpl_pribadi;
+    private javax.swing.JPanel panel_ubh_pass_mhs;
     private javax.swing.JPanel panelinduk_mhs;
     private javax.swing.JPanel pnl_jk_mhs;
+    private javax.swing.JPanel pnl_ubh_dsn;
     private javax.swing.JRadioButton rd_laki_mhs;
     private javax.swing.JRadioButton rd_perempuan_mhs;
     private javax.swing.JMenuItem sm_ortu;
     private javax.swing.JMenuItem sm_pribadi;
     private javax.swing.JMenuItem sm_tmpl_ortu;
     private javax.swing.JMenuItem sm_tmpl_pribadi;
+    private javax.swing.JMenuItem sm_ubh_pass_mhs;
     private javax.swing.JTextField txt_Alamat_mhs;
     private javax.swing.JTextField txt_Email_mhs;
     private javax.swing.JTextField txt_NRP;
@@ -1259,6 +1513,9 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_alamatortu;
     private javax.swing.JTextField txt_nohp_mhs;
     private javax.swing.JTextField txt_telp_ortu;
+    private javax.swing.JPasswordField txt_ubh_asli_dsn;
+    private javax.swing.JPasswordField txt_ubh_pass_dsn;
+    private javax.swing.JPasswordField txt_ubh_repass_dsn;
     private javax.swing.JTextField txtktp_ayah;
     private javax.swing.JTextField txtktp_ibu;
     private javax.swing.JTextField txtnm_ayah;
