@@ -1061,6 +1061,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             int result = state.executeUpdate(" Update mahasiswa SET Nama_Ayah = '"+ls_1+"', Nomor_KTP_Ayah = '"+ls_2+"', Nama_Ibu = '"+ls_3+"', "
                     + "Nomor_KTP_Ibu = '"+ls_4+"', Alamat_Orang_Tua = '"+ls_5+"', Kota_Orang_Tua = '"+hapus_tanda(ls_6)+"', Telepon_Orang_Tua = '"+ls_7+"' "
                             + "where nrp = '"+NRP+"'");
+            JOptionPane.showMessageDialog(this, "Data Orang Tua telah terubah");
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
