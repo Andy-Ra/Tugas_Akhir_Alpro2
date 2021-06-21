@@ -10,7 +10,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,6 +43,11 @@ public class framebaa extends javax.swing.JFrame {
     //untuk dosen
     private static String NIP_dsn, NIDN_dsn, Nama_dsn, Email_dsn, Alamat_dsn, Telepon_dsn, 
             jk_dsn, ttldsn, ptn_dsn, stts_dsn, ja_dsn, get_nip_dsn;
+    
+    //untuk matakuliah
+    private static String nama_dsn_jdwl,mtkl_jdwl, prodi_mk, waktu, ruang,jdwl_prodi, 
+            get_nip_dsn_jdwl, get_kode_mk_jdwl, sd_tgl_jdwl, st_wkt, kode_kelas;
+    public static int jmlh_pert;
     /**
      * Creates new form framebaa
      */
@@ -42,6 +56,8 @@ public class framebaa extends javax.swing.JFrame {
         tampilkota();
         clear_all();
         tampil_matkul();
+        reset_waktu();
+        
     }
 
     /**
@@ -109,9 +125,23 @@ public class framebaa extends javax.swing.JFrame {
         btnadd_ortu_baa = new javax.swing.JButton();
         btn_clear_ortu_baa = new javax.swing.JButton();
         btn_back_mhs = new javax.swing.JButton();
-        panel_matkul = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TabelMatkul = new javax.swing.JTable();
+        panel_mhs_tabel = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        panel_list_mhs = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        list_all_mahasiswa = new javax.swing.JTable();
+        panel_detail_mhs = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lb_ldt_ayah = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lb_ldt_ibu = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        lb_telp_ortu = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        lb_almt_ortu = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lb_kota_ortu = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         panel_dsn = new javax.swing.JPanel();
         border = new javax.swing.JPanel();
         input_dsn = new javax.swing.JPanel();
@@ -143,33 +173,47 @@ public class framebaa extends javax.swing.JFrame {
         txt_jbtn_dsn_baa = new javax.swing.JTextField();
         btn_Ubah_dsn_baa = new javax.swing.JButton();
         btn_reset_dsn = new javax.swing.JButton();
-        panel_mhs_tabel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        panel_list_mhs = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        list_all_mahasiswa = new javax.swing.JTable();
-        panel_detail_mhs = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lb_ldt_ayah = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lb_ldt_ibu = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        lb_telp_ortu = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        lb_almt_ortu = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        lb_kota_ortu = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         panel_dsn_tabel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         list_all_dsn = new javax.swing.JTable();
         btn_hps_dsn = new javax.swing.JButton();
-        panel_matkul_tabel = new javax.swing.JPanel();
+        panel_add_jadwal = new javax.swing.JPanel();
+        border3 = new javax.swing.JPanel();
+        input_jadwal = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jdwl_dosen = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        cb_jdwl_prodi = new javax.swing.JComboBox<>();
+        jLabel30 = new javax.swing.JLabel();
+        cb_jdwl_matkul = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jdt_tgl_jdwl = new com.toedter.calendar.JDateChooser();
+        jLabel28 = new javax.swing.JLabel();
+        Date waktu = new Date();
+        SpinnerDateModel sm_waktu = new SpinnerDateModel(waktu, null, null, Calendar.HOUR_OF_DAY);
+
+        sp_waktu = new javax.swing.JSpinner(sm_waktu);
+        jLabel29 = new javax.swing.JLabel();
+        sp_jmlh_pertemuan = new javax.swing.JSpinner();
+        jLabel31 = new javax.swing.JLabel();
+        cb_jdwl_ruang = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        Panel_Gabungan = new javax.swing.JPanel();
+        ccb_ti = new javax.swing.JCheckBox();
+        ccb_dkv = new javax.swing.JCheckBox();
+        ccb_mi = new javax.swing.JCheckBox();
+        ccb_si = new javax.swing.JCheckBox();
+        btnadd_jadwal = new javax.swing.JButton();
+        btn_clear_jadwal = new javax.swing.JButton();
+        panel_matkul = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         panel_list_matkul = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         list_all_matkul = new javax.swing.JTable();
+        panel_jadwal = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TabelJadwal = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
         add_data_mhs = new javax.swing.JMenuItem();
@@ -180,9 +224,9 @@ public class framebaa extends javax.swing.JFrame {
         update_data_dsn = new javax.swing.JMenuItem();
         list_data_dsn = new javax.swing.JMenuItem();
         menu_akademik = new javax.swing.JMenu();
-        add_data_dsn1 = new javax.swing.JMenuItem();
+        add_Jadwal = new javax.swing.JMenuItem();
+        list_data_jadwal = new javax.swing.JMenuItem();
         list_data_mk = new javax.swing.JMenuItem();
-        list_data_dsn1 = new javax.swing.JMenuItem();
         menu_logout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -222,7 +266,7 @@ public class framebaa extends javax.swing.JFrame {
         panel_nrpLayout.setHorizontalGroup(
             panel_nrpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_NRP_baa)
-            .addComponent(cb_NRP_baa, 0, 260, Short.MAX_VALUE)
+            .addComponent(cb_NRP_baa, 0, 274, Short.MAX_VALUE)
         );
         panel_nrpLayout.setVerticalGroup(
             panel_nrpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,7 +384,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(border2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_mhsLayout.createSequentialGroup()
-                        .addGap(0, 349, Short.MAX_VALUE)
+                        .addGap(0, 377, Short.MAX_VALUE)
                         .addComponent(btn_clear_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnadd_mhs_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -354,7 +398,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_add_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd_mhs_baa)
                     .addComponent(btn_clear_mhs_baa))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_add_mhs, "cv_add_mhs");
@@ -397,7 +441,7 @@ public class framebaa extends javax.swing.JFrame {
         border1.setLayout(border1Layout);
         border1Layout.setHorizontalGroup(
             border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 572, Short.MAX_VALUE)
             .addGroup(border1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -469,45 +513,129 @@ public class framebaa extends javax.swing.JFrame {
 
         panelinduk_baa.add(panel_add_ortu, "cv_add_ortu_baa");
 
-        TabelMatkul.setModel(new javax.swing.table.DefaultTableModel(
+        panel_list_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("List Mahasiswa"));
+
+        list_all_mahasiswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Periode", "Kode", "Nama Matkul", "Dosen"
+                "NRP", "Nama", "Email", "Prodi", "Alamat", "Jenis Kelamin", "No Hp", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(TabelMatkul);
+        list_all_mahasiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                list_all_mahasiswaMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(list_all_mahasiswa);
+        if (list_all_mahasiswa.getColumnModel().getColumnCount() > 0) {
+            list_all_mahasiswa.getColumnModel().getColumn(4).setHeaderValue("Alamat");
+            list_all_mahasiswa.getColumnModel().getColumn(5).setHeaderValue("Jenis Kelamin");
+            list_all_mahasiswa.getColumnModel().getColumn(6).setHeaderValue("No Hp");
+            list_all_mahasiswa.getColumnModel().getColumn(7).setHeaderValue("Status");
+        }
 
-        javax.swing.GroupLayout panel_matkulLayout = new javax.swing.GroupLayout(panel_matkul);
-        panel_matkul.setLayout(panel_matkulLayout);
-        panel_matkulLayout.setHorizontalGroup(
-            panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_matkulLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_list_mhsLayout = new javax.swing.GroupLayout(panel_list_mhs);
+        panel_list_mhs.setLayout(panel_list_mhsLayout);
+        panel_list_mhsLayout.setHorizontalGroup(
+            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_list_mhsLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_list_mhsLayout.setVerticalGroup(
+            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 292, Short.MAX_VALUE)
+            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_list_mhsLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panel_detail_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("Detail Orang Tua"));
+        panel_detail_mhs.setLayout(new java.awt.GridLayout(5, 2));
+
+        jLabel1.setText("Nama Ayah");
+        panel_detail_mhs.add(jLabel1);
+        panel_detail_mhs.add(lb_ldt_ayah);
+
+        jLabel3.setText("Nama_Ibu");
+        panel_detail_mhs.add(jLabel3);
+        panel_detail_mhs.add(lb_ldt_ibu);
+
+        jLabel22.setText("Telepon_Orang_Tua\t");
+        panel_detail_mhs.add(jLabel22);
+        panel_detail_mhs.add(lb_telp_ortu);
+
+        jLabel24.setText("Alamat_Orang_Tua");
+        panel_detail_mhs.add(jLabel24);
+        panel_detail_mhs.add(lb_almt_ortu);
+
+        jLabel26.setText("Kota Orang Tua");
+        panel_detail_mhs.add(jLabel26);
+        panel_detail_mhs.add(lb_kota_ortu);
+
+        jButton2.setText("HAPUS DATA");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_detail_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
-        panel_matkulLayout.setVerticalGroup(
-            panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_matkulLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(panel_detail_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
                 .addContainerGap())
         );
 
-        panelinduk_baa.add(panel_matkul, "card5");
+        javax.swing.GroupLayout panel_mhs_tabelLayout = new javax.swing.GroupLayout(panel_mhs_tabel);
+        panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
+        panel_mhs_tabelLayout.setHorizontalGroup(
+            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel_mhs_tabelLayout.setVerticalGroup(
+            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelinduk_baa.add(panel_mhs_tabel, "cv_list_mhs_baa");
 
         border.setBorder(javax.swing.BorderFactory.createTitledBorder("Ubah Data Dosen"));
 
@@ -534,7 +662,7 @@ public class framebaa extends javax.swing.JFrame {
         panelnipLayout.setHorizontalGroup(
             panelnipLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_NIP_dsn_baa)
-            .addComponent(cbx_nip_dsn_baa, 0, 260, Short.MAX_VALUE)
+            .addComponent(cbx_nip_dsn_baa, 0, 274, Short.MAX_VALUE)
         );
         panelnipLayout.setVerticalGroup(
             panelnipLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,134 +786,10 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_dsnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_reset_dsn)
                     .addComponent(btn_Ubah_dsn_baa))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_dsn, "cv_add_dsn_baa");
-
-        panel_list_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("List Mahasiswa"));
-
-        list_all_mahasiswa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "NRP", "Nama", "Email", "Prodi", "Alamat", "Jenis Kelamin", "No Hp", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        list_all_mahasiswa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                list_all_mahasiswaMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(list_all_mahasiswa);
-        if (list_all_mahasiswa.getColumnModel().getColumnCount() > 0) {
-            list_all_mahasiswa.getColumnModel().getColumn(4).setHeaderValue("Alamat");
-            list_all_mahasiswa.getColumnModel().getColumn(5).setHeaderValue("Jenis Kelamin");
-            list_all_mahasiswa.getColumnModel().getColumn(6).setHeaderValue("No Hp");
-            list_all_mahasiswa.getColumnModel().getColumn(7).setHeaderValue("Status");
-        }
-
-        javax.swing.GroupLayout panel_list_mhsLayout = new javax.swing.GroupLayout(panel_list_mhs);
-        panel_list_mhs.setLayout(panel_list_mhsLayout);
-        panel_list_mhsLayout.setHorizontalGroup(
-            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_list_mhsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        panel_list_mhsLayout.setVerticalGroup(
-            panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 307, Short.MAX_VALUE)
-            .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_list_mhsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        panel_detail_mhs.setBorder(javax.swing.BorderFactory.createTitledBorder("Detail Orang Tua"));
-        panel_detail_mhs.setLayout(new java.awt.GridLayout(5, 2));
-
-        jLabel1.setText("Nama Ayah");
-        panel_detail_mhs.add(jLabel1);
-        panel_detail_mhs.add(lb_ldt_ayah);
-
-        jLabel3.setText("Nama_Ibu");
-        panel_detail_mhs.add(jLabel3);
-        panel_detail_mhs.add(lb_ldt_ibu);
-
-        jLabel22.setText("Telepon_Orang_Tua\t");
-        panel_detail_mhs.add(jLabel22);
-        panel_detail_mhs.add(lb_telp_ortu);
-
-        jLabel24.setText("Alamat_Orang_Tua");
-        panel_detail_mhs.add(jLabel24);
-        panel_detail_mhs.add(lb_almt_ortu);
-
-        jLabel26.setText("Kota Orang Tua");
-        panel_detail_mhs.add(jLabel26);
-        panel_detail_mhs.add(lb_kota_ortu);
-
-        jButton2.setText("HAPUS DATA");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_detail_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(panel_list_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(panel_detail_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout panel_mhs_tabelLayout = new javax.swing.GroupLayout(panel_mhs_tabel);
-        panel_mhs_tabel.setLayout(panel_mhs_tabelLayout);
-        panel_mhs_tabelLayout.setHorizontalGroup(
-            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel_mhs_tabelLayout.setVerticalGroup(
-            panel_mhs_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mhs_tabelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
-        );
-
-        panelinduk_baa.add(panel_mhs_tabel, "cv_list_mhs_baa");
 
         panel_dsn_tabel.setBorder(javax.swing.BorderFactory.createTitledBorder("Daftar Dosen"));
 
@@ -829,7 +833,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_hps_dsn)))
@@ -856,12 +860,150 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(panel_dsn_tabelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_dsn_tabel, "cv_list_dsn_baa");
 
-        panel_list_matkul.setBorder(javax.swing.BorderFactory.createTitledBorder("List Matakuliah"));
+        border3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tambah Jadwal Kelas"));
+
+        input_jadwal.setLayout(new java.awt.GridLayout(8, 2, 0, 15));
+
+        jLabel23.setText("Dosen Pengajar");
+        input_jadwal.add(jLabel23);
+
+        jdwl_dosen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH DOSEN ===" }));
+        input_jadwal.add(jdwl_dosen);
+
+        jLabel25.setText("Prodi");
+        input_jadwal.add(jLabel25);
+
+        cb_jdwl_prodi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH PRODI===", "> Teknik Informatika", "> Sistem Informasi", "> Manajemen Informatika", "> DKV" }));
+        cb_jdwl_prodi.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_jdwl_prodiItemStateChanged(evt);
+            }
+        });
+        input_jadwal.add(cb_jdwl_prodi);
+
+        jLabel30.setText("Mata Kuliah");
+        input_jadwal.add(jLabel30);
+
+        cb_jdwl_matkul.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH MATA KULIAH ===" }));
+        cb_jdwl_matkul.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_jdwl_matkulItemStateChanged(evt);
+            }
+        });
+        input_jadwal.add(cb_jdwl_matkul);
+
+        jLabel27.setText("Tanggal Mulai");
+        input_jadwal.add(jLabel27);
+
+        jdt_tgl_jdwl.setDateFormatString("yyyy-MM-dd");
+        input_jadwal.add(jdt_tgl_jdwl);
+
+        jLabel28.setText("Waktu");
+        input_jadwal.add(jLabel28);
+
+        JSpinner.DateEditor de_waktu = new JSpinner.DateEditor(sp_waktu, "HH:mm");
+        sp_waktu.setEditor(de_waktu);
+        input_jadwal.add(sp_waktu);
+
+        jLabel29.setText("Jumlah Pertemuan");
+        input_jadwal.add(jLabel29);
+
+        sp_jmlh_pertemuan.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
+        input_jadwal.add(sp_jmlh_pertemuan);
+
+        jLabel31.setText("Ruang");
+        input_jadwal.add(jLabel31);
+
+        cb_jdwl_ruang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH RUANG ===", "> A1", "> A2", "> A3", "> A4", "> A5", "> B1", "> B2", "> B3", "> B4", "> B5" }));
+        input_jadwal.add(cb_jdwl_ruang);
+
+        jLabel2.setText("Kelas Gabungan");
+        input_jadwal.add(jLabel2);
+
+        Panel_Gabungan.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 25, 5));
+
+        ccb_ti.setText("TI");
+        Panel_Gabungan.add(ccb_ti);
+
+        ccb_dkv.setText("DKV");
+        Panel_Gabungan.add(ccb_dkv);
+
+        ccb_mi.setText("MI");
+        Panel_Gabungan.add(ccb_mi);
+
+        ccb_si.setText("SI");
+        Panel_Gabungan.add(ccb_si);
+
+        input_jadwal.add(Panel_Gabungan);
+
+        javax.swing.GroupLayout border3Layout = new javax.swing.GroupLayout(border3);
+        border3.setLayout(border3Layout);
+        border3Layout.setHorizontalGroup(
+            border3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(border3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(input_jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        border3Layout.setVerticalGroup(
+            border3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(border3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(input_jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        btnadd_jadwal.setText("ADD");
+        btnadd_jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadd_jadwalActionPerformed(evt);
+            }
+        });
+
+        btn_clear_jadwal.setText("CLEAR");
+        btn_clear_jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clear_jadwalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_add_jadwalLayout = new javax.swing.GroupLayout(panel_add_jadwal);
+        panel_add_jadwal.setLayout(panel_add_jadwalLayout);
+        panel_add_jadwalLayout.setHorizontalGroup(
+            panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_add_jadwalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_add_jadwalLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_clear_jadwal)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnadd_jadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(panel_add_jadwalLayout.createSequentialGroup()
+                        .addComponent(border3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        panel_add_jadwalLayout.setVerticalGroup(
+            panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_add_jadwalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(border3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnadd_jadwal)
+                    .addComponent(btn_clear_jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(188, 188, 188))
+        );
+
+        panelinduk_baa.add(panel_add_jadwal, "cv_add_jdwl");
+
+        panel_list_matkul.setBorder(javax.swing.BorderFactory.createTitledBorder("List Mata Kuliah"));
 
         list_all_matkul.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -879,18 +1021,13 @@ public class framebaa extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        list_all_matkul.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                list_all_matkulMouseClicked(evt);
-            }
-        });
         jScrollPane5.setViewportView(list_all_matkul);
 
         javax.swing.GroupLayout panel_list_matkulLayout = new javax.swing.GroupLayout(panel_list_matkul);
         panel_list_matkul.setLayout(panel_list_matkulLayout);
         panel_list_matkulLayout.setHorizontalGroup(
             panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
             .addGroup(panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_matkulLayout.createSequentialGroup()
                     .addContainerGap()
@@ -899,11 +1036,11 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_list_matkulLayout.setVerticalGroup(
             panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGap(0, 539, Short.MAX_VALUE)
             .addGroup(panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_matkulLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -920,22 +1057,62 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panel_matkul_tabelLayout = new javax.swing.GroupLayout(panel_matkul_tabel);
-        panel_matkul_tabel.setLayout(panel_matkul_tabelLayout);
-        panel_matkul_tabelLayout.setHorizontalGroup(
-            panel_matkul_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_matkul_tabelLayout.createSequentialGroup()
+        javax.swing.GroupLayout panel_matkulLayout = new javax.swing.GroupLayout(panel_matkul);
+        panel_matkul.setLayout(panel_matkulLayout);
+        panel_matkulLayout.setHorizontalGroup(
+            panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panel_matkul_tabelLayout.setVerticalGroup(
-            panel_matkul_tabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_matkul_tabelLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+        panel_matkulLayout.setVerticalGroup(
+            panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_matkulLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        panelinduk_baa.add(panel_matkul_tabel, "cv_list_matkul_baa");
+        panelinduk_baa.add(panel_matkul, "cv_list_matkul_baa");
+
+        TabelJadwal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Periode", "Dimulai Tanggal", "Waktu", "Nama Matkul", "Ruang", "Dosen", "Prodi"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TabelJadwal);
+
+        javax.swing.GroupLayout panel_jadwalLayout = new javax.swing.GroupLayout(panel_jadwal);
+        panel_jadwal.setLayout(panel_jadwalLayout);
+        panel_jadwalLayout.setHorizontalGroup(
+            panel_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_jadwalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panel_jadwalLayout.setVerticalGroup(
+            panel_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_jadwalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelinduk_baa.add(panel_jadwal, "cv_jdwl_baa");
 
         menu_mhs.setText("Mahasiswa");
 
@@ -995,13 +1172,21 @@ public class framebaa extends javax.swing.JFrame {
 
         menu_akademik.setText("Akademik");
 
-        add_data_dsn1.setText("Tambah Data Dosen");
-        add_data_dsn1.addActionListener(new java.awt.event.ActionListener() {
+        add_Jadwal.setText("Tambah Jadwal");
+        add_Jadwal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_data_dsn1ActionPerformed(evt);
+                add_JadwalActionPerformed(evt);
             }
         });
-        menu_akademik.add(add_data_dsn1);
+        menu_akademik.add(add_Jadwal);
+
+        list_data_jadwal.setText("List Jadwal");
+        list_data_jadwal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list_data_jadwalActionPerformed(evt);
+            }
+        });
+        menu_akademik.add(list_data_jadwal);
 
         list_data_mk.setText("List Mata Kuliah");
         list_data_mk.addActionListener(new java.awt.event.ActionListener() {
@@ -1010,14 +1195,6 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
         menu_akademik.add(list_data_mk);
-
-        list_data_dsn1.setText("List Data Dosen");
-        list_data_dsn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                list_data_dsn1ActionPerformed(evt);
-            }
-        });
-        menu_akademik.add(list_data_dsn1);
 
         jMenuBar1.add(menu_akademik);
 
@@ -1045,10 +1222,10 @@ public class framebaa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelinduk_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelinduk_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1329,7 +1506,7 @@ public class framebaa extends javax.swing.JFrame {
             PreparedStatement ps_del_dsn = con.prepareStatement(sql_del_dsn);
             ps_del_dsn.executeUpdate();
             
-            //untuk menghapus data pada user
+            //untuk menghapus data pada dosen
             String sql_del_usr_dsn = "DELETE FROM user WHERE Email ='"+get_email_dsn+"'";
             PreparedStatement ps_del_usr_mhs = con.prepareStatement(sql_del_usr_dsn);
             ps_del_usr_mhs.executeUpdate();
@@ -1349,23 +1526,90 @@ public class framebaa extends javax.swing.JFrame {
         get_nip_dsn = tb_list_dsn.getValueAt(ambil_row_dsn, 0).toString();
         get_email_dsn = tb_list_dsn.getValueAt(ambil_row_dsn, 1).toString();
     }//GEN-LAST:event_list_all_dsnMouseClicked
-
-    private void add_data_dsn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_data_dsn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_data_dsn1ActionPerformed
     
-    //untuk menampilkan list matakuliah
+    //untuk menampilkan halaman tambah jadwal
+    private void add_JadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_JadwalActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_add_jdwl");
+        title_baa.setText("Tambah Jadwal");
+        reset_waktu();
+        tampil_dsn();
+        clear_jadwal();
+    }//GEN-LAST:event_add_JadwalActionPerformed
+    
+    //untuk menampilkan halaman list matakuliah
     private void list_data_mkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_mkActionPerformed
         tampil_matkul();
     }//GEN-LAST:event_list_data_mkActionPerformed
 
-    private void list_data_dsn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_dsn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_list_data_dsn1ActionPerformed
+    //untuk menampilkan halaman list jadwal
+    private void list_data_jadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list_data_jadwalActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_jdwl_baa");
+        title_baa.setText("List Jadwal");
+        list_jadwal();
+    }//GEN-LAST:event_list_data_jadwalActionPerformed
+    
+    //untuk menambahkan jadwal
+    private void btnadd_jadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadd_jadwalActionPerformed
+        cek_add_jadwal();
+        getdata_jadwal_db();
+        insert_jadwal();
+    }//GEN-LAST:event_btnadd_jadwalActionPerformed
 
-    private void list_all_matkulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list_all_matkulMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_list_all_matkulMouseClicked
+    private void btn_clear_jadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clear_jadwalActionPerformed
+        clear_jadwal();
+    }//GEN-LAST:event_btn_clear_jadwalActionPerformed
+    
+    //untuk menampilkan filter mata kuliah secara otomatis
+    private void cb_jdwl_prodiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jdwl_prodiItemStateChanged
+        int id_jdwl_prodi = cb_jdwl_prodi.getSelectedIndex();
+        if(id_jdwl_prodi == 1){
+           prodi_mk = "TI"; 
+        }
+        else if(id_jdwl_prodi == 2){
+           prodi_mk = "SI"; 
+        }
+        else if(id_jdwl_prodi == 3){
+           prodi_mk = "MI"; 
+        }
+        else if(id_jdwl_prodi == 4){
+           prodi_mk = "DK"; 
+        }
+        get_mtkl();
+    }//GEN-LAST:event_cb_jdwl_prodiItemStateChanged
+
+    //untuk menselect prodi gabungan
+    private void cb_jdwl_matkulItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jdwl_matkulItemStateChanged
+        ccb_ti.setSelected(false);
+        ccb_si.setSelected(false);
+        ccb_mi.setSelected(false);
+        ccb_dkv.setSelected(false);
+        
+        deklarasi_jadwal();
+        try{
+            String get_id_matkul = "SELECT * FROM mata_kuliah WHERE nama_mata_kuliah='"+mtkl_jdwl+"'";
+            ResultSet res_id_matkul = con.prepareStatement(get_id_matkul).executeQuery();
+            while(res_id_matkul.next()){
+                String gabungan = res_id_matkul.getString("kode_mata_kuliah");
+                if(gabungan.startsWith("TI")){
+                    ccb_ti.setSelected(true);
+                }
+                if(gabungan.startsWith("SI")){
+                   ccb_si.setSelected(true);
+                }
+                if(gabungan.startsWith("MI")){
+                   ccb_mi.setSelected(true);
+                }
+                if(gabungan.startsWith("DK")){
+                   ccb_dkv.setSelected(true);
+                }
+            }      
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_cb_jdwl_matkulItemStateChanged
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -1505,6 +1749,8 @@ public class framebaa extends javax.swing.JFrame {
     
     //untuk mendapatkan list nrp
     private void tampil_nrp(){
+        cb_NRP_baa.removeAllItems();
+        cb_NRP_baa.addItem("=== PILIH NRP ===");
         try{
             String con_get_nrp = "SELECT * from mahasiswa";
             ResultSet res_get_nrp = con.prepareStatement(con_get_nrp).executeQuery();
@@ -1863,6 +2109,8 @@ public class framebaa extends javax.swing.JFrame {
     
     //untuk mendapatkan list nip
     private void tampil_nip(){
+        cbx_nip_dsn_baa.removeAllItems();
+        cbx_nip_dsn_baa.addItem("=== PILIH NIP ===");
         try{
             String con_get_nip = "SELECT * from dosen";
             ResultSet res_get_nip = con.prepareStatement(con_get_nip).executeQuery();
@@ -2022,6 +2270,334 @@ public class framebaa extends javax.swing.JFrame {
     }
     
     
+// JADWAL
+    //untuk mendapatkan list nama dosen
+    private void tampil_dsn(){
+        jdwl_dosen.removeAllItems();;
+        jdwl_dosen.addItem("=== PILIH DOSEN ===");
+        try{
+            String con_get_dsn = "SELECT * from dosen";
+            ResultSet res_get_dsn = con.prepareStatement(con_get_dsn).executeQuery();
+            while(res_get_dsn.next()){
+                jdwl_dosen.addItem(res_get_dsn.getString("nama_dosen"));
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    //untuk mengambil mata kuliah dan juga menampilkan mata kuliah tersebut
+    private void get_mtkl(){
+        cb_jdwl_matkul.removeAllItems();
+        cb_jdwl_matkul.addItem("=== PILIH MATA KULIAH ===");
+        try{
+            String get_matkl = "SELECT * FROM mata_kuliah WHERE kode_mata_kuliah LIKE '%"+prodi_mk+"%'";
+            ResultSet res_matkl = con.prepareStatement(get_matkl).executeQuery();
+            while(res_matkl.next()){
+                cb_jdwl_matkul.addItem(res_matkl.getString("nama_mata_kuliah"));
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }
+    
+    //untuk mereset waktu
+    private void reset_waktu(){
+        System.out.println("test");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        
+        Date date = cal.getTime();
+        sp_waktu.setValue(date);
+    }
+    
+    //untuk mereset field jadwal
+    private void clear_jadwal(){
+        reset_waktu();
+        jdwl_dosen.setSelectedIndex(0);
+        cb_jdwl_prodi.setSelectedIndex(0);
+        cb_jdwl_matkul.setSelectedIndex(0);
+        sp_jmlh_pertemuan.setValue(0);
+        jdt_tgl_jdwl.setDate(null);
+        cb_jdwl_ruang.setSelectedIndex(0);
+        ccb_ti.setSelected(false);
+        ccb_si.setSelected(false);
+        ccb_mi.setSelected(false);
+        ccb_dkv.setSelected(false);
+    }
+    
+    //untuk mendeklarasikan jadwal
+    private void  deklarasi_jadwal(){
+        jdwl_prodi = "";
+        //untuk mencegah eror
+        if(cb_jdwl_matkul.getSelectedIndex()<0){
+            mtkl_jdwl = "pilih matkul";
+        }
+        else{
+            mtkl_jdwl = cb_jdwl_matkul.getSelectedItem().toString();
+        }
+        nama_dsn_jdwl = jdwl_dosen.getSelectedItem().toString();
+        jmlh_pert = (Integer) sp_jmlh_pertemuan.getValue();
+        ruang = hapus_tanda(cb_jdwl_ruang.getSelectedItem().toString());
+        
+        if(ccb_ti.isSelected()){
+            if(jdwl_prodi.contains("TI")){
+            }
+            else{
+                jdwl_prodi += " ,TI";  
+            }
+        }
+        if(ccb_si.isSelected()){
+            if(jdwl_prodi.contains("SI")){
+            }
+            else{
+                jdwl_prodi += " ,SI";  
+            }
+        }
+        if(ccb_mi.isSelected()){
+            if(jdwl_prodi.contains("MI")){
+            }
+            else{
+                jdwl_prodi += " ,MI"; 
+            }
+        }
+        if(ccb_dkv.isSelected()){
+            if(jdwl_prodi.contains("DKV")){
+            }
+            else{
+                jdwl_prodi += " ,DKV";  
+            }
+        }
+        
+        DateFormat df =  new SimpleDateFormat ("yyyy-MM-dd");
+        
+        try{
+            sd_tgl_jdwl = df.format(jdt_tgl_jdwl.getDate()); 
+        }    
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        waktu = sdf.format(sp_waktu.getValue());
+        st_wkt = waktu.toString();
+        
+    }
+    
+    //untuk mendapatkan data dari database
+    private void getdata_jadwal_db(){
+        try{
+            deklarasi_jadwal();
+            //untik mengambil nip dosen
+            String get_dosen = "SELECT * FROM dosen WHERE nama_dosen='"+nama_dsn_jdwl+"'";
+            ResultSet res_nip_dosen = con.prepareStatement(get_dosen).executeQuery();
+            if(res_nip_dosen.next()){
+                get_nip_dsn_jdwl = res_nip_dosen.getString("nip_dosen");
+            }
+            
+            //untuk mengambil kode_matkul
+            String get_mk = "SELECT * FROM mata_kuliah WHERE nama_mata_kuliah='"+mtkl_jdwl+"'";
+            ResultSet res_mk = con.prepareStatement(get_mk).executeQuery();
+            if(res_mk.next()){
+                get_kode_mk_jdwl = res_mk.getString("kode_mata_kuliah");
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
+    //untuk mengecek apakah ada field yang kosong
+    private void  cek_add_jadwal(){
+        deklarasi_jadwal();
+        getdata_jadwal_db();
+        if(jdwl_dosen.getSelectedIndex() == 0 || cb_jdwl_prodi.getSelectedIndex() == 0 ||
+                cb_jdwl_matkul.getSelectedIndex() == 0 || jdt_tgl_jdwl == null ||
+                (Integer) sp_jmlh_pertemuan.getValue() == 0 || sp_waktu.equals("00:00") ||
+                cb_jdwl_ruang.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Mohon cek kembali field anda");
+            
+        }
+        else{
+            cek_add_db_jadwal();
+        }
+    }
+    
+    //pengecekan ke 2 ke databse 
+    private void  cek_add_db_jadwal(){
+        try{
+            //cek mata kuliah
+            String db_mtkl = "SELECT matkul.nama_mata_kuliah matakuliah\n" +
+                                "FROM jadwal INNER JOIN mata_kuliah matkul\n" +
+                                "ON jadwal.kode_mata_kuliah = matkul.kode_mata_kuliah\n" +
+                                "WHERE matkul.nama_mata_kuliah ='"+mtkl_jdwl+"' \n" +
+                                "GROUP BY matkul.nama_mata_kuliah;";
+                ResultSet res_mtkl = con.prepareStatement(db_mtkl).executeQuery();
+                if(res_mtkl.next()){
+                    JOptionPane.showMessageDialog(this, "Matakuliah sudah terdaftar");
+                }
+                else{
+                    //cek jadwal dan kelas
+                    String db_cdwl_kls = "SELECT * FROM kelas where waktu ='"+sd_tgl_jdwl+" "
+                            + ""+st_wkt+"' AND ruang='"+ruang+"'";
+                    ResultSet res_cdwl_kls = con.prepareStatement(db_cdwl_kls).executeQuery();
+                    if(res_cdwl_kls.next()){
+                        JOptionPane.showMessageDialog(this, "ruangan sudah terpakai oleh kelas lain");
+                    }
+                    else{
+
+                        //untuk cek dosen dan jadwal
+                        String db_cdwl_dsn = "SELECT jd.nip_dosen, kl.waktu FROM jadwal jd "
+                            + "INNER JOIN Kelas kl ON jd.id_kelas = kl.id_kelas "
+                            + "where kl.waktu ='"+sd_tgl_jdwl+" "+st_wkt+"' AND jd.nip_dosen='"+get_nip_dsn_jdwl+"'";
+                        ResultSet res_cdwl_dsn = con.prepareStatement(db_cdwl_dsn).executeQuery();
+                        if(res_cdwl_kls.next()){
+                            JOptionPane.showMessageDialog(this, "ruangan sudah terpakai oleh kelas lain");
+                        }
+                        else{
+                            insert_jadwal(); 
+                        }
+
+                    }
+                }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());  
+        }
+    }
+    
+    //untuk menyimpan data jadwal
+    private void insert_jadwal(){
+        int jmlh_field, intkode=0;
+        String id_kls_baru;
+        System.out.println("a"+jmlh_pert);
+        
+        try{
+            //untuk mengecek banyaknya field kelas
+            String get_jmlhfield = "SELECT COUNT(*) AS Field FROM kelas";
+            ResultSet res_jmlhfield = con.prepareStatement(get_jmlhfield).executeQuery();
+            if(res_jmlhfield.next()){
+                jmlh_field = res_jmlhfield.getInt("Field");
+                
+                if(jmlh_field <= 0){
+                    intkode = 0;
+                }
+                else{
+                   //untuk membuat id kelas secara otomatis
+                    String get_idk = "SELECT * FROM kelas ORDER BY id_kelas DESC LIMIT 1";
+                    ResultSet res_idk = con.prepareStatement(get_idk).executeQuery();
+                    if(res_idk.next()){
+                        String kelas_kode_idk = hapus_tanda(res_idk.getString("id_kelas"));
+                        intkode = Integer.parseInt(kelas_kode_idk);
+                    } 
+                }
+            }
+
+            String hmmtanggal = sd_tgl_jdwl;
+            for(int i = 0 ; i < jmlh_pert; i++){
+                System.out.println(st_wkt);
+                intkode++;
+                
+                if(intkode < 10){
+                     kode_kelas = "KT00"+ String.valueOf(intkode);
+                }
+                else if (intkode >= 10){
+                    kode_kelas = "KT0"+ String.valueOf(intkode);
+                }
+                else if(intkode >= 100){
+                    kode_kelas = "KT"+ String.valueOf(intkode);
+                }
+                
+                
+                int pert = i+1;
+                
+                java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date date = sdf.parse(hmmtanggal+" "+st_wkt+":00");
+
+                java.sql.Timestamp sql_waktu = new java.sql.Timestamp(date.getTime());
+                String input_kls = "INSERT INTO kelas(id_kelas, kelas, pertemuan, waktu, ruang)"
+                            + "VALUES (?,?,?,?,?)";
+                PreparedStatement ps_add_kls = con.prepareStatement(input_kls);
+                ps_add_kls.setString(1, kode_kelas);
+                ps_add_kls.setString(2, "D3");
+                ps_add_kls.setInt(3, pert);
+                ps_add_kls.setTimestamp(4, sql_waktu);
+                ps_add_kls.setString(5, ruang);
+
+                LocalDate tanggal_baru = LocalDate.parse(hmmtanggal).plusDays(7);
+                hmmtanggal = tanggal_baru.toString();
+
+                if(ps_add_kls.executeUpdate() > 0){
+                   //untuk menginputkan ke data jadwal
+                    String input_jdwl = "INSERT INTO jadwal(id_kelas, nip_dosen, kode_mata_kuliah, prodi)"
+                    + "VALUES (?,?,?,?)";
+                    PreparedStatement ps_add_jdwl = con.prepareStatement(input_jdwl);
+                    ps_add_jdwl.setString(1, kode_kelas);
+                    ps_add_jdwl.setString(2, get_nip_dsn_jdwl);
+                    ps_add_jdwl.setString(3, get_kode_mk_jdwl);
+                    ps_add_jdwl.setString(4, hapus_tanda(jdwl_prodi)); 
+                    
+                    if(ps_add_jdwl.executeUpdate() > 0){
+                        if(i+1 == jmlh_pert){
+                            JOptionPane.showMessageDialog(this, "Jadwal Sudah ditambahkan");
+                            CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+                            cl_baa.show(panelinduk_baa, "cv_add_jdwl");
+                            title_baa.setText("Tambah Jadwal");
+                            reset_waktu();
+                            tampil_dsn();
+                            clear_jadwal();
+                        }
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    //untuk menampilkan data jadwal
+    private void list_jadwal(){
+       try{
+            String dmkj = "select mk.Periode periode,\n" +
+                            "cast(k.waktu AS DATE) tanggal,\n" +
+                            "cast(k.waktu AS TIME) waktu, mk.nama_mata_kuliah matkul,\n" +
+                            "k.ruang ruang, dsn.nama_dosen nm_dosen, j.prodi prodi\n" +
+                            "FROM jadwal j\n" +
+                            "INNER JOIN mata_kuliah mk ON mk.kode_mata_kuliah = j.kode_mata_kuliah\n" +
+                            "INNER JOIN kelas k ON k.id_kelas = j.id_kelas\n" +
+                            "INNER JOIN dosen dsn ON dsn.nip_dosen = j.nip_dosen\n" +
+                            "GROUP BY matkul;";
+            
+            ResultSet res_dmkj = con.prepareStatement(dmkj).executeQuery();
+            DefaultTableModel dtj = (DefaultTableModel) TabelJadwal.getModel();
+            dtj.setRowCount(0);
+            
+            while(res_dmkj.next()){
+                Object data[] = new Object[7];
+                data[0] = res_dmkj.getString("periode");
+                data[1] = res_dmkj.getString("tanggal");
+                data[2] = res_dmkj.getString("waktu");
+                data[3] = res_dmkj.getString("matkul");
+                data[4] = res_dmkj.getString("ruang");
+                data[5] = res_dmkj.getString("nm_dosen");
+                data[6] = res_dmkj.getString("prodi");
+                
+                dtj.addRow(data);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+    
     //untuk menghapus tanda ">"
     private String hapus_tanda(String str){
         return str.substring(2);
@@ -2063,33 +2639,45 @@ public class framebaa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelMatkul;
+    private javax.swing.JPanel Panel_Gabungan;
+    private javax.swing.JTable TabelJadwal;
+    private javax.swing.JMenuItem add_Jadwal;
     private javax.swing.JMenuItem add_data_dsn;
-    private javax.swing.JMenuItem add_data_dsn1;
     private javax.swing.JMenuItem add_data_mhs;
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
     private javax.swing.JPanel border2;
+    private javax.swing.JPanel border3;
     private javax.swing.JButton btn_Ubah_dsn_baa;
     private javax.swing.JButton btn_back_mhs;
+    private javax.swing.JButton btn_clear_jadwal;
     private javax.swing.JButton btn_clear_mhs_baa;
     private javax.swing.JButton btn_clear_ortu_baa;
     private javax.swing.JButton btn_hps_dsn;
     private javax.swing.JButton btn_reset_dsn;
+    private javax.swing.JButton btnadd_jadwal;
     private javax.swing.JButton btnadd_mhs_baa;
     private javax.swing.JButton btnadd_ortu_baa;
     private javax.swing.JComboBox<String> cb_NRP_baa;
     private javax.swing.JCheckBox cb_Status_dsn_baa;
     private javax.swing.JCheckBox cb_Status_mhs_baa;
+    private javax.swing.JComboBox<String> cb_jdwl_matkul;
+    private javax.swing.JComboBox<String> cb_jdwl_prodi;
+    private javax.swing.JComboBox<String> cb_jdwl_ruang;
     private javax.swing.JComboBox<String> cb_kota_ortu_baa;
     private javax.swing.JComboBox<String> cb_pendidikan_dsn_baa;
     private javax.swing.JComboBox<String> cbx_Agama_mhs_baa;
     private javax.swing.JComboBox<String> cbx_Prodi_baa;
     private javax.swing.JComboBox<String> cbx_kota_mhs_baa;
     private javax.swing.JComboBox<String> cbx_nip_dsn_baa;
+    private javax.swing.JCheckBox ccb_dkv;
+    private javax.swing.JCheckBox ccb_mi;
+    private javax.swing.JCheckBox ccb_si;
+    private javax.swing.JCheckBox ccb_ti;
     private javax.swing.ButtonGroup grp_jk_dsn_baa;
     private javax.swing.ButtonGroup grp_jk_mhs_baa;
     private javax.swing.JPanel input_dsn;
+    private javax.swing.JPanel input_jadwal;
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
     private javax.swing.JButton jButton2;
@@ -2107,15 +2695,23 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel1_dsn;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel21_dsn;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel2_dsn;
     private javax.swing.JLabel jLabel2_dsn1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel3_dsn;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5_dsn;
@@ -2136,6 +2732,8 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private com.toedter.calendar.JDateChooser jdt_tgl_jdwl;
+    private javax.swing.JComboBox<String> jdwl_dosen;
     private javax.swing.JLabel lb_almt_ortu;
     private javax.swing.JLabel lb_kota_ortu;
     private javax.swing.JLabel lb_ldt_ayah;
@@ -2145,22 +2743,23 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JTable list_all_mahasiswa;
     private javax.swing.JTable list_all_matkul;
     private javax.swing.JMenuItem list_data_dsn;
-    private javax.swing.JMenuItem list_data_dsn1;
+    private javax.swing.JMenuItem list_data_jadwal;
     private javax.swing.JMenuItem list_data_mhs;
     private javax.swing.JMenuItem list_data_mk;
     private javax.swing.JMenu menu_akademik;
     private javax.swing.JMenu menu_dosen;
     private javax.swing.JMenu menu_logout;
     private javax.swing.JMenu menu_mhs;
+    private javax.swing.JPanel panel_add_jadwal;
     private javax.swing.JPanel panel_add_mhs;
     private javax.swing.JPanel panel_add_ortu;
     private javax.swing.JPanel panel_detail_mhs;
     private javax.swing.JPanel panel_dsn;
     private javax.swing.JPanel panel_dsn_tabel;
+    private javax.swing.JPanel panel_jadwal;
     private javax.swing.JPanel panel_list_matkul;
     private javax.swing.JPanel panel_list_mhs;
     private javax.swing.JPanel panel_matkul;
-    private javax.swing.JPanel panel_matkul_tabel;
     private javax.swing.JPanel panel_mhs_tabel;
     private javax.swing.JPanel panel_nrp;
     private javax.swing.JPanel panelinduk_baa;
@@ -2171,6 +2770,8 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JRadioButton rd_laki_mhs;
     private javax.swing.JRadioButton rd_perempuan_dsn_baa;
     private javax.swing.JRadioButton rd_perempuan_mhs;
+    private javax.swing.JSpinner sp_jmlh_pertemuan;
+    private javax.swing.JSpinner sp_waktu;
     private javax.swing.JLabel title_baa;
     private javax.swing.JTextField txt_Alamat_dsn_baa;
     private javax.swing.JTextField txt_Alamat_mhs_baa;
