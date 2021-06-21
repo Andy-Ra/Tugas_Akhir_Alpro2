@@ -358,7 +358,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txt_Email_mhs">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_Email_mhsActionPerformed"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_Email_mhsMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -442,15 +442,8 @@
                     <Component class="javax.swing.JComboBox" name="cbx_kota_mhs">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="8">
-                            <StringItem index="0" value="===PILIH==="/>
-                            <StringItem index="1" value="Malang"/>
-                            <StringItem index="2" value="Surabaya"/>
-                            <StringItem index="3" value="Blitar"/>
-                            <StringItem index="4" value="Kediri"/>
-                            <StringItem index="5" value="Probolinggo"/>
-                            <StringItem index="6" value="Lamongan"/>
-                            <StringItem index="7" value="Lumajang"/>
+                          <StringArray count="1">
+                            <StringItem index="0" value="=== PILIH ==="/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -783,10 +776,10 @@
                       <Component id="jPanel3" pref="420" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                      <Component id="jDesktopPane1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jDesktopPane1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -6,6 +6,7 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -13,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -176,9 +178,9 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         jLabel12.setText("Email");
 
-        txt_Email_mhs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Email_mhsActionPerformed(evt);
+        txt_Email_mhs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_Email_mhsMouseClicked(evt);
             }
         });
 
@@ -216,7 +218,7 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         jLabel15.setText("Kota");
 
-        cbx_kota_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "===PILIH===", "Malang", "Surabaya", "Blitar", "Kediri", "Probolinggo", "Lamongan", "Lumajang" }));
+        cbx_kota_mhs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH ===" }));
 
         jLabel21.setText("No Hp");
 
@@ -621,10 +623,10 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(154, 154, 154))
         );
         panel_tmpl_pribadiLayout.setVerticalGroup(
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -797,11 +799,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Nama_mhsActionPerformed
 
-    private void txt_Email_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Email_mhsActionPerformed
-        // TODO add your handling code here:
-        txt_Email_mhs.setEditable(false);
-    }//GEN-LAST:event_txt_Email_mhsActionPerformed
-
     private void txtnm_ayahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnm_ayahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnm_ayahActionPerformed
@@ -856,31 +853,41 @@ public class framemahasiswa extends javax.swing.JFrame {
             ls_jk = rd_perempuan_mhs.getText();
         } else {
             JOptionPane.showMessageDialog(this, "Jenis Kelamin belum dipilh");
+            return;
         }
+        
         String ls_agama = cbx_Agama_mhs.getSelectedItem().toString();
         if (cbx_Agama_mhs.getSelectedItem().toString().equals("===PILIH===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih Agama Mahasiswa!");
+            return;
         }
+        
         String ls_alamat = txt_Alamat_mhs.getText();
         String ls_kota = cbx_kota_mhs.getSelectedItem().toString();
-        if (cbx_kota_mhs.getSelectedItem().toString().equals("===PILIH===")) {
+        if (cbx_kota_mhs.getSelectedItem().toString().equals("=== PILIH ===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih kota asal mahasiswa!");
+            return;
         }
         String ls_hp = txt_nohp_mhs.getText();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement state = con.createStatement();
-            int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"alamat = '" + ls_alamat
+            int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"', alamat = '" + ls_alamat
                     + "', Kota_Mahasiswa = '" + ls_kota + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
-            JOptionPane.showMessageDialog(this, "Data Berhasil Diubah!");
-            try {
-                InputStream image = new FileInputStream(new File(image_path));
-                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
-                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
-
-            } catch (Exception e) {
-            }
+            JOptionPane.showMessageDialog(this, "Data Mahasiswa Anda Berhasil Diubah!");
+//            try {
+//                InputStream image = new FileInputStream(new File(image_path));
+//                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
+//                System.out.println(ls_nrp);
+//                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
+//
+//            } catch (Exception e) {
+//<<<<<<< Upstream, based on origin/master
+//                JOptionPane.showMessageDialog(this, "Foto gak kenek sek an!");
+//=======
+//>>>>>>> 53e9db0 tambah fitur jadwal
+//            }
 
         } catch (Exception e) {
                 System.out.println(e.getMessage());;
@@ -891,6 +898,29 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnUbah_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_ortuActionPerformed
         // TODO add your handling code here:
+        String ls_1 = txtnm_ayah.getText();
+        String ls_2 = txtktp_ayah.getText();
+        String ls_3 = txtnm_ibu.getText();
+        String ls_4 = txtktp_ibu.getText();
+        String ls_5 = txt_alamatortu.getText();
+        String ls_6 = cb_kota_ortu.getSelectedItem().toString();
+        String ls_7 = txt_telp_ortu.getText();
+        
+        if (cb_kota_ortu.getSelectedItem().toString().equals("=== KOTA ===")){
+            JOptionPane.showMessageDialog(this, "Silahkan pilih kota!");
+            return;
+        }
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement state = con.createStatement();
+            int result = state.executeUpdate(" Update mahasiswa SET Nama_Ayah = '"+ls_1+"', Nomor_KTP_Ayah = '"+ls_2+"', Nama_Ibu = '"+ls_3+"', "
+                    + "Nomor_KTP_Ibu = '"+ls_4+"', Alamat_Orang_Tua = '"+ls_5+"', Kota_Orang_Tua = '"+ls_6+"', Telepon_Orang_Tua = '"+ls_7+"' "
+                            + "where nrp = '"+NRP+"'");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+        
     }//GEN-LAST:event_btnUbah_ortuActionPerformed
 
     private void sm_tmpl_pribadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_tmpl_pribadiActionPerformed
@@ -958,6 +988,8 @@ public class framemahasiswa extends javax.swing.JFrame {
             File selectedImage = chooser.getSelectedFile();
             path = selectedImage.getAbsolutePath();
             labelfoto.setText(path);
+            ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+            jLabel8.setIcon(imageIcon);
         }
     }//GEN-LAST:event_btnFotoActionPerformed
 
@@ -966,10 +998,17 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_NRP.setEditable(false);
     }//GEN-LAST:event_txt_NRPMouseClicked
 
+    private void txt_Email_mhsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_Email_mhsMouseClicked
+        // TODO add your handling code here:
+        txt_Email_mhs.setEditable(false);
+    }//GEN-LAST:event_txt_Email_mhsMouseClicked
+
     //untuk menampilkan kota
     private void tampilkota() {
         cb_kota_ortu.removeAllItems();
+        cbx_kota_mhs.removeAllItems();
         cb_kota_ortu.addItem("=== KOTA ===");
+        cbx_kota_mhs.addItem("=== KOTA ===");
 
         try {
             String db_tmplkota_ortu = "SELECT * FROM kota";
@@ -978,6 +1017,7 @@ public class framemahasiswa extends javax.swing.JFrame {
 
             while (rs_tmplkota_ortu.next()) {
                 cb_kota_ortu.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
+                cbx_kota_mhs.addItem(rs_tmplkota_ortu.getString("Kota"));
 
                 kota_ortu_mhs = hapus_tanda(cb_kota_ortu.getSelectedItem().toString());
             }
@@ -1041,12 +1081,12 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         
         lbl_tmpl_jk_mhs.setText(Jenis_Kelamin);
-        if (ls_jk.equals("Laki-laki")){
+        if (Jenis_Kelamin.equals("Laki-laki") || Jenis_Kelamin.equals("Laki-Laki") || Jenis_Kelamin.equals("laki-laki")){
             rd_laki_mhs.setSelected(true);
-        } else if (ls_jk.equals("Perempuan") ){
+        } else if (Jenis_Kelamin.equals("Perempuan") || Jenis_Kelamin.equals("perempuan") ){
             rd_perempuan_mhs.setSelected(true);
         }
-        
+        cbx_kota_mhs.setSelectedItem(hapus_tanda(Kota));
         
         
         lbl_tmpl_ttl_mhs.setText(TTL);
