@@ -2573,7 +2573,7 @@ public class framebaa extends javax.swing.JFrame {
                             "INNER JOIN mata_kuliah mk ON mk.kode_mata_kuliah = j.kode_mata_kuliah\n" +
                             "INNER JOIN kelas k ON k.id_kelas = j.id_kelas\n" +
                             "INNER JOIN dosen dsn ON dsn.nip_dosen = j.nip_dosen\n" +
-                            "GROUP BY matkul;";
+                            "GROUP BY matkul ORDER BY tanggal";
             
             ResultSet res_dmkj = con.prepareStatement(dmkj).executeQuery();
             DefaultTableModel dtj = (DefaultTableModel) TabelJadwal.getModel();
