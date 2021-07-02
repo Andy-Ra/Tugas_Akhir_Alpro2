@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import static tugas_akhir.framedosen.con;
 
 /**
@@ -1061,6 +1062,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             int result = state.executeUpdate(" Update mahasiswa SET Nama_Ayah = '"+ls_1+"', Nomor_KTP_Ayah = '"+ls_2+"', Nama_Ibu = '"+ls_3+"', "
                     + "Nomor_KTP_Ibu = '"+ls_4+"', Alamat_Orang_Tua = '"+ls_5+"', Kota_Orang_Tua = '"+hapus_tanda(ls_6)+"', Telepon_Orang_Tua = '"+ls_7+"' "
                             + "where nrp = '"+NRP+"'");
+            JOptionPane.showMessageDialog(this, "Data Orang Tua telah terubah");
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -1098,6 +1100,36 @@ public class framemahasiswa extends javax.swing.JFrame {
         else if(Program_Studi.equals("Manajemen Informasi")){
             prodi = "MI";
         }
+        try{
+            DefaultTableModel dftjdwl = (DefaultTableModel) TabelMatkul_mhs.getModel();
+            dftjdwl.setRowCount(0); 
+            String dbdftjdwl = "select mk.Periode periode,\n" +
+                                "cast(k.waktu AS DATE) tanggal,\n" +
+                                "cast(k.waktu AS TIME) waktu,\n" +
+                                "k.ruang ruang, mk.nama_mata_kuliah matkul,dsn.nama_dosen nm_dosen\n" +
+                                "FROM jadwal j\n" +
+                                "INNER JOIN mata_kuliah mk ON mk.kode_mata_kuliah = j.kode_mata_kuliah\n" +
+                                "INNER JOIN kelas k ON k.id_kelas = j.id_kelas\n" +
+                                "INNER JOIN dosen dsn ON dsn.nip_dosen = j.nip_dosen \n"+
+                                "WHERE j.prodi LIKE '"+prodi+"' ;";
+            ResultSet res_dftjdwl = con.prepareStatement(dbdftjdwl).executeQuery();
+            
+            while(res_dftjdwl.next()){
+                Object data[] = new Object[6];
+                data[0] = res_dftjdwl.getString("periode");
+                data[1] = res_dftjdwl.getString("tanggal");
+                data[2] = res_dftjdwl.getString("waktu");
+                data[3] = res_dftjdwl.getString("ruang");
+                data[4] = res_dftjdwl.getString("matkul");
+                data[5] = res_dftjdwl.getString("nm_dosen");
+                
+                dftjdwl.addRow(data);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
     }//GEN-LAST:event_menu_tampil_jadwalActionPerformed
 
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked
