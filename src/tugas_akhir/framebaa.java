@@ -214,11 +214,20 @@ public class framebaa extends javax.swing.JFrame {
         panel_jadwal = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelJadwal = new javax.swing.JTable();
+        panel_wisuda_baa = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbl_wisuda_baa = new javax.swing.JTable();
+        btn_tolak = new javax.swing.JButton();
+        btn_terima = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
+        mn_mhs = new javax.swing.JMenu();
         add_data_mhs = new javax.swing.JMenuItem();
         update_data_mhs = new javax.swing.JMenuItem();
         list_data_mhs = new javax.swing.JMenuItem();
+        mn_wisuda = new javax.swing.JMenu();
+        mn_peng_wis = new javax.swing.JMenuItem();
+        mn_list_wis_acc = new javax.swing.JMenuItem();
         menu_dosen = new javax.swing.JMenu();
         add_data_dsn = new javax.swing.JMenuItem();
         update_data_dsn = new javax.swing.JMenuItem();
@@ -978,27 +987,25 @@ public class framebaa extends javax.swing.JFrame {
             panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_add_jadwalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_add_jadwalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_clear_jadwal)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnadd_jadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
-                    .addGroup(panel_add_jadwalLayout.createSequentialGroup()
-                        .addComponent(border3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(border3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_jadwalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_clear_jadwal)
+                .addGap(18, 18, 18)
+                .addComponent(btnadd_jadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         panel_add_jadwalLayout.setVerticalGroup(
             panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_add_jadwalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(border3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_add_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd_jadwal)
                     .addComponent(btn_clear_jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(188, 188, 188))
+                .addGap(200, 200, 200))
         );
 
         panelinduk_baa.add(panel_add_jadwal, "cv_add_jdwl");
@@ -1094,6 +1101,10 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(TabelJadwal);
+        if (TabelJadwal.getColumnModel().getColumnCount() > 0) {
+            TabelJadwal.getColumnModel().getColumn(3).setHeaderValue("Jenis Kelamin");
+            TabelJadwal.getColumnModel().getColumn(6).setHeaderValue("Status");
+        }
 
         javax.swing.GroupLayout panel_jadwalLayout = new javax.swing.GroupLayout(panel_jadwal);
         panel_jadwal.setLayout(panel_jadwalLayout);
@@ -1114,7 +1125,68 @@ public class framebaa extends javax.swing.JFrame {
 
         panelinduk_baa.add(panel_jadwal, "cv_jdwl_baa");
 
+        tbl_wisuda_baa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "NRP", "Nama Mahasiswa", "Prodi", "Email", "IPK"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tbl_wisuda_baa);
+
+        btn_tolak.setText("TOLAK");
+        btn_tolak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tolakActionPerformed(evt);
+            }
+        });
+
+        btn_terima.setText("TERIMA");
+
+        javax.swing.GroupLayout panel_wisuda_baaLayout = new javax.swing.GroupLayout(panel_wisuda_baa);
+        panel_wisuda_baa.setLayout(panel_wisuda_baaLayout);
+        panel_wisuda_baaLayout.setHorizontalGroup(
+            panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                    .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_terima)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panel_wisuda_baaLayout.setVerticalGroup(
+            panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_terima)
+                    .addComponent(btn_tolak))
+                .addContainerGap())
+        );
+
+        panelinduk_baa.add(panel_wisuda_baa, "cv_wsd_baa");
+
         menu_mhs.setText("Mahasiswa");
+
+        mn_mhs.setText("Data Mahasiswa");
 
         add_data_mhs.setText("Tambah Data Mahasiswa");
         add_data_mhs.addActionListener(new java.awt.event.ActionListener() {
@@ -1122,7 +1194,7 @@ public class framebaa extends javax.swing.JFrame {
                 add_data_mhsActionPerformed(evt);
             }
         });
-        menu_mhs.add(add_data_mhs);
+        mn_mhs.add(add_data_mhs);
 
         update_data_mhs.setText("Update Data Mahasiswa");
         update_data_mhs.addActionListener(new java.awt.event.ActionListener() {
@@ -1130,7 +1202,7 @@ public class framebaa extends javax.swing.JFrame {
                 update_data_mhsActionPerformed(evt);
             }
         });
-        menu_mhs.add(update_data_mhs);
+        mn_mhs.add(update_data_mhs);
 
         list_data_mhs.setText("List Data Mahasiswa");
         list_data_mhs.addActionListener(new java.awt.event.ActionListener() {
@@ -1138,7 +1210,29 @@ public class framebaa extends javax.swing.JFrame {
                 list_data_mhsActionPerformed(evt);
             }
         });
-        menu_mhs.add(list_data_mhs);
+        mn_mhs.add(list_data_mhs);
+
+        menu_mhs.add(mn_mhs);
+
+        mn_wisuda.setText("Wisuda");
+
+        mn_peng_wis.setText("Pengajuan Wisuda");
+        mn_peng_wis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mn_peng_wisActionPerformed(evt);
+            }
+        });
+        mn_wisuda.add(mn_peng_wis);
+
+        mn_list_wis_acc.setText("Sudah ACC");
+        mn_list_wis_acc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mn_list_wis_accActionPerformed(evt);
+            }
+        });
+        mn_wisuda.add(mn_list_wis_acc);
+
+        menu_mhs.add(mn_wisuda);
 
         jMenuBar1.add(menu_mhs);
 
@@ -1282,7 +1376,6 @@ public class framebaa extends javax.swing.JFrame {
        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
        cl_baa.show(panelinduk_baa, "cv_list_mhs_baa");
        title_baa.setText("List Mahasiswa");
-       
        list_mhs();
     }//GEN-LAST:event_list_data_mhsActionPerformed
     
@@ -1610,6 +1703,33 @@ public class framebaa extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_cb_jdwl_matkulItemStateChanged
+    
+    //list mahasiswa yang sudah di acc
+    private void mn_list_wis_accActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn_list_wis_accActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_wsd_baa");
+        title_baa.setText("List Wisuda Mahasiswa");
+        list_jadwal();
+        
+        btn_terima.setVisible(false);
+        btn_tolak.setVisible(false);
+    }//GEN-LAST:event_mn_list_wis_accActionPerformed
+    
+    //list mahasiswa yang mengajukan wisuda
+    private void mn_peng_wisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn_peng_wisActionPerformed
+        CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
+        cl_baa.show(panelinduk_baa, "cv_wsd_baa");
+        title_baa.setText("List Permohonan");
+        list_jadwal();
+        
+        btn_terima.setVisible(true);
+        btn_tolak.setVisible(true);
+    }//GEN-LAST:event_mn_peng_wisActionPerformed
+    
+    //jika mahasiswa di tolak untuk wisuda
+    private void btn_tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tolakActionPerformed
+        JOptionPane.showInputDialog(this, "Mohon Masukkan Alasan Penolakan");
+    }//GEN-LAST:event_btn_tolakActionPerformed
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -2655,6 +2775,8 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JButton btn_clear_ortu_baa;
     private javax.swing.JButton btn_hps_dsn;
     private javax.swing.JButton btn_reset_dsn;
+    private javax.swing.JButton btn_terima;
+    private javax.swing.JButton btn_tolak;
     private javax.swing.JButton btnadd_jadwal;
     private javax.swing.JButton btnadd_mhs_baa;
     private javax.swing.JButton btnadd_ortu_baa;
@@ -2732,6 +2854,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private com.toedter.calendar.JDateChooser jdt_tgl_jdwl;
     private javax.swing.JComboBox<String> jdwl_dosen;
     private javax.swing.JLabel lb_almt_ortu;
@@ -2750,6 +2873,10 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JMenu menu_dosen;
     private javax.swing.JMenu menu_logout;
     private javax.swing.JMenu menu_mhs;
+    private javax.swing.JMenuItem mn_list_wis_acc;
+    private javax.swing.JMenu mn_mhs;
+    private javax.swing.JMenuItem mn_peng_wis;
+    private javax.swing.JMenu mn_wisuda;
     private javax.swing.JPanel panel_add_jadwal;
     private javax.swing.JPanel panel_add_mhs;
     private javax.swing.JPanel panel_add_ortu;
@@ -2762,6 +2889,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JPanel panel_matkul;
     private javax.swing.JPanel panel_mhs_tabel;
     private javax.swing.JPanel panel_nrp;
+    private javax.swing.JPanel panel_wisuda_baa;
     private javax.swing.JPanel panelinduk_baa;
     private javax.swing.JPanel panelnip;
     private javax.swing.JPanel pnl_jk_dsn;
@@ -2772,6 +2900,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JRadioButton rd_perempuan_mhs;
     private javax.swing.JSpinner sp_jmlh_pertemuan;
     private javax.swing.JSpinner sp_waktu;
+    private javax.swing.JTable tbl_wisuda_baa;
     private javax.swing.JLabel title_baa;
     private javax.swing.JTextField txt_Alamat_dsn_baa;
     private javax.swing.JTextField txt_Alamat_mhs_baa;
