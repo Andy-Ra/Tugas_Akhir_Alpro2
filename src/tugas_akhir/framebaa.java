@@ -48,6 +48,9 @@ public class framebaa extends javax.swing.JFrame {
     private static String nama_dsn_jdwl,mtkl_jdwl, prodi_mk, waktu, ruang,jdwl_prodi, 
             get_nip_dsn_jdwl, get_kode_mk_jdwl, sd_tgl_jdwl, st_wkt, kode_kelas;
     public static int jmlh_pert;
+    
+    //untuk wisuda
+    private static String nrp_list_wsd;
     /**
      * Creates new form framebaa
      */
@@ -1144,6 +1147,11 @@ public class framebaa extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_wisuda_baa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_wisuda_baaMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tbl_wisuda_baa);
 
         btn_tolak.setText("TOLAK");
@@ -1154,6 +1162,11 @@ public class framebaa extends javax.swing.JFrame {
         });
 
         btn_terima.setText("TERIMA");
+        btn_terima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terimaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_wisuda_baaLayout = new javax.swing.GroupLayout(panel_wisuda_baa);
         panel_wisuda_baa.setLayout(panel_wisuda_baaLayout);
@@ -1713,10 +1726,12 @@ public class framebaa extends javax.swing.JFrame {
         
         btn_terima.setVisible(false);
         btn_tolak.setVisible(false);
+        sudah_acc_wsd();
     }//GEN-LAST:event_mn_list_wis_accActionPerformed
     
     //list mahasiswa yang mengajukan wisuda
     private void mn_peng_wisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn_peng_wisActionPerformed
+        nrp_list_wsd = "hmmh";
         CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
         cl_baa.show(panelinduk_baa, "cv_wsd_baa");
         title_baa.setText("List Permohonan");
@@ -1724,12 +1739,63 @@ public class framebaa extends javax.swing.JFrame {
         
         btn_terima.setVisible(true);
         btn_tolak.setVisible(true);
+        proses_wsd();
     }//GEN-LAST:event_mn_peng_wisActionPerformed
     
     //jika mahasiswa di tolak untuk wisuda
     private void btn_tolakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tolakActionPerformed
-        JOptionPane.showInputDialog(this, "Mohon Masukkan Alasan Penolakan");
+        if(nrp_list_wsd.equals("hmmh")){
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Mahasiswa");
+        }
+        
+        else{    
+            String keterangan = JOptionPane.showInputDialog(this, "Mohon Masukkan Alasan Penolakan");
+            try{
+                String update_acc = "UPDATE wisuda SET Status ='Tolak',"+ 
+                                    "Keterangan ='"+keterangan+"'"+
+                                    "WHERE nrp ='"+nrp_list_wsd+"'";
+                con.prepareStatement(update_acc).executeUpdate();
+                JOptionPane.showMessageDialog(this, "Pengajuan wisuda Mahasiswa dengan NRP " +nrp_list_wsd+ " telah dihapus");
+                proses_wsd();
+                nrp_list_wsd = "hmmh";
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        } 
     }//GEN-LAST:event_btn_tolakActionPerformed
+    
+    //fungsi dari button teracc wisuda
+    private void btn_terimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terimaActionPerformed
+        if(nrp_list_wsd.equals("hmmh")){
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Mahasiswa");
+        }
+        
+        else{
+            int opsi_terima = JOptionPane.showConfirmDialog(this, "Apakah Anda Yakin", "", JOptionPane.YES_NO_OPTION);
+            if(opsi_terima == JOptionPane.YES_OPTION){
+                try{
+                    String update_acc = "UPDATE wisuda SET Status ='ACC'"+
+                                        "WHERE nrp ='"+nrp_list_wsd+"'";
+                    con.prepareStatement(update_acc).executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Mahasiswa dengan NRP " +nrp_list_wsd+ " bisa ikut wisuda");
+                    proses_wsd();
+                    nrp_list_wsd = "hmmh";
+                }
+                catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            } 
+        }  
+    }//GEN-LAST:event_btn_terimaActionPerformed
+    
+    //untuk mengambil nrp setelah data pada tabel di klik
+    private void tbl_wisuda_baaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_wisuda_baaMouseClicked
+        int getrow = tbl_wisuda_baa.getSelectedRow();
+        DefaultTableModel df_wisuda_baa = (DefaultTableModel) tbl_wisuda_baa.getModel();
+        nrp_list_wsd = df_wisuda_baa.getValueAt(getrow, 0).toString();
+    }//GEN-LAST:event_tbl_wisuda_baaMouseClicked
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -2716,6 +2782,62 @@ public class framebaa extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
         
+    }
+    
+    //untuk menampilkan data mahasiswa wisuda yang sudah di acc
+    private void sudah_acc_wsd(){
+        DefaultTableModel df_wisuda_baa = (DefaultTableModel) tbl_wisuda_baa.getModel();
+        df_wisuda_baa.setRowCount(0);
+        try{
+            String acc_sql ="SELECT wis.NRP, mhs.nama_mahasiswa, mhs.Prodi, mhs.Email, wis.IPK\n" +
+                            "FROM Wisuda wis\n" +
+                            "INNER JOIN Mahasiswa mhs ON wis.NRP = mhs.NRP\n" +
+                            "WHERE wis.Status = 'ACC'";
+            ResultSet res_acc = con.prepareStatement(acc_sql).executeQuery();
+
+            while(res_acc.next()){
+                Object data_wisuda[] = new Object[5];
+                data_wisuda[0] = res_acc.getInt("wis.NRP");
+                data_wisuda[1] = res_acc.getString("mhs.nama_mahasiswa");
+                data_wisuda[2] = res_acc.getString("mhs.Prodi");
+                data_wisuda[3] = res_acc.getString("mhs.Email");
+                data_wisuda[4] = res_acc.getString("wis.IPK");
+                
+                df_wisuda_baa.addRow(data_wisuda);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+       
+    }
+    
+    //untuk menampilkan data mahasiswa wisuda yang sudah masih proses
+    private void proses_wsd(){
+        DefaultTableModel df_wisuda_baa = (DefaultTableModel) tbl_wisuda_baa.getModel();
+        df_wisuda_baa.setRowCount(0);
+        try{
+            String proses_sql ="SELECT wis.NRP, mhs.nama_mahasiswa, mhs.Prodi, mhs.Email, wis.IPK\n" +
+                            "FROM Wisuda wis\n" +
+                            "INNER JOIN Mahasiswa mhs ON wis.NRP = mhs.NRP\n" +
+                            "WHERE wis.Status = 'Proses'";
+            ResultSet res_proses = con.prepareStatement(proses_sql).executeQuery();
+
+            while(res_proses.next()){
+                Object data_wisuda[] = new Object[5];
+                data_wisuda[0] = res_proses.getInt("wis.NRP");
+                data_wisuda[1] = res_proses.getString("mhs.nama_mahasiswa");
+                data_wisuda[2] = res_proses.getString("mhs.Prodi");
+                data_wisuda[3] = res_proses.getString("mhs.Email");
+                data_wisuda[4] = res_proses.getString("wis.IPK");
+                
+                df_wisuda_baa.addRow(data_wisuda);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+       
     }
     
     //untuk menghapus tanda ">"
