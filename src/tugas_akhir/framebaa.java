@@ -50,7 +50,7 @@ public class framebaa extends javax.swing.JFrame {
     public static int jmlh_pert;
     
     //untuk wisuda
-    private static String nrp_list_wsd;
+    public static String nrp_list_wsd;
     /**
      * Creates new form framebaa
      */
@@ -222,6 +222,7 @@ public class framebaa extends javax.swing.JFrame {
         tbl_wisuda_baa = new javax.swing.JTable();
         btn_tolak = new javax.swing.JButton();
         btn_terima = new javax.swing.JButton();
+        btn_detail = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
         mn_mhs = new javax.swing.JMenu();
@@ -229,6 +230,7 @@ public class framebaa extends javax.swing.JFrame {
         update_data_mhs = new javax.swing.JMenuItem();
         list_data_mhs = new javax.swing.JMenuItem();
         mn_wisuda = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mn_peng_wis = new javax.swing.JMenuItem();
         mn_list_wis_acc = new javax.swing.JMenuItem();
         menu_dosen = new javax.swing.JMenu();
@@ -1168,6 +1170,13 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
+        btn_detail.setText("DETAIL");
+        btn_detail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_detailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_wisuda_baaLayout = new javax.swing.GroupLayout(panel_wisuda_baa);
         panel_wisuda_baa.setLayout(panel_wisuda_baaLayout);
         panel_wisuda_baaLayout.setHorizontalGroup(
@@ -1177,7 +1186,8 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                     .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_detail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_terima)
                         .addGap(18, 18, 18)
                         .addComponent(btn_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1191,7 +1201,8 @@ public class framebaa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_terima)
-                    .addComponent(btn_tolak))
+                    .addComponent(btn_tolak)
+                    .addComponent(btn_detail))
                 .addContainerGap())
         );
 
@@ -1228,6 +1239,9 @@ public class framebaa extends javax.swing.JFrame {
         menu_mhs.add(mn_mhs);
 
         mn_wisuda.setText("Wisuda");
+
+        jMenuItem1.setText("Tambah Mahasiswa");
+        mn_wisuda.add(jMenuItem1);
 
         mn_peng_wis.setText("Pengajuan Wisuda");
         mn_peng_wis.addActionListener(new java.awt.event.ActionListener() {
@@ -1796,6 +1810,18 @@ public class framebaa extends javax.swing.JFrame {
         DefaultTableModel df_wisuda_baa = (DefaultTableModel) tbl_wisuda_baa.getModel();
         nrp_list_wsd = df_wisuda_baa.getValueAt(getrow, 0).toString();
     }//GEN-LAST:event_tbl_wisuda_baaMouseClicked
+    
+    
+    //untuk menampilkan detail data wisuda mahasiswa
+    private void btn_detailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_detailActionPerformed
+       if(nrp_list_wsd.equals("hmmh")){
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Mahasiswa");
+        }
+        
+        else{
+           new Detail_wisuda().show();
+       }
+    }//GEN-LAST:event_btn_detailActionPerformed
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -2895,6 +2921,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JButton btn_clear_jadwal;
     private javax.swing.JButton btn_clear_mhs_baa;
     private javax.swing.JButton btn_clear_ortu_baa;
+    private javax.swing.JButton btn_detail;
     private javax.swing.JButton btn_hps_dsn;
     private javax.swing.JButton btn_reset_dsn;
     private javax.swing.JButton btn_terima;
@@ -2968,6 +2995,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel9_dsn;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

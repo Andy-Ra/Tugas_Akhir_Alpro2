@@ -108,6 +108,9 @@ public class framemahasiswa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TabelMatkul_mhs = new javax.swing.JTable();
         panel_tmpl_pribadi = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbl_tmpl_nama_mhs = new javax.swing.JLabel();
@@ -125,9 +128,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         lbl_tmpl_ttl_mhs = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbl_tmpl_no_mhs = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel8 = new javax.swing.JLabel();
         panel_tmpl_ortu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -588,6 +588,21 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         panel_tmpl_pribadi.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Data Pribadi Mahasiswa")));
 
+        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+        );
+
+        jPanel5.add(jDesktopPane1);
+
         jPanel3.setLayout(new java.awt.GridLayout(8, 2, 0, 15));
 
         jLabel1.setText("Nama Lengkap");
@@ -637,27 +652,6 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         lbl_tmpl_no_mhs.setText("No Hp");
         jPanel3.add(lbl_tmpl_no_mhs);
-
-        jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel5.add(jDesktopPane1);
 
         javax.swing.GroupLayout panel_tmpl_pribadiLayout = new javax.swing.GroupLayout(panel_tmpl_pribadi);
         panel_tmpl_pribadi.setLayout(panel_tmpl_pribadiLayout);
@@ -1346,8 +1340,8 @@ public class framemahasiswa extends javax.swing.JFrame {
             File selectedImage = chooser.getSelectedFile();
             path = selectedImage.getAbsolutePath();
             labelfoto.setText(path);
-            ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
-            jLabel8.setIcon(imageIcon);
+            ImageIcon uploadimage = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+            jLabel8.setIcon(uploadimage);
         }
     }//GEN-LAST:event_btnFotoActionPerformed
 
@@ -1555,13 +1549,13 @@ public class framemahasiswa extends javax.swing.JFrame {
           cbx_kota_mhs.setSelectedItem(">  " +Kota);  
         }
         
-        
-        
-        
-        
-        
         lbl_tmpl_no_mhs.setText(No_Hp);
         txt_nohp_mhs.setText(No_Hp);
+        
+        ImageIcon img_file_profil = new ImageIcon("./src/folderimg/profilmhs/prfl_"+NRP+".png");
+        Image img_scale_profil = img_file_profil.getImage();
+        ImageIcon img_profilmhs = new ImageIcon(img_scale_profil.getScaledInstance(163, 159,  java.awt.Image.SCALE_SMOOTH));
+        jLabel8.setIcon(img_profilmhs);
         
         
     }

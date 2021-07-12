@@ -49,6 +49,11 @@
                 <Property name="text" type="java.lang.String" value="Wisuda"/>
               </Properties>
               <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Mahasiswa"/>
+                  </Properties>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="mn_peng_wis">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pengajuan Wisuda"/>
@@ -1841,7 +1846,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane6" pref="582" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btn_detail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btn_terima" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_tolak" min="-2" pref="69" max="-2" attributes="0"/>
@@ -1860,6 +1866,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_terima" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_tolak" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_detail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1938,6 +1945,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_terimaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_detail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="DETAIL"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_detailActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
