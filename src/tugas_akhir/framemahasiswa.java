@@ -1658,6 +1658,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     }
 
     private void tampilfotomahasiswa() {
+        // berguna untuk menampilkan foto mahasiswa ketika login
         get_data();
         InputStream input;
         FileOutputStream output;
