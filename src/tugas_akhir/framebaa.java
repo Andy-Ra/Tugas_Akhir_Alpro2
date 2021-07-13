@@ -7,6 +7,7 @@ package tugas_akhir;
 
 import java.awt.CardLayout;
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,7 +54,7 @@ public class framebaa extends javax.swing.JFrame {
     public static int jmlh_pert;
     
     //untuk wisuda
-    public static String nrp_list_wsd, ipk_wsd, jdl_wsd, prodi_wsd ,nrp_wsd, nip_wsd;
+    public static String nrp_list_wsd, ipk_wsd, jdl_wsd, prodi_wsd ,nrp_wsd, nip_wsd, path_foto;
     /**
      * Creates new form framebaa
      */
@@ -1259,7 +1260,7 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
-        ntf_fotowsd.setText("*sumber foto");
+        ntf_fotowsd.setText("* sumber foto");
 
         javax.swing.GroupLayout input_mhs_wisudaLayout = new javax.swing.GroupLayout(input_mhs_wisuda);
         input_mhs_wisuda.setLayout(input_mhs_wisudaLayout);
@@ -1279,19 +1280,16 @@ public class framebaa extends javax.swing.JFrame {
                             .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
                         .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnFoto_wsd_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_ipk_wsd_baa)
-                                    .addComponent(txt_judul_ta_baa)
-                                    .addComponent(cb_wsd_mhs_baa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cb_wsd_dsn_pbb_baa, 0, 288, Short.MAX_VALUE)))
-                            .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(ntf_fotowsd, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addComponent(btnFoto_wsd_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_ipk_wsd_baa)
+                            .addComponent(txt_judul_ta_baa)
+                            .addComponent(cb_wsd_mhs_baa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_wsd_dsn_pbb_baa, 0, 288, Short.MAX_VALUE)))
+                    .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(ntf_fotowsd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         input_mhs_wisudaLayout.setVerticalGroup(
             input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1316,13 +1314,12 @@ public class framebaa extends javax.swing.JFrame {
                     .addComponent(txt_judul_ta_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
-                        .addComponent(btnFoto_wsd_baa, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ntf_fotowsd, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFoto_wsd_baa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ntf_fotowsd)
+                .addContainerGap())
         );
 
         btn_add_mhs_wisuda.setText("ADD");
@@ -1336,11 +1333,11 @@ public class framebaa extends javax.swing.JFrame {
         panel_add_wsd_mhs.setLayout(panel_add_wsd_mhsLayout);
         panel_add_wsd_mhsLayout.setHorizontalGroup(
             panel_add_wsd_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_wsd_mhsLayout.createSequentialGroup()
+            .addGroup(panel_add_wsd_mhsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_add_wsd_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(input_mhs_wisuda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panel_add_wsd_mhsLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_add_wsd_mhsLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_add_mhs_wisuda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -1350,9 +1347,9 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(panel_add_wsd_mhsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(input_mhs_wisuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_add_mhs_wisuda)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_add_wsd_mhs, "cv_add_wsd_mhs");
@@ -3186,8 +3183,9 @@ public class framebaa extends javax.swing.JFrame {
         }
     }
     
-    //untuk menyiompan data ke database
+    //untuk menyimpan data ke database
     private void insert_db_wsd(){
+        FileInputStream up_foto = null;
         try{
             //untuk mengecek nrp sudah terdatar di list wisuda atau tidak
             String cek_db_mhs_wsd = "SELECT * FROM wisuda where nrp LIKE '%"+nrp_wsd+"%'";
@@ -3196,14 +3194,16 @@ public class framebaa extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Mahasiswa dengan "+nrp_wsd+" sudah ada di dalam list");
             }
             else{
-                String add_db_wsd = "INSERT INTO wisuda(nrp, ipk, judul_ta, nip_dosen, Status) "+
-                                 "VALUES (?,?,?,?,?)";
+                up_foto = new FileInputStream(path_foto);
+                String add_db_wsd = "INSERT INTO wisuda(nrp, ipk, judul_ta, nip_dosen, Status, Bukti_Pembayaran) "+
+                                 "VALUES (?,?,?,?,?,?)";
                 PreparedStatement ps_inst_db_wsd = con.prepareStatement(add_db_wsd);
                 ps_inst_db_wsd.setString(1, nrp_wsd);
                 ps_inst_db_wsd.setString(2, ipk_wsd);
                 ps_inst_db_wsd.setString(3, jdl_wsd);
                 ps_inst_db_wsd.setString(4, nip_wsd);
                 ps_inst_db_wsd.setString(5, "ACC");
+                ps_inst_db_wsd.setBinaryStream(6, up_foto);
                 ps_inst_db_wsd.executeUpdate();
                 JOptionPane.showMessageDialog(this, "pendaftaran wisuda oleh NRP "+nrp_wsd+" telah berhasil ditambahkan");
             }
@@ -3219,20 +3219,26 @@ public class framebaa extends javax.swing.JFrame {
         j_file_bukti.setCurrentDirectory(new File(System.getProperty("user.home")));
         
         //untuk memfilter file gambar
-        FileNameExtensionFilter filter_gambar = new FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg");
+        FileNameExtensionFilter filter_gambar = new FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg", "*.JPG", "*.PNG", "*.JPEG");
         j_file_bukti.addChoosableFileFilter(filter_gambar);
         
         int result_bukti = j_file_bukti.showSaveDialog(null);
         File pilih_file = j_file_bukti.getSelectedFile();
         String file_name = pilih_file.getName();
          
-        if (result_bukti == JFileChooser.APPROVE_OPTION) {
-            
-            path = selectedImage.getAbsolutePath();
-            ntf_fotowsd.setText(file_name);
+        if(file_name.endsWith(".jpg") || file_name.endsWith(".png") || file_name.endsWith(".jpeg") 
+                || file_name.endsWith(".JPG") || file_name.endsWith(".PNG") || file_name.endsWith(".JPEG")){
+            if (result_bukti == JFileChooser.APPROVE_OPTION) {
+                path_foto = pilih_file.getAbsolutePath();
+                ntf_fotowsd.setText(path_foto);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Mohon masukkan hanya gambar");
         }
         
     }
+    
     //untuk menghapus tanda ">"
     private String hapus_tanda(String str){
         return str.substring(2);

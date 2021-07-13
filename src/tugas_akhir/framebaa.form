@@ -1977,11 +1977,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="input_mhs_wisuda" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="btn_add_mhs_wisuda" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
@@ -1995,9 +1995,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="input_mhs_wisuda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_add_mhs_wisuda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="239" max="32767" attributes="0"/>
+                      <EmptySpace pref="259" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2024,23 +2024,18 @@
                                       <Component id="jLabel45" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="jLabel49" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btnFoto_wsd_baa" max="32767" attributes="0"/>
-                                              <Component id="txt_ipk_wsd_baa" max="32767" attributes="0"/>
-                                              <Component id="txt_judul_ta_baa" max="32767" attributes="0"/>
-                                              <Component id="cb_wsd_mhs_baa" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="cb_wsd_dsn_pbb_baa" alignment="0" pref="288" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                          <Component id="ntf_fotowsd" min="-2" pref="181" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnFoto_wsd_baa" max="32767" attributes="0"/>
+                                      <Component id="txt_ipk_wsd_baa" max="32767" attributes="0"/>
+                                      <Component id="txt_judul_ta_baa" max="32767" attributes="0"/>
+                                      <Component id="cb_wsd_mhs_baa" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cb_wsd_dsn_pbb_baa" alignment="0" pref="288" max="32767" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
+                                  <Component id="ntf_fotowsd" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2073,16 +2068,14 @@
                               <Component id="txt_judul_ta_baa" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jLabel44" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="btnFoto_wsd_baa" pref="32" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ntf_fotowsd" min="-2" pref="15" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel47" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnFoto_wsd_baa" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabel47" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ntf_fotowsd" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2176,7 +2169,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="ntf_fotowsd">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="*sumber foto"/>
+                    <Property name="text" type="java.lang.String" value="* sumber foto"/>
                   </Properties>
                 </Component>
               </SubComponents>
