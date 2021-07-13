@@ -155,8 +155,6 @@ public class framelogin extends javax.swing.JFrame {
             }
         });
 
-        ntemail.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Password");
@@ -178,8 +176,6 @@ public class framelogin extends javax.swing.JFrame {
                 cb_showActionPerformed(evt);
             }
         });
-
-        ntpass.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -289,7 +285,7 @@ public class framelogin extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel8)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
