@@ -118,6 +118,9 @@ public class Detail_wisuda extends javax.swing.JFrame {
         panel_bukti_pembayaran = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lbl_bukti_byr = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        exit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -254,7 +257,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
             panel_bukti_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_bukti_pembayaranLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -272,6 +275,21 @@ public class Detail_wisuda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jMenu2.setText("                                                                                                                                                                                                                                               ");
+        jMenu2.setBorderPainted(false);
+        jMenu2.setEnabled(false);
+        jMenuBar1.add(jMenu2);
+
+        exit.setText("Exit");
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(exit);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,6 +310,10 @@ public class Detail_wisuda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        dispose();
+    }//GEN-LAST:event_exitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -329,6 +351,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu exit;
     private javax.swing.JPanel induk;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -342,6 +365,8 @@ public class Detail_wisuda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

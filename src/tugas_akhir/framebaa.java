@@ -3232,17 +3232,18 @@ public class framebaa extends javax.swing.JFrame {
         
         int result_bukti = j_file_bukti.showSaveDialog(null);
         File pilih_file = j_file_bukti.getSelectedFile();
-        String file_name = pilih_file.getName();
-        
-        if(file_name.endsWith(".jpg") || file_name.endsWith(".png") || file_name.endsWith(".jpeg") 
-                || file_name.endsWith(".JPG") || file_name.endsWith(".PNG") || file_name.endsWith(".JPEG")){
-            if (result_bukti == JFileChooser.APPROVE_OPTION) {
-                path_foto = pilih_file.getAbsolutePath();
-                ntf_fotowsd.setText(path_foto);
+        if(result_bukti == 0){
+            String file_name = pilih_file.getName();
+            if(file_name.endsWith(".jpg") || file_name.endsWith(".png") || file_name.endsWith(".jpeg") 
+                    || file_name.endsWith(".JPG") || file_name.endsWith(".PNG") || file_name.endsWith(".JPEG")){
+                if (result_bukti == JFileChooser.APPROVE_OPTION) {
+                    path_foto = pilih_file.getAbsolutePath();
+                    ntf_fotowsd.setText(path_foto);
+                }
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Mohon masukkan hanya gambar");
+            else{
+                JOptionPane.showMessageDialog(this, "Mohon masukkan hanya gambar");
+            }
         }
         
     }
