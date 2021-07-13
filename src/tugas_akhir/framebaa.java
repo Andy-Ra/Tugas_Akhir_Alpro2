@@ -391,7 +391,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 414, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -591,7 +591,7 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_list_mhsLayout.setVerticalGroup(
             panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 307, Short.MAX_VALUE)
+            .addGap(0, 241, Short.MAX_VALUE)
             .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_mhsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1068,7 +1068,7 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_list_matkulLayout.setVerticalGroup(
             panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
             .addGroup(panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_matkulLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1144,7 +1144,7 @@ public class framebaa extends javax.swing.JFrame {
             panel_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_jadwalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1217,7 +1217,7 @@ public class framebaa extends javax.swing.JFrame {
             panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_terima)
@@ -1349,7 +1349,7 @@ public class framebaa extends javax.swing.JFrame {
                 .addComponent(input_mhs_wisuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_add_mhs_wisuda)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         panelinduk_baa.add(panel_add_wsd_mhs, "cv_add_wsd_mhs");
@@ -1497,7 +1497,8 @@ public class framebaa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelinduk_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelinduk_baa, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
