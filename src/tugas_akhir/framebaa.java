@@ -222,9 +222,6 @@ public class framebaa extends javax.swing.JFrame {
         tbl_wisuda_baa = new javax.swing.JTable();
         btn_tolak = new javax.swing.JButton();
         btn_terima = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        lbl_bukti_pembayaran = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_mhs = new javax.swing.JMenu();
         mn_mhs = new javax.swing.JMenu();
@@ -372,7 +369,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 414, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -572,7 +569,7 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_list_mhsLayout.setVerticalGroup(
             panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+            .addGap(0, 363, Short.MAX_VALUE)
             .addGroup(panel_list_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_mhsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1049,7 +1046,7 @@ public class framebaa extends javax.swing.JFrame {
         );
         panel_list_matkulLayout.setVerticalGroup(
             panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
             .addGroup(panel_list_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_list_matkulLayout.createSequentialGroup()
                     .addContainerGap()
@@ -1125,7 +1122,7 @@ public class framebaa extends javax.swing.JFrame {
             panel_jadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_jadwalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1171,27 +1168,6 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Bukti Pembayaran");
-
-        jDesktopPane1.setLayer(lbl_bukti_pembayaran, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panel_wisuda_baaLayout = new javax.swing.GroupLayout(panel_wisuda_baa);
         panel_wisuda_baa.setLayout(panel_wisuda_baaLayout);
         panel_wisuda_baaLayout.setHorizontalGroup(
@@ -1204,12 +1180,7 @@ public class framebaa extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_terima)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
-                        .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btn_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panel_wisuda_baaLayout.setVerticalGroup(
@@ -1217,11 +1188,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
                 .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_terima)
                     .addComponent(btn_tolak))
@@ -2958,7 +2925,6 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JPanel input_mhs;
     private javax.swing.JPanel input_ortu;
     private javax.swing.JButton jButton2;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2991,7 +2957,6 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel3_dsn;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel5_dsn;
     private javax.swing.JLabel jLabel6;
@@ -3019,7 +2984,6 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JLabel lb_ldt_ayah;
     private javax.swing.JLabel lb_ldt_ibu;
     private javax.swing.JLabel lb_telp_ortu;
-    private javax.swing.JLabel lbl_bukti_pembayaran;
     private javax.swing.JTable list_all_dsn;
     private javax.swing.JTable list_all_mahasiswa;
     private javax.swing.JTable list_all_matkul;

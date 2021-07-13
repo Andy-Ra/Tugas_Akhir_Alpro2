@@ -1325,7 +1325,7 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         // TODO add your handling code here:
-        //pilih foto
+        //pilih foto 
         String path = null;
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
