@@ -47,6 +47,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         tampilkota();
         tampil_data();
         tampil_data_ortu();
+        Status = "";
     }
 
     /**
@@ -453,7 +454,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUbah_mhs)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_mhs, "cv_pribadi");
@@ -565,7 +566,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_ortuLayout.createSequentialGroup()
-                .addContainerGap(394, Short.MAX_VALUE)
+                .addContainerGap(410, Short.MAX_VALUE)
                 .addComponent(btnUbah_ortu, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -576,7 +577,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUbah_ortu)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ortu, "cv_ortu");
@@ -607,14 +608,14 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_matkulLayout.setHorizontalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel_matkulLayout.setVerticalGroup(
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -693,7 +694,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
@@ -706,12 +707,12 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(321, Short.MAX_VALUE)))
+                    .addContainerGap(327, Short.MAX_VALUE)))
         );
 
         panelinduk_mhs.add(panel_tmpl_pribadi, "cv_tmpl_pribadi");
@@ -776,7 +777,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(panel_tmpl_ortuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_tmpl_ortu, "cv_tmpl_ortu");
@@ -870,7 +871,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(panel_ubh_pass_mhsLayout.createSequentialGroup()
                 .addGap(227, 227, 227)
                 .addComponent(btn_up_mhs)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_ubh_pass_mhsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -883,7 +884,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_up_mhs)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_mhs");
@@ -977,7 +978,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         border2.setLayout(border2Layout);
         border2Layout.setHorizontalGroup(
             border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 501, Short.MAX_VALUE)
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1050,7 +1051,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addComponent(jLabel40))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_wisuda, "cv_wisuda_mhs");
@@ -1148,21 +1149,20 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_validasi_wisuda.setLayout(panel_validasi_wisudaLayout);
         panel_validasi_wisudaLayout.setHorizontalGroup(
             panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_validasi_wisudaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_validasi_wisudaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panel_validasi_wisudaLayout.setVerticalGroup(
             panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_validasi_wisudaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panel_validasi_wisudaLayout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_validasi_wisuda, "cv_acc_wsd");
@@ -1417,6 +1417,8 @@ public class framemahasiswa extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
         cview.show(panelinduk_mhs, "cv_tmpl_ortu");
         header_mhs.setText("PROFILE ORANG TUA");
+        tampil_data_ortu();
+        
     }//GEN-LAST:event_sm_tmpl_ortuActionPerformed
 
     private void menu_tampil_jadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_tampil_jadwalActionPerformed
@@ -1449,7 +1451,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                                 "INNER JOIN mata_kuliah mk ON mk.kode_mata_kuliah = j.kode_mata_kuliah\n" +
                                 "INNER JOIN kelas k ON k.id_kelas = j.id_kelas\n" +
                                 "INNER JOIN dosen dsn ON dsn.nip_dosen = j.nip_dosen \n"+
-                                "WHERE j.prodi LIKE '"+prodi+"' ;";
+                                "WHERE j.prodi LIKE '%"+prodi+"%' ;";
             ResultSet res_dftjdwl = con.prepareStatement(dbdftjdwl).executeQuery();
             
             while(res_dftjdwl.next()){
@@ -1679,7 +1681,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 }
                 else if(Status.equals("Tolak")){
                     JOptionPane.showMessageDialog(this, "Permintaan Wisuda Anda telah ditolak \n "
-                            + "dikarenakan"+res_validasi_wsd.getString("keterangan")+"\n"
+                            + "dikarenakan "+res_validasi_wsd.getString("keterangan")+"\n"
                                     + "mohon anda ajukan kembali");
                     CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
                     cview.show(panelinduk_mhs, "cv_wisuda_mhs");
@@ -1889,7 +1891,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         else if(!txt_ipk_mhs.getText().matches("[0-9].[0-9]")){
            JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
         }
-        else if(Double.valueOf(txt_ipk_mhs.getText()) < 4.0){
+        else if(Double.valueOf(txt_ipk_mhs.getText()) > 4.0){
            JOptionPane.showMessageDialog(this, "Mohon masukkan angka dengan format angka kurang dari 4.0"); 
         }
         else if(labelfoto1.getText().equals("*sumber foto")){
@@ -1904,6 +1906,7 @@ public class framemahasiswa extends javax.swing.JFrame {
      //untuk mengajukan wisuda
      private void ajukan_wisuda(){
         try {
+            System.out.println(NRP);
             String nip_dosen_wsd = null;
             String ambil_nip_dsn = "SELECT * FROM dosen WHERE nama_dosen LIKE '"
                     +hapus_tanda(cb_dsn_pbb_wsd.getSelectedItem().toString())+"'";
@@ -1990,7 +1993,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         else if(!txt_ipk_mhs.getText().matches("[0-9].[0-9]")){
            JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
         }
-        else if(Double.valueOf(txt_ipk_mhs.getText()) < 4.0){
+        else if(Double.valueOf(txt_ipk_mhs.getText()) > 4.0){
            JOptionPane.showMessageDialog(this, "Mohon masukkan angka dengan format angka kurang dari 4.0"); 
         }
         else{
@@ -2010,7 +2013,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             }
             
             String ist_wsd_mhs_ulang = "UPDATE wisuda set nrp = ? , ipk = ? , judul_ta= ? , nip_dosen = ? ,"
-                    + "Status= ? WHERE nrp='"+NRP+"'";
+                    + "Status= ? ,keterangan='' WHERE nrp='"+NRP+"'";
             PreparedStatement  ps_ist_wsd_mhs_ulang= con.prepareStatement(ist_wsd_mhs_ulang);
             ps_ist_wsd_mhs_ulang.setString(1, NRP);
             ps_ist_wsd_mhs_ulang.setString(2, txt_ipk_mhs.getText());

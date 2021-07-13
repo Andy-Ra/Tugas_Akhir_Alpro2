@@ -1940,7 +1940,7 @@ public class framebaa extends javax.swing.JFrame {
             int opsi_terima = JOptionPane.showConfirmDialog(this, "Apakah Anda Yakin", "", JOptionPane.YES_NO_OPTION);
             if(opsi_terima == JOptionPane.YES_OPTION){
                 try{
-                    String update_acc = "UPDATE wisuda SET Status ='ACC'"+
+                    String update_acc = "UPDATE wisuda SET Status ='ACC',keterangan='Sudah ACC'"+
                                         "WHERE nrp ='"+nrp_list_wsd+"'";
                     con.prepareStatement(update_acc).executeUpdate();
                     JOptionPane.showMessageDialog(this, "Mahasiswa dengan NRP " +nrp_list_wsd+ " bisa ikut wisuda");
@@ -3115,7 +3115,7 @@ public class framebaa extends javax.swing.JFrame {
         else if(!ipk_wsd.matches("[0-9].[0-9]")){
            JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
         }
-        else if(Double.valueOf(ipk_wsd) < 4.0){
+        else if(Double.valueOf(ipk_wsd) > 4.0){
            JOptionPane.showMessageDialog(this, "Mohon masukkan IPK dengan format angka kurang dari 4.0"); 
         }
         
