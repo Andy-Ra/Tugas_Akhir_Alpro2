@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -290,9 +291,9 @@ public class framedosen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(244, Short.MAX_VALUE)
                 .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -302,14 +303,14 @@ public class framedosen extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
-                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(216, Short.MAX_VALUE)
+                .addComponent(cb_up_password, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pnl_ubh_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(41, Short.MAX_VALUE)))
+                    .addContainerGap(35, Short.MAX_VALUE)))
         );
 
         btn_up_dosen.setText("Ubah Password");
@@ -340,7 +341,7 @@ public class framedosen extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_up_dosen)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         panelinduk_dsn.add(panel_ubh_pass_dsn, "cv_tmpl_ubh_pass_dsn");
@@ -405,8 +406,8 @@ public class framedosen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnl_header_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelinduk_dsn, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelinduk_dsn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -426,6 +427,32 @@ public class framedosen extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_dsn.getLayout();
         cview.show(panelinduk_dsn, "panel_kls_dsn");
         header_dsn.setText("JADWAL KELAS");
+        DefaultTableModel df_tmpl_jdwl = (DefaultTableModel) TabelKelas.getModel();
+        df_tmpl_jdwl.setRowCount(0);
+        try{
+           String tmpl_jdwl = "SELECT k.kelas, k.pertemuan, k.waktu, \n" +
+                                "k.ruang, j.prodi, mk.nama_mata_kuliah\n" +
+                                "FROM jadwal j\n" +
+                                "INNER JOIN kelas k ON k.id_kelas = j.id_kelas\n" +
+                                "INNER JOIN mata_kuliah mk ON mk.kode_mata_kuliah = j.kode_mata_kuliah\n" +
+                                "WHERE j.nip_dosen LIKE '%"+NIP+"%'\n" +
+                                "ORDER BY k.waktu ASC";
+           ResultSet res_tmpl_jdwl = con.prepareStatement(tmpl_jdwl).executeQuery();
+           while(res_tmpl_jdwl.next()){
+               Object Data[] = new Object[6];
+               Data[0] = res_tmpl_jdwl.getString("k.kelas");
+               Data[1] = res_tmpl_jdwl.getString("k.pertemuan");
+               Data[2] = res_tmpl_jdwl.getString("k.waktu");
+               Data[3] = res_tmpl_jdwl.getString("k.ruang");
+               Data[4] = res_tmpl_jdwl.getString("j.prodi");
+               Data[5] = res_tmpl_jdwl.getString("mk.nama_mata_kuliah");
+               df_tmpl_jdwl.addRow(Data);
+               
+           }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_menu_tampil_jadwal_klsActionPerformed
     
     private void menu_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_logoutMouseClicked

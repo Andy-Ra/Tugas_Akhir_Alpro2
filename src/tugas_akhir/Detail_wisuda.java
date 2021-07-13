@@ -5,8 +5,13 @@
  */
 package tugas_akhir;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -36,6 +41,9 @@ public class Detail_wisuda extends javax.swing.JFrame {
                                 "INNER JOIN mahasiswa mhs ON mhs.NRP = wsd.NRP\n" +
                                 "INNER JOIN Dosen dsn ON dsn.nip_dosen = wsd.nip_dosen\n" +
                                 "WHERE mhs.NRP LIKE '%"+framebaa.nrp_list_wsd+"%'\n";
+            File file_foto = new File("src/folderimg/BuktiPemb_baa.png");
+            FileOutputStream output = new FileOutputStream(file_foto);
+            
             ResultSet res_detail_wsd = con.prepareStatement(detail_wsd).executeQuery();
             
             if(res_detail_wsd.next()){
@@ -51,6 +59,17 @@ public class Detail_wisuda extends javax.swing.JFrame {
                 lbl_tmpl_ipk_wsd_mhs.setText(res_detail_wsd.getString("ipk_mhs"));
                 lbl_tmpl_ta_wsd_mhs.setText(res_detail_wsd.getString("ta_mhs"));
                 lbl_tmpl_dsn_wsd_mhs.setText(res_detail_wsd.getString("nama_dsn"));
+                
+                InputStream input = res_detail_wsd.getBinaryStream("bukti_bayar");
+                byte buffer[] = new byte[1024];
+                while(input.read(buffer)>0){
+                    output.write(buffer);
+                }
+                String path_bkt = file_foto.getAbsolutePath();
+                ImageIcon bkt_baa_img = new ImageIcon(path_bkt);
+                Image skala_img = bkt_baa_img.getImage().getScaledInstance(bkt_baa_img.getIconWidth(), lbl_bukti_byr.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon hsl_bkt_baa = new ImageIcon(skala_img);
+                lbl_bukti_byr.setIcon(hsl_bkt_baa);
             }
         }
         catch(Exception e){
@@ -67,6 +86,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        induk = new javax.swing.JPanel();
         panel_tmpl_detail_wsd = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -96,7 +116,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
         lbl_tmpl_dsn_wsd_mhs = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panel_bukti_pembayaran = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         lbl_bukti_byr = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,12 +200,13 @@ public class Detail_wisuda extends javax.swing.JFrame {
         jPanel7.add(lbl_tmpl_dsn_wsd_mhs);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
+            .addGap(0, 1, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,41 +218,28 @@ public class Detail_wisuda extends javax.swing.JFrame {
         panel_tmpl_detail_wsdLayout.setHorizontalGroup(
             panel_tmpl_detail_wsdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_detail_wsdLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_tmpl_detail_wsdLayout.setVerticalGroup(
             panel_tmpl_detail_wsdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_tmpl_detail_wsdLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_tmpl_detail_wsdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_bukti_pembayaran.setBorder(javax.swing.BorderFactory.createTitledBorder("Bukti Pembayaran"));
 
-        jDesktopPane1.setLayer(lbl_bukti_byr, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
-                .addComponent(lbl_bukti_byr, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_bukti_byr, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-        );
+        lbl_bukti_byr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jScrollPane2.setViewportView(lbl_bukti_byr);
 
         javax.swing.GroupLayout panel_bukti_pembayaranLayout = new javax.swing.GroupLayout(panel_bukti_pembayaran);
         panel_bukti_pembayaran.setLayout(panel_bukti_pembayaranLayout);
@@ -239,42 +247,47 @@ public class Detail_wisuda extends javax.swing.JFrame {
             panel_bukti_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_bukti_pembayaranLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         panel_bukti_pembayaranLayout.setVerticalGroup(
             panel_bukti_pembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_bukti_pembayaranLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout indukLayout = new javax.swing.GroupLayout(induk);
+        induk.setLayout(indukLayout);
+        indukLayout.setHorizontalGroup(
+            indukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_tmpl_detail_wsd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        indukLayout.setVerticalGroup(
+            indukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(indukLayout.createSequentialGroup()
+                .addComponent(panel_tmpl_detail_wsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel_bukti_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panel_tmpl_detail_wsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(induk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
-                .addComponent(panel_bukti_pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(induk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panel_tmpl_detail_wsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(373, Short.MAX_VALUE)))
         );
 
         pack();
@@ -316,7 +329,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JPanel induk;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -332,6 +345,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_bukti_byr;
     private javax.swing.JLabel lbl_email_wsd_mhs;
     private javax.swing.JLabel lbl_tmpl_agama_wsd_mhs;
