@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +33,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private static framelogin email_lgn = new framelogin();
     private static String kota_ortu_mhs;
     String image_path = null;
+    FileInputStream fis = null;
     private static String Nama_Lengkap, NRP, Program_Studi, Status_Masuk, Agama, Alamat,  Jenis_Kelamin, Kota, TTL, No_Hp,
             Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi;
 
@@ -46,6 +48,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         tampilkota();
         tampil_data();
         tampil_data_ortu();
+        tampilfotomahasiswa();
     }
 
     /**
@@ -304,7 +307,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addGroup(input_mhsLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
+                        .addComponent(pnl_jk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
                     .addGroup(input_mhsLayout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -320,12 +323,10 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addGroup(input_mhsLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(input_mhsLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(labelfoto)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(input_mhsLayout.createSequentialGroup()
+                        .addComponent(labelfoto)
+                        .addGap(0, 393, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         input_mhsLayout.setVerticalGroup(
@@ -368,8 +369,9 @@ public class framemahasiswa extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel7))
                     .addComponent(btnFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelfoto, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(labelfoto)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
@@ -385,7 +387,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         );
         borderLayout.setVerticalGroup(
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGap(0, 446, Short.MAX_VALUE)
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
@@ -542,7 +544,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUbah_ortu)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ortu, "cv_ortu");
@@ -580,7 +582,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -672,12 +674,12 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(296, Short.MAX_VALUE)))
+                    .addContainerGap(311, Short.MAX_VALUE)))
         );
 
         panelinduk_mhs.add(panel_tmpl_pribadi, "cv_tmpl_pribadi");
@@ -742,7 +744,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(panel_tmpl_ortuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_tmpl_ortu, "cv_tmpl_ortu");
@@ -812,7 +814,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
+                .addContainerGap(228, Short.MAX_VALUE)
                 .addComponent(cb_up_password_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -849,7 +851,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_up_mhs)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_mhs");
@@ -969,6 +971,11 @@ public class framemahasiswa extends javax.swing.JFrame {
         );
 
         btnajukan_mhs.setText("AJUKAN");
+        btnajukan_mhs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnajukan_mhsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_wisudaLayout = new javax.swing.GroupLayout(panel_wisuda);
         panel_wisuda.setLayout(panel_wisudaLayout);
@@ -989,7 +996,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnajukan_mhs)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_wisuda, "cv_wisuda_mhs");
@@ -1083,7 +1090,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                    .addComponent(panelinduk_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1324,24 +1331,57 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         // TODO add your handling code here:
-        //pilih foto
         String path = null;
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 
         //extensi file
-        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg");
+        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Image", "*.jpg", "*.png", "*.jpeg");
         chooser.addChoosableFileFilter(extension);
 
         int filestate = chooser.showSaveDialog(null);
 
-        //mengecek yang diupload user
-        if (filestate == JFileChooser.APPROVE_OPTION) {
-            File selectedImage = chooser.getSelectedFile();
-            path = selectedImage.getAbsolutePath();
-            labelfoto.setText(path);
-            ImageIcon uploadimage = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
-            jLabel8.setIcon(uploadimage);
+        File selectedImage = chooser.getSelectedFile();
+        String filename = selectedImage.getName();
+        //Ambil nama file foto
+
+        if (filename.endsWith(".jpg") || filename.endsWith(".JPG") || filename.endsWith(".PNG") || filename.endsWith(".png") || filename.endsWith(".jpeg")) {
+            if (filestate == JFileChooser.APPROVE_OPTION) {
+                path = selectedImage.getAbsolutePath();
+                labelfoto.setText(path); //set lokasi direktor file yang diambil
+                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+                jLabel8.setIcon(imageIcon);
+
+                FileInputStream fis = null;
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    fis = new FileInputStream(path);
+
+                    String updatefoto = "UPDATE mahasiswa SET foto = ? WHERE Email = '" + email_lgn.email + "'";
+                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
+                    ps_updatefoto.setBinaryStream(1, fis);
+                    int response = JOptionPane.showConfirmDialog(this, "Apakah foto sudah sesuai?", "Konfirmasi!", JOptionPane.YES_NO_OPTION);
+                    if (response == 0) {
+                        int record = ps_updatefoto.executeUpdate();
+                        if (record == 1) {
+                            JOptionPane.showMessageDialog(this, "Foto berhasil diunggah!", "Selesai", 1);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Maaf.. ", "foto gagal diunggah!", 1);
+                        }
+                    }
+                    if (response == 1) {
+                        JOptionPane.showMessageDialog(this, "Dibatalkan oleh user!", "Batal", 1);
+                        labelfoto.setText("*sumber foto");
+                    }
+                } catch (Exception e) {
+                    System.out.println("" + e);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Pilih foto dibatalkan user");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Hanya foto yang bisa diupload!");
+            return;
         }
     }//GEN-LAST:event_btnFotoActionPerformed
 
@@ -1445,6 +1485,57 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnFoto_wsdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFoto_wsdActionPerformed
         // TODO add your handling code here:
+        String path = null;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+
+        //extensi file
+        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Image", "*.jpg", "*.png", "*.jpeg");
+        chooser.addChoosableFileFilter(extension);
+
+        int filestate = chooser.showSaveDialog(null);
+
+        File selectedImage = chooser.getSelectedFile();
+        String filename = selectedImage.getName();
+        //Ambil nama file foto
+
+        if (filename.endsWith(".jpg") || filename.endsWith(".JPG") || filename.endsWith(".PNG") || filename.endsWith(".png") || filename.endsWith(".jpeg")) {
+            if (filestate == JFileChooser.APPROVE_OPTION) {
+                path = selectedImage.getAbsolutePath();
+                labelfoto1.setText(path); //set lokasi direktor file yang diambil
+                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+                jLabel8.setIcon(imageIcon);
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    fis = new FileInputStream(path);
+
+                    String updatefoto = "UPDATE wisuda SET foto = ? WHERE Email = '" + email_lgn.email + "'";
+                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
+                    ps_updatefoto.setBinaryStream(1, fis);
+                    int response = JOptionPane.showConfirmDialog(this, "Apakah foto sudah sesuai?", "Konfirmasi!", JOptionPane.YES_NO_OPTION);
+                    if (response == 0) {
+                        int record = ps_updatefoto.executeUpdate();
+                        if (record == 1) {
+                            JOptionPane.showMessageDialog(this, "Foto berhasil diunggah!", "Selesai", 1);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Maaf.. ", "foto gagal diunggah!", 1);
+                        }
+                    }
+                    if (response == 1) {
+                        JOptionPane.showMessageDialog(this, "Dibatalkan oleh user!", "Batal", 1);
+                        labelfoto1.setText("*sumber foto");
+                    }
+                } catch (Exception e) {
+                    System.out.println("" + e);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Pilih foto dibatalkan user");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Hanya foto yang bisa diupload!");
+            return;
+        }
     }//GEN-LAST:event_btnFoto_wsdActionPerformed
 
     private void txt_Nama_mhs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhs2ActionPerformed
@@ -1457,6 +1548,10 @@ public class framemahasiswa extends javax.swing.JFrame {
         cview.show(panelinduk_mhs, "cv_wisuda_mhs");
         header_mhs.setText("DAFTAR WISUDA");
     }//GEN-LAST:event_menu_daftar_wisudaActionPerformed
+
+    private void btnajukan_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnajukan_mhsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnajukan_mhsActionPerformed
 
     //untuk menampilkan kota
     private void tampilkota() {
@@ -1582,6 +1677,37 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         txt_telp_ortu.setText(Telepon_Ortu);
         lbl_tmpl_telp_ortu_mhs.setText(Telepon_Ortu);
+    }
+    
+     private void tampilfotomahasiswa() {
+        get_data();
+        InputStream input;
+        FileOutputStream output;
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT foto FROM mahasiswa WHERE Email = '" + email_lgn.email + "'");
+            ResultSet rs = pst.executeQuery();
+            File theFile = new File("fotomahasiswa.png");
+            output = new FileOutputStream(theFile);
+
+            if (rs.next()) {
+                input = rs.getBinaryStream("bukti_pembayaran");
+                byte buffer[] = new byte[1024];
+                while (input.read(buffer) > 0) {
+                    output.write(buffer);
+                }
+                String path = theFile.getAbsolutePath();
+                ImageIcon myImage = new ImageIcon(path);
+                Image img = myImage.getImage();
+
+//                 ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+//                    jLabel8.setIcon(imageIcon);
+                Image newImage = img.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon image = new ImageIcon(newImage);
+                jLabel8.setIcon(image);
+            }
+        } catch (Exception e) {
+            System.out.println(""+e);
+        }
     }
 
     //untuk menghapus tanda ">"
