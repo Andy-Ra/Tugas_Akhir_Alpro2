@@ -1919,7 +1919,8 @@ public class framebaa extends javax.swing.JFrame {
                                     "Keterangan ='"+keterangan+"'"+
                                     "WHERE nrp ='"+nrp_list_wsd+"'";
                 con.prepareStatement(update_acc).executeUpdate();
-                JOptionPane.showMessageDialog(this, "Pengajuan wisuda Mahasiswa dengan NRP " +nrp_list_wsd+ " telah dihapus");
+                JOptionPane.showMessageDialog(this, "Pengajuan wisuda Mahasiswa dengan NRP " +nrp_list_wsd+ " telah ditolak \n"
+                        + "Alasan Penolakan "+keterangan);
                 proses_wsd();
                 nrp_list_wsd = "hmmh";
             }
@@ -3112,10 +3113,10 @@ public class framebaa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mohon cek kembali field anda");
         }
         else if(!ipk_wsd.matches("[0-9].[0-9]")){
-           JOptionPane.showMessageDialog(this, "Mohon masukkan hanya angka dengan format double"); 
+           JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
         }
         else if(Double.valueOf(ipk_wsd) < 4.0){
-           JOptionPane.showMessageDialog(this, "Mohon masukkan angka kurang dari 4.0"); 
+           JOptionPane.showMessageDialog(this, "Mohon masukkan IPK dengan format angka kurang dari 4.0"); 
         }
         
         else{
@@ -3232,7 +3233,7 @@ public class framebaa extends javax.swing.JFrame {
         int result_bukti = j_file_bukti.showSaveDialog(null);
         File pilih_file = j_file_bukti.getSelectedFile();
         String file_name = pilih_file.getName();
-         
+        
         if(file_name.endsWith(".jpg") || file_name.endsWith(".png") || file_name.endsWith(".jpeg") 
                 || file_name.endsWith(".JPG") || file_name.endsWith(".PNG") || file_name.endsWith(".JPEG")){
             if (result_bukti == JFileChooser.APPROVE_OPTION) {

@@ -34,7 +34,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private static String kota_ortu_mhs;
     String image_path = null;
     private static String Nama_Lengkap, NRP, Program_Studi, Status_Masuk, Agama, Alamat,  Jenis_Kelamin, Kota, TTL, No_Hp,
-            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi, path;
+            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi, path, path_foto_wsd_mhs, Status;
 
     /**
      * Creates new form framemahasiswa
@@ -47,7 +47,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         tampilkota();
         tampil_data();
         tampil_data_ortu();
-        tampilfotomahasiswa();
     }
 
     /**
@@ -167,18 +166,47 @@ public class framemahasiswa extends javax.swing.JFrame {
         border2 = new javax.swing.JPanel();
         input_mhs_wisuda = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
-        txt_Nama_mhs2 = new javax.swing.JTextField();
+        txt_ipk_mhs = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         txt_judul_ta = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        txt_dsn_pembimbing = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
         btnFoto_wsd = new javax.swing.JButton();
         labelfoto1 = new javax.swing.JLabel();
+        cb_dsn_pbb_wsd = new javax.swing.JComboBox<>();
         btnajukan_mhs = new javax.swing.JButton();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl_bukti_bayar = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        panel_validasi_wisuda = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        tmpl_nrp_wsd_mhs = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        tmpl_nama_wsd_mhs = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        tmpl_prodi_wsd_mhs = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        tmpl_jk_wsd_mhs = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        tmpl_agama_wsd_mhs = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        tmpl_almt_wsd_mhs = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        tmpl_email_wsd_mhs = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        tmpl_no_wsd_mhs = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        tmpl_almt_ortu_wsd_mhs = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        tmpl_ipk_wsd_mhs = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        tmpl_ta_wsd_mhs = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        tmpl_dsn_wsd_mhs = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jDesktopPane3 = new javax.swing.JDesktopPane();
+        jLabel56 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_beranda_mhs = new javax.swing.JMenu();
         sm_tmpl_pribadi = new javax.swing.JMenuItem();
@@ -425,7 +453,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUbah_mhs)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_mhs, "cv_pribadi");
@@ -548,7 +576,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUbah_ortu)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ortu, "cv_ortu");
@@ -586,7 +614,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             panel_matkulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_matkulLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -678,12 +706,12 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_tmpl_pribadiLayout.createSequentialGroup()
                 .addGap(215, 215, 215)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(panel_tmpl_pribadiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_tmpl_pribadiLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(311, Short.MAX_VALUE)))
+                    .addContainerGap(321, Short.MAX_VALUE)))
         );
 
         panelinduk_mhs.add(panel_tmpl_pribadi, "cv_tmpl_pribadi");
@@ -748,7 +776,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(panel_tmpl_ortuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_tmpl_ortu, "cv_tmpl_ortu");
@@ -855,7 +883,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_up_mhs)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_ubh_pass_mhs, "cv_tmpl_ubh_pass_mhs");
@@ -864,9 +892,9 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         jLabel45.setText("Nilai IPK");
 
-        txt_Nama_mhs2.addActionListener(new java.awt.event.ActionListener() {
+        txt_ipk_mhs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nama_mhs2ActionPerformed(evt);
+                txt_ipk_mhsActionPerformed(evt);
             }
         });
 
@@ -880,17 +908,6 @@ public class framemahasiswa extends javax.swing.JFrame {
 
         jLabel46.setText("Dosen Pembimbing");
 
-        txt_dsn_pembimbing.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_dsn_pembimbingActionPerformed(evt);
-            }
-        });
-        txt_dsn_pembimbing.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_dsn_pembimbingKeyTyped(evt);
-            }
-        });
-
         jLabel47.setText("Upload Bukti Pembayaran");
 
         btnFoto_wsd.setText("Pilih Foto");
@@ -901,6 +918,8 @@ public class framemahasiswa extends javax.swing.JFrame {
         });
 
         labelfoto1.setText("*sumber foto");
+
+        cb_dsn_pbb_wsd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "=== PILIH DOSEN PEMBIMBING ===" }));
 
         javax.swing.GroupLayout input_mhs_wisudaLayout = new javax.swing.GroupLayout(input_mhs_wisuda);
         input_mhs_wisuda.setLayout(input_mhs_wisudaLayout);
@@ -913,19 +932,20 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_dsn_pembimbing))
-            .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
-                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFoto_wsd, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
+                .addComponent(cb_dsn_pbb_wsd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
                 .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_Nama_mhs2))
+                .addComponent(txt_ipk_mhs))
             .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelfoto1)
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(labelfoto1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnFoto_wsd, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)))
         );
         input_mhs_wisudaLayout.setVerticalGroup(
             input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -933,15 +953,15 @@ public class framemahasiswa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Nama_mhs2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ipk_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_judul_ta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_dsn_pembimbing, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_dsn_pbb_wsd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(input_mhs_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(input_mhs_wisudaLayout.createSequentialGroup()
@@ -989,7 +1009,7 @@ public class framemahasiswa extends javax.swing.JFrame {
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_bukti_bayar, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                .addComponent(lbl_bukti_bayar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jDesktopPane2Layout.setVerticalGroup(
@@ -1009,17 +1029,16 @@ public class framemahasiswa extends javax.swing.JFrame {
             .addGroup(panel_wisudaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_wisudaLayout.createSequentialGroup()
-                        .addComponent(border2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(panel_wisudaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_wisudaLayout.createSequentialGroup()
                         .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
                         .addComponent(btnajukan_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))
-                    .addGroup(panel_wisudaLayout.createSequentialGroup()
-                        .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 272, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_wisudaLayout.createSequentialGroup()
+                        .addGroup(panel_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jDesktopPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(border2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         panel_wisudaLayout.setVerticalGroup(
             panel_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1031,10 +1050,122 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addComponent(jLabel40))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_wisuda, "cv_wisuda_mhs");
+
+        jPanel6.setLayout(new java.awt.GridLayout(12, 2));
+
+        jLabel50.setText("NRP");
+        jPanel6.add(jLabel50);
+
+        tmpl_nrp_wsd_mhs.setText("NRP");
+        jPanel6.add(tmpl_nrp_wsd_mhs);
+
+        jLabel39.setText("Nama Mahasiswa");
+        jPanel6.add(jLabel39);
+
+        tmpl_nama_wsd_mhs.setText("Nama Lengkap");
+        jPanel6.add(tmpl_nama_wsd_mhs);
+
+        jLabel51.setText("Program Studi");
+        jPanel6.add(jLabel51);
+
+        tmpl_prodi_wsd_mhs.setText("Program Studi");
+        jPanel6.add(tmpl_prodi_wsd_mhs);
+
+        jLabel41.setText("Jenis Kelamin");
+        jPanel6.add(jLabel41);
+
+        tmpl_jk_wsd_mhs.setText("Jenis Kelamin");
+        jPanel6.add(tmpl_jk_wsd_mhs);
+
+        jLabel42.setText("Agama");
+        jPanel6.add(jLabel42);
+
+        tmpl_agama_wsd_mhs.setText("Agama");
+        jPanel6.add(tmpl_agama_wsd_mhs);
+
+        jLabel43.setText("Alamat");
+        jPanel6.add(jLabel43);
+
+        tmpl_almt_wsd_mhs.setText("Alamat");
+        jPanel6.add(tmpl_almt_wsd_mhs);
+
+        jLabel52.setText("Email");
+        jPanel6.add(jLabel52);
+
+        tmpl_email_wsd_mhs.setText("Email");
+        jPanel6.add(tmpl_email_wsd_mhs);
+
+        jLabel48.setText("No Hp");
+        jPanel6.add(jLabel48);
+
+        tmpl_no_wsd_mhs.setText("No Hp");
+        jPanel6.add(tmpl_no_wsd_mhs);
+
+        jLabel49.setText("Alamat Orang Tua");
+        jPanel6.add(jLabel49);
+
+        tmpl_almt_ortu_wsd_mhs.setText("Alamat Ortu");
+        jPanel6.add(tmpl_almt_ortu_wsd_mhs);
+
+        jLabel53.setText("IPK");
+        jPanel6.add(jLabel53);
+
+        tmpl_ipk_wsd_mhs.setText("IPK");
+        jPanel6.add(tmpl_ipk_wsd_mhs);
+
+        jLabel54.setText("Judul Tugas Akhir");
+        jPanel6.add(jLabel54);
+
+        tmpl_ta_wsd_mhs.setText("Judul Tugas Akhir");
+        jPanel6.add(tmpl_ta_wsd_mhs);
+
+        jLabel55.setText("Dosen Pembimbing");
+        jPanel6.add(jLabel55);
+
+        tmpl_dsn_wsd_mhs.setText("Dosen");
+        jPanel6.add(tmpl_dsn_wsd_mhs);
+
+        jDesktopPane3.setLayer(jLabel56, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
+        jDesktopPane3.setLayout(jDesktopPane3Layout);
+        jDesktopPane3Layout.setHorizontalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+        );
+        jDesktopPane3Layout.setVerticalGroup(
+            jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jDesktopPane3);
+
+        javax.swing.GroupLayout panel_validasi_wisudaLayout = new javax.swing.GroupLayout(panel_validasi_wisuda);
+        panel_validasi_wisuda.setLayout(panel_validasi_wisudaLayout);
+        panel_validasi_wisudaLayout.setHorizontalGroup(
+            panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_validasi_wisudaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panel_validasi_wisudaLayout.setVerticalGroup(
+            panel_validasi_wisudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_validasi_wisudaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        panelinduk_mhs.add(panel_validasi_wisuda, "cv_acc_wsd");
 
         menu_beranda_mhs.setText("Profile");
 
@@ -1221,13 +1352,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         else {
             try{
-                System.out.println(ls_nrp);
-                System.out.println(ls_jk);
-                System.out.println(ls_nama);
-                System.out.println(ls_agama);
-                System.out.println(ls_alamat);
-                System.out.println(hapus_tanda(ls_kota));
-                System.out.println(ls_hp);
                 String result = "UPDATE mahasiswa SET nama_mahasiswa = ? ,Jenis_Kelamin =? ,Agama = ? ,alamat = ? ," + 
                                 "Kota_Mahasiswa = ? ,no_hp = ? WHERE nrp='"+ls_nrp+"'";
                 PreparedStatement ps_result = con.prepareStatement(result);
@@ -1286,6 +1410,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
         cview.show(panelinduk_mhs, "cv_tmpl_pribadi");
         header_mhs.setText("PROFILE MAHASISWA");
+        tampil_data();
     }//GEN-LAST:event_sm_tmpl_pribadiActionPerformed
 
     private void sm_tmpl_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sm_tmpl_ortuActionPerformed
@@ -1503,14 +1628,6 @@ public class framemahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_judul_taActionPerformed
 
-    private void txt_dsn_pembimbingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dsn_pembimbingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dsn_pembimbingActionPerformed
-
-    private void txt_dsn_pembimbingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dsn_pembimbingKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dsn_pembimbingKeyTyped
-
     private void btnFoto_wsdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFoto_wsdActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
@@ -1523,47 +1640,81 @@ public class framemahasiswa extends javax.swing.JFrame {
         int filestate = chooser.showSaveDialog(null);
 
         File selectedImage = chooser.getSelectedFile();
-        String filename = selectedImage.getName();
+        if(selectedImage != null){
+           String file_name_mhs = selectedImage.getName();
         //Ambil nama file foto
-
-        if (filename.endsWith(".jpg") || filename.endsWith(".JPG") || filename.endsWith(".PNG") || filename.endsWith(".png") || filename.endsWith(".jpeg")) {
+        
+        if(file_name_mhs.endsWith(".jpg") || file_name_mhs.endsWith(".png") || file_name_mhs.endsWith(".jpeg") 
+                || file_name_mhs.endsWith(".JPG") || file_name_mhs.endsWith(".PNG") || file_name_mhs.endsWith(".JPEG")){
             if (filestate == JFileChooser.APPROVE_OPTION) {
-                path = selectedImage.getAbsolutePath();
-                labelfoto1.setText(path); //set lokasi direktor file yang diambil
-                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(lbl_bukti_bayar.getWidth(), lbl_bukti_bayar.getHeight(), Image.SCALE_SMOOTH));
+                path_foto_wsd_mhs = selectedImage.getAbsolutePath();
+                labelfoto1.setText(path_foto_wsd_mhs); //set lokasi direktor file yang diambil
+                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path_foto_wsd_mhs).getImage().getScaledInstance(lbl_bukti_bayar.getWidth(), lbl_bukti_bayar.getHeight(), Image.SCALE_SMOOTH));
                 lbl_bukti_bayar.setIcon(imageIcon);
             } else {
                 JOptionPane.showMessageDialog(this, "Pilih foto dibatalkan user");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Hanya foto yang bisa diupload!");
-            return;
+        } 
         }
+        
     }//GEN-LAST:event_btnFoto_wsdActionPerformed
 
-    private void txt_Nama_mhs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nama_mhs2ActionPerformed
+    private void txt_ipk_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ipk_mhsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nama_mhs2ActionPerformed
+    }//GEN-LAST:event_txt_ipk_mhsActionPerformed
     
     //untuk mendaftar wisuda
     private void menu_daftar_wisudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_daftar_wisudaActionPerformed
-        CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
-        cview.show(panelinduk_mhs, "cv_wisuda_mhs");
-        header_mhs.setText("DAFTAR WISUDA");
+        try{
+            String validasi_wsd = "SELECT * FROM wisuda WHERE nrp LIKE '"+NRP+"'";
+            ResultSet res_validasi_wsd = con.prepareStatement(validasi_wsd).executeQuery();
+            
+            if(res_validasi_wsd.next()){
+                Status = res_validasi_wsd.getString("status");
+                if(Status.equals("Proses")){
+                    JOptionPane.showMessageDialog(this, "Permintaan Wisuda Anda sedang diproses oleh baa");
+                    
+                }
+                else if(Status.equals("Tolak")){
+                    JOptionPane.showMessageDialog(this, "Permintaan Wisuda Anda telah ditolak \n "
+                            + "dikarenakan"+res_validasi_wsd.getString("keterangan")+"\n"
+                                    + "mohon anda ajukan kembali");
+                    CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+                    cview.show(panelinduk_mhs, "cv_wisuda_mhs");
+                    header_mhs.setText("DAFTAR WISUDA");
+                    tampil_dosen_pembimbing();
+                    status_tolak();
+                    
+                }
+                else if(Status.equals("ACC")){
+                    CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+                    cview.show(panelinduk_mhs, "cv_acc_wsd"); 
+                    header_mhs.setText("DATA MAHASISWA WISUDA");
+                    tampil_data_wsd();
+                }
+            }
+            else{
+                CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+                cview.show(panelinduk_mhs, "cv_wisuda_mhs");
+                header_mhs.setText("DAFTAR WISUDA");
+                tampil_dosen_pembimbing();
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+            
     }//GEN-LAST:event_menu_daftar_wisudaActionPerformed
 
     private void btnajukan_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnajukan_mhsActionPerformed
-        // TODO add your handling code here:
-//        try {
-//                    Class.forName("com.mysql.jdbc.Driver");
-//                    fis = new FileInputStream(path);
-//                    // Tombol iki sek gak berfungsi
-//                    String updatefoto = "UPDATE wisuda SET foto = ? WHERE Email = '" + email_lgn.email + "'";
-//                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
-//                    ps_updatefoto.setBinaryStream(1, fis);
-//                } catch (Exception e) {
-//                    System.out.println("" + e);
-//                }
+        if(Status.equals("Tolak")){
+           cek_wsd_mhs_ulang();     
+         }
+        else{
+           cek_wsd_mhs(); 
+        }
     }//GEN-LAST:event_btnajukan_mhsActionPerformed
 
     //untuk menampilkan kota
@@ -1661,7 +1812,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_nohp_mhs.setText(No_Hp);
         
         try{
-            String sql_tampil_prfl = "select foto from mahasiswa WHERE email='" + email_lgn.email+ "'";
+            String sql_tampil_prfl = "select foto from mahasiswa WHERE NRP='" +NRP+ "'";
             
             File file_foto_prfl = new File("src/folderimg/profile_mhs.png");
             FileOutputStream output_prfl = new FileOutputStream(file_foto_prfl);
@@ -1679,6 +1830,7 @@ public class framemahasiswa extends javax.swing.JFrame {
                 Image skala_img = img_prfl.getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon hsl_img_prfl = new ImageIcon(skala_img);
                 jLabel8.setIcon(hsl_img_prfl);
+                jLabel56.setIcon(hsl_img_prfl);
             }
         }
         catch(Exception e){
@@ -1709,38 +1861,230 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_telp_ortu.setText(Telepon_Ortu);
         lbl_tmpl_telp_ortu_mhs.setText(Telepon_Ortu);
     }
-    
-     private void tampilfotomahasiswa() {
-        get_data();
-        InputStream input;
-        FileOutputStream output;
-        try {
-            PreparedStatement pst = con.prepareStatement("SELECT foto FROM mahasiswa WHERE Email = '" + email_lgn.email + "'");
-            ResultSet rs = pst.executeQuery();
-            File theFile = new File("fotomahasiswa.png");
-            output = new FileOutputStream(theFile);
 
-            if (rs.next()) {
-                input = rs.getBinaryStream("bukti_pembayaran");
-                byte buffer[] = new byte[1024];
-                while (input.read(buffer) > 0) {
-                    output.write(buffer);
-                }
-                String path = theFile.getAbsolutePath();
-                ImageIcon myImage = new ImageIcon(path);
-                Image img = myImage.getImage();
-
-//                 ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
-//                    jLabel8.setIcon(imageIcon);
-                Image newImage = img.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon image = new ImageIcon(newImage);
-                jLabel8.setIcon(image);
-            }
-        } catch (Exception e) {
-            System.out.println(""+e);
+     private void tampil_dosen_pembimbing(){
+         cb_dsn_pbb_wsd.removeAllItems();
+         cb_dsn_pbb_wsd.addItem("=== PILIH DOSEN PEMBIMBING ===");
+         try{
+             String list_dsn_pbb = "SELECT * FROM dosen";
+             ResultSet res_list_dsn_pbb = con.prepareStatement(list_dsn_pbb).executeQuery();
+             
+             while(res_list_dsn_pbb.next()){
+                 cb_dsn_pbb_wsd.addItem("> "+res_list_dsn_pbb.getString("nama_dosen"));
+             }
+         }
+         catch(Exception e){
+             System.out.println(e.getMessage());
+         }
+     }
+     
+     //untuk mengecek apakah ada field yang kosong
+     private void cek_wsd_mhs(){
+        if(txt_ipk_mhs.getText().equals("") || txt_judul_ta.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Mohon cek kembali field anda");
+        }
+        else if(cb_dsn_pbb_wsd.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Dosen Pembimbing");
+        }
+        else if(!txt_ipk_mhs.getText().matches("[0-9].[0-9]")){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
+        }
+        else if(Double.valueOf(txt_ipk_mhs.getText()) < 4.0){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan angka dengan format angka kurang dari 4.0"); 
+        }
+        else if(labelfoto1.getText().equals("*sumber foto")){
+            JOptionPane.showMessageDialog(this, "Mohon upload bukti pembayaran"); 
+        }
+        
+        else{
+            ajukan_wisuda(); 
         }
     }
-
+     
+     //untuk mengajukan wisuda
+     private void ajukan_wisuda(){
+        try {
+            String nip_dosen_wsd = null;
+            String ambil_nip_dsn = "SELECT * FROM dosen WHERE nama_dosen LIKE '"
+                    +hapus_tanda(cb_dsn_pbb_wsd.getSelectedItem().toString())+"'";
+            ResultSet res_ambil_nip_dsn = con.prepareStatement(ambil_nip_dsn).executeQuery();
+            if(res_ambil_nip_dsn.next()){
+                nip_dosen_wsd = res_ambil_nip_dsn.getString("nip_dosen");
+            }
+            
+            String ist_wsd_mhs = "INSERT INTO wisuda (nrp, ipk, judul_ta, nip_dosen,"
+                    + "Status) VALUES(?,?,?,?,?)";
+            PreparedStatement  ps_ist_wsd_mhs= con.prepareStatement(ist_wsd_mhs);
+            ps_ist_wsd_mhs.setString(1, NRP);
+            ps_ist_wsd_mhs.setString(2, txt_ipk_mhs.getText());
+            ps_ist_wsd_mhs.setString(3, txt_judul_ta.getText());
+            ps_ist_wsd_mhs.setString(4, nip_dosen_wsd);
+            ps_ist_wsd_mhs.setString(5, "Proses");
+            ps_ist_wsd_mhs.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Permohonan berhasil diajukan");
+            System.out.println(path_foto_wsd_mhs);
+            FileInputStream fis_bkt_mhs = new FileInputStream(path_foto_wsd_mhs);
+                    String bkt_mhs = "UPDATE wisuda SET bukti_pembayaran = ?  WHERE nrp='"+NRP+"'";    
+                    PreparedStatement ps_bkt_mhs = con.prepareStatement(bkt_mhs);
+                    ps_bkt_mhs.setBinaryStream(1,fis_bkt_mhs);
+                    ps_bkt_mhs.executeUpdate();
+                    
+            CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+            cview.show(panelinduk_mhs, "cv_tmpl_pribadi");
+            header_mhs.setText("PROFILE MAHASISWA");
+        }
+         catch(Exception e){
+             System.out.println(e.getMessage());
+         }
+     }
+     
+     
+     //jika status ditolak
+     private void status_tolak(){
+         try {
+            String ambil_data_wsd = "SELECT wsd.ipk, wsd.judul_ta, wsd.bukti_pembayaran,\n" +
+                                    "dsn.nama_dosen\n" +
+                                    "FROM wisuda wsd\n" +
+                                    "INNER JOIN dosen dsn ON wsd.nip_dosen = dsn.nip_dosen\n" +
+                                    "WHERE wsd.nrp LIKE'"+NRP+"'";
+            File file_foto = new File("src/folderimg/BuktiPemb_baa.png");
+            FileOutputStream output = new FileOutputStream(file_foto);
+            
+            ResultSet res_ambil_data_wsd = con.prepareStatement(ambil_data_wsd).executeQuery();
+            if(res_ambil_data_wsd.next()){
+                if(res_ambil_data_wsd.getString("wsd.ipk").matches("[0-9]")){
+                    txt_ipk_mhs.setText(res_ambil_data_wsd.getString("wsd.ipk")+".0");
+                }
+                else{
+                    txt_ipk_mhs.setText(res_ambil_data_wsd.getString("wsd.ipk"));
+                }
+                txt_judul_ta.setText(res_ambil_data_wsd.getString("wsd.judul_ta"));
+                cb_dsn_pbb_wsd.setSelectedItem("> "+res_ambil_data_wsd.getString("dsn.nama_dosen"));
+                
+                InputStream input = res_ambil_data_wsd.getBinaryStream("wsd.bukti_pembayaran");
+                byte buffer[] = new byte[1024];
+                while(input.read(buffer)>0){
+                    output.write(buffer);
+                }
+                String path_bkt_mhs = file_foto.getAbsolutePath();
+                ImageIcon bkt_mhs_img = new ImageIcon(path_bkt_mhs);
+                Image skala_img = bkt_mhs_img.getImage().getScaledInstance(lbl_bukti_bayar.getWidth(), lbl_bukti_bayar.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon hsl_bkt_mhs = new ImageIcon(skala_img);
+                lbl_bukti_bayar.setIcon(hsl_bkt_mhs);
+                
+            }
+         }
+         catch(Exception e){
+             System.out.println(e.getMessage());
+         }
+     }
+     
+     private void cek_wsd_mhs_ulang(){
+        if(txt_ipk_mhs.getText().equals("") || txt_judul_ta.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Mohon cek kembali field anda");
+        }
+        else if(cb_dsn_pbb_wsd.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Dosen Pembimbing");
+        }
+        else if(!txt_ipk_mhs.getText().matches("[0-9].[0-9]")){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan IPK hanya angka dengan format double"); 
+        }
+        else if(Double.valueOf(txt_ipk_mhs.getText()) < 4.0){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan angka dengan format angka kurang dari 4.0"); 
+        }
+        else{
+            ajukan_wisuda_ulang(); 
+        }
+    }
+     
+     //untuk mengajukan wisuda
+     private void ajukan_wisuda_ulang(){
+        try {
+            String nip_dosen_wsd_ulang = null;
+            String ambil_nip_dsn_ulang  = "SELECT * FROM dosen WHERE nama_dosen LIKE '"
+                    +hapus_tanda(cb_dsn_pbb_wsd.getSelectedItem().toString())+"'";
+            ResultSet res_ambil_nip_dsn_ulang  = con.prepareStatement(ambil_nip_dsn_ulang ).executeQuery();
+            if(res_ambil_nip_dsn_ulang .next()){
+                nip_dosen_wsd_ulang  = res_ambil_nip_dsn_ulang .getString("nip_dosen");
+            }
+            
+            String ist_wsd_mhs_ulang = "UPDATE wisuda set nrp = ? , ipk = ? , judul_ta= ? , nip_dosen = ? ,"
+                    + "Status= ? WHERE nrp='"+NRP+"'";
+            PreparedStatement  ps_ist_wsd_mhs_ulang= con.prepareStatement(ist_wsd_mhs_ulang);
+            ps_ist_wsd_mhs_ulang.setString(1, NRP);
+            ps_ist_wsd_mhs_ulang.setString(2, txt_ipk_mhs.getText());
+            ps_ist_wsd_mhs_ulang.setString(3, txt_judul_ta.getText());
+            ps_ist_wsd_mhs_ulang.setString(4, nip_dosen_wsd_ulang);
+            ps_ist_wsd_mhs_ulang.setString(5, "Proses");
+            ps_ist_wsd_mhs_ulang.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Permohonan berhasil diajukan");
+            
+            if(!labelfoto1.getText().equals("*sumber foto")){
+                System.out.println(path_foto_wsd_mhs);
+                FileInputStream fis_bkt_mhs_ulang = new FileInputStream(path_foto_wsd_mhs);
+                    String bkt_mhs_ulang = "UPDATE wisuda SET bukti_pembayaran = ?  WHERE nrp='"+NRP+"'";    
+                    PreparedStatement ps_bkt_mhs = con.prepareStatement(bkt_mhs_ulang);
+                    ps_bkt_mhs.setBinaryStream(1,fis_bkt_mhs_ulang);
+                    ps_bkt_mhs.executeUpdate();
+            }
+            
+                    
+            CardLayout cview = (CardLayout) panelinduk_mhs.getLayout();
+            cview.show(panelinduk_mhs, "cv_tmpl_pribadi");
+            header_mhs.setText("PROFILE MAHASISWA");
+        }
+         catch(Exception e){
+             System.out.println(e.getMessage());
+         }
+     }
+     
+    private void tampil_data_wsd(){
+         try{
+            String detail_wsd = "SELECT mhs.nama_mahasiswa,mhs.Jenis_Kelamin , mhs.Agama,\n" +
+                                "mhs.alamat, mhs.no_hp ,mhs.Alamat_Orang_Tua, mhs.NRP, mhs.prodi,\n" +
+                                "mhs.email, wsd.ipk, wsd.judul_ta,dsn.nama_dosen, mhs.foto\n" +
+                                "FROM Wisuda wsd\n" +
+                                "INNER JOIN mahasiswa mhs ON mhs.NRP = wsd.NRP\n" +
+                                "INNER JOIN Dosen dsn ON dsn.nip_dosen = wsd.nip_dosen\n" +
+                                "WHERE mhs.NRP LIKE '%"+NRP+"%'\n";
+            File file_foto = new File("src/folderimg/profile_mhs.png");
+            FileOutputStream output = new FileOutputStream(file_foto);
+            
+            ResultSet res_detail_wsd = con.prepareStatement(detail_wsd).executeQuery();
+            
+            if(res_detail_wsd.next()){
+                tmpl_nama_wsd_mhs.setText(res_detail_wsd.getString("mhs.nama_mahasiswa"));
+                tmpl_jk_wsd_mhs.setText(res_detail_wsd.getString("mhs.Jenis_Kelamin"));
+                tmpl_agama_wsd_mhs.setText(res_detail_wsd.getString("mhs.Agama"));
+                tmpl_almt_wsd_mhs.setText(res_detail_wsd.getString("mhs.alamat"));
+                tmpl_no_wsd_mhs.setText(res_detail_wsd.getString("mhs.no_hp"));
+                tmpl_almt_ortu_wsd_mhs.setText(res_detail_wsd.getString("mhs.Alamat_Orang_Tua"));
+                tmpl_nrp_wsd_mhs.setText(res_detail_wsd.getString("mhs.NRP"));
+                tmpl_prodi_wsd_mhs.setText(res_detail_wsd.getString("mhs.prodi"));
+                tmpl_email_wsd_mhs.setText(res_detail_wsd.getString("mhs.email"));
+                tmpl_ipk_wsd_mhs.setText(res_detail_wsd.getString("wsd.ipk"));
+                tmpl_ta_wsd_mhs.setText(res_detail_wsd.getString("wsd.judul_ta"));
+                tmpl_dsn_wsd_mhs.setText(res_detail_wsd.getString("dsn.nama_dosen"));
+                
+                InputStream input = res_detail_wsd.getBinaryStream("mhs.foto");
+                byte buffer[] = new byte[1024];
+                while(input.read(buffer)>0){
+                    output.write(buffer);
+                }
+                String path_foto = file_foto.getAbsolutePath();
+                ImageIcon foto_wsd = new ImageIcon(path_foto);
+                Image skala_img = foto_wsd.getImage().getScaledInstance(jLabel56.getWidth(), jLabel56.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon hsl_foto_wsd  = new ImageIcon(skala_img);
+                jLabel56.setIcon(hsl_foto_wsd);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     //untuk menghapus tanda ">"
     private String hapus_tanda(String str) {
         return str.substring(2);
@@ -1792,6 +2136,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton btnUbah_ortu;
     private javax.swing.JButton btn_up_mhs;
     private javax.swing.JButton btnajukan_mhs;
+    private javax.swing.JComboBox<String> cb_dsn_pbb_wsd;
     private javax.swing.JComboBox<String> cb_kota_ortu;
     private javax.swing.JCheckBox cb_up_password_mhs;
     private javax.swing.JComboBox<String> cbx_Agama_mhs;
@@ -1805,6 +2150,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel input_ortu;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1837,13 +2183,26 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1854,6 +2213,8 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelfoto;
     private javax.swing.JLabel labelfoto1;
@@ -1887,6 +2248,7 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JPanel panel_tmpl_ortu;
     private javax.swing.JPanel panel_tmpl_pribadi;
     private javax.swing.JPanel panel_ubh_pass_mhs;
+    private javax.swing.JPanel panel_validasi_wisuda;
     private javax.swing.JPanel panel_wisuda;
     private javax.swing.JPanel panelinduk_mhs;
     private javax.swing.JPanel pnl_jk_mhs;
@@ -1898,13 +2260,24 @@ public class framemahasiswa extends javax.swing.JFrame {
     private javax.swing.JMenuItem sm_tmpl_ortu;
     private javax.swing.JMenuItem sm_tmpl_pribadi;
     private javax.swing.JMenuItem sm_ubh_pass_mhs;
+    private javax.swing.JLabel tmpl_agama_wsd_mhs;
+    private javax.swing.JLabel tmpl_almt_ortu_wsd_mhs;
+    private javax.swing.JLabel tmpl_almt_wsd_mhs;
+    private javax.swing.JLabel tmpl_dsn_wsd_mhs;
+    private javax.swing.JLabel tmpl_email_wsd_mhs;
+    private javax.swing.JLabel tmpl_ipk_wsd_mhs;
+    private javax.swing.JLabel tmpl_jk_wsd_mhs;
+    private javax.swing.JLabel tmpl_nama_wsd_mhs;
+    private javax.swing.JLabel tmpl_no_wsd_mhs;
+    private javax.swing.JLabel tmpl_nrp_wsd_mhs;
+    private javax.swing.JLabel tmpl_prodi_wsd_mhs;
+    private javax.swing.JLabel tmpl_ta_wsd_mhs;
     private javax.swing.JTextField txt_Alamat_mhs;
     private javax.swing.JTextField txt_Email_mhs;
     private javax.swing.JTextField txt_NRP;
     private javax.swing.JTextField txt_Nama_mhs;
-    private javax.swing.JTextField txt_Nama_mhs2;
     private javax.swing.JTextField txt_alamatortu;
-    private javax.swing.JTextField txt_dsn_pembimbing;
+    private javax.swing.JTextField txt_ipk_mhs;
     private javax.swing.JTextField txt_judul_ta;
     private javax.swing.JTextField txt_nohp_mhs;
     private javax.swing.JTextField txt_telp_ortu;

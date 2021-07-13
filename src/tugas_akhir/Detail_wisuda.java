@@ -67,7 +67,7 @@ public class Detail_wisuda extends javax.swing.JFrame {
                 }
                 String path_bkt = file_foto.getAbsolutePath();
                 ImageIcon bkt_baa_img = new ImageIcon(path_bkt);
-                Image skala_img = bkt_baa_img.getImage().getScaledInstance(bkt_baa_img.getIconWidth(), lbl_bukti_byr.getHeight(), Image.SCALE_SMOOTH);
+                Image skala_img = bkt_baa_img.getImage().getScaledInstance(lbl_bukti_byr.getWidth(), lbl_bukti_byr.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon hsl_bkt_baa = new ImageIcon(skala_img);
                 lbl_bukti_byr.setIcon(hsl_bkt_baa);
             }
