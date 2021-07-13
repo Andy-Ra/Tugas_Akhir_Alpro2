@@ -3111,6 +3111,13 @@ public class framebaa extends javax.swing.JFrame {
         else if(ipk_wsd.equals("") || jdl_wsd.equals("")){
             JOptionPane.showMessageDialog(this, "Mohon cek kembali field anda");
         }
+        else if(!ipk_wsd.matches("[0-9].[0-9]")){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan hanya angka dengan format double"); 
+        }
+        else if(Double.valueOf(ipk_wsd) < 4.0){
+           JOptionPane.showMessageDialog(this, "Mohon masukkan angka kurang dari 4.0"); 
+        }
+        
         else{
             ubah_nrp_nip();
             insert_db_wsd();

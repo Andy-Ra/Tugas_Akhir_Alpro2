@@ -33,10 +33,8 @@ public class framemahasiswa extends javax.swing.JFrame {
     private static framelogin email_lgn = new framelogin();
     private static String kota_ortu_mhs;
     String image_path = null;
-    String path = null;
-    FileInputStream fis = null;
     private static String Nama_Lengkap, NRP, Program_Studi, Status_Masuk, Agama, Alamat,  Jenis_Kelamin, Kota, TTL, No_Hp,
-            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi;
+            Nama_Ayah, KTP_Ayah, Nama_Ibu, KTP_Ibu, Telepon_Ortu, Alamat_Ortu, Kota_Ortu, prodi, path;
 
     /**
      * Creates new form framemahasiswa
@@ -327,10 +325,12 @@ public class framemahasiswa extends javax.swing.JFrame {
                     .addGroup(input_mhsLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(input_mhsLayout.createSequentialGroup()
-                        .addComponent(labelfoto)
-                        .addGap(0, 393, Short.MAX_VALUE)))
+                        .addGroup(input_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(input_mhsLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(labelfoto)
+                                .addGap(0, 179, Short.MAX_VALUE))
+                            .addComponent(btnFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         input_mhsLayout.setVerticalGroup(
@@ -373,16 +373,16 @@ public class framemahasiswa extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel7))
                     .addComponent(btnFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelfoto)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
         border.setLayout(borderLayout);
         borderLayout.setHorizontalGroup(
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 501, Short.MAX_VALUE)
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
@@ -391,12 +391,12 @@ public class framemahasiswa extends javax.swing.JFrame {
         );
         borderLayout.setVerticalGroup(
             borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 431, Short.MAX_VALUE)
             .addGroup(borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(borderLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         btnUbah_mhs.setText("Ubah Data");
@@ -410,22 +410,22 @@ public class framemahasiswa extends javax.swing.JFrame {
         panel_mhs.setLayout(panel_mhsLayout);
         panel_mhsLayout.setHorizontalGroup(
             panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhsLayout.createSequentialGroup()
-                .addContainerGap(384, Short.MAX_VALUE)
-                .addComponent(btnUbah_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
             .addGroup(panel_mhsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mhsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUbah_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         panel_mhsLayout.setVerticalGroup(
             panel_mhsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_mhsLayout.createSequentialGroup()
                 .addComponent(border, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUbah_mhs)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         panelinduk_mhs.add(panel_mhs, "cv_pribadi");
@@ -1198,50 +1198,60 @@ public class framemahasiswa extends javax.swing.JFrame {
         String ls_email = txt_Email_mhs.getText();
         String ls_nama = txt_Nama_mhs.getText();
         String ls_jk = "";
+        String ls_hp = txt_nohp_mhs.getText();
+        String ls_alamat = txt_Alamat_mhs.getText();
+        String ls_kota = cbx_kota_mhs.getSelectedItem().toString();
+        
         if (rd_laki_mhs.isSelected()) {
             ls_jk = rd_laki_mhs.getText();
         } else if (rd_perempuan_mhs.isSelected()) {
             ls_jk = rd_perempuan_mhs.getText();
         } else {
             JOptionPane.showMessageDialog(this, "Jenis Kelamin belum dipilh");
-            return;
         }
         
         String ls_agama = cbx_Agama_mhs.getSelectedItem().toString();
         if (cbx_Agama_mhs.getSelectedItem().toString().equals("===PILIH===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih Agama Mahasiswa!");
-            return;
         }
         
-        String ls_alamat = txt_Alamat_mhs.getText();
-        String ls_kota = cbx_kota_mhs.getSelectedItem().toString();
-        if (cbx_kota_mhs.getSelectedItem().toString().equals("=== PILIH ===")) {
+        else if (cbx_kota_mhs.getSelectedItem().toString().equals("=== KOTA ===")) {
             JOptionPane.showMessageDialog(this, "Silahkan pilih kota asal mahasiswa!");
-            return;
         }
-        String ls_hp = txt_nohp_mhs.getText();
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Statement state = con.createStatement();
-            int result = state.executeUpdate("UPDATE mahasiswa SET nama_mahasiswa = '" + ls_nama + "', Jenis_Kelamin = '" + ls_jk + "', Agama = '"+ls_agama+"', alamat = '" + ls_alamat
-                    + "', Kota_Mahasiswa = '" + hapus_tanda(ls_kota) + "', no_hp = '" + ls_hp + "' where nrp = '" + ls_nrp + "'");
-            JOptionPane.showMessageDialog(this, "Data Mahasiswa Anda Berhasil Diubah!");
-            try { //error
-                InputStream image = new FileInputStream(new File(image_path));
-                int res = state.executeUpdate("UPDATE mahasiswa SET foto = ? where nrp = '" + ls_nrp + "'");
+        
+        else {
+            try{
                 System.out.println(ls_nrp);
-                JOptionPane.showMessageDialog(this, "Foto telah terupdate");
+                System.out.println(ls_jk);
+                System.out.println(ls_nama);
+                System.out.println(ls_agama);
+                System.out.println(ls_alamat);
+                System.out.println(hapus_tanda(ls_kota));
+                System.out.println(ls_hp);
+                String result = "UPDATE mahasiswa SET nama_mahasiswa = ? ,Jenis_Kelamin =? ,Agama = ? ,alamat = ? ," + 
+                                "Kota_Mahasiswa = ? ,no_hp = ? WHERE nrp='"+ls_nrp+"'";
+                PreparedStatement ps_result = con.prepareStatement(result);
+                ps_result.setString(1, ls_nama);
+                ps_result.setString(2, ls_jk);
+                ps_result.setString(3, ls_agama);
+                ps_result.setString(4, ls_alamat);
+                ps_result.setString(5, hapus_tanda(ls_kota));
+                ps_result.setString(6, ls_hp);
+                ps_result.executeUpdate();
+                
+                JOptionPane.showMessageDialog(this, "Data Anda Berhasil Diubah!");
+                
+                FileInputStream fis = new FileInputStream(path);
+                    String result_foto = "UPDATE mahasiswa SET foto = ?  WHERE nrp='"+ls_nrp+"'";    
+                    PreparedStatement ps_result_foto = con.prepareStatement(result_foto);
+                    ps_result_foto.setBinaryStream(1,fis) ;
+                    ps_result_foto.executeUpdate();
 
-            } catch (Exception e) {
-                System.out.println("Foto gak kenek sek an!");
+            } 
+            catch (Exception e) {
+                System.out.println("a"+e.getMessage());
             }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
-
-
     }//GEN-LAST:event_btnUbah_mhsActionPerformed
 
     private void btnUbah_ortuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbah_ortuActionPerformed
@@ -1366,12 +1376,11 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         // TODO add your handling code here:
-        String path = null;
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 
         //extensi file
-        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Image", "*.jpg", "*.png", "*.jpeg");
+        FileNameExtensionFilter extension = new FileNameExtensionFilter("*Images", "*.jpg", "*.png", "*.jpeg", "*.JPG", "*.PNG", "*.JPEG");
         chooser.addChoosableFileFilter(extension);
 
         int filestate = chooser.showSaveDialog(null);
@@ -1380,41 +1389,25 @@ public class framemahasiswa extends javax.swing.JFrame {
         String filename = selectedImage.getName();
         //Ambil nama file foto
 
-        if (filename.endsWith(".jpg") || filename.endsWith(".JPG") || filename.endsWith(".PNG") || filename.endsWith(".png") || filename.endsWith(".jpeg")) {
+        if(filename.endsWith(".jpg") || filename.endsWith(".png") || filename.endsWith(".jpeg") 
+                || filename.endsWith(".JPG") || filename.endsWith(".PNG") || filename.endsWith(".JPEG")){
             if (filestate == JFileChooser.APPROVE_OPTION) {
                 path = selectedImage.getAbsolutePath();
                 labelfoto.setText(path); //set lokasi direktor file yang diambil
-                ImageIcon imageIcon = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
-                jLabel8.setIcon(imageIcon);
-
-                FileInputStream fis = null;
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    fis = new FileInputStream(path);
-
-                    String updatefoto = "UPDATE mahasiswa SET foto = ? WHERE Email = '" + email_lgn.email + "'";
-                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
-                    ps_updatefoto.setBinaryStream(1, fis);
-                    int response = JOptionPane.showConfirmDialog(this, "Apakah foto sudah sesuai?", "Konfirmasi!", JOptionPane.YES_NO_OPTION);
+                int response = JOptionPane.showConfirmDialog(this, "Apakah foto sudah sesuai?", "Konfirmasi!", JOptionPane.YES_NO_OPTION);
                     if (response == 0) {
-                        int record = ps_updatefoto.executeUpdate();
-                        if (record == 1) {
-                            JOptionPane.showMessageDialog(this, "Foto berhasil diunggah!", "Selesai", 1);
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Maaf.. ", "foto gagal diunggah!", 1);
-                        }
+                            JOptionPane.showMessageDialog(this, "Foto berhasil di pilih!");
                     }
                     if (response == 1) {
                         JOptionPane.showMessageDialog(this, "Dibatalkan oleh user!", "Batal", 1);
                         labelfoto.setText("*sumber foto");
                     }
-                } catch (Exception e) {
-                    System.out.println("" + e);
-                }
-            } else {
+            }
+            else {
                 JOptionPane.showMessageDialog(this, "Pilih foto dibatalkan user");
             }
-        } else {
+        } 
+        else {
             JOptionPane.showMessageDialog(this, "Hanya foto yang bisa diupload!");
             return;
         }
@@ -1561,16 +1554,16 @@ public class framemahasiswa extends javax.swing.JFrame {
 
     private void btnajukan_mhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnajukan_mhsActionPerformed
         // TODO add your handling code here:
-        try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    fis = new FileInputStream(path);
-                    // Tombol iki sek gak berfungsi
-                    String updatefoto = "UPDATE wisuda SET foto = ? WHERE Email = '" + email_lgn.email + "'";
-                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
-                    ps_updatefoto.setBinaryStream(1, fis);
-                } catch (Exception e) {
-                    System.out.println("" + e);
-                }
+//        try {
+//                    Class.forName("com.mysql.jdbc.Driver");
+//                    fis = new FileInputStream(path);
+//                    // Tombol iki sek gak berfungsi
+//                    String updatefoto = "UPDATE wisuda SET foto = ? WHERE Email = '" + email_lgn.email + "'";
+//                    PreparedStatement ps_updatefoto = con.prepareStatement(updatefoto);
+//                    ps_updatefoto.setBinaryStream(1, fis);
+//                } catch (Exception e) {
+//                    System.out.println("" + e);
+//                }
     }//GEN-LAST:event_btnajukan_mhsActionPerformed
 
     //untuk menampilkan kota
@@ -1586,8 +1579,8 @@ public class framemahasiswa extends javax.swing.JFrame {
             ResultSet rs_tmplkota_ortu = ps_tmpl_kota.executeQuery();
 
             while (rs_tmplkota_ortu.next()) {
-                cb_kota_ortu.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
-                cbx_kota_mhs.addItem(">  " + rs_tmplkota_ortu.getString("Kota"));
+                cb_kota_ortu.addItem("> " + rs_tmplkota_ortu.getString("Kota"));
+                cbx_kota_mhs.addItem("> " + rs_tmplkota_ortu.getString("Kota"));
 
                 kota_ortu_mhs = hapus_tanda(cb_kota_ortu.getSelectedItem().toString());
             }
@@ -1661,18 +1654,36 @@ public class framemahasiswa extends javax.swing.JFrame {
         
         lbl_tmpl_ttl_mhs.setText(TTL);
         if(Kota != null){
-          cbx_kota_mhs.setSelectedItem(">  " +Kota);  
+          cbx_kota_mhs.setSelectedItem("> " +Kota);  
         }
         
         lbl_tmpl_no_mhs.setText(No_Hp);
         txt_nohp_mhs.setText(No_Hp);
         
-        ImageIcon img_file_profil = new ImageIcon("./src/folderimg/profilmhs/prfl_"+NRP+".png");
-        Image img_scale_profil = img_file_profil.getImage();
-        ImageIcon img_profilmhs = new ImageIcon(img_scale_profil.getScaledInstance(163, 159,  java.awt.Image.SCALE_SMOOTH));
-        jLabel8.setIcon(img_profilmhs);
-        
-        
+        try{
+            String sql_tampil_prfl = "select foto from mahasiswa WHERE email='" + email_lgn.email+ "'";
+            
+            File file_foto_prfl = new File("src/folderimg/profile_mhs.png");
+            FileOutputStream output_prfl = new FileOutputStream(file_foto_prfl);
+            
+            ResultSet res_tampil_prfl = con.prepareStatement(sql_tampil_prfl).executeQuery();
+
+            if(res_tampil_prfl.next()){
+                InputStream input_prfl = res_tampil_prfl.getBinaryStream("foto");
+                byte buffer[] = new byte[1024];
+                while(input_prfl.read(buffer)>0){
+                    output_prfl.write(buffer);
+                }
+                String path_prfl = file_foto_prfl.getAbsolutePath();
+                ImageIcon img_prfl = new ImageIcon(path_prfl);
+                Image skala_img = img_prfl.getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon hsl_img_prfl = new ImageIcon(skala_img);
+                jLabel8.setIcon(hsl_img_prfl);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     private void tampil_data_ortu() {
@@ -1692,7 +1703,7 @@ public class framemahasiswa extends javax.swing.JFrame {
         txt_alamatortu.setText(Alamat_Ortu);
         lbl_tmpl_almt_ortu_mhs.setText(Alamat_Ortu);
         
-        cb_kota_ortu.setSelectedItem(">  "+Kota_Ortu);
+        cb_kota_ortu.setSelectedItem("> "+Kota_Ortu);
         lbl_tmpl_kota_ortu_mhs.setText(Kota_Ortu);
         
         txt_telp_ortu.setText(Telepon_Ortu);
