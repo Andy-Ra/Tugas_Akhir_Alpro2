@@ -22,6 +22,7 @@ import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -33,6 +34,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author ACER
@@ -1902,6 +1904,7 @@ public class framebaa extends javax.swing.JFrame {
     
     //list mahasiswa yang sudah di acc
     private void mn_list_wis_accActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mn_list_wis_accActionPerformed
+        nrp_list_wsd = "hmmh";
         CardLayout cl_baa = (CardLayout) panelinduk_baa.getLayout();
         cl_baa.show(panelinduk_baa, "cv_wsd_baa");
         title_baa.setText("List Wisuda Mahasiswa");
@@ -1909,6 +1912,7 @@ public class framebaa extends javax.swing.JFrame {
         
         btn_terima.setVisible(false);
         btn_tolak.setVisible(false);
+        btn_ctk.setVisible(true);
         sudah_acc_wsd();
     }//GEN-LAST:event_mn_list_wis_accActionPerformed
     
@@ -1922,6 +1926,7 @@ public class framebaa extends javax.swing.JFrame {
         
         btn_terima.setVisible(true);
         btn_tolak.setVisible(true);
+        btn_ctk.setVisible(false);
         proses_wsd();
     }//GEN-LAST:event_mn_peng_wisActionPerformed
     
@@ -2040,17 +2045,14 @@ public class framebaa extends javax.swing.JFrame {
 
     private void btn_ctkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ctkActionPerformed
        try{
-            JasperReport jspr;
-            JasperPrint jprint;
-            HashMap hshmp = new HashMap < > ();
+            HashMap hshmp = new HashMap();
             
             String jfile =  "./src/tugas_akhir/list_wisuda.jrxml";
             
             //untuk mengekspor jasper ke pdf
-            jspr = JasperCompileManager.compileReport(jfile);
-            jprint = JasperFillManager.fillReport(jspr, hshmp, con);
+            JasperReport jspr = JasperCompileManager.compileReport(jfile);
+            JasperPrint jprint = JasperFillManager.fillReport(jspr, hshmp, con);
             JasperExportManager.exportReportToPdfFile(jprint, "./src/output/list mhs wisuda.pdf");
-            
             if(Desktop.isDesktopSupported()){
                  try{
                     File bukafile = new File("./src/output/list mhs wisuda.pdf");
