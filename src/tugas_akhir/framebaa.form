@@ -1851,6 +1851,8 @@
                           <Component id="jScrollPane6" pref="582" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btn_detail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btn_ctk" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btn_terima" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1871,6 +1873,7 @@
                           <Component id="btn_terima" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_tolak" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_detail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_ctk" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1957,6 +1960,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_detailActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_ctk">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CETAK DETAIL"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ctkActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

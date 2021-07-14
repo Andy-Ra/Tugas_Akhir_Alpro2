@@ -6,8 +6,10 @@
 package tugas_akhir;
 
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,13 +21,18 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 /**
  *
  * @author ACER
@@ -227,6 +234,7 @@ public class framebaa extends javax.swing.JFrame {
         btn_tolak = new javax.swing.JButton();
         btn_terima = new javax.swing.JButton();
         btn_detail = new javax.swing.JButton();
+        btn_ctk = new javax.swing.JButton();
         panel_add_wsd_mhs = new javax.swing.JPanel();
         input_mhs_wisuda = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -391,7 +399,7 @@ public class framebaa extends javax.swing.JFrame {
             .addGroup(border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(border2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(input_mhs, javax.swing.GroupLayout.PREFERRED_SIZE, 414, Short.MAX_VALUE)
+                    .addComponent(input_mhs, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1197,6 +1205,13 @@ public class framebaa extends javax.swing.JFrame {
             }
         });
 
+        btn_ctk.setText("CETAK DETAIL");
+        btn_ctk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ctkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_wisuda_baaLayout = new javax.swing.GroupLayout(panel_wisuda_baa);
         panel_wisuda_baa.setLayout(panel_wisuda_baaLayout);
         panel_wisuda_baaLayout.setHorizontalGroup(
@@ -1207,6 +1222,8 @@ public class framebaa extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                     .addGroup(panel_wisuda_baaLayout.createSequentialGroup()
                         .addComponent(btn_detail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_ctk)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_terima)
                         .addGap(18, 18, 18)
@@ -1222,7 +1239,8 @@ public class framebaa extends javax.swing.JFrame {
                 .addGroup(panel_wisuda_baaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_terima)
                     .addComponent(btn_tolak)
-                    .addComponent(btn_detail))
+                    .addComponent(btn_detail)
+                    .addComponent(btn_ctk))
                 .addContainerGap())
         );
 
@@ -2019,6 +2037,33 @@ public class framebaa extends javax.swing.JFrame {
         }
         tampil_db_mhs_wsd();
     }//GEN-LAST:event_cb_wsd_prodi_baaItemStateChanged
+
+    private void btn_ctkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ctkActionPerformed
+       try{
+            JasperReport jspr;
+            JasperPrint jprint;
+            HashMap hshmp = new HashMap < > ();
+            
+            String jfile =  "./src/tugas_akhir/list_wisuda.jrxml";
+            
+            //untuk mengekspor jasper ke pdf
+            jspr = JasperCompileManager.compileReport(jfile);
+            jprint = JasperFillManager.fillReport(jspr, hshmp, con);
+            JasperExportManager.exportReportToPdfFile(jprint, "./src/output/list mhs wisuda.pdf");
+            
+            if(Desktop.isDesktopSupported()){
+                 try{
+                    File bukafile = new File("./src/output/list mhs wisuda.pdf");
+                    Desktop.getDesktop().open(bukafile);
+                }catch (IOException ex) {
+                    System.out.println("Silahkan Install aplikasi pembuka pdf");
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btn_ctkActionPerformed
     
     //untuk menampilkan kota
     private void tampilkota(){
@@ -3316,6 +3361,7 @@ public class framebaa extends javax.swing.JFrame {
     private javax.swing.JButton btn_clear_jadwal;
     private javax.swing.JButton btn_clear_mhs_baa;
     private javax.swing.JButton btn_clear_ortu_baa;
+    private javax.swing.JButton btn_ctk;
     private javax.swing.JButton btn_detail;
     private javax.swing.JButton btn_hps_dsn;
     private javax.swing.JButton btn_reset_dsn;
